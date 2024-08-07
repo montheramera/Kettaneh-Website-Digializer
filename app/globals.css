@@ -31,3 +31,41 @@ body {
     text-wrap: balance;
   }
 }
+
+/* @font-face {
+  font-family: 'Avenir';
+  src: url('/fonts/AvenirLTStd-Medium.otf') format('otf'),
+    url('/fonts/AvenirLTStd-Medium.otf') format('otf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+src: url('/fonts/AvenirLTStd-Medium.otf') format('otf'),
+    url('/fonts/AvenirLTStd-Medium.otf') format('otf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+body {
+  @apply font-avenir;
+} */
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('/fonts/AvenirLTStd-Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('/fonts/AvenirLTStd-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Avenir';
+}
