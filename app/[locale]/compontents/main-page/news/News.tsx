@@ -8,8 +8,8 @@ const News = () => {
           News and Events
         </h2>
         <p className="mt-[10px] text-paragraph font-[500] text-[20px] leading-[28px] max-w-[768px]">
-          Stay updated with the latest news and upcoming events. Explore what's
-          happening in our community.
+          Stay updated with the latest news and upcoming events. Explore what
+          &apos;s happening in our community.
         </p>
         <button className="mt-[16px] bg-primary text-white py-2 px-6 ">
           Explore News and Events
