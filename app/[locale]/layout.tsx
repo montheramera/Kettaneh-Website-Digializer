@@ -1,7 +1,7 @@
 
 import type { Metadata } from "next";
 import "../globals.css";
-import PageWrapper from "@/app/[locale]/compontents/ui/layout/PageWrapper";
+import PageWrapper from "@/compontents/ui/layout/PageWrapper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -33,12 +33,23 @@ export default function RootLayout({
         />
         <link
           rel="icon"
-          href={process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}
+          href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/favicon.ico`}
           type="image/x-icon"
         />
         <meta
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_MAIN_SITE}/${locale}`}
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </head>
       <body className="font-avenir">

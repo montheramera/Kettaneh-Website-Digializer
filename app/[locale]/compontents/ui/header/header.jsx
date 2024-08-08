@@ -7,14 +7,15 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-primary lg:px-16 p-8 text-white font-[500] text-[18px]">
+    <nav className="bg-primary lg:px-20 p-8 text-white font-[500] text-[18px]">
       <div className="container mx-auto flex justify-between items-center">
-        <div>
+        <div >
           <Image
-            src={"/images/logo.png"}
+            src="/images/logo.png"
             alt="Logo"
-            width={150} // Width in pixels
-            height={36.18} // Height in pixels
+            width={150}
+            height={36.18}
+            priority
           />
         </div>
         {/* Hamburger Menu (visible on small screens) */}
@@ -290,7 +291,7 @@ const Header = () => {
         </li>
         <li>
           <a href="#" className="text-white hover:text-prbg-primary">
-           Carrer
+            Carrer
           </a>
         </li>
       </ul>

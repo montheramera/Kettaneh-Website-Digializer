@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/app/[locale]/compontents/ui/header/header"
+import Header from "@/compontents/ui/header/header"
 
 interface PageWrapperProps {
   children: React.ReactNode;

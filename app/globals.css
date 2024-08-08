@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  img {
+    width: auto;
+    height: auto;
+  }
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -69,7 +75,9 @@ body {
 body {
   font-family: 'Avenir';
 }
-
+img{
+  width: auto;
+}
 
 /* since nested groupes are not supported we have to use 
      regular css for the nested dropdowns 
@@ -92,7 +100,10 @@ li:hover>button svg {
 .white-fill {
   fill: white;
 }
-
+ .logo {
+  width: 150px;
+  height: auto;
+}
 /* Below styles fake what can be achieved with the tailwind config
      you need to add the group-hover variant to scale and define your custom
      min width style.
