@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "@/compontents/ui/header/header"
+import Footer from "../footer/Footer";
 
 interface PageWrapperProps {
   children: React.ReactNode;
@@ -10,7 +11,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
     <div className="max-w-[1440px] font-avenir m-auto bg-white  ">
       <Header />
       {children}
-      <div>footer</div>
+      <div><Footer /></div>
     </div>
   );
 };
