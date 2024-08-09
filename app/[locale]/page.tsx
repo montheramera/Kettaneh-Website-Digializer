@@ -6,6 +6,7 @@ import LegacySection from "@/compontents/main-page/legacy-section/LegacySection"
 import Achievements from "@/compontents/main-page/achievements/Achievements";
 import OurCustomer from "@/compontents/main-page/our-customer/OurCustomer";
 import News from "@/compontents/main-page/news/News";
+import AdaptiveHeight from "@/compontents/main-page/feed-back/FeedBack";
 
 export default async function Home() {
     const t = await getTranslations();
@@ -30,7 +31,9 @@ export default async function Home() {
       <div>
         <News />
       </div>
-
+      <div>
+        <AdaptiveHeight />
+</div>
       {/* <div className="relative w-[400px] h-[400px]"> <div
                 className="absolute inset-0 bg-cover bg-center transform transition-transform duration-300 ease-out scale-105 group-hover:scale-100"
                 style={{ backgroundImage: `url("/images/image1.jpg")` }}

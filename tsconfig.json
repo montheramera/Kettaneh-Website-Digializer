@@ -21,6 +21,6 @@
       "@/*": ["./app/[locale]/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/[locale]/compontents/main-page/feed-back/FeedBack.jsx"],
   "exclude": ["node_modules"]
 }

@@ -126,3 +126,43 @@ li:hover>button svg {
   min-width: 8rem
 }
 
+.feedback .slick-dots
+{
+      bottom: 30px;
+}
+.feedback .slick-dots li.slick-active button:before {
+  color:"#FCA5A5"  !important
+}
+.feedback .slick-dots li button:before {
+  font-size: 15px;
+  color: white !important;
+}
+
+.feedback .slick-next {
+  right: 50px !important;
+}
+.feedback .slick-prev {
+  left: 50px !important;
+}
+.feedback .slick-next:before,
+.slick-prev:before {
+  font-size: 40px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  /* Your mobile-specific styles go here */
+  .feedback .slick-dots {
+      bottom: 10px;
+    }
+        .feedback .slick-next:before,
+        .slick-prev:before {
+          font-size: 20px !important;
+        }
+                .feedback .slick-next {
+                  right: 10px !important;
+                }
+        
+                .feedback .slick-prev {
+                  left: 10px !important;
+                }
+}
