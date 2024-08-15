@@ -1,15 +1,20 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import ContactForm from "../contact-form/ContactForm";
+import ModelFormContact from "../model/Model";
+import ConfirmationMessage from "../confirmation-message/ConfirmationMessage";
 // import logo from "../public/images/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
 
   return (
     <nav className="bg-primary lg:px-20 p-8 text-white font-[500] text-[18px]">
       <div className="container mx-auto flex justify-between items-center">
-        <div >
+        <div>
           <Image
             src="/images/logo.png"
             alt="Logo"
@@ -165,12 +170,12 @@ const Header = () => {
           </li>
         </ul>
         {/* Get In Touch Button */}
-        <a
-          href="#"
+        <button
+          onClick={() => setIsOpen(true)}
           className="hidden lg:block text-primary bg-white  px-4 py-2  ml-4"
         >
           Get In Touch
-        </a>
+        </button>
       </div>
 
       {/* Responsive Menu */}
@@ -295,6 +300,26 @@ const Header = () => {
           </a>
         </li>
       </ul>
+      {isOpen && (
+        <>
+          <ModelFormContact setIsOpen={setIsOpen} isOpen={isOpen}>
+            <ContactForm
+              setIsOpen={setIsOpen}
+              setIsOpenConfirmation={setIsOpenConfirmation}
+            />
+          </ModelFormContact>
+        </>
+      )}
+
+      {isOpenConfirmation && (
+        <>
+          <ModelFormContact setIsOpen={setIsOpen} isOpen={isOpen}>
+            <ConfirmationMessage
+              setIsOpenConfirmation={setIsOpenConfirmation}
+            />
+          </ModelFormContact>
+        </>
+      )}
     </nav>
   );
 };

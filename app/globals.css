@@ -149,6 +149,86 @@ li:hover>button svg {
   font-size: 40px !important;
 }
 
+/* form start */
+.contact-form{
+
+    .intl-tel-input input {
+      width: 100%;
+      padding: 15px;
+      /* margin-bottom: 15px !importan; */
+      /* margin-bottom: 15px; */
+      border: 1px solid #D0D5DD;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #333;
+    }
+  
+    .intl-tel-input input:focus {
+      /* border-color: var(--brand-color);
+    border-width: 2px;
+    outline: none;
+    box-shadow: none !important; */
+      outline: none;
+      border-color: #00aaff;
+      box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+    }
+  
+    .selected-dial-code {
+      padding-left: 5px !important;
+    }
+        .intl-tel-input.allow-dropdown.separate-dial-code.iti-sdc-4 .selected-flag {
+          color: black;
+          background-color: transparent;
+        }
+  
+    .selected-flag {
+      display: flex !important;
+    }
+        input,
+        select ,textarea{
+          width: 100%;
+          padding: 15px;
+          margin-bottom: 15px;
+          border: 1px solid #D0D5DD;
+          border-radius: 6px;
+          font-size: 16px;
+          color: #333;
+        }
+    
+        input:focus,
+        select:focus {
+          outline: none;
+          border-color: #00aaff;
+          box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+        }
+    
+        /* form button {
+          width: 100%;
+          padding: 12px  18px;
+          border: none;
+          cursor: pointer;
+         
+        } */
+    
+        button:hover {
+          /* background-color: #bf8c1c; */
+        }
+    
+      
+    
+        /* select {
+          width: 60px;
+          display: inline-block;
+          margin-right: 10px;
+        } */
+}
+/* form end */
+
+
+
+
+/* //mobile */
+
 @media only screen and (max-width: 767px) {
   /* Your mobile-specific styles go here */
   .feedback .slick-dots {
