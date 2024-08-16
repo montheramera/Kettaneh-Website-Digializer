@@ -4,12 +4,13 @@ import Image from "next/image";
 import ContactForm from "../contact-form/ContactForm";
 import ModelFormContact from "../model/Model";
 import ConfirmationMessage from "../confirmation-message/ConfirmationMessage";
+import Link from "next/link";
 // import logo from "../public/images/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
+  const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
 
   return (
     <nav className="bg-primary lg:px-20 p-8 text-white font-[500] text-[18px]">
@@ -51,12 +52,13 @@ const Header = () => {
             isMenuOpen ? "block" : "hidden"
           }`}
         >
-          <li>
-            <a href="#" className="text-white hover:text-prbg-primary">
-              About Us
-            </a>
+          <li className="text-white hover:text-prbg-primary">
+            <Link href="/">Home</Link>
           </li>
 
+          <li className="text-white hover:text-prbg-primary">
+            <Link href="/about">About Us</Link>
+          </li>
           <div className="group inline-block">
             <button className="outline-none focus:outline-none   bg-primary rounded-sm flex items-center min-w-32">
               <span className="pr-1 font-semibold flex-1">Categories</span>
@@ -184,10 +186,12 @@ const Header = () => {
           isMenuOpen ? "block" : "hidden"
         }`}
       >
-        <li>
-          <a href="#" className="text-white hover:text-prbg-primary">
-            About Us
-          </a>
+        <li className="text-white hover:text-prbg-primary">
+          <Link href="/">Home</Link>
+        </li>
+
+        <li className="text-white hover:text-prbg-primary">
+          <Link href="/about">About Us</Link>
         </li>
         <div className="group inline-block">
           <button className="outline-none focus:outline-none   bg-primary rounded-sm flex items-center min-w-32">
