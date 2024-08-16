@@ -1,5 +1,8 @@
 import AchievementsSection from "@/compontents/about/AchievementsSection";
+import TimelineSlider from "@/compontents/about/TimelineSlider";
+import PartnerSlider from "@/compontents/about/PartnerSlider";
 import Image from "next/image";
+import CallToAction from "@/compontents/ui/call-action/CallToAction";
 
 export default function AboutUs() {
    const partners = [
@@ -156,6 +159,15 @@ export default function AboutUs() {
       </section>
       <section>
         <AchievementsSection />
+      </section>
+      <section>
+        <TimelineSlider />
+      </section>
+      <section>
+        <PartnerSlider />
+      </section>
+      <section>
+        <CallToAction />
       </section>
     </>
   );

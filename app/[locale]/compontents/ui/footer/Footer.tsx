@@ -51,7 +51,7 @@ export default function Footer() {
                     href="#"
                     className=" font-[500] text-paragraph leading-[24px] text-[16px]"
                   >
-                    Our Projects
+                    Our Customer
                   </a>
                 </li>
                 <li>
@@ -74,7 +74,7 @@ export default function Footer() {
             </div>
             <div className="w-full sm:w-1/3 md:w-auto  md:mb-0">
               <h4 className="font-[900] text-[14px] leading-[20px] text-primary mb-[8px]">
-                Business Units
+                Categories
               </h4>
               <ul className="flex flex-col gap-3 ">
                 <li>

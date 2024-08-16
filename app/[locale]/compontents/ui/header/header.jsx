@@ -52,9 +52,9 @@ const Header = () => {
             isMenuOpen ? "block" : "hidden"
           }`}
         >
-          <li className="text-white hover:text-prbg-primary">
+          {/* <li className="text-white hover:text-prbg-primary">
             <Link href="/">Home</Link>
-          </li>
+          </li> */}
 
           <li className="text-white hover:text-prbg-primary">
             <Link href="/about">About Us</Link>
@@ -186,9 +186,9 @@ const Header = () => {
           isMenuOpen ? "block" : "hidden"
         }`}
       >
-        <li className="text-white hover:text-prbg-primary">
+        {/* <li className="text-white hover:text-prbg-primary">
           <Link href="/">Home</Link>
-        </li>
+        </li> */}
 
         <li className="text-white hover:text-prbg-primary">
           <Link href="/about">About Us</Link>
