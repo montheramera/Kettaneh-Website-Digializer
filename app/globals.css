@@ -59,48 +59,48 @@ body {
 } */
 
 @font-face {
-  font-family: 'Avenir';
-  src: url('/fonts/AvenirLTStd-Book.otf') format('opentype');
+  font-family: "Avenir";
+  src: url("/fonts/AvenirLTStd-Book.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Avenir';
-  src: url('/fonts/AvenirLTStd-Medium.otf') format('opentype');
+  font-family: "Avenir";
+  src: url("/fonts/AvenirLTStd-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 
 body {
-  font-family: 'Avenir';
+  font-family: "Avenir";
 }
-img{
+img {
   width: auto;
 }
 
 /* since nested groupes are not supported we have to use 
      regular css for the nested dropdowns 
   */
-li>ul {
-  transform: translatex(100%) scale(0)
+li > ul {
+  transform: translatex(100%) scale(0);
 }
 
-li:hover>ul {
-  transform: translatex(101%) scale(1)
+li:hover > ul {
+  transform: translatex(101%) scale(1);
 }
 
-li>button svg {
-  transform: rotate(-90deg)
+li > button svg {
+  transform: rotate(-90deg);
 }
 
-li:hover>button svg {
-  transform: rotate(-270deg)
+li:hover > button svg {
+  transform: rotate(-270deg);
 }
 .white-fill {
   fill: white;
 }
- .logo {
+.logo {
   width: 150px;
   height: auto;
 }
@@ -111,27 +111,26 @@ li:hover>button svg {
   	 for implementation with config file
   */
 .group:hover .group-hover\:scale-100 {
-  transform: scale(1)
+  transform: scale(1);
 }
 
 .group:hover .group-hover\:-rotate-180 {
-  transform: rotate(180deg)
+  transform: rotate(180deg);
 }
 
 .scale-0 {
-  transform: scale(0)
+  transform: scale(0);
 }
 
 .min-w-32 {
-  min-width: 8rem
+  min-width: 8rem;
 }
 
-.feedback .slick-dots
-{
-      bottom: 30px;
+.feedback .slick-dots {
+  bottom: 30px;
 }
 .feedback .slick-dots li.slick-active button:before {
-  color:"#FCA5A5"  !important
+  color: "#FCA5A5" !important;
 }
 .feedback .slick-dots li button:before {
   font-size: 15px;
@@ -150,73 +149,71 @@ li:hover>button svg {
 }
 
 /* form start */
-.contact-form{
+.contact-form {
+  .intl-tel-input input {
+    width: 100%;
+    padding: 15px;
+    /* margin-bottom: 15px !importan; */
+    /* margin-bottom: 15px; */
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+  }
 
-    .intl-tel-input input {
-      width: 100%;
-      padding: 15px;
-      /* margin-bottom: 15px !importan; */
-      /* margin-bottom: 15px; */
-      border: 1px solid #D0D5DD;
-      border-radius: 6px;
-      font-size: 16px;
-      color: #333;
-    }
-  
-    .intl-tel-input input:focus {
-      /* border-color: var(--brand-color);
+  .intl-tel-input input:focus {
+    /* border-color: var(--brand-color);
     border-width: 2px;
     outline: none;
     box-shadow: none !important; */
-      outline: none;
-      border-color: #00aaff;
-      box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
-    }
-  
-    .selected-dial-code {
-      padding-left: 5px !important;
-    }
-        .intl-tel-input.allow-dropdown.separate-dial-code.iti-sdc-4 .selected-flag {
-          color: black;
-          background-color: transparent;
-        }
-  
-    .selected-flag {
-      display: flex !important;
-    }
-        input,
-        select ,textarea{
-          width: 100%;
-          padding: 15px;
-          margin-bottom: 15px;
-          border: 1px solid #D0D5DD;
-          border-radius: 6px;
-          font-size: 16px;
-          color: #333;
-        }
-    
-        input:focus,
-        select:focus {
-          outline: none;
-          border-color: #00aaff;
-          box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
-        }
-    
-        /* form button {
+    outline: none;
+    border-color: #00aaff;
+    box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+  }
+
+  .selected-dial-code {
+    padding-left: 5px !important;
+  }
+  .intl-tel-input.allow-dropdown.separate-dial-code.iti-sdc-4 .selected-flag {
+    color: black;
+    background-color: transparent;
+  }
+
+  .selected-flag {
+    display: flex !important;
+  }
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+    border-color: #00aaff;
+    box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+  }
+
+  /* form button {
           width: 100%;
           padding: 12px  18px;
           border: none;
           cursor: pointer;
          
         } */
-    
-        button:hover {
-          /* background-color: #bf8c1c; */
-        }
-    
-      
-    
-        /* select {
+
+  button:hover {
+    /* background-color: #bf8c1c; */
+  }
+
+  /* select {
           width: 60px;
           display: inline-block;
           margin-right: 10px;
@@ -224,45 +221,44 @@ li:hover>button svg {
 }
 /* form end */
 
-.about{
+.about {
   .slick-next,
-    .slick-prev {
-      border-radius:"100%" !important;
-      height:40px !important;
-      width: 40px !important;
-    }
-        .slick-next {
-          right: -70px !important;
-        }
-                 .slick-prev {
-                   left: -70px !important;
-                 }
-}
-.golden-patern{
-  .test{
-
+  .slick-prev {
+    border-radius: "100%" !important;
+    height: 40px !important;
+    width: 40px !important;
   }
-    /* .slick-next:before,
+  .slick-next {
+    right: -70px !important;
+  }
+  .slick-prev {
+    left: -70px !important;
+  }
+}
+.golden-patern {
+  .test {
+  }
+  /* .slick-next:before,
     .slick-prev:before{
       line-height: 0px !important;
     } */
-        
-  .custom-next-arrow ,
-    .custom-prev-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      z-index: 1;
-    }
-  
-    .custom-next-arrow {
-      right: -25px;
-    }
-  
-    .custom-prev-arrow {
-      left: -25px;
-    }
+
+  .custom-next-arrow,
+  .custom-prev-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .custom-next-arrow {
+    right: -25px;
+  }
+
+  .custom-prev-arrow {
+    left: -25px;
+  }
 }
 
 /* //mobile */
@@ -270,23 +266,23 @@ li:hover>button svg {
 @media only screen and (max-width: 767px) {
   /* Your mobile-specific styles go here */
   .feedback .slick-dots {
-      bottom: 10px;
-    }
-        .feedback .slick-next:before,
-        .slick-prev:before {
-          font-size: 20px !important;
-        }
-                .feedback .slick-next {
-                  right: 10px !important;
-                }
-        
-                .feedback .slick-prev {
-                  left: 10px !important;
-                }
+    bottom: 10px;
+  }
+  .feedback .slick-next:before,
+  .slick-prev:before {
+    font-size: 20px !important;
+  }
+  .feedback .slick-next {
+    right: 10px !important;
+  }
 
-                                .about {
-                                      .slick-next {
-                                          right: 0px !important;
-                                        }
-                                }
+  .feedback .slick-prev {
+    left: 10px !important;
+  }
+
+  .about {
+    .slick-next {
+      right: 0px !important;
+    }
+  }
 }

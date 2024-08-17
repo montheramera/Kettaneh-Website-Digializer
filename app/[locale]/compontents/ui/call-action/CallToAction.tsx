@@ -2,7 +2,7 @@ import React from "react";
 
 const CallToAction = () => {
   return (
-    <div className=" my-96 lg:my-10">
+    <div className=" mt-20 mb-96 lg:my-20 ">
       <div className=" hidden relative lg:block z-1 min-w-full h-[400px] sm:h-[400px] md:h-[600px] lg:h-[254px] lg:min-h-[254px] bg-primary">
         <div className="flex justify-center ">
           <section className="hidden lg:flex absolute z-1 bottom-[-100px]  flex-col items-center p-[64px] bg-white shadow-lg mx-auto max-w-full sm:max-w-[350px] lg:max-w-[1216px]">

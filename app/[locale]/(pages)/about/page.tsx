@@ -70,7 +70,7 @@ export default function AboutUs() {
                 alt="Kettaneh Company Building"
                 width={561}
                 height={564}
-                className="w-full h-auto rounded-lg"
+                className="w-full h-auto"
               />
             </div>
           </div>

@@ -155,20 +155,29 @@ const Header = () => {
             </ul>
           </div>
 
-          <li>
+          {/* <li>
             <a href="#" className="text-white hover:text-prbg-primary">
               Our Customer
             </a>
+          </li> */}
+          <li className="text-white hover:text-prbg-primary">
+            <Link href="/our-customer"> Our Cusomers</Link>
           </li>
-          <li>
+          {/* <li>
             <a href="#" className="text-white hover:text-prbg-primary">
-              News and Events
+             
             </a>
+          </li> */}
+          <li className="text-white hover:text-prbg-primary">
+            <Link href="/news-and-events"> News and Events</Link>
           </li>
-          <li>
+          {/* <li>
             <a href="#" className="text-white hover:text-prbg-primary">
               Carrer
             </a>
+          </li> */}
+          <li className="text-white hover:text-prbg-primary">
+            <Link href="/career"> Career</Link>
           </li>
         </ul>
         {/* Get In Touch Button */}
@@ -288,20 +297,29 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <li>
+        {/* <li>
           <a href="#" className="text-white hover:text-prbg-primary">
             Our Cusomers
           </a>
+        </li> */}
+        <li className="text-white hover:text-prbg-primary">
+          <Link href="/our-customer"> Our Cusomers</Link>
         </li>
-        <li>
+        {/* <li>
           <a href="#" className="text-white hover:text-prbg-primary">
             News and Events
           </a>
+        </li> */}
+        <li className="text-white hover:text-prbg-primary">
+          <Link href="/news-and-events"> News and Events</Link>
         </li>
-        <li>
+        {/* <li>
           <a href="#" className="text-white hover:text-prbg-primary">
             Carrer
           </a>
+        </li> */}
+        <li className="text-white hover:text-prbg-primary">
+          <Link href="/career"> Career</Link>
         </li>
       </ul>
       {isOpen && (

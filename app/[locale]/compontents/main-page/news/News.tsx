@@ -28,7 +28,7 @@ const News = () => {
             priority
           />
           {/* </div> */}
-          <h3 className="font-[800] text-[18px] leading-[28px] mx-2 text-[#111928] ">
+          <h3 className="font-[800] mt-[20px] text-[18px] leading-[28px] mx-2 text-[#111928] ">
             Haier Factory Visit
           </h3>
         </div>
