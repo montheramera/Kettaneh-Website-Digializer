@@ -194,7 +194,7 @@ const Header = () => {
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
-                    <Link href="/our-customer"> Aftermarket</Link>
+                    <Link href="/categories/after-marketing"> Aftermarket</Link>
                   </span>
                   <span className="mr-auto">
                     <svg
@@ -403,7 +403,7 @@ const Header = () => {
               <button className="w-full text-left flex items-center outline-none focus:outline-none">
                 <span className="pr-1 flex-1">
                   {" "}
-                  <Link href="/our-customer"> Aftermarket</Link>
+                  <Link href="/categories/after-marketing"> Aftermarket</Link>
                 </span>
                 <span className="mr-auto">
                   <svg
