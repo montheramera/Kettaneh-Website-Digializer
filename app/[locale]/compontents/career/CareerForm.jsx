@@ -89,9 +89,10 @@ const CareerForm = () => {
                 >
                   CV / Resume*
                 </label>
-                              <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
-                              style={{width: "100%",color:"#d0d5dd"}}
-                              >
+                <div
+                  className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+                  style={{ width: "100%", color: "#d0d5dd" }}
+                >
                   <div className="space-y-1 text-center">
                     <svg
                       className="mx-auto h-12 w-12 text-gray-400"
@@ -110,7 +111,10 @@ const CareerForm = () => {
                         htmlFor="file-upload"
                         className="relative cursor-pointer bg-white rounded-md font-medium text-red-600 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500"
                       >
-                        <span className="text-primary text-center w-full"> Click to upload</span>
+                        <span className="text-primary text-center w-full">
+                          {" "}
+                          Click to upload
+                        </span>
                         <input
                           id="file-upload"
                           name="file-upload"
@@ -174,7 +178,9 @@ const CareerForm = () => {
 
           {/* Image Section */}
           <div className="flex gap-3">
-            <div className="bg-primary w-[2px] min-h-[100%] ">.</div>
+            <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px] ">
+              .
+            </div>
             <Image
               src="/images/career/form.png" // replace with the correct image path
               alt="Worker"

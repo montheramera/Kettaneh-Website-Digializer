@@ -10,7 +10,7 @@ const page = () => {
         <section className="">
           <div>
             <div className="mb-10 flex">
-              <div className="bg-primary w-[2px] min-h-[100%] mr-[4px]"></div>
+              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px]">
                 news and events
               </span>

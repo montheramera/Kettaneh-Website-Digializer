@@ -22,7 +22,7 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
             <div className="mb-10 flex">
               <div
                 style={{ background: categoryBg }}
-                className=" w-[2px] min-h-[100%] mr-[4px]"
+                className=" min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"
               ></div>
               <span
                 style={{ background: categoryBg }}
@@ -41,14 +41,14 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
               <div className="flex">
                 <div
                   style={{ background: categoryBg }}
-                  className=" w-[2px] min-h-[100%] mr-[10px]"
+                  className=" min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"
                 ></div>
                 <p className="lg:max-w-[]">{categoryParagraph}</p>
               </div>
               <div className="mt-[64px]  flex">
                 <div
                   style={{ background: categoryBg }}
-                  className=" min-w-[2px] w-[2px] min-h-[100%] "
+                  className=" min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"
                 >
                   .
                 </div>

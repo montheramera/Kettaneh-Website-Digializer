@@ -20,7 +20,7 @@ export default function AboutUs() {
         <section className="">
           <div>
             <div className="mb-10 flex">
-              <div className="bg-primary w-[2px] min-h-[100%] mr-[4px]"></div>
+              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px]">
                 About Us
               </span>
@@ -34,7 +34,7 @@ export default function AboutUs() {
           </div>
           <div className="grid md:grid-cols-2 mt-[64px]  text-[18px] font-[400] leading-[28px] text-paragraph">
             <div className="flex">
-              <div className="bg-primary w-[2px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <p className="lg:max-w-[536px]">
                 Ever since the company &apos;s establishment in 1922, the
                 Kettaneh Group has sought to provide true satisfaction to its
@@ -64,7 +64,7 @@ export default function AboutUs() {
               </p>
             </div>
             <div className="flex">
-              <div className="bg-primary w-[2px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <Image
                 src="/images/about/timeline2_2 3 (1).png"
                 alt="Kettaneh Company Building"
@@ -99,7 +99,7 @@ export default function AboutUs() {
               ))}
             </div>
             <div className="flex">
-              <div className="bg-primary w-[2px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <p className="text-[20px] font-[500] leading-[28px] text-paragraph">
                 F. A. Kettaneh & Co LTD Jordan has a long tradition of being a
                 first-class company - one that has always exceeded the
@@ -126,7 +126,7 @@ export default function AboutUs() {
           </p>
           <div className="flex flex-col lg:flex-row justify-between gap-5 mt-[64px]">
             <div className="flex">
-              <div className="bg-white w-[2px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
                 <h3 className="text-[20px] font-[600] leading-[30px]">
                   Mission
@@ -141,7 +141,7 @@ export default function AboutUs() {
             </div>
 
             <div className="flex">
-              <div className="bg-white w-[2px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-white min-w-[2px] w-[2px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
                 <h3 className="text-[20px] font-[600] leading-[30px]">
                   Vision
