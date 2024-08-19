@@ -74,12 +74,15 @@ const Header = () => {
               </span>
             </button>
             <ul
-              className="bg-primary border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+              className="bg-heading z-[2000000] border rounded-sm transform scale-0 group-hover:scale-100 absolute 
   transition duration-150 ease-in-out origin-top min-w-32"
             >
               <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
-                  <span className="pr-1 flex-1">test1</span>
+                  <span className="pr-1 flex-1">
+                    {" "}
+                    <Link href="/categories/electrical"> Electrical</Link>
+                  </span>
                   <span className="mr-auto">
                     <svg
                       className="fill-current h-4 w-4
@@ -104,7 +107,38 @@ const Header = () => {
               </li>
               <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
-                  <span className="pr-1 flex-1">test2</span>
+                  <span className="pr-1 flex-1">
+                    {" "}
+                    <Link href="/categories/hvac"> HVAC</Link>
+                  </span>
+                  <span className="mr-auto">
+                    <svg
+                      className="fill-current h-4 w-4
+            transition duration-150 ease-in-out white-fill"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  className="bg-heading border rounded-sm absolute top-0 right-0 
+  transition duration-150 ease-in-out origin-top-left
+  min-w-32
+  "
+                >
+                  <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
+                  <li className="px-3 py-1 hover:bg-gray-100">Go</li>
+                  <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
+                </ul>
+              </li>
+              <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+                <button className="w-full text-left flex items-center outline-none focus:outline-none">
+                  <span className="pr-1 flex-1">
+                    {" "}
+                    <Link href="/categories/machinery"> Machinery</Link>
+                  </span>
                   <span className="mr-auto">
                     <svg
                       className="fill-current h-4 w-4
@@ -129,7 +163,39 @@ const Header = () => {
               </li>
               <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
-                  <span className="pr-1 flex-1">test3</span>
+                  <span className="pr-1 flex-1">
+                    {" "}
+                    {/* <Link href="/our-customer"> Lighting</Link> */}
+                    <Link href="/categories/lighting"> Lighting</Link>
+                  </span>
+                  <span className="mr-auto">
+                    <svg
+                      className="fill-current h-4 w-4
+            transition duration-150 ease-in-out white-fill"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  className="bg-primary border rounded-sm absolute top-0 right-0 
+  transition duration-150 ease-in-out origin-top-left
+  min-w-32
+  "
+                >
+                  <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
+                  <li className="px-3 py-1 hover:bg-gray-100">Go</li>
+                  <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
+                </ul>
+              </li>
+              <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+                <button className="w-full text-left flex items-center outline-none focus:outline-none">
+                  <span className="pr-1 flex-1">
+                    {" "}
+                    <Link href="/our-customer"> Aftermarket</Link>
+                  </span>
                   <span className="mr-auto">
                     <svg
                       className="fill-current h-4 w-4
@@ -222,7 +288,10 @@ const Header = () => {
           >
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
               <button className="w-full text-left flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">test1</span>
+                <span className="pr-1 flex-1">
+                  {" "}
+                  <Link href="/categories/electrical"> Electrical</Link>
+                </span>
                 <span className="mr-auto">
                   <svg
                     className="fill-current h-4 w-4
@@ -247,7 +316,10 @@ const Header = () => {
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
               <button className="w-full text-left flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">test2</span>
+                <span className="pr-1 flex-1">
+                  {" "}
+                  <Link href="/categories/hvac"> HVAC</Link>
+                </span>
                 <span className="mr-auto">
                   <svg
                     className="fill-current h-4 w-4
@@ -272,7 +344,67 @@ const Header = () => {
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
               <button className="w-full text-left flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">test3</span>
+                <span className="pr-1 flex-1">
+                  {" "}
+                  <Link href="/categories/machinery"> Machinery</Link>
+                </span>
+                <span className="mr-auto">
+                  <svg
+                    className="fill-current h-4 w-4
+            transition duration-150 ease-in-out white-fill"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </span>
+              </button>
+              <ul
+                className="bg-primary border rounded-sm absolute top-0 right-0 
+  transition duration-150 ease-in-out origin-top-left
+  min-w-32
+  "
+              >
+                <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
+                <li className="px-3 py-1 hover:bg-gray-100">Go</li>
+                <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
+              </ul>
+            </li>
+            <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+              <button className="w-full text-left flex items-center outline-none focus:outline-none">
+                <span className="pr-1 flex-1">
+                  {" "}
+                  {/* <Link href="/our-customer"> Lighting</Link> */}
+                  <Link href="/categories/lighting"> Lighting</Link>
+                </span>
+                <span className="mr-auto">
+                  <svg
+                    className="fill-current h-4 w-4
+            transition duration-150 ease-in-out white-fill"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </span>
+              </button>
+              <ul
+                className="bg-primary border rounded-sm absolute top-0 right-0 
+  transition duration-150 ease-in-out origin-top-left
+  min-w-32
+  "
+              >
+                <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
+                <li className="px-3 py-1 hover:bg-gray-100">Go</li>
+                <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
+              </ul>
+            </li>
+            <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+              <button className="w-full text-left flex items-center outline-none focus:outline-none">
+                <span className="pr-1 flex-1">
+                  {" "}
+                  <Link href="/our-customer"> Aftermarket</Link>
+                </span>
                 <span className="mr-auto">
                   <svg
                     className="fill-current h-4 w-4
