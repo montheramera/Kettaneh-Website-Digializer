@@ -7,12 +7,12 @@ const page = () => {
   return (
     <>
       <div className="p-8 lg:px-20 lg:py-[32px] font-avenir">
-        <section className="">
+        <section className="max-w-[1440px] m-auto">
           <div>
             <div className="mb-10 flex">
               <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px]">
-                news and events
+                News and Events
               </span>
             </div>
             <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
@@ -25,7 +25,7 @@ const page = () => {
           </div>
         </section>
 
-        <section className="my-[20px] lg:mt-[64px]">
+        <section className="my-[20px] lg:mt-[64px] max-w-[1440px] m-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-[32px]">
             <div className="lg:col-span-2 shadow-lg">
               {/* <div className="relative w-[769px] h-[337px] mb-6"> */}
@@ -105,13 +105,13 @@ const page = () => {
           </div>
         </section>
 
-        <section className="my-[20px] lg:mt-[64px]">
+        <section className="my-[20px] lg:mt-[64px] max-w-[1440px] m-auto">
           <GallerySection />
         </section>
-        <section className="my-[20px] lg:my-[64px]">
+      </div>
+        <section className="my-[20px] lg:my-[64px] ">
           <CallToAction />
         </section>
-      </div>
     </>
   );
 };

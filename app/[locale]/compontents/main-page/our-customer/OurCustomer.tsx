@@ -3,6 +3,8 @@ import LogosSliderOurCustomer from "./LogosSliderOurCustomer"
 const OurCustomer = () => {
   return (
     <div className="p-8 lg:px-20 lg:py-[96px] font-avenir ">
+      <div className="max-w-[1440px] m-auto">
+
       <div className="">
         <h2 className="font-[800] text-[36px] leading-[40px]">
           Explore Our <span className="text-primary">Customer</span>
@@ -16,6 +18,7 @@ const OurCustomer = () => {
           <LogosSliderOurCustomer />
           </div>
     </div>
+      </div>
   );
 };
 

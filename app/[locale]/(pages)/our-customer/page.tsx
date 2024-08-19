@@ -6,7 +6,7 @@ const index = () => {
     return (
       <>
         <div className="p-8 lg:px-20 lg:py-[32px] font-avenir">
-          <section className="">
+          <section className="max-w-[1440px] m-auto">
             <div>
               <div className="mb-10 flex">
                 <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
@@ -36,15 +36,15 @@ const index = () => {
           </section>
 
           <section>
-            <div className="mt-[64px]">
+            <div className="mt-[64px] max-w-[1440px] m-auto">
               <LogosSliderOurCustomer />
             </div>
           </section>
 
+        </div>
           <section className="my-[64px]">
             <CallToAction />
           </section>
-        </div>
       </>
     );
 };

@@ -24,7 +24,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
     <>
       <div className="p-8 lg:px-20 lg:py-[32px] font-avenir">
         {/* Who we are section */}
-        <section className="">
+        <section className="max-w-[1440px] m-auto">
           <div>
             <div className="mb-10 flex">
               <div

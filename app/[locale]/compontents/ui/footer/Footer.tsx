@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-white p-8 lg:px-20 lg:py-[96px] font-avenir">
-      <div className="">
+      <div className="max-w-[1440px] m-auto">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between ">
           {/* Logo and Description */}

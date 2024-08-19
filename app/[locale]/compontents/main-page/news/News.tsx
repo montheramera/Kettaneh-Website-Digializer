@@ -3,6 +3,7 @@ import Image from "next/image";
 const News = () => {
   return (
     <div className="p-8 lg:px-20 lg:py-[96px] font-avenir border-y-primary  border-opacity-25 border-y-[1px]">
+      <div className="max-w-[1440px] m-auto">
       <div className="">
         <h2 className="font-[800] text-[36px] leading-[40px] text-heading">
           News and Events
@@ -137,6 +138,7 @@ const News = () => {
             JIMEX Exhibition 2019
           </h3>
         </div>
+      </div>
       </div>
     </div>
   );

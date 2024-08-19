@@ -15,7 +15,8 @@ export default async function Home() {
     const t = await getTranslations();
   return (
     <main className="min-h-screen ">
-      
+   
+
         <div className="">
           <HeroSection />
       </div>
@@ -40,15 +41,9 @@ export default async function Home() {
       <div>
         <ExperienceBanner />
       </div>
-      {/* <div className="relative w-[400px] h-[400px]"> <div
-                className="absolute inset-0 bg-cover bg-center transform transition-transform duration-300 ease-out scale-105 group-hover:scale-100"
-                style={{ backgroundImage: `url("/images/image1.jpg")` }}
-              >
-                <div className="bg-white bg-opacity-40 p-4 text-white">
-                  Electrical
-                </div>
-              </div>
-      </div> */}
+    
+   
+      
     
     </main>
   );

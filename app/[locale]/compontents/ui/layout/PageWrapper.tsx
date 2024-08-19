@@ -8,7 +8,7 @@ interface PageWrapperProps {
 
 const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
   return (
-    <div className="max-w-[1440px] font-avenir m-auto bg-white  ">
+    <div className="font-avenir m-auto bg-white  ">
       <Header />
       {children}
       <div><Footer /></div>

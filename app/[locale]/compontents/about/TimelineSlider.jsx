@@ -343,6 +343,7 @@ const TimelineSlider = () => {
 
   return (
     <section className="p-8 lg:px-20 lg:py-[32px] font-avenir about">
+      <div className="max-w-[1440px] m-auto">
       <div className="mb-8">
         <h2 className="text-[36px] font-[800] leading-[40px] text-heading">
           <span className="text-primary"> Our Journey</span> Through Time
@@ -376,6 +377,7 @@ const TimelineSlider = () => {
           </div>
         ))}
       </Slider>
+      </div>
     </section>
   );
 };

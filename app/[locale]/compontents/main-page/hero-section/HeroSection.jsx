@@ -2,8 +2,8 @@ import React from 'react';
 
 const HeroSection = () => {
     return (
-      <div className="bg-primary lg:px-20 p-6 font-avenir">
-        <div className="relative group">
+      <div className="bg-primary lg:px-20 p-10 font-avenir">
+        <div className="relative group max-w-[1440px] m-auto">
           <div className=" text-white">
             <h1 className=" font-[800] text-[60px] leading-none">
               100 Years Legacy Engineering Solutions

@@ -3,7 +3,7 @@ import Image from "next/image";
 const AchievementsSection = () => {
   return (
     <section className="p-8 lg:px-20 lg:py-[32px] font-avenir">
-      <div className="md:flex items-center justify-between gap-10">
+      <div className="md:flex items-center justify-between gap-10 max-w-[1440px] m-auto">
         <div className="md:w-1/2">
           <div className="flex">
             <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>

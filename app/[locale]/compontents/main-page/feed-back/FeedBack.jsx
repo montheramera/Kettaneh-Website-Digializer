@@ -28,27 +28,7 @@ const feedsback = [
 ];
 
 function AdaptiveHeight() {
-    // function SampleNextArrow(props) {
-    //   const { className, style, onClick } = props;
-    //   return (
-    //     <div
-    //       className={className}
-    //       style={{ ...style, display: "block", background: "red" }}
-    //       onClick={onClick}
-    //     />
-    //   );
-    // }
-
-    // function SamplePrevArrow(props) {
-    //   const { className, style, onClick } = props;
-    //   return (
-    //     <div
-    //       className={className}
-    //       style={{ ...style, display: "block", background: "green" }}
-    //       onClick={onClick}
-    //     />
-    //   );
-    // }
+ 
 
   const settings = {
     className: "",
@@ -67,6 +47,8 @@ function AdaptiveHeight() {
 
   return (
     <div className="slider-container bg-primary feedback lg:min-h-[496px]">
+      <div className="max-w-[1440px] m-auto">
+
       <Slider {...settings}>
         {feedsback.map((feedback, index) => (
           <div key={index}>
@@ -86,6 +68,7 @@ function AdaptiveHeight() {
           </div>
         ))}
       </Slider>
+      </div>
     </div>
   );
 }

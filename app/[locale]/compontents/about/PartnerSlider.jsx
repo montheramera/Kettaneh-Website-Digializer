@@ -129,6 +129,7 @@ const PartnerSlider = () => {
     return (
       <>
         <section className="p-8 lg:px-20 lg:py-[96px] font-avenir  about bg-[#F9FAFB]">
+          <div className="max-w-[1440px] m-auto">
           <div className="flex justify-between items-center text-[40px] leading-[48px] font-[800] mb-[48px]">
             <h2 className="">
               Our <span className=" text-primary">Global Partners</span>
@@ -148,6 +149,7 @@ const PartnerSlider = () => {
                 </div>
               ))}
             </Slider>
+          </div>
           </div>
         </section>
       </>

@@ -3,7 +3,7 @@ import Image from "next/image";
 const LegacySection = () => {
   return (
     <div className="p-8 lg:px-20 lg:py-[96px] font-avenir border-y-primary  border-opacity-25 border-y-[1px] ">
-      <div className="flex flex-col md:flex-row items-center md:items-start">
+      <div className="flex flex-col md:flex-row items-center md:items-start max-w-[1440px] m-auto">
         <div className="md:w-1/2 flex flex-col justify-between lg:h-[342px]">
           <div className="flex-grow">
             <h3 className="font-[800] leading-[40px] text-[36px] text-heading">

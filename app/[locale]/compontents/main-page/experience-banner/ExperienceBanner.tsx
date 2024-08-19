@@ -23,7 +23,7 @@ export default function ExperienceBanner() {
         />
 
         {/* Content Layer */}
-        <div className="absolute inset-0 bg-paragraph bg-opacity-50 flex items-center flex-col lg:flex-row py-[8px] justify-between px-8 lg:px-20 lg:py-[96px] ">
+        <div className="absolute inset-0 bg-paragraph bg-opacity-50 flex items-center flex-col lg:flex-row py-[8px] justify-between px-8 lg:px-56 lg:py-[96px] ">
           <div>
             <h1 className="text-white font-[800] text-[36px] leading-[40px]">
               Experience the Kettaneh Difference

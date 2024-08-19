@@ -17,7 +17,7 @@ export default function AboutUs() {
     <>
       <div className="p-8 lg:px-20 lg:py-[32px] font-avenir">
         {/* Who we are section */}
-        <section className="">
+        <section className="max-w-[1440px] m-auto">
           <div>
             <div className="mb-10 flex">
               <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
@@ -77,7 +77,7 @@ export default function AboutUs() {
         </section>
 
         {/* What we do section */}
-        <section className="py-[48px]">
+        <section className="py-[48px] max-w-[1440px] m-auto">
           <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
             What we <span className="text-primary ">do </span>?
           </h2>
@@ -117,7 +117,7 @@ export default function AboutUs() {
       </div>
 
       <section className="bg-primary text-white p-8 lg:px-20 lg:py-[32px] font-avenir">
-        <div className="">
+        <div className="max-w-[1440px] m-auto">
           <h2 className="text-[36px] font-[800] leading-[40px]  mb-[10px]">
             Where are we heading to?
           </h2>
