@@ -30,7 +30,7 @@ const page = () => {
         imageUrl={"/images/categories/hvac/hvac.png"}
       />
 
-      <CallToAction background={"#75B4C2"} />
+      <CallToAction  />
     </>
   );
 };

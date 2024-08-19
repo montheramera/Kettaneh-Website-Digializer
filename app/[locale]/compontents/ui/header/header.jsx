@@ -16,13 +16,15 @@ const Header = () => {
     <nav className="bg-primary lg:px-20 p-8 text-white font-[500] text-[18px]">
       <div className="container mx-auto flex justify-between items-center">
         <div>
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={150}
-            height={36.18}
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={150}
+              height={36.18}
+              priority
+            />
+          </Link>
         </div>
         {/* Hamburger Menu (visible on small screens) */}
         <div className="block lg:hidden">
@@ -74,7 +76,7 @@ const Header = () => {
               </span>
             </button>
             <ul
-              className="bg-heading z-[2000000] border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+              className="bg-primary z-[2000000] border rounded-sm transform scale-0 group-hover:scale-100 absolute 
   transition duration-150 ease-in-out origin-top min-w-32"
             >
               <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">

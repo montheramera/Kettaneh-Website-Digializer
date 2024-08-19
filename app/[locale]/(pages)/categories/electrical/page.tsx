@@ -35,7 +35,7 @@ const page = () => {
           imageUrl={"/images/categories/electrical/electrical.png"}
         />
 
-        <CallToAction background={"#75B4C2"} />
+        <CallToAction  />
       </>
     );
 };
