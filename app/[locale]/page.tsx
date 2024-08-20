@@ -1,4 +1,5 @@
-import Image from "next/image";
+
+
 import { getTranslations } from "next-intl/server";
 import HeroSection from "@/compontents/main-page/hero-section/HeroSection"
 import GlobalPartners from "@/compontents/main-page/global-partners/GlobalPartners";
@@ -8,8 +9,7 @@ import OurCustomer from "@/compontents/main-page/our-customer/OurCustomer";
 import News from "@/compontents/main-page/news/News";
 import AdaptiveHeight from "@/compontents/main-page/feed-back/FeedBack";
 import ExperienceBanner from "@/compontents/main-page/experience-banner/ExperienceBanner";
-import ContactForm from "./compontents/ui/contact-form/ContactForm";
-import ConfirmationMessage from "./compontents/ui/confirmation-message/ConfirmationMessage";
+
 
 export default async function Home() {
     const t = await getTranslations();
@@ -20,7 +20,7 @@ export default async function Home() {
         <div className="">
           <HeroSection />
       </div>
-      <div>
+      <div className="lg:mt-[250px]">
         <GlobalPartners />
       </div>
       <div>
@@ -41,10 +41,6 @@ export default async function Home() {
       <div>
         <ExperienceBanner />
       </div>
-    
-   
-      
-    
     </main>
   );
 }

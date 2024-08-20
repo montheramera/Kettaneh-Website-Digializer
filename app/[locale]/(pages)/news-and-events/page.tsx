@@ -1,5 +1,6 @@
 import GallerySection from "@/compontents/news-and-events/GallerySection";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
+import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 import Image from "next/image";
 import React from "react";
 
@@ -109,9 +110,14 @@ const page = () => {
           <GallerySection />
         </section>
       </div>
-        <section className="my-[20px] lg:my-[64px] ">
-          <CallToAction />
-        </section>
+
+      <section>
+        <LeadingExcellence />
+      </section>
+
+      <section className="my-[20px] lg:my-[64px] ">
+        <CallToAction />
+      </section>
     </>
   );
 };

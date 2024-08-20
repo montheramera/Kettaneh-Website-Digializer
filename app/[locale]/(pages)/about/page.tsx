@@ -3,6 +3,7 @@ import TimelineSlider from "@/compontents/about/TimelineSlider";
 import PartnerSlider from "@/compontents/about/PartnerSlider";
 import Image from "next/image";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
+import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 
 export default function AboutUs() {
    const partners = [
@@ -165,6 +166,9 @@ export default function AboutUs() {
       </section>
       <section>
         <PartnerSlider />
+      </section>
+      <section>
+        <LeadingExcellence />
       </section>
       <section>
         <CallToAction />

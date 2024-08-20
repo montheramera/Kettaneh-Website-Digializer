@@ -1,5 +1,6 @@
 import AfterMarketing from "@/compontents/categories/AfterMarketing";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
+import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 import React from "react";
 
 
@@ -14,8 +15,10 @@ const page = () => {
         categoryBg={"#85C5B0"}
         imageUrl={"/images/categories/after-marketing/after-marketing.png"}
       />
-
-      <CallToAction  />
+      <section>
+        <LeadingExcellence />
+      </section>
+      <CallToAction />
     </>
   );
 };

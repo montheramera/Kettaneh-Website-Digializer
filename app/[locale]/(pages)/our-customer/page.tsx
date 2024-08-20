@@ -1,5 +1,7 @@
 import LogosSliderOurCustomer from '@/compontents/main-page/our-customer/LogosSliderOurCustomer';
 import CallToAction from '@/compontents/ui/call-action/CallToAction';
+import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcellence';
+import HoverEffect from '@/compontents/ui/mouse-over/HoverEffect';
 import React from 'react';
 
 const index = () => {
@@ -40,11 +42,13 @@ const index = () => {
               <LogosSliderOurCustomer />
             </div>
           </section>
-
         </div>
-          <section className="my-[64px]">
-            <CallToAction />
-          </section>
+        <section>
+          <LeadingExcellence />
+        </section>
+        <section className="my-[64px]">
+          <CallToAction />
+        </section>
       </>
     );
 };

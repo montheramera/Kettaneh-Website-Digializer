@@ -261,6 +261,61 @@ li:hover > button svg {
   }
 }
 
+
+/* HoverEffect.module.css */
+
+.container1 {
+  display: flex;
+  gap: 100px;
+  height: 400px;
+}
+
+.section {
+  flex: 1;
+  transition: flex 0.5s ease;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.section1 {
+  /* background-color: #00446b; */
+  /* flex: 3; */
+}
+
+.section2 {
+  background-color: #3b7197;
+}
+
+.section3 {
+  background-color: #b1522f;
+}
+
+.section4 {
+  background-color: #94704b;
+}
+
+.section5 {
+  background-color: #79a29b;
+}
+
+.section:hover {
+  flex: 3;
+}
+
+.container:hover .section {
+  flex: 0.5;
+}
+
+.container:hover .section:hover {
+  flex: 3;
+}
+
 /* //mobile */
 
 @media only screen and (max-width: 767px) {

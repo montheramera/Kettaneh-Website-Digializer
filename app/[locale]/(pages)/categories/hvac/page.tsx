@@ -1,5 +1,6 @@
 import FirstSection from "@/compontents/categories/FirstSection";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
+import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 import React from "react";
 const imagesLogos = [
   {
@@ -29,8 +30,10 @@ const page = () => {
         imagesLogos={imagesLogos}
         imageUrl={"/images/categories/hvac/hvac.png"}
       />
-
-      <CallToAction  />
+      <section>
+        <LeadingExcellence />
+      </section>
+      <CallToAction />
     </>
   );
 };

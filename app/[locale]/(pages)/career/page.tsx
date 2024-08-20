@@ -2,12 +2,13 @@ import React from 'react';
 import JobListings from '@/compontents/career/FirstSection';
 import CareerForm from "@/compontents/career/CareerForm";
 import CallToAction from '@/compontents/ui/call-action/CallToAction';
+import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcellence';
 
 const page = () => {
     return (
       <>
         <div className="p-10 lg:px-20 lg:py-[32px] font-avenir ">
-          <div className='max-w-[1440px] m-auto'>
+          <div className="max-w-[1440px] m-auto">
             <section className="">
               <div>
                 <div className="mb-10 flex">
@@ -27,6 +28,9 @@ const page = () => {
             </section>
           </div>
         </div>
+        <section>
+          <LeadingExcellence />
+        </section>
         <section className="my-[20px] lg:my-[64px]">
           <CallToAction />
         </section>
