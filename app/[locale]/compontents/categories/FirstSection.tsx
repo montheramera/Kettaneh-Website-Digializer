@@ -120,9 +120,6 @@ const FirstSection: React.FC<FirstSectionProps> = ({
                 Categories
               </span>
             </div>
-            <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[32px]">
-              {categoryname}
-            </h2>
           </div>
           <div
             style={{
@@ -130,10 +127,13 @@ const FirstSection: React.FC<FirstSectionProps> = ({
               backgroundPosition: "center",
               backgroundSize: "cover",
             }}
-            className="flex relative flex-col lg:flex-row  inset-0 bg-paragraph bg-opacity-50  text-[18px] font-[400] leading-[28px] text-paragraph min-h-[800px]"
+            className="flex relative flex-col lg:flex-row  inset-0 bg-paragraph bg-opacity-50  text-[18px] font-[400] leading-[28px] text-paragraph min-h-[500px]"
           >
-             <div className="absolute inset-0 bg-paragraph bg-opacity-70   "></div>
+            <div className="absolute inset-0 bg-paragraph bg-opacity-70   "></div>
             <div className="max-w-[1440px] text-white w-full m-auto z-[100]">
+              <h2 className=" text-[36px] font-[800] leading-[40px]  mb-[32px]">
+                {categoryname}
+              </h2>
               <div className="flex">
                 <div
                   style={{ background: categoryBg }}
