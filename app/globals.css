@@ -290,27 +290,6 @@ li:hover > button svg {
   text-align: center;
 }
 
-.section1 {
-  /* background-color: #00446b; */
-  /* flex: 3; */
-}
-
-.section2 {
-  background-color: #3b7197;
-}
-
-.section3 {
-  background-color: #b1522f;
-}
-
-.section4 {
-  background-color: #94704b;
-}
-
-.section5 {
-  background-color: #79a29b;
-}
-
 .section:hover {
   flex: 3;
 }

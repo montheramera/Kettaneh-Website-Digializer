@@ -60,11 +60,18 @@ const Header = () => {
           </li> */}
 
             <li className="text-white hover:text-prbg-primary">
-              <Link href="/about">About Us</Link>
+              <Link
+                className="text-[20px] leading-[28px] font-[500]"
+                href="/about"
+              >
+                About Us
+              </Link>
             </li>
             <div className="group inline-block">
               <button className="outline-none focus:outline-none   bg-primary rounded-sm flex items-center min-w-32">
-                <span className="pr-1 font-semibold flex-1">Categories</span>
+                <span className="pr-1  flex-1 text-[20px] leading-[28px] font-[500]">
+                  Categories
+                </span>
                 <span>
                   <svg
                     className="fill-current white-fill h-4 w-4 transform group-hover:-rotate-180
@@ -84,7 +91,13 @@ const Header = () => {
                   <button className="w-full text-left flex items-center outline-none focus:outline-none">
                     <span className="pr-1 flex-1">
                       {" "}
-                      <Link href="/categories/electrical"> Electrical</Link>
+                      <Link
+                        className="text-[20px] leading-[28px] font-[500]"
+                        href="/categories/electrical"
+                      >
+                        {" "}
+                        Electrical
+                      </Link>
                     </span>
                     <span className="mr-auto">
                       <svg
@@ -112,7 +125,13 @@ const Header = () => {
                   <button className="w-full text-left flex items-center outline-none focus:outline-none">
                     <span className="pr-1 flex-1">
                       {" "}
-                      <Link href="/categories/hvac"> HVAC</Link>
+                      <Link
+                        className="text-[20px] leading-[28px] font-[500]"
+                        href="/categories/hvac"
+                      >
+                        {" "}
+                        HVAC
+                      </Link>
                     </span>
                     <span className="mr-auto">
                       <svg
@@ -140,7 +159,13 @@ const Header = () => {
                   <button className="w-full text-left flex items-center outline-none focus:outline-none">
                     <span className="pr-1 flex-1">
                       {" "}
-                      <Link href="/categories/machinery"> Machinery</Link>
+                      <Link
+                        className="text-[20px] leading-[28px] font-[500]"
+                        href="/categories/machinery"
+                      >
+                        {" "}
+                        Machinery
+                      </Link>
                     </span>
                     <span className="mr-auto">
                       <svg
@@ -169,7 +194,13 @@ const Header = () => {
                     <span className="pr-1 flex-1">
                       {" "}
                       {/* <Link href="/our-customer"> Lighting</Link> */}
-                      <Link href="/categories/lighting"> Lighting</Link>
+                      <Link
+                        className="text-[20px] leading-[28px] font-[500]"
+                        href="/categories/lighting"
+                      >
+                        {" "}
+                        Lighting
+                      </Link>
                     </span>
                     <span className="mr-auto">
                       <svg
@@ -197,7 +228,10 @@ const Header = () => {
                   <button className="w-full text-left flex items-center outline-none focus:outline-none">
                     <span className="pr-1 flex-1">
                       {" "}
-                      <Link href="/categories/after-marketing">
+                      <Link
+                        className="text-[20px] leading-[28px] font-[500]"
+                        href="/categories/after-marketing"
+                      >
                         {" "}
                         Aftermarket
                       </Link>
@@ -233,7 +267,13 @@ const Header = () => {
             </a>
           </li> */}
             <li className="text-white hover:text-prbg-primary">
-              <Link href="/our-customer"> Our Cusomers</Link>
+              <Link
+                className="text-[20px] leading-[28px] font-[500]"
+                href="/our-customer"
+              >
+                {" "}
+                Our Cusomers
+              </Link>
             </li>
             {/* <li>
             <a href="#" className="text-white hover:text-prbg-primary">
@@ -241,7 +281,13 @@ const Header = () => {
             </a>
           </li> */}
             <li className="text-white hover:text-prbg-primary">
-              <Link href="/news-and-events"> News and Events</Link>
+              <Link
+                className="text-[20px] leading-[28px] font-[500]"
+                href="/news-and-events"
+              >
+                {" "}
+                News and Events
+              </Link>
             </li>
             {/* <li>
             <a href="#" className="text-white hover:text-prbg-primary">
@@ -249,7 +295,13 @@ const Header = () => {
             </a>
           </li> */}
             <li className="text-white hover:text-prbg-primary">
-              <Link href="/career"> Career</Link>
+              <Link
+                className="text-[20px] leading-[28px] font-[500]"
+                href="/career"
+              >
+                {" "}
+                Career
+              </Link>
             </li>
           </ul>
           {/* Get In Touch Button */}
@@ -272,11 +324,18 @@ const Header = () => {
         </li> */}
 
           <li className="text-white hover:text-prbg-primary">
-            <Link href="/about">About Us</Link>
+            <Link
+              className="text-[20px] leading-[28px] font-[500]"
+              href="/about"
+            >
+              About Us
+            </Link>
           </li>
           <div className="group inline-block">
             <button className="outline-none focus:outline-none   bg-primary rounded-sm flex items-center min-w-32">
-              <span className="pr-1 font-semibold ">Categories</span>
+              <span className="pr-1 text-[20px] leading-[28px] font-[500] ">
+                Categories
+              </span>
               <span>
                 <svg
                   className="fill-current white-fill h-4 w-4 transform group-hover:-rotate-180
@@ -296,7 +355,13 @@ const Header = () => {
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
-                    <Link href="/categories/electrical"> Electrical</Link>
+                    <Link
+                      className="text-[20px] leading-[28px] font-[500]"
+                      href="/categories/electrical"
+                    >
+                      {" "}
+                      Electrical
+                    </Link>
                   </span>
                   <span className="mr-auto">
                     <svg
@@ -324,7 +389,13 @@ const Header = () => {
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
-                    <Link href="/categories/hvac"> HVAC</Link>
+                    <Link
+                      className="text-[20px] leading-[28px] font-[500]"
+                      href="/categories/hvac"
+                    >
+                      {" "}
+                      HVAC
+                    </Link>
                   </span>
                   <span className="mr-auto">
                     <svg
@@ -352,7 +423,13 @@ const Header = () => {
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
-                    <Link href="/categories/machinery"> Machinery</Link>
+                    <Link
+                      className="text-[20px] leading-[28px] font-[500]"
+                      href="/categories/machinery"
+                    >
+                      {" "}
+                      Machinery
+                    </Link>
                   </span>
                   <span className="mr-auto">
                     <svg
@@ -381,7 +458,13 @@ const Header = () => {
                   <span className="pr-1 flex-1">
                     {" "}
                     {/* <Link href="/our-customer"> Lighting</Link> */}
-                    <Link href="/categories/lighting"> Lighting</Link>
+                    <Link
+                      className="text-[20px] leading-[28px] font-[500]"
+                      href="/categories/lighting"
+                    >
+                      {" "}
+                      Lighting
+                    </Link>
                   </span>
                   <span className="mr-auto">
                     <svg
@@ -409,7 +492,13 @@ const Header = () => {
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
-                    <Link href="/categories/after-marketing"> Aftermarket</Link>
+                    <Link
+                      className="text-[20px] leading-[28px] font-[500]"
+                      href="/categories/after-marketing"
+                    >
+                      {" "}
+                      Aftermarket
+                    </Link>
                   </span>
                   <span className="mr-auto">
                     <svg
@@ -441,7 +530,13 @@ const Header = () => {
           </a>
         </li> */}
           <li className="text-white hover:text-prbg-primary">
-            <Link href="/our-customer"> Our Cusomers</Link>
+            <Link
+              className="text-[20px] leading-[28px] font-[500]"
+              href="/our-customer"
+            >
+              {" "}
+              Our Cusomers
+            </Link>
           </li>
           {/* <li>
           <a href="#" className="text-white hover:text-prbg-primary">
@@ -449,7 +544,13 @@ const Header = () => {
           </a>
         </li> */}
           <li className="text-white hover:text-prbg-primary">
-            <Link href="/news-and-events"> News and Events</Link>
+            <Link
+              className="text-[20px] leading-[28px] font-[500]"
+              href="/news-and-events"
+            >
+              {" "}
+              News and Events
+            </Link>
           </li>
           {/* <li>
           <a href="#" className="text-white hover:text-prbg-primary">
@@ -457,7 +558,13 @@ const Header = () => {
           </a>
         </li> */}
           <li className="text-white hover:text-prbg-primary">
-            <Link href="/career"> Career</Link>
+            <Link
+              className="text-[20px] leading-[28px] font-[500]"
+              href="/career"
+            >
+              {" "}
+              Career
+            </Link>
           </li>
         </ul>
         {isOpen && (
