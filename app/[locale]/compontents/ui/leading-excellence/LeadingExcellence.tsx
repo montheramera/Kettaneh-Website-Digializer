@@ -14,7 +14,7 @@ const LeadingExcellence = () => {
               </span>
             </div>
             <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
-              <span className="text-primary "> Leading Excellence</span>
+              <span className="text-primary "> Leading Excellence</span>{" "}
               Across Business Units
             </h2>
             <p className=" text-[20px] font-[500] leading-[28px] text-paragraph">

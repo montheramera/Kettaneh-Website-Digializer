@@ -23,7 +23,6 @@ const FirstSection: React.FC<FirstSectionProps> = ({
   return (
     <>
       <div className="p-8 lg:px-20 lg:py-[32px] font-avenir">
-        {/* Who we are section */}
         <section className="max-w-[1440px] m-auto">
           <div>
             <div className="mb-10 flex">
@@ -39,7 +38,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
               </span>
             </div>
             <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
-              {/* Electrical */}
+
               {categoryname}
             </h2>
           </div>
@@ -51,10 +50,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
                   className=" min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"
                 ></div>
                 <p className="lg:max-w-[536px]">
-                  {/* Our Electrical Business Unit is a solution provider in the
-                    power systems, Automation, Gear Motors, Industrial
-                    Couplings, Building Technologies and Drive Technologies
-                    through Siemens, Flender and Prysmian. */}
+
                   {categoryParagraph}
                 </p>
               </div>
@@ -91,15 +87,86 @@ const FirstSection: React.FC<FirstSectionProps> = ({
                 alt={`${categoryname} image`}
                 width={297}
                 height={330}
-                //   className="w-full h-auto"
               />
             </div>
           </div>
         </section>
-
-        {/* What we do section */}
       </div>
     </>
+
+    // <>
+    //   <div className="p-8 lg:px-20 lg:py-[32px] font-avenir">
+    //     <section
+    //     // className="max-w-[1440px] m-auto"
+    //     >
+    //       <div className="max-w-[1440px] m-auto">
+    //         <div className="mb-10 flex">
+    //           <div
+    //             style={{ background: categoryBg }}
+    //             className="min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"
+    //           ></div>
+    //           <span
+    //             style={{ background: categoryBg }}
+    //             className=" text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px]"
+    //           >
+    //             Categories
+    //           </span>
+    //         </div>
+    //         <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
+    //           {categoryname}
+    //         </h2>
+    //       </div>
+    //       <div
+    //         style={{ backgroundImage: `url(${imageUrl})` }}
+    //         className="flex flex-col lg:flex-row justify-between mt-[64px]  text-[18px] font-[400] leading-[28px] text-paragraph min-h-[400px]"
+    //       >
+    //         <div className="max-w-[1440px] m-auto">
+    //           <div className="flex">
+    //             <div
+    //               style={{ background: categoryBg }}
+    //               className=" min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"
+    //             ></div>
+    //             <p className="lg:max-w-[536px]">{categoryParagraph}</p>
+    //           </div>
+    //           <div className="flex items-center border border-[#E5E7EB] max-w-[280px] my-[32px] rounded-md p-3 bg-white">
+    //             <span
+    //               style={{ background: categoryBg }}
+    //               className="inline-block h-3 w-3 rounded-full bg-primary mr-2"
+    //             ></span>
+    //             <p className="text-heading text-[16px] leading-[20px] font-[500]">
+    //               Click a logo to explore products
+    //             </p>
+    //           </div>
+    //           {/* <div className="flex  items-center flex-wrap max-w-[800px] gap-10">
+    //             {imagesLogos.map((partner, index) => (
+    //               <Image
+    //                 key={index}
+    //                 src={partner.src}
+    //                 alt={partner.name}
+    //                 width={partner.width}
+    //                 height={partner.height}
+    //                 priority
+    //                 className=""
+    //               />
+    //             ))}
+    //           </div> */}
+    //         </div>
+    //         {/* <div className="flex max-h-[330px]">
+    //           <div
+    //             style={{ background: categoryBg }}
+    //             className="min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"
+    //           ></div>
+    //           <Image
+    //             src={imageUrl}
+    //             alt={`${categoryname} image`}
+    //             width={297}
+    //             height={330}
+    //           />
+    //         </div> */}
+    //       </div>
+    //     </section>
+    //   </div>
+    // </>
   );
 };
 
