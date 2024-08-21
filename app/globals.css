@@ -78,6 +78,9 @@ body {
 p{
   font-family: "Avenir-light" ;
 }
+.font-light{
+    font-family: "Avenir-light";
+}
 img {
   width: auto;
 }

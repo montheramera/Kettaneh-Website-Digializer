@@ -28,7 +28,7 @@ const Header = () => {
             </Link>
           </div>
           {/* Hamburger Menu (visible on small screens) */}
-          <div className="block lg:hidden">
+          <div className="block lg:hidden font-light">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-white focus:outline-none"
@@ -51,7 +51,7 @@ const Header = () => {
           </div>
           {/* Menu Items */}
           <ul
-            className={`hidden lg:flex space-x-6 ${
+            className={`hidden lg:flex space-x-6 font-light ${
               isMenuOpen ? "block" : "hidden"
             }`}
           >
