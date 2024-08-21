@@ -1,7 +1,6 @@
 "use client"
 import Image from 'next/image';
 import React from 'react';
-import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
 export type Logo = {
@@ -24,7 +23,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
   imagesLogos,
   imageUrl,
 }) => {
-  const router = useRouter();
+  
   const path = usePathname();
   console.log("router", path);
   

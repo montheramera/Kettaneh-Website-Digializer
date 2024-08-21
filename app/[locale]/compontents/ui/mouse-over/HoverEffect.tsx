@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const HoverEffect = () => {
   const [maxWidth, setMaxwidth] = useState(true);
@@ -9,6 +10,8 @@ const HoverEffect = () => {
   const [maxWidth3, setMaxwidth3] = useState(false);
   const [maxWidth4, setMaxwidth4] = useState(false);
   const [maxWidth5, setMaxwidth5] = useState(false);
+    const path = usePathname();
+ 
   return (
     <div className="container1 font-avenir justify-between overflow-hidden">
       <div
@@ -22,7 +25,11 @@ const HoverEffect = () => {
         }}
         className={`section   ${maxWidth ? "max-w-[850px]" : "max-w-[100px]"}`}
       >
-        <div className="relative h-[400px] w-full font-avenir">
+        <div
+          className={`relative ${
+            path === "/en" ? "h-[400px]" : "h-[270px]"
+          } w-full font-avenir`}
+        >
           <Image
             src="/images/image1.jpg"
             alt="Background"
@@ -76,7 +83,11 @@ const HoverEffect = () => {
           maxWidth5 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
-        <div className="relative h-[400px] w-full font-avenir">
+        <div
+          className={`relative ${
+            path === "/en" ? "h-[400px]" : "h-[270px]"
+          } w-full font-avenir`}
+        >
           <Image
             src="/images/image1.jpg"
             alt="Background"
@@ -130,7 +141,11 @@ const HoverEffect = () => {
           maxWidth1 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
-        <div className="relative h-[400px] w-full font-avenir">
+        <div
+          className={`relative ${
+            path === "/en" ? "h-[400px]" : "h-[270px]"
+          } w-full font-avenir`}
+        >
           <Image
             src="/images/categories/hvac/hvac.png"
             alt="Background"
@@ -159,7 +174,11 @@ const HoverEffect = () => {
           maxWidth2 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
-        <div className="relative h-[400px] w-full font-avenir">
+        <div
+          className={`relative ${
+            path === "/en" ? "h-[400px]" : "h-[270px]"
+          } w-full font-avenir`}
+        >
           <Image
             src="/images/categories/machinery/machinery.png"
             alt="Background"
@@ -188,7 +207,11 @@ const HoverEffect = () => {
           maxWidth3 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
-        <div className="relative h-[400px] w-full font-avenir">
+        <div
+          className={`relative ${
+            path === "/en" ? "h-[400px]" : "h-[270px]"
+          } w-full font-avenir`}
+        >
           <Image
             src="/images/categories/lighting/lighting.png"
             alt="Background"
@@ -217,7 +240,11 @@ const HoverEffect = () => {
           maxWidth4 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
-        <div className="relative h-[400px] w-full font-avenir">
+        <div
+          className={`relative ${
+            path === "/en" ? "h-[400px]" : "h-[270px]"
+          } w-full font-avenir`}
+        >
           <Image
             src="/images/categories/after-marketing/after-marketing.png"
             alt="Background"
