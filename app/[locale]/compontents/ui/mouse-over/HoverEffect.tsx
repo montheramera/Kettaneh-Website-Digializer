@@ -20,7 +20,7 @@ const HoverEffect = () => {
           setMaxwidth4(false);
           setMaxwidth5(false);
         }}
-        className={`section   ${maxWidth ? "max-w-[700px]" : "max-w-[100px]"}`}
+        className={`section   ${maxWidth ? "max-w-[850px]" : "max-w-[100px]"}`}
       >
         <div className="relative h-[400px] w-full font-avenir">
           <Image
@@ -73,7 +73,7 @@ const HoverEffect = () => {
           setMaxwidth(false);
         }}
         className={`section relative  ${
-          maxWidth5 ? "max-w-[700px]" : "max-w-[100px]"
+          maxWidth5 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
         <div className="relative h-[400px] w-full font-avenir">
@@ -127,7 +127,7 @@ const HoverEffect = () => {
           setMaxwidth5(false);
         }}
         className={`section  section2 ${
-          maxWidth1 ? "max-w-[700px]" : "max-w-[100px]"
+          maxWidth1 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
         <div className="relative h-[400px] w-full font-avenir">
@@ -156,7 +156,7 @@ const HoverEffect = () => {
           setMaxwidth5(false);
         }}
         className={`section  section3 ${
-          maxWidth2 ? "max-w-[700px]" : "max-w-[100px]"
+          maxWidth2 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
         <div className="relative h-[400px] w-full font-avenir">
@@ -185,7 +185,7 @@ const HoverEffect = () => {
           setMaxwidth5(false);
         }}
         className={`section  section4 ${
-          maxWidth3 ? "max-w-[700px]" : "max-w-[100px]"
+          maxWidth3 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
         <div className="relative h-[400px] w-full font-avenir">
@@ -214,7 +214,7 @@ const HoverEffect = () => {
           setMaxwidth5(false);
         }}
         className={`section  section5 ${
-          maxWidth4 ? "max-w-[700px]" : "max-w-[100px]"
+          maxWidth4 ? "max-w-[850px]" : "max-w-[100px]"
         }`}
       >
         <div className="relative h-[400px] w-full font-avenir">
