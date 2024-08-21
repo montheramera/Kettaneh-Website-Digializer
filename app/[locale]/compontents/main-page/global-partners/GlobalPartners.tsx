@@ -10,13 +10,13 @@ export default function GlobalPartners() {
   ];
 
   return (
-    <div className="lg:px-20 px-6 py-4 lg:py-[97px] font-avenir">
+    <div className="lg:px-20 px-6 py-4 lg:py-[97px] font-avenir bg-[#F9FAFB]">
       <div className="flex flex-col lg:flex-row  justify-between items-center max-w-[1440px] m-auto">
         <div className=" lg:min-w-[425px]">
           <h2 className="font-[800] text-[36px] text-[#101828] leading-[40px]">
             Our Global Partners
           </h2>
-          <p className="font-[500] mb-8 lg:mb-0 text-[20] leading-[28px] mt-[10px] text-[#475467]">
+          <p className=" paragraph mb-8 lg:mb-0 text-[20px] leading-[28px] mt-[10px] text-[#475467]">
             More than 30 global brands
           </p>
         </div>

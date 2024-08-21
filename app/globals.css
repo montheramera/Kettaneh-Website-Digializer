@@ -60,21 +60,23 @@ body {
 
 @font-face {
   font-family: "Avenir";
-  /* src: url("/fonts/AvenirLTStd-Book.otf") format("opentype"); */
     src: url("/fonts/AvenirLTStd-Heavy.otf") format("opentype");
-  font-weight:900;
+  font-weight:800;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Avenir";
-  src: url("/fonts/AvenirLTStd-Heavy.otf") format("opentype");
-  font-weight: 900;
+  font-family: "Avenir-light";
+  src: url("/fonts/AvenirLTStd-Light.otf") format("opentype");
+  font-weight: 800;
   font-style: normal;
 }
 
 body {
   font-family: "Avenir";
+}
+p{
+  font-family: "Avenir-light" ;
 }
 img {
   width: auto;
