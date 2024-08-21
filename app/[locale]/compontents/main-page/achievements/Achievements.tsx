@@ -15,9 +15,9 @@ const Achievements = () => {
             <div className="mt-[12px] mb-[8px] font-[800] text-[18px] leading-[28px]">
               Landmark Projects
             </div>
-            <div className="font-[400] text-[12px] leading-[24px]">
+            <p className="font-[400] text-[12px] leading-[24px] text-center">
               Successfully completed projects that set industry standards
-            </div>
+            </p>
           </div>
           <div className="flex flex-col items-center">
             <div className="font-[800] text-[50px] leading-[60px]">+30</div>
@@ -33,18 +33,18 @@ const Achievements = () => {
             <div className="mt-[12px] mb-[8px] font-[800] text-[18px] leading-[28px]">
               Years of experience
             </div>
-            <div className="font-[400] text-[12px] leading-[24px] text-center">
+            <p className="font-[400] text-[12px] leading-[24px] text-center">
               Providing top-tier engineering solutions since 1922
-            </div>
+            </p>
           </div>
           <div className="flex flex-col items-center">
             <div className="font-[800] text-[50px] leading-[60px]">+4.7</div>
             <div className="mt-[12px] mb-[8px] font-[800] text-[18px] leading-[28px]">
               Rating
             </div>
-            <div className="font-[400] text-[12px] leading-[24px] text-center">
+            <p className="font-[400] text-[12px] leading-[24px] text-center">
               High customer satisfaction ratings across all our services
-            </div>
+            </p>
           </div>
         </div>
       </div>

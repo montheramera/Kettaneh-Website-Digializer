@@ -33,7 +33,8 @@ const page = () => {
           }
           categoryBg={"#75B4C2"}
           imagesLogos={imagesLogos}
-          imageUrl={"/images/categories/electrical/electrical.png"}
+          // imageUrl={"/images/categories/electrical/electrical.png"}
+          imageUrl={"/images/image1.jpg"}
         />
 
         <section>
