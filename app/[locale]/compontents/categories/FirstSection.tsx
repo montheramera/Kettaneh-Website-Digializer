@@ -130,9 +130,10 @@ const FirstSection: React.FC<FirstSectionProps> = ({
               backgroundPosition: "center",
               backgroundSize: "cover",
             }}
-            className="flex flex-col lg:flex-row   text-[18px] font-[400] leading-[28px] text-paragraph min-h-[800px]"
+            className="flex relative flex-col lg:flex-row  inset-0 bg-paragraph bg-opacity-50  text-[18px] font-[400] leading-[28px] text-paragraph min-h-[800px]"
           >
-            <div className="max-w-[1440px] text-white w-full m-auto ">
+             <div className="absolute inset-0 bg-paragraph bg-opacity-70   "></div>
+            <div className="max-w-[1440px] text-white w-full m-auto z-[100]">
               <div className="flex">
                 <div
                   style={{ background: categoryBg }}
@@ -167,7 +168,9 @@ const FirstSection: React.FC<FirstSectionProps> = ({
           <div
             className={`flex  items-center flex-wrap max-w-[1420px] m-auto gap-10 ${
               path === "/en/categories/machinery" ||
-              path === "/en/categories/lighting"?"mt-[40px]":""
+              path === "/en/categories/lighting"
+                ? "mt-[40px]"
+                : ""
             } `}
           >
             {imagesLogos.map((partner, index) => (
