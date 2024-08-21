@@ -100,7 +100,7 @@ export default function JobListings() {
             </a>
             mentioning the job & title departments in the subject.
           </p>
-          <h3 className="text-[20px] font-[800] leading-[28px] text-heading mt-[32px]">
+          {/* <h3 className="text-[20px] font-[800] leading-[28px] text-heading mt-[32px]">
             Requirements
           </h3>
           <ul className="list-disc list-inside text-[20px] font-[400] leading-[28px] text-paragraph space-y-1 mt-[20px]">
@@ -108,7 +108,7 @@ export default function JobListings() {
             <li>3+ years related experience.</li>
             <li>Owns a car.</li>
             <li>Experience in CRM is a plus.</li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     </div>

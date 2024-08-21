@@ -126,9 +126,9 @@ li:hover > button svg {
   min-width: 8rem;
 }
 
-.feedback .slick-dots {
+/* .feedback .slick-dots {
   bottom: 30px;
-}
+} */
 .feedback .slick-dots li.slick-active button:before {
   color: "#FCA5A5" !important;
 }
@@ -146,6 +146,10 @@ li:hover > button svg {
 .feedback .slick-next:before,
 .slick-prev:before {
   font-size: 40px !important;
+}
+
+.feedback .slick-dots {
+  bottom: -50px !important;
 }
 
 /* form start */
@@ -238,6 +242,7 @@ li:hover > button svg {
 .golden-patern {
   .test {
   }
+
   /* .slick-next:before,
     .slick-prev:before{
       line-height: 0px !important;
@@ -266,18 +271,17 @@ li:hover > button svg {
 
 .container1 {
   display: flex;
-  gap: 100px;
+  gap: 10px;
   height: 400px;
 }
 
 .section {
   flex: 1;
-  transition: flex 0.5s ease;
+  transition:  0.5s ease;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   cursor: pointer;
   text-transform: uppercase;
   text-align: center;

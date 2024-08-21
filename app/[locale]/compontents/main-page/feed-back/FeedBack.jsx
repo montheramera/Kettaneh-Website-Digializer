@@ -46,14 +46,14 @@ function AdaptiveHeight() {
   };
 
   return (
-    <div className="slider-container bg-primary feedback lg:min-h-[496px]">
+    <div className="slider-container bg-primary feedback lg:py-[107px]">
       <div className="max-w-[1440px] m-auto">
 
       <Slider {...settings}>
         {feedsback.map((feedback, index) => (
           <div key={index}>
-            <div className="p-8 lg:px-20 lg:py-[96px] font-avenir  text-white">
-              <p className="text-[36px] font-[500] leading-[40px] flex justify-center lg:min-h-[160px] text-center lg:px-[60px]">
+            <div className="font-avenir  text-white">
+              <p className="text-[24px] font-[400] leading-[40px] flex justify-center lg:min-h-[160px] text-center lg:px-[60px]">
                 &ldquo; {feedback.text} &rdquo;
               </p>
               <div className="flex justify-center items-center">

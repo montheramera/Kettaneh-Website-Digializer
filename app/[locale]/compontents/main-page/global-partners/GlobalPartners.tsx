@@ -10,7 +10,7 @@ export default function GlobalPartners() {
   ];
 
   return (
-    <div className="lg:px-20 px-6 py-4 lg:py-[96px] font-avenir">
+    <div className="lg:px-20 px-6 py-4 lg:py-[97px] font-avenir">
       <div className="flex flex-col lg:flex-row  justify-between items-center max-w-[1440px] m-auto">
         <div className=" lg:min-w-[425px]">
           <h2 className="font-[800] text-[36px] text-[#101828] leading-[40px]">

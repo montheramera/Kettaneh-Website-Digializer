@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-white p-8 lg:px-20 lg:py-[96px] font-avenir">
-      <div className="max-w-[1440px] m-auto">
+    <footer className=" font-avenir">
+      <div className="max-w-[1440px] m-auto bg-white  lg:pt-[64px] lg:pb-[48px]">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between ">
           {/* Logo and Description */}
@@ -24,9 +24,12 @@ export default function Footer() {
           </div>
 
           {/* Links Section */}
-          <div className="flex flex-wrap lg:flex-grow lg:max-w-[700px] justify-between w-full md:w-auto">
+          <div className="flex flex-wrap lg:flex-grow lg:max-w-[700px] justify-between w-full md:w-auto ">
             <div className="w-full sm:w-1/3 md:w-auto md:mb-0">
-              <h4 className="font-[900] text-[14px] leading-[20px] text-primary mb-[8px]">
+              <h4
+                style={{ fontWeight: 900 }}
+                className="font-[900] text-[20px] leading-[24px] text-primary mb-[16px] "
+              >
                 Quick Links
               </h4>
               <ul className="flex flex-col gap-3">
@@ -73,7 +76,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="w-full sm:w-1/3 md:w-auto  md:mb-0">
-              <h4 className="font-[900] text-[14px] leading-[20px] text-primary mb-[8px]">
+              <h4 className="font-[900] text-[20px] leading-[20px] text-primary mb-[16px]">
                 Categories
               </h4>
               <ul className="flex flex-col gap-3 ">
@@ -120,7 +123,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="w-full sm:w-1/3 md:w-auto">
-              <h4 className="font-[900] text-[14px] leading-[20px] text-primary mb-[8px]">
+              <h4 className="font-[900] text-[20px] leading-[20px] text-primary mb-[16px]">
                 Connect with us
               </h4>
               <p className="font-[500] text-paragraph leading-[24px] text-[16px] flex gap-2">
@@ -211,17 +214,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-[96px] text-center md:text-left font-[350] text-[16px] leading-[24px] text-paragraph">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>© 2024 Kettaneh. All rights reserved.</p>
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              <a href="#" className="underline">
-                Privacy Policy
-              </a>
-              <a href="#" className="underline">
-                Terms and Conditions
-              </a>
-            </div>
+      </div>
+      <div className="py-[48px] text-center md:text-left font-[350] text-[16px] leading-[24px] text-paragraph bg-[#F9FAFB] ">
+        <div className="flex flex-col md:flex-row justify-between items-center max-w-[1440px] m-auto">
+          <p>© 2024 Kettaneh. All rights reserved.</p>
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" className="underline">
+              Privacy Policy
+            </a>
+            <a href="#" className="underline">
+              Terms and Conditions
+            </a>
           </div>
         </div>
       </div>

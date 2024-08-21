@@ -16,11 +16,11 @@ export default function AboutUs() {
 
   return (
     <>
-      <div className="p-8 lg:px-20 lg:py-[32px] font-avenir">
+      <div className=" lg:px-20  font-avenir">
         {/* Who we are section */}
         <section className="max-w-[1440px] m-auto">
           <div>
-            <div className="mb-10 flex">
+            <div className="mb-[16px] mt-[24px] flex">
               <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px]">
                 About Us
@@ -33,7 +33,7 @@ export default function AboutUs() {
               A Legacy of Commitment and Growth Since 1922
             </p>
           </div>
-          <div className="grid md:grid-cols-2 mt-[64px]  text-[18px] font-[400] leading-[28px] text-paragraph">
+          <div className="grid md:grid-cols-2 mt-[51px]  text-[18px] font-[400] leading-[28px] text-paragraph">
             <div className="flex">
               <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <p className="lg:max-w-[536px]">
@@ -52,7 +52,6 @@ export default function AboutUs() {
                 Expansion came when they became sole distributors of a number of
                 US brands in the region.
                 <br />
-                <br />
                 This was the push they needed to conduct what was to be a long
                 productive and diversified business development.
                 <br />
@@ -64,21 +63,21 @@ export default function AboutUs() {
                 committed to serving you.
               </p>
             </div>
-            <div className="flex">
-              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+            <div className="flex justify-end">
+              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px] max-h-[564px]"></div>
               <Image
                 src="/images/about/timeline2_2 3 (1).png"
                 alt="Kettaneh Company Building"
                 width={561}
                 height={564}
-                className="w-full h-auto"
+                className="w-full h-auto max-h-[590px] max-w-[561px]"
               />
             </div>
           </div>
         </section>
 
         {/* What we do section */}
-        <section className="py-[48px] max-w-[1440px] m-auto">
+        <section className="lg:py-[96px] max-w-[1440px] m-auto">
           <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
             What we <span className="text-primary ">do </span>?
           </h2>
@@ -117,7 +116,7 @@ export default function AboutUs() {
         </section>
       </div>
 
-      <section className="bg-primary text-white p-8 lg:px-20 lg:py-[32px] font-avenir">
+      <section className="bg-primary text-white lg:px-20 lg:py-[96px] font-avenir">
         <div className="max-w-[1440px] m-auto">
           <h2 className="text-[36px] font-[800] leading-[40px]  mb-[10px]">
             Where are we heading to?
@@ -142,7 +141,48 @@ export default function AboutUs() {
             </div>
 
             <div className="flex">
-              <div className="bg-white min-w-[2px] w-[2px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+              <div className="lg:max-w-[536px]">
+                <h3 className="text-[20px] font-[600] leading-[30px]">
+                  Vision
+                </h3>
+                <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
+                  Lead the market by expanding our product portfolio and
+                  integrating it into profitable services and solutions that add
+                  comfort, safety, and reliability to our customers while
+                  protecting our environment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-primary text-white lg:px-20 lg:py-[96px] font-avenir">
+        <div className="max-w-[1440px] m-auto">
+          <h2 className="text-[36px] font-[800] leading-[40px]  mb-[10px]">
+            Where are we heading to?
+          </h2>
+          <p className=" text-[20px] font-[500] leading-[28px] ">
+            Charting the Future with Innovation and Integrity
+          </p>
+          <div className="flex flex-col lg:flex-row justify-between gap-5 mt-[64px]">
+            <div className="flex">
+              <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+              <div className="lg:max-w-[536px]">
+                <h3 className="text-[20px] font-[600] leading-[30px]">
+                  Mission
+                </h3>
+                <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
+                  Leverage on our historical and ethical business reputation in
+                  the region to meet the changing needs of our customers by
+                  offering them integrated solutions and services through an
+                  expanded offering of leading brands.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex">
+              <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
                 <h3 className="text-[20px] font-[600] leading-[30px]">
                   Vision

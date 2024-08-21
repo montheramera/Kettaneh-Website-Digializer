@@ -37,8 +37,17 @@ export default function GallerySection() {
               height={176}
               className="object-cover w-full h-auto"
             />
-            <p className="text-[18px] font-[800] leading-[28px] text-heading mx-2 py-[20px]">
+            <p className="text-[18px] font-[800] leading-[28px] text-heading mx-2 mt-[10px] ">
               {image.title}
+            </p>
+            <p className="font-[400] mb-[10px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
+              {new Date().toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
             </p>
           </div>
         ))}

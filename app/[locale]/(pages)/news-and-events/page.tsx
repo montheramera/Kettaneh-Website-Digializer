@@ -25,97 +25,134 @@ const page = () => {
             </p>
           </div>
         </section>
-
-        <section className="my-[20px] lg:mt-[64px] max-w-[1440px] m-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-[32px]">
-            <div className="lg:col-span-2 shadow-lg">
-              {/* <div className="relative w-[769px] h-[337px] mb-6"> */}
-              <Image
-                src={"/images/news/Frame 1272631876.png"}
-                alt="Haier Factory Visit"
-                //   layout="fill"
-                //   objectFit="cover"
-                width={769}
-                height={337}
-                priority
-              />
-              {/* </div> */}
-              <h3 className="font-[800] mt-[20px] text-[18px] leading-[28px] mx-2 text-[#111928] ">
-                Haier Factory Visit
-              </h3>
+        <div className=" lg:pt-[64px]">
+          <section className=" max-w-[1440px] m-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-[32px]">
+              <div className="lg:col-span-2 shadow-lg">
+                {/* <div className="relative w-[769px] h-[337px] mb-6"> */}
+                <Image
+                  src={"/images/news/Frame 1272631876.png"}
+                  alt="Haier Factory Visit"
+                  //   layout="fill"
+                  //   objectFit="cover"
+                  width={769}
+                  height={337}
+                  priority
+                />
+                {/* </div> */}
+                <h3 className="font-[800] mt-[10px] text-[18px] leading-[28px] mx-2 text-[#111928] ">
+                  Haier Factory Visit
+                </h3>
+                <p className="font-[400] mt-[10px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
+                  {new Date().toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </p>
+              </div>
+              <div className="lg:col-span-1 space-y-10">
+                <div>
+                  <div className="gap-2 flex">
+                    <div className="relative w-[24px] h-[24px]">
+                      <Image
+                        src={"/images/news/arrow.png"}
+                        alt="Jordanian Technicians Forum"
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+                    <h3 className="font-[800] text-[18px] leading-[28px] text-heading">
+                      Attend Our Latest Event
+                    </h3>
+                  </div>
+                  <p className="max-w-[416px] font-[400] text-[16px] leading-[24px] ml-7 text-paragraph">
+                    Join us for industry-leading events featuring expert
+                    speakers and the latest innovations.
+                  </p>
+                  <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] ">
+                    {new Date().toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
+                </div>
+                <div>
+                  <div className="gap-2 flex">
+                    <div className="relative w-[24px] h-[24px]">
+                      <Image
+                        src={"/images/news/arrow.png"}
+                        alt="Jordanian Technicians Forum"
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+                    <h3 className="font-[800] text-[18px] leading-[28px] text-heading">
+                      Organize a Kettaneh Workshop
+                    </h3>
+                  </div>
+                  <p className="max-w-[416px] font-[400] text-[16px] leading-[24px] ml-7 text-paragraph">
+                    Bring Kettaneh’s expertise to your community with our
+                    specialized workshops and seminars.
+                  </p>
+                  <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] ">
+                    {new Date().toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
+                </div>
+                <div>
+                  <div className="gap-2 flex">
+                    <div className="relative w-[24px] h-[24px]">
+                      <Image
+                        src={"/images/news/arrow.png"}
+                        alt="Jordanian Technicians Forum"
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+                    <h3 className="font-[800] text-[18px] leading-[28px] text-heading">
+                      About Kettaneh Events
+                    </h3>
+                  </div>
+                  <p className="max-w-[416px] font-[400] text-[16px] leading-[24px] ml-7 text-paragraph">
+                    Our events foster growth, innovation, and collaboration
+                    across industries, connecting professionals worldwide.
+                  </p>
+                  <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] ">
+                    {new Date().toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="lg:col-span-1 space-y-20">
-              <div>
-                <div className="gap-2 flex">
-                  <div className="relative w-[24px] h-[24px]">
-                    <Image
-                      src={"/images/news/arrow.png"}
-                      alt="Jordanian Technicians Forum"
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </div>
-                  <h3 className="font-[800] text-[18px] leading-[28px] text-heading">
-                    Attend Our Latest Event
-                  </h3>
-                </div>
-                <p className="max-w-[416px] font-[400] text-[16px] leading-[24px] ml-7 text-paragraph">
-                  Join us for industry-leading events featuring expert speakers
-                  and the latest innovations.
-                </p>
-              </div>
-              <div>
-                <div className="gap-2 flex">
-                  <div className="relative w-[24px] h-[24px]">
-                    <Image
-                      src={"/images/news/arrow.png"}
-                      alt="Jordanian Technicians Forum"
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </div>
-                  <h3 className="font-[800] text-[18px] leading-[28px] text-heading">
-                    Organize a Kettaneh Workshop
-                  </h3>
-                </div>
-                <p className="max-w-[416px] font-[400] text-[16px] leading-[24px] ml-7 text-paragraph">
-                  Bring Kettaneh’s expertise to your community with our
-                  specialized workshops and seminars.
-                </p>
-              </div>
-              <div>
-                <div className="gap-2 flex">
-                  <div className="relative w-[24px] h-[24px]">
-                    <Image
-                      src={"/images/news/arrow.png"}
-                      alt="Jordanian Technicians Forum"
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </div>
-                  <h3 className="font-[800] text-[18px] leading-[28px] text-heading">
-                    About Kettaneh Events
-                  </h3>
-                </div>
-                <p className="max-w-[416px] font-[400] text-[16px] leading-[24px] ml-7 text-paragraph">
-                  Our events foster growth, innovation, and collaboration across
-                  industries, connecting professionals worldwide.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="my-[20px] lg:mt-[64px] max-w-[1440px] m-auto">
-          <GallerySection />
-        </section>
+          <section className="max-w-[1440px] lg:mt-[96px] m-auto">
+            <GallerySection />
+          </section>
+        </div>
       </div>
 
       <section>
         <LeadingExcellence />
       </section>
 
-      <section className="my-[20px] lg:my-[64px] ">
+      <section className=" ">
         <CallToAction />
       </section>
     </>

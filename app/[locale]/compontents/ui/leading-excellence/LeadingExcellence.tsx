@@ -4,7 +4,7 @@ import HoverEffect from "../mouse-over/HoverEffect";
 const LeadingExcellence = () => {
   return (
     <>
-      <div className="p-8 lg:px-20 lg:py-[32px] font-avenir">
+      <div className=" lg:px-20  py-[96px] font-avenir">
         <section className="max-w-[1440px] m-auto">
           <div>
             <div className="mb-10 flex">
@@ -23,7 +23,7 @@ const LeadingExcellence = () => {
               expectations
             </p>
           </div>
-        <div className="my-[24px]">
+        <div className="mt-[50px]">
           <HoverEffect />
         </div>
         </section>

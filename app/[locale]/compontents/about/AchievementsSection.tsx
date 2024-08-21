@@ -2,13 +2,14 @@ import Image from "next/image";
 
 const AchievementsSection = () => {
   return (
-    <section className="p-8 lg:px-20 lg:py-[32px] font-avenir">
-      <div className="md:flex items-center justify-between gap-10 max-w-[1440px] m-auto">
-        <div className="md:w-1/2">
+    <section className=" lg:px-20 lg:py-[96px] font-avenir">
+      <div className="flex items-center justify-between gap-20 max-w-[1440px] m-auto">
+        <div className="">
           <div className="flex">
             <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
             <Image
-              src="/images/about/acheivement.png"
+              // src="/images/about/acheivement.png"
+              src="/images/our-legacy.png"
               alt="Achievements Image"
               width={561}
               height={564}
@@ -18,7 +19,7 @@ const AchievementsSection = () => {
         </div>
 
         {/* Right Content Section */}
-        <div className="md:w-1/2 mt-8 md:mt-0">
+        <div className=" mt-8 md:mt-0  ">
           <div className="mb-[24px] flex">
             <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
             <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px]">
