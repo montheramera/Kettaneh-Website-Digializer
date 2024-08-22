@@ -33,7 +33,7 @@ const News = () => {
               Haier Factory Visit
             </h3>
 
-            <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
+            <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] underline ">
               {new Date().toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
@@ -62,7 +62,7 @@ const News = () => {
                 Join us for industry-leading events featuring expert speakers
                 and the latest innovations.
               </p>
-              <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] ">
+              <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] underline">
                 {new Date().toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -90,7 +90,7 @@ const News = () => {
                 Bring Kettaneh’s expertise to your community with our
                 specialized workshops and seminars.
               </p>
-              <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] ">
+              <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] underline">
                 {new Date().toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -118,7 +118,7 @@ const News = () => {
                 Our events foster growth, innovation, and collaboration across
                 industries, connecting professionals worldwide.
               </p>
-              <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] ">
+              <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] underline">
                 {new Date().toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -143,7 +143,7 @@ const News = () => {
             <h3 className="font-[800] text-[18px] leading-[28px] text-heading my-[10px] mx-2">
               F.A. Kettaneh Kick Off Meeting
             </h3>
-            <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
+            <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] underline">
               {new Date().toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
@@ -166,7 +166,7 @@ const News = () => {
             <h3 className="font-[800] text-[18px] leading-[28px] text-heading my-[10px] mx-2">
               Jordanian Technicians Forum
             </h3>
-            <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
+            <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] underline ">
               {new Date().toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
@@ -192,7 +192,7 @@ const News = () => {
             <h3 className="font-[800] text-[18px] leading-[28px] text-heading my-[10px] mx-2">
               JIMEX Exhibition 2019
             </h3>
-            <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
+            <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] underline ">
               {new Date().toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",

@@ -12,7 +12,7 @@ const CallToAction: React.FC<CallToActionProps> = ({ background }) => {
    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
   return (
     <>
-      <div className="  mb-96 lg:mb-[96px] ">
+      <div className="  mb-96 lg:mb-[170px] ">
         <div
           style={{ background: background || "#BB4A52" }}
           className=" hidden relative lg:block z-1 min-w-full h-[400px] sm:h-[400px] md:h-[600px] lg:h-[254px] lg:min-h-[254px] "

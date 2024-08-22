@@ -10,10 +10,10 @@ const CareerForm = () => {
   return (
     <section className="font-avenir">
       <div className="">
-        <h2 className="text-[36px] font-[800] leading-[40px] text-heading">
+        <h2 className="text-[36px] font-[800] leading-[40px] text-heading mt-[50px] mb-[20px]">
           Advance <span className="text-primary">Your Career</span> with Us
         </h2>
-        <p className="text-[20px] font-[500] leading-[28px] text-paragraph lg:max-w-[768px] mb-[40px]">
+        <p className="text-[20px] font-[500] leading-[28px] text-paragraph lg:max-w-[768px] mb-[60px]">
           Explore exciting career opportunities at F.A. Kettaneh & Co LTD Jordan
           and become part of our legacy of excellence and innovation.
         </p>
@@ -53,7 +53,7 @@ const CareerForm = () => {
                 />
               </div>
 
-              <div className="flex flex-col lg:flex-row mb-[16px]">
+              <div className="flex flex-col lg:flex-row mb-[24px]">
                 <label
                   htmlFor="phone-number"
                   className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
@@ -82,7 +82,7 @@ const CareerForm = () => {
                 />
               </div>
 
-              <div className="flex flex-col lg:flex-row mb-[16px]">
+              <div className="flex flex-col lg:flex-row mb-[24px]">
                 <label
                   htmlFor="cv"
                   className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"

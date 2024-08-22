@@ -43,7 +43,7 @@ const page = () => {
                 <h3 className="font-[800] mt-[10px] text-[18px] leading-[28px] mx-2 text-[#111928] ">
                   Haier Factory Visit
                 </h3>
-                <p className="font-[400] mt-[10px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
+                <p className="font-[400] underline mt-[10px] text-[16px]  leading-[28px] mx-2 text-[#111928] ">
                   {new Date().toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "long",
@@ -72,7 +72,7 @@ const page = () => {
                     Join us for industry-leading events featuring expert
                     speakers and the latest innovations.
                   </p>
-                  <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] ">
+                  <p className="font-[400] my-[10px] underline text-[16px] leading-[28px] ml-7 text-[#111928] ">
                     {new Date().toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
@@ -100,7 +100,7 @@ const page = () => {
                     Bring Kettaneh’s expertise to your community with our
                     specialized workshops and seminars.
                   </p>
-                  <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] ">
+                  <p className="font-[400] my-[10px] text-[16px] underline leading-[28px] ml-7 text-[#111928] ">
                     {new Date().toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
@@ -128,7 +128,7 @@ const page = () => {
                     Our events foster growth, innovation, and collaboration
                     across industries, connecting professionals worldwide.
                   </p>
-                  <p className="font-[400] my-[10px] text-[16px] leading-[28px] ml-7 text-[#111928] ">
+                  <p className="font-[400] my-[10px] text-[16px] underline leading-[28px] ml-7 text-[#111928] ">
                     {new Date().toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",

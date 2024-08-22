@@ -104,9 +104,9 @@ const FirstSection: React.FC<FirstSectionProps> = ({
     <>
       <div className=" font-avenir">
         <section
-        // className="max-w-[1440px] m-auto"
+        className="max-w-[1440px] m-auto "
         >
-          <div className="max-w-[1440px] m-auto">
+          <div className="max-w-[1440px] m-auto ">
             <div className="flex my-[24px]">
               <div
                 style={{ background: categoryBg }}
@@ -126,11 +126,11 @@ const FirstSection: React.FC<FirstSectionProps> = ({
               backgroundPosition: "center",
               backgroundSize: "cover",
             }}
-            className="flex relative flex-col lg:flex-row  inset-0 bg-paragraph bg-opacity-50  text-[18px] font-[400] leading-[28px] text-paragraph min-h-[500px]"
+            className="flex px-10 relative flex-col lg:flex-row  inset-0 bg-paragraph bg-opacity-50  text-[18px] font-[400] leading-[28px] text-paragraph min-h-[300px]"
           >
             <div className="absolute inset-0 bg-paragraph bg-opacity-70   "></div>
             <div className="max-w-[1440px] text-white w-full m-auto z-[100]">
-              <h2 className=" text-[36px] font-[800] leading-[40px]  mb-[32px]">
+              <h2 className=" text-[36px] font-[800] leading-[40px]  mt-[30px] mb-[32px]">
                 {categoryname}
               </h2>
               <div className="flex">
@@ -165,7 +165,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
             </div> */}
           </div>
           <div
-            className={`flex  items-center flex-wrap max-w-[1420px] m-auto gap-10 ${
+            className={`flex  items-center flex-wrap max-w-[1420px] m-auto gap-10 mt-10 ${
               path === "/en/categories/machinery" ||
               path === "/en/categories/lighting"
                 ? "mt-[40px]"

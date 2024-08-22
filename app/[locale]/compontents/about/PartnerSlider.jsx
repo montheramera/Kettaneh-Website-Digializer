@@ -130,11 +130,11 @@ const PartnerSlider = () => {
       <>
         <section className=" lg:px-20 lg:py-[96px] font-avenir  about bg-[#F9FAFB]">
           <div className="max-w-[1440px] m-auto">
-            <div className="flex justify-between items-center text-[50px] leading-[48px] font-[800] mb-[48px]">
+            <div className="flex justify-between items-center text-[50px] leading-[48px] font-[800] mb-[110px]">
               <h2 className="">
                 Our <span className=" text-primary">Global Partners</span>
               </h2>
-              <span className=" text-primary">+30</span>
+              <span className=" text-primary text-[60px]">+30</span>
             </div>
             <div className="">
               <Slider {...settings}>

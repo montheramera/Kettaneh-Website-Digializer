@@ -29,35 +29,35 @@ const AchievementsSection = () => {
           <h2 className="text-[40px] font-[800] leading-[60px] text-heading">
             <span className="text-primary"> Our Achievements</span> at a Glance
           </h2>
-          <div className="grid grid-cols-2 gap-4 mt-[32px]">
-            <div className="text-center">
-              <p className="text-[48px] font-[800] leading-[60px] text-primary">
+          <div className="grid grid-cols-2 gap-0 mt-[32px]">
+            <div className="text-center py-4">
+              <h4 className="text-[48px] font-[800] leading-[60px] text-primary">
                 100
-              </p>
+              </h4>
               <p className="text-[18px] text-paragraph font-[500] leading-[28px]">
                 Years of experience
               </p>
             </div>
-            <div className="text-center">
-              <p className="text-[48px] font-[800] leading-[60px] text-primary">
+            <div className="text-center py-4 border-l  border-[#D1D5DB]">
+              <h4 className="text-[48px] font-[800] leading-[60px] text-primary">
                 4.7
-              </p>
+              </h4>
               <p className="text-[18px] text-paragraph font-[500] leading-[28px]">
                 Rating
               </p>
             </div>
-            <div className="text-center">
-              <p className="text-[48px] font-[800] leading-[60px] text-primary">
+            <div className="text-center py-4 border-t border-[#D1D5DB]">
+              <h4 className="text-[48px] font-[800] leading-[60px] text-primary">
                 +30
-              </p>
+              </h4>
               <p className="text-[18px] text-paragraph font-[500] leading-[28px]">
                 Global Partners
               </p>
             </div>
-            <div className="text-center">
-              <p className="text-[48px] font-[800] leading-[60px] text-primary">
+            <div className="text-center py-4  border-l border-t border-[#D1D5DB] ">
+              <h4 className="text-[48px] font-[800] leading-[60px] text-primary">
                 +100
-              </p>
+              </h4>
               <p className="text-[18px] text-paragraph font-[500] leading-[28px]">
                 Landmark Projects
               </p>

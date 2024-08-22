@@ -70,7 +70,7 @@ function LogosSliderOurCustomer() {
       { alt: "cusomer logo 21", src: "/images/customer-logos/_0000_14514.png" },
     ];
   const settings = {
-    className: "slider variable-width",
+    className: "slider  variable-width",
     dots: true,
     infinite: true,
     autoplay: true,
@@ -83,7 +83,7 @@ function LogosSliderOurCustomer() {
     variableWidth: true,
   };
   return (
-    <div className="slider-container">
+    <div className="slider-container main-logos">
       <Slider {...settings}>
         {logos.map((logo, index) => (
           
@@ -92,8 +92,9 @@ function LogosSliderOurCustomer() {
             src={logo.src}
             alt={logo.alt}
             priority
-            width={100}
-            height={100}
+            width={400}
+            height={400}
+            className="px-5"
           />
         ))}
       </Slider>

@@ -16,7 +16,7 @@ export default function AboutUs() {
 
   return (
     <>
-      <div className=" lg:px-20  font-avenir">
+      <div className=" lg:px-20  font-avenir lg:overflow-hidden">
         {/* Who we are section */}
         <section className="max-w-[1440px] m-auto">
           <div>
@@ -128,8 +128,8 @@ export default function AboutUs() {
             <div className="flex">
               <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
-                <h3 className="text-[20px] font-[600] leading-[30px]">
-                  Mission
+                <h3 className="text-[24px] font-[600] leading-[30px]">
+                  Our Mission
                 </h3>
                 <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
                   Leverage on our historical and ethical business reputation in
@@ -143,8 +143,8 @@ export default function AboutUs() {
             <div className="flex">
               <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
-                <h3 className="text-[20px] font-[600] leading-[30px]">
-                  Vision
+                <h3 className="text-[24px] font-[600] leading-[30px]">
+                  Our Vision
                 </h3>
                 <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
                   Lead the market by expanding our product portfolio and
@@ -157,20 +157,14 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-      <section className="bg-primary text-white lg:px-20 lg:py-[96px] font-avenir">
+      <section className="bg-primary text-white lg:px-20 lg:pt-[1px] lg:pb-[96px] font-avenir">
         <div className="max-w-[1440px] m-auto">
-          <h2 className="text-[36px] font-[800] leading-[40px]  mb-[10px]">
-            Where are we heading to?
-          </h2>
-          <p className=" text-[20px] font-[500] leading-[28px] ">
-            Charting the Future with Innovation and Integrity
-          </p>
           <div className="flex flex-col lg:flex-row justify-between gap-5 mt-[64px]">
             <div className="flex">
               <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
-                <h3 className="text-[20px] font-[600] leading-[30px]">
-                  Mission
+                <h3 className="text-[24px] font-[600] leading-[30px]">
+                  Our Values
                 </h3>
                 <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
                   Leverage on our historical and ethical business reputation in
@@ -184,8 +178,8 @@ export default function AboutUs() {
             <div className="flex">
               <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
-                <h3 className="text-[20px] font-[600] leading-[30px]">
-                  Vision
+                <h3 className="text-[24px] font-[600] leading-[30px]">
+                  Our Promises
                 </h3>
                 <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
                   Lead the market by expanding our product portfolio and

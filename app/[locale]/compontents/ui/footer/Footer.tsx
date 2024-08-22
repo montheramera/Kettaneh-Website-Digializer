@@ -36,7 +36,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className=" font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className=" font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     Home
                   </a>
@@ -44,7 +44,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className=" font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className=" font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     About Us
                   </a>
@@ -52,7 +52,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className=" font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className=" font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     Our Customer
                   </a>
@@ -60,7 +60,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className=" font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className=" font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     News and Events
                   </a>
@@ -68,7 +68,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className=" font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className=" font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     Career
                   </a>
@@ -83,7 +83,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className="font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className="font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     Electrical
                   </a>
@@ -91,7 +91,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className="font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className="font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     HVAC
                   </a>
@@ -99,7 +99,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className="font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className="font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     Machinery
                   </a>
@@ -107,7 +107,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className="font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className="font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     Lighting
                   </a>
@@ -115,7 +115,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="#"
-                    className="font-[500] text-paragraph leading-[24px] text-[16px]"
+                    className="font-light text-paragraph leading-[24px] text-[20px]"
                   >
                     Aftermarket
                   </a>
@@ -126,7 +126,7 @@ export default function Footer() {
               <h4 className="font-[900] text-[20px] leading-[20px] text-primary mb-[16px]">
                 Connect with us
               </h4>
-              <p className="font-[500] text-paragraph leading-[24px] text-[16px] flex gap-2">
+              <p className="font-light text-paragraph leading-[24px] text-[20px] flex gap-2">
                 <Image
                   src="/images/icons/whatsapp.png"
                   alt="Kettaneh Logo"
@@ -218,14 +218,14 @@ export default function Footer() {
       <div className="py-[48px] text-center md:text-left font-[350] text-[16px] leading-[24px] text-paragraph bg-[#F9FAFB] ">
         <div className="flex flex-col md:flex-row justify-between items-center max-w-[1440px] m-auto">
           <p>© 2024 Kettaneh. All rights reserved.</p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
+          <p className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="underline">
               Privacy Policy
             </a>
             <a href="#" className="underline">
               Terms and Conditions
             </a>
-          </div>
+          </p>
         </div>
       </div>
     </footer>

@@ -317,7 +317,7 @@ const Header = () => {
           {/* Get In Touch Button */}
           <button
             onClick={() => setIsOpen(true)}
-            className="hidden lg:block text-primary bg-white  px-4 py-2  ml-4"
+            className="hidden lg:block text-primary bg-white  px-4 py-1  ml-4"
           >
             Get In Touch
           </button>

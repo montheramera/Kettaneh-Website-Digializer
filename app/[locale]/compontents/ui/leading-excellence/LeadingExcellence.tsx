@@ -14,18 +14,18 @@ const LeadingExcellence = () => {
               </span>
             </div>
             <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
-              <span className="text-primary "> Leading Excellence</span>{" "}
-              Across Business Units
+              <span className="text-primary "> Leading Excellence</span> Across
+              Business Units
             </h2>
-            <p className=" text-[20px] font-[500] leading-[28px] text-paragraph">
+            <p className=" text-[16px] font-[500] leading-[24px] text-paragraph max-w-[526px] mt-4">
               F.A. Kettaneh & Co LTD Jordan has a long tradition of being a
               first-class company - one that has always exceeded the increasing
               expectations
             </p>
           </div>
-        <div className="mt-[50px]">
-          <HoverEffect />
-        </div>
+          <div className="mt-[50px]">
+            <HoverEffect />
+          </div>
         </section>
       </div>
     </>

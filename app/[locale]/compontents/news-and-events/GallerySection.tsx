@@ -40,7 +40,7 @@ export default function GallerySection() {
             <h3 className="text-[18px] font-[800] leading-[28px] text-heading mx-2 mt-[10px] ">
               {image.title}
             </h3>
-            <p className="font-[400] mb-[10px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
+            <p className="font-[400] underline mb-[10px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
               {new Date().toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",

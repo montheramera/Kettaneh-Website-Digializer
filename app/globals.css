@@ -155,7 +155,12 @@ li:hover > button svg {
 }
 
 .feedback .slick-dots {
-  bottom: -50px !important;
+  bottom: -55px !important;
+}
+.main-logos{
+  .slick-dots {
+      bottom: -55px !important;
+    }
 }
 
 /* form start */

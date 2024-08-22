@@ -42,8 +42,8 @@ export default function JobListings() {
         {/* Job Listings */}
         <div className="flex-1 lg:max-w-[576px]">
           {jobs.map((job, index) => (
-            <div key={index} className="mb-6">
-              <h3 className="text-[18px] font-[800] leading-[28px] text-heading">
+            <div key={index} className="pb-6 mb-6 border-b border-[#EAECF0]">
+              <h3 className="text-[24px] font-[800] leading-[28px] text-heading">
                 {job.title}
                 <span
                   style={{

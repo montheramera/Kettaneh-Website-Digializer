@@ -45,7 +45,7 @@ const config: Config = {
         },
       },
       animation: {
-        fadeInStep: "fadeInStep 3s ease-in-out",
+        fadeInStep: "fadeInStep 0s ease-in-out",
         widthExpand: "widthExpand 5s ease-in-out ",
       },
     },
