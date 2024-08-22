@@ -34,10 +34,24 @@ const config: Config = {
         avenir: ["Avenir", "sans-serif"],
         inter: ["Inter", "sans-serif"], // Optional: if you want to use it with Tailwind classes
       },
+      keyframes: {
+        fadeInStep: {
+          "0%": { opacity: "0", transform: "translateY(-20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        widthExpand: {
+          "0%": { maxWidth: "100px" },
+          "100%": { maxWidth: "850px" },
+        },
+      },
+      animation: {
+        fadeInStep: "fadeInStep 3s ease-in-out",
+        widthExpand: "widthExpand 5s ease-in-out ",
+      },
     },
     variants: {
       extend: {
-        borderOpacity: ['responsive', 'hover', 'focus'],
+        borderOpacity: ["responsive", "hover", "focus"],
       },
     },
   },
