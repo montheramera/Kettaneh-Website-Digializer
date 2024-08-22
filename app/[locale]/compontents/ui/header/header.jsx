@@ -1,19 +1,39 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import ContactForm from "../contact-form/ContactForm";
 import ModelFormContact from "../model/Model";
 import ConfirmationMessage from "../confirmation-message/ConfirmationMessage";
 import Link from "next/link";
-// import logo from "../public/images/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 0) {
+          setIsFixed(true);
+        } else {
+          setIsFixed(false);
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
+
 
   return (
-    <nav className="bg-primary lg:px-20 p-8 text-white font-[500] text-[18px] ">
+    <nav
+      className={`bg-primary  lg:px-20 p-8 text-white font-[500] text-[18px] ${
+        isFixed ? "fixed top-0 left-0 w-full z-50 shadow-md" : ""
+      } z-[50000] `}
+    >
       <div className="max-w-[1440px] m-auto">
         <div className="container mx-auto flex justify-between items-center">
           <div>
@@ -55,10 +75,6 @@ const Header = () => {
               isMenuOpen ? "block" : "hidden"
             }`}
           >
-            {/* <li className="text-white hover:text-prbg-primary">
-            <Link href="/">Home</Link>
-          </li> */}
-
             <li className="text-white hover:text-prbg-primary">
               <Link
                 className="text-[20px] leading-[28px] font-[500]"
@@ -260,12 +276,6 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-
-            {/* <li>
-            <a href="#" className="text-white hover:text-prbg-primary">
-              Our Customer
-            </a>
-          </li> */}
             <li className="text-white hover:text-prbg-primary">
               <Link
                 className="text-[20px] leading-[28px] font-[500]"
@@ -319,10 +329,6 @@ const Header = () => {
             isMenuOpen ? "block" : "hidden"
           }`}
         >
-          {/* <li className="text-white hover:text-prbg-primary">
-          <Link href="/">Home</Link>
-        </li> */}
-
           <li className="text-white hover:text-prbg-primary">
             <Link
               className="text-[20px] leading-[28px] font-[500]"
@@ -524,11 +530,7 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          {/* <li>
-          <a href="#" className="text-white hover:text-prbg-primary">
-            Our Cusomers
-          </a>
-        </li> */}
+
           <li className="text-white hover:text-prbg-primary">
             <Link
               className="text-[20px] leading-[28px] font-[500]"
@@ -538,11 +540,7 @@ const Header = () => {
               Our Cusomers
             </Link>
           </li>
-          {/* <li>
-          <a href="#" className="text-white hover:text-prbg-primary">
-            News and Events
-          </a>
-        </li> */}
+
           <li className="text-white hover:text-prbg-primary">
             <Link
               className="text-[20px] leading-[28px] font-[500]"
@@ -552,11 +550,7 @@ const Header = () => {
               News and Events
             </Link>
           </li>
-          {/* <li>
-          <a href="#" className="text-white hover:text-prbg-primary">
-            Carrer
-          </a>
-        </li> */}
+
           <li className="text-white hover:text-prbg-primary">
             <Link
               className="text-[20px] leading-[28px] font-[500]"
