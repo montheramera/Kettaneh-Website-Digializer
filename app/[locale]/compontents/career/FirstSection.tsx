@@ -70,16 +70,16 @@ export default function JobListings() {
                   />{" "}
                   On Site
                 </span>
-                <span className="flex gap-2">
+                <span className="flex ">
                   {" "}
                   <Image
                     src="/images/icons/fulltime-icon.png"
                     alt="full time icon"
                     priority
-                    width={16.67}
-                    height={16.67}
+                    width={20}
+                    height={20}
                   />{" "}
-                  Full-time
+                  <span className="mx-2">Full-time</span>
                 </span>
               </div>
             </div>

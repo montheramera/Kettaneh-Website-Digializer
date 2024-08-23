@@ -38,13 +38,13 @@ const SamplePrevArrow = (props) => {
   return (
     <div
       className={`${className} absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer`}
-      style={{ ...style, display: "block", background: "none" }}
+      // style={{ ...style, display: "block", background: "none" }}
       onClick={onClick}
     >
       <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
+        width="56"
+        height="56"
+        viewBox="0 0 56 56"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -128,7 +128,7 @@ const PartnerSlider = () => {
 
     return (
       <>
-        <section className=" lg:px-20 lg:py-[96px] font-avenir  about bg-[#F9FAFB]">
+        <section className=" lg:px-20 lg:py-[96px] font-avenir   bg-[#F9FAFB] slider-logos-arrow ">
           <div className="max-w-[1440px] m-auto">
             <div className="flex justify-between items-center text-[50px] leading-[48px] font-[800] mb-[110px]">
               <h2 className="">

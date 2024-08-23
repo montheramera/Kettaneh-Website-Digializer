@@ -29,7 +29,7 @@ export default async function Home() {
       <div>
         <Achievements />
       </div>
-      <div>
+      <div className="overflow-hidden">
         <OurCustomer />
       </div>
       <div>

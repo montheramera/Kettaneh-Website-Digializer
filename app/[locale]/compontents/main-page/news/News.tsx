@@ -12,9 +12,6 @@ const News = () => {
             Stay updated with the latest news and upcoming events. Explore what
             &apos;s happening in our community.
           </p>
-          <button className="mt-[16px] bg-primary text-white py-2 px-6 ">
-            Explore News and Events
-          </button>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-[64px] ">
           <div className="lg:col-span-2 shadow-lg">
@@ -203,6 +200,10 @@ const News = () => {
             </p>
           </div>
         </div>
+
+        <button className="mt-[40px] bg-primary text-white py-2 px-6 ">
+          Explore News and Events
+        </button>
       </div>
     </div>
   );

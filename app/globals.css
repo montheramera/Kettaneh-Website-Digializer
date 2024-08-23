@@ -163,6 +163,28 @@ li:hover > button svg {
     }
 }
 
+/* .our-customer{
+
+  .slider-container .slick-dots li {
+    display: none;
+  }
+  
+  .slider-container .slick-dots li:nth-child(-n+0) {
+    display: inline-block;
+  }
+  
+  .slider-container .slick-dots li button::before {
+    font-size: 12px;
+    color: #333;
+  }
+  
+  .slider-container .slick-dots li.slick-active button::before {
+    color: #000;
+  }
+    .slick-dots li.slick-active button:before {
+      color: red !important;
+    }
+} */
 /* form start */
 .contact-form {
   .intl-tel-input input {
@@ -277,7 +299,46 @@ li:hover > button svg {
   }
 }
 
+.slider-logos-arrow {
 
+  .slick-next{
+      border-radius: "100%" !important;
+      /* height: 50px !important;
+      width: 50px !important; */
+      text-align: end;
+    }
+  .slick-prev{
+    border-radius: "100%" !important;
+    height: 50px !important;
+    width: 50px !important;
+  }
+
+  .slick-next {
+    right: -50px !important;
+  }
+
+  .slick-prev{
+    left: -50px !important;
+    /* top:0px; */
+    /* background-color: aqua !important; */
+  }
+         /* .custom-next-arrow,
+         .custom-prev-arrow {
+           position: absolute;
+           top: 50%;
+           transform: translateY(-50%);
+           cursor: pointer;
+           z-index: 1;
+         }
+    
+         .custom-next-arrow {
+           right: -25px;
+         }
+    
+         .custom-prev-arrow {
+           left: -25px;
+         } */
+}
 /* HoverEffect.module.css */
 
 .container1 {

@@ -116,7 +116,7 @@ export default function AboutUs() {
         </section>
       </div>
 
-      <section className="bg-primary text-white lg:px-20 lg:py-[96px] font-avenir">
+      <section className="bg-primary text-white lg:px-20 lg:pt-[96px] font-avenir">
         <div className="max-w-[1440px] m-auto">
           <h2 className="text-[36px] font-[800] leading-[40px]  mb-[10px]">
             Where are we heading to?
@@ -195,10 +195,10 @@ export default function AboutUs() {
       <section>
         <AchievementsSection />
       </section>
-      <section>
+      <section className="overflow-hidden">
         <TimelineSlider />
       </section>
-      <section>
+      <section className="overflow-hidden">
         <PartnerSlider />
       </section>
       <section>

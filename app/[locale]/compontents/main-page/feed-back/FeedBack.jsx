@@ -38,7 +38,7 @@ function AdaptiveHeight() {
     slidesToScroll: 1,
     adaptiveHeight: true,
     autoplay: true,
-    speed: 50,
+    speed: 1000,
     autoplaySpeed: 5000,
     cssEase: "linear",
     // nextArrow: <SampleNextArrow />,

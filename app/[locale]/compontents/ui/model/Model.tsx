@@ -29,7 +29,7 @@ export default function ModelFormContact({
 
   return (
     <>
-      <div className="fixed z-[20000] inset-0 overflow-y-scroll lg:overflow-auto lg:pb-0 flex justify-center bg-heading bg-opacity-75">
+      <div className="fixed z-[200000] inset-0 overflow-y-scroll lg:overflow-auto lg:pb-0 flex justify-center bg-heading bg-opacity-75">
         <div className="relative  lg:lg:p-6 rounded-md shadow-lg">
           {children}
         </div>
