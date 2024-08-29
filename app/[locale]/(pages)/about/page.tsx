@@ -33,10 +33,10 @@ export default function AboutUs() {
               A Legacy of Commitment and Growth Since 1922
             </p>
           </div>
-          <div className="grid md:grid-cols-2 mt-[51px]  text-[18px] font-[400] leading-[28px] text-paragraph">
+          <div className="grid md:grid-cols-2 mt-[51px]  gap-10 text-[18px] font-[400] leading-[28px] text-paragraph">
             <div className="flex">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <p className="lg:max-w-[536px]">
+              <p className="">
                 Ever since the company &apos;s establishment in 1922, the
                 Kettaneh Group has sought to provide true satisfaction to its
                 customers and potential clients.
@@ -63,21 +63,31 @@ export default function AboutUs() {
                 committed to serving you.
               </p>
             </div>
-            <div className="flex justify-end">
-              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px] max-h-[564px]"></div>
-              <Image
+            <div className="flex">
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px] "></div>
+              <div
+                className="flex-1"
+                style={{
+                  backgroundImage: `url('/images/about/timeline2_2 3 (1).png')`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                }}
+              ></div>
+              {/* <Image
                 src="/images/about/timeline2_2 3 (1).png"
                 alt="Kettaneh Company Building"
-                width={561}
-                height={564}
+                // width={561}
+                // height={564}
+                  layout="fill"
+                  objectFit="contain"
                 className="w-full h-auto max-h-[590px] max-w-[561px]"
-              />
+              /> */}
             </div>
           </div>
         </section>
 
         {/* What we do section */}
-        <section className="lg:py-[96px] max-w-[1440px] m-auto">
+        {/* <section className="lg:py-[96px] max-w-[1440px] m-auto">
           <div className="grid md:grid-cols-2 mt-[64px]  text-[18px] font-[400] leading-[28px] text-paragraph">
             <div className="flex justify-center items-center flex-wrap gap-10 p-[64px] m-auto ">
               {partners.map((partner, index) => (
@@ -95,15 +105,56 @@ export default function AboutUs() {
             <div className="flex">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div>
+                <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
+                  What we <span className="text-primary ">do </span>?
+                </h2>
+                <p className=" text-[20px] font-[500] leading-[28px] text-paragraph mb-[50px]">
+                  Delivering Excellence Through Quality Brands and Unmatched
+                  Service
+                </p>
+                <p className="text-[20px] font-[500] leading-[28px] text-paragraph">
+                  F. A. Kettaneh & Co LTD Jordan has a long tradition of being a
+                  first-class company - one that has always exceeded the
+                  increasing expectations of its customers and strengthened its
+                  ties with its employees, suppliers and communities. A leading
+                  company in the Jordanian market, which started its operation
+                  in 1948 and since then has represented a number of premium
+                  brands such as Siemens, Atlas Copco, Haier, and Linde to name
+                  a few. With three specialized Departments, Kettaneh is able to
+                  provide and satisfy all market needs for industrial equipment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section> */}
 
-              <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
-                What we <span className="text-primary ">do </span>?
-              </h2>
-              <p className=" text-[20px] font-[500] leading-[28px] text-paragraph mb-[50px]">
-                Delivering Excellence Through Quality Brands and Unmatched
-                Service
-              </p>
-              <p className="text-[20px] font-[500] leading-[28px] text-paragraph">
+        <section className="max-w-[1440px] m-auto lg:my-[96px]">
+          <div>
+            <div className="mb-[16px] mt-[24px] flex">
+              {/* <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div> */}
+            </div>
+            <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
+              <span className="text-primary ">Who</span> we are ?
+            </h2>
+            <p className=" text-[20px] font-[500] leading-[28px] text-paragraph">
+              Delivering Excellence Through Quality Brands and Unmatched
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 mt-[51px]  gap-10 text-[18px] font-[400] leading-[28px] text-paragraph">
+            <div className="flex">
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px] "></div>
+              <div
+                className="flex-1"
+                style={{
+                  backgroundImage: `url('/images/about/timeline2_2 3 (1).png')`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                }}
+              ></div>
+            </div>
+            <div className="flex">
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
+              <p className="">
                 F. A. Kettaneh & Co LTD Jordan has a long tradition of being a
                 first-class company - one that has always exceeded the
                 increasing expectations of its customers and strengthened its
@@ -114,7 +165,6 @@ export default function AboutUs() {
                 With three specialized Departments, Kettaneh is able to provide
                 and satisfy all market needs for industrial equipment.
               </p>
-              </div>
             </div>
           </div>
         </section>
