@@ -116,12 +116,13 @@ export default function AfterMarketingForm({
             </svg>
           </button> */}
         </div>
-        <p className="text-paragraph text-[18px] leading-[28px] font-[400] mb-[32px]">
+        <p className="text-paragraph text-[18px] leading-[28px] font-[400] mb-[16px]">
           Reach out for expert maintenance services, warranty contracts, and
           service agreements
         </p>
         <div className="">
-          <div className="mb-4">
+          <div className=" flex gap-5">
+          <div className="mb-2">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="first-name"
@@ -143,7 +144,7 @@ export default function AfterMarketingForm({
             )}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="last-name"
@@ -164,8 +165,9 @@ export default function AfterMarketingForm({
               <p className="text-red text-xs mt-1">{errors.LastName}</p>
             )}
           </div>
+          </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="email"
@@ -188,7 +190,7 @@ export default function AfterMarketingForm({
           </div>
 
           <div
-            //   className="mb-4"
+            //   className="mb-2"
             style={{ marginBottom: "30px" }}
           >
             <label
@@ -218,7 +220,7 @@ export default function AfterMarketingForm({
             )}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="your-business"
@@ -241,7 +243,7 @@ export default function AfterMarketingForm({
             )}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="url-website"
@@ -264,7 +266,7 @@ export default function AfterMarketingForm({
             )}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="message"
@@ -272,7 +274,7 @@ export default function AfterMarketingForm({
               Message
             </label>
             <textarea
-              className={` rounded-lg min-h-[134px] ${
+              className={` rounded-lg min-h-[120px] ${
                 errors.Message ? "border-red-500" : ""
               }`}
               id="message"
@@ -285,7 +287,7 @@ export default function AfterMarketingForm({
               <p className="text-red text-xs mt-1">{errors.Message}</p>
             )}
           </div>
-          <div className="mb-4 flex items-center">
+          <div className="mb-2 flex items-center">
             <input
               id="privacy-checkbox"
                           type="checkbox"

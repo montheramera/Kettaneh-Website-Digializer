@@ -12,8 +12,8 @@ const page = () => {
             <section className="">
               <div>
                 <div className="mb-10 flex">
-                  <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
-                  <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px]">
+                  <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
+                  <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
                     Career
                   </span>
                 </div>
@@ -23,9 +23,9 @@ const page = () => {
               <JobListings />
             </section>
 
-            <section>
+            {/* <section>
               <CareerForm />
-            </section>
+            </section> */}
           </div>
         </div>
         <section>

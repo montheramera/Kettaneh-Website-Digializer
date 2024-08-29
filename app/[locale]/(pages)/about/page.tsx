@@ -21,8 +21,8 @@ export default function AboutUs() {
         <section className="max-w-[1440px] m-auto">
           <div>
             <div className="mb-[16px] mt-[24px] flex">
-              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
-              <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px]">
+              {/* <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div> */}
+              <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
                 About Us
               </span>
             </div>
@@ -35,7 +35,7 @@ export default function AboutUs() {
           </div>
           <div className="grid md:grid-cols-2 mt-[51px]  text-[18px] font-[400] leading-[28px] text-paragraph">
             <div className="flex">
-              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <p className="lg:max-w-[536px]">
                 Ever since the company &apos;s establishment in 1922, the
                 Kettaneh Group has sought to provide true satisfaction to its
@@ -64,7 +64,7 @@ export default function AboutUs() {
               </p>
             </div>
             <div className="flex justify-end">
-              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px] max-h-[564px]"></div>
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px] max-h-[564px]"></div>
               <Image
                 src="/images/about/timeline2_2 3 (1).png"
                 alt="Kettaneh Company Building"
@@ -78,12 +78,6 @@ export default function AboutUs() {
 
         {/* What we do section */}
         <section className="lg:py-[96px] max-w-[1440px] m-auto">
-          <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
-            What we <span className="text-primary ">do </span>?
-          </h2>
-          <p className=" text-[20px] font-[500] leading-[28px] text-paragraph">
-            Delivering Excellence Through Quality Brands and Unmatched Service
-          </p>
           <div className="grid md:grid-cols-2 mt-[64px]  text-[18px] font-[400] leading-[28px] text-paragraph">
             <div className="flex justify-center items-center flex-wrap gap-10 p-[64px] m-auto ">
               {partners.map((partner, index) => (
@@ -99,7 +93,16 @@ export default function AboutUs() {
               ))}
             </div>
             <div className="flex">
-              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
+              <div>
+
+              <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
+                What we <span className="text-primary ">do </span>?
+              </h2>
+              <p className=" text-[20px] font-[500] leading-[28px] text-paragraph mb-[50px]">
+                Delivering Excellence Through Quality Brands and Unmatched
+                Service
+              </p>
               <p className="text-[20px] font-[500] leading-[28px] text-paragraph">
                 F. A. Kettaneh & Co LTD Jordan has a long tradition of being a
                 first-class company - one that has always exceeded the
@@ -111,6 +114,7 @@ export default function AboutUs() {
                 With three specialized Departments, Kettaneh is able to provide
                 and satisfy all market needs for industrial equipment.
               </p>
+              </div>
             </div>
           </div>
         </section>
@@ -126,7 +130,7 @@ export default function AboutUs() {
           </p>
           <div className="flex flex-col lg:flex-row justify-between gap-5 mt-[64px]">
             <div className="flex">
-              <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   Our Mission
@@ -141,7 +145,7 @@ export default function AboutUs() {
             </div>
 
             <div className="flex">
-              <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   Our Vision
@@ -161,7 +165,7 @@ export default function AboutUs() {
         <div className="max-w-[1440px] m-auto">
           <div className="flex flex-col lg:flex-row justify-between gap-5 mt-[64px]">
             <div className="flex">
-              <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   Our Values
@@ -176,7 +180,7 @@ export default function AboutUs() {
             </div>
 
             <div className="flex">
-              <div className="bg-white min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="lg:max-w-[536px]">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   Our Promises

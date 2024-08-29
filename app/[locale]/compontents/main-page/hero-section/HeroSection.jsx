@@ -1,12 +1,12 @@
-import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcellence';
+
 import HoverEffect from '@/compontents/ui/mouse-over/HoverEffect';
 import React from 'react';
 
 const HeroSection = () => {
     return (
       <div className="bg-primary lg:px-20 p-10 font-avenir ">
-        <div className="relative group max-w-[1440px] m-auto  lg:min-h-[350px]">
-          <div className=" text-white">
+        <div className="relative group max-w-[1440px] m-auto  lg:min-h-[200px]">
+          {/* <div className=" text-white">
             <h1 className=" font-[800] text-[60px] leading-none">
               100 Years Legacy Engineering Solutions
             </h1>
@@ -14,7 +14,7 @@ const HeroSection = () => {
               Since 1922, delivering top-tier industrial solutions ensuring
               unmatched customer satisfaction
             </p>
-          </div>
+          </div> */}
 
           {/* <div className="flex mt-4">
             <div className="relative w-1/5">
@@ -68,7 +68,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div> */}
-          <section className="absolute z-[5000] top-[200px] w-full ">
+          <section className="absolute z-[5000] top-[50px] w-full ">
             <HoverEffect />
           </section>
         </div>

@@ -1,27 +1,26 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import IntlTelInput from "react-intl-tel-input";
 
-const CareerForm = () => {
-      const [phone, setPhone] = useState ();
-      const [countryCode, setCountryCode] = useState ();
-      const [country, setCountry] = useState();
+const CareerFormNew = () => {
+  const [phone, setPhone] = useState();
+  const [countryCode, setCountryCode] = useState();
+  const [country, setCountry] = useState();
   return (
     <section className="font-avenir">
       <div className="">
-        <h2 className="text-[36px] font-[800] leading-[40px] text-heading mt-[50px] mb-[20px]">
+        <h2 className="text-[36px] font-[800] leading-[40px] text-heading mt-[10px] mb-[10px]">
           Advance <span className="text-primary">Your Career</span> with Us
         </h2>
-        <p className="text-[20px] font-[500] leading-[28px] text-paragraph lg:max-w-[768px] mb-[60px]">
+        <p className="text-[20px] font-[500] leading-[28px] text-paragraph lg:max-w-[768px] mb-[20px]">
           Explore exciting career opportunities at F.A. Kettaneh & Co LTD Jordan
           and become part of our legacy of excellence and innovation.
         </p>
-        <div className="flex flex-col lg:flex-row justify-between gap-5 ">
           {/* Form Section */}
           <div className="lg:min-w-[688px]">
             <form className="contact-form">
-              <div className="flex flex-col lg:flex-row mb-[16px]">
+              <div className="flex flex-col lg:flex-row mb-[8px]">
                 <label
                   htmlFor="full-name"
                   className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
@@ -37,7 +36,7 @@ const CareerForm = () => {
                 />
               </div>
 
-              <div className="flex flex-col lg:flex-row mb-[16px]">
+              <div className="flex flex-col lg:flex-row mb-[8px]">
                 <label
                   htmlFor="email"
                   className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
@@ -132,7 +131,7 @@ const CareerForm = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col lg:flex-row mb-[16px]">
+              <div className="flex flex-col lg:flex-row mb-[8px]">
                 <label
                   htmlFor="captcha"
                   className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
@@ -177,23 +176,11 @@ const CareerForm = () => {
           </div>
 
           {/* Image Section */}
-          <div className="flex gap-3">
-            <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px] ">
-              .
-            </div>
-            <Image
-              src="/images/career/form.png" // replace with the correct image path
-              alt="Worker"
-              //   layout="responsive"
-              width={419}
-              height={569}
-              className=" "
-            />
-          </div>
-        </div>
+        
+     
       </div>
     </section>
   );
 };
 
-export default CareerForm;
+export default CareerFormNew;

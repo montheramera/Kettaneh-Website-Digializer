@@ -93,7 +93,7 @@ const index = () => {
           <section className="max-w-[1440px] m-auto">
             <div>
               <div className="mb-[24px] mt-[24px] flex">
-                <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+                <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
                 <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
                   Our Customer
                 </span>
@@ -119,7 +119,7 @@ const index = () => {
             </div>
 
             <div className="mb-[36px] mt-[64px] flex justify-start  w-full">
-              <div className="bg-primary min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"></div>
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
                 Success Story
               </span>

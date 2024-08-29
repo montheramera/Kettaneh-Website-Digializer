@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CareerFormNew from "@/compontents/career/CareerFormNew";
 
 export default function JobListings() {
   const jobs = [
@@ -100,6 +101,8 @@ export default function JobListings() {
             </a>
             mentioning the job & title departments in the subject.
           </p>
+
+          <CareerFormNew />
           {/* <h3 className="text-[20px] font-[800] leading-[28px] text-heading mt-[32px]">
             Requirements
           </h3>

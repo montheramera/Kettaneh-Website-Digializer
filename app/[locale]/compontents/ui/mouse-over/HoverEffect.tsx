@@ -46,7 +46,7 @@ const HoverEffect = () => {
             priority
           />
           <div
-            className={`absolute inset-0 bg-opacity-50 bg-[#75B4C2] flex justify-end 
+            className={`absolute inset-0 bg-opacity-50 bg-primary flex justify-end 
               ${maxWidth ? "p-10" : "p-1"}
              flex-col transition-all duration-[2000ms] animate-fadeInStep `}
           >
@@ -54,12 +54,11 @@ const HoverEffect = () => {
               <>
                 <div>
                   <h2 className="text-[24px] leading-[32px] font-[800] text-start">
-                    Electrical
+                    100 Years Legacy Engineering Solutions
                   </h2>
                   <p className="text-[12px] leading-[16px] font-[500] my-[16px] text-start max-w-[236px]">
-                    We provide engineering, product and support services through
-                    partner alliances for the oil and gas market. Our solutions
-                    include Wellhead, Flow control, and Surface safety.
+                    Since 1922, delivering top-tier industrial solutions
+                    ensuring unmatched customer satisfaction
                   </p>
                   <button className="text-[28px] leading-[28px] font-[500] text-start">
                     Learn More
@@ -179,7 +178,7 @@ const HoverEffect = () => {
             priority
           />
           <div
-            className={`absolute inset-0 bg-opacity-50 bg-[#5389B9] max-h-[400px] flex items-end justify-center transition-all duration-2000`}
+            className={`absolute inset-0 bg-opacity-50 bg-[#4D79A0D9] max-h-[400px] flex items-end justify-center transition-all duration-2000`}
           >
             <div
               className={` ${
@@ -223,7 +222,7 @@ const HoverEffect = () => {
             priority
           />
           <div
-            className={`absolute inset-0 bg-opacity-50 bg-[#E78F6D] max-h-[400px] flex items-end justify-center transition-all duration-2000`}
+            className={`absolute inset-0 bg-opacity-50 bg-[#AB6E57D9] max-h-[400px] flex items-end justify-center transition-all duration-2000`}
           >
             <div
               className={` ${
@@ -267,7 +266,7 @@ const HoverEffect = () => {
             priority
           />
           <div
-            className={`absolute inset-0 bg-opacity-50 bg-[#5389B9] max-h-[400px] flex items-end justify-center transition-all duration-2000`}
+            className={`absolute inset-0 bg-opacity-50 bg-[#9E8D5CCC] max-h-[400px] flex items-end justify-center transition-all duration-2000`}
           >
             {/* <h2 className="text-[24px] leading-[32px] font-[800]   -rotate-90 ">
               Lighting
@@ -314,7 +313,7 @@ const HoverEffect = () => {
             priority
           />
           <div
-            className={`absolute inset-0 bg-opacity-50 bg-[#85C5B0] max-h-[400px] flex items-end justify-center transition-all duration-2000`}
+            className={`absolute inset-0 bg-opacity-50 bg-[#6AA08ED9] max-h-[400px] flex items-end justify-center transition-all duration-2000`}
           >
             <div
               className={` ${

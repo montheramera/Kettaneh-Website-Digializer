@@ -301,6 +301,11 @@ li:hover > button svg {
 
 .slider-logos-arrow {
 
+  .slick-next:before, .slick-prev:before{
+    display: none !important;
+    color: red;
+  }
+
   .slick-next{
       border-radius: "100%" !important;
       /* height: 50px !important;

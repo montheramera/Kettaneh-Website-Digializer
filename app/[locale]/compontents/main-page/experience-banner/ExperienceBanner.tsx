@@ -24,7 +24,7 @@ export default function ExperienceBanner() {
 
         {/* Content Layer */}
         <div className="absolute inset-0 bg-paragraph bg-opacity-50   ">
-          <div className="flex items-center flex-col lg:flex-row  justify-between  h-full     lg:py-[32px] font-avenir max-w-[1440px] m-auto">
+          <div className="flex items-center flex-col lg:flex-row  justify-between  h-full     lg:py-[32px] font-avenir max-w-[1456px] m-auto">
             <div>
               <h1 className="text-white font-[800] text-[36px] leading-[40px]">
                 Experience the Kettaneh Difference
@@ -37,7 +37,7 @@ export default function ExperienceBanner() {
             </div>
             <button
               onClick={() => setIsOpen(true)}
-              className="bg-primary  text-white px-4 py-2"
+              className="bg-primary  text-white px-4 py-1  text-[18px]"
             >
               Get In Touch
             </button>

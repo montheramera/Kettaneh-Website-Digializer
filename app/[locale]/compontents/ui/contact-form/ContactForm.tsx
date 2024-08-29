@@ -120,6 +120,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
           Our friendly team would love to hear from you
         </p>
         <div className="">
+          <div className="flex gap-4">
           <div className="mb-4">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
@@ -162,6 +163,8 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
             {errors.LastName && (
               <p className="text-red text-xs mt-1">{errors.LastName}</p>
             )}
+          </div>
+
           </div>
 
           <div className="mb-4">

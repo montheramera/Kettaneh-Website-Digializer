@@ -77,7 +77,7 @@ const Header = () => {
           >
             <li className="text-white hover:text-prbg-primary">
               <Link
-                className="text-[20px] leading-[28px] font-[500]"
+                className="text-[16px] uppercase leading-[28px] font-[500]"
                 href="/about"
               >
                 About Us
@@ -85,7 +85,7 @@ const Header = () => {
             </li>
             <div className="group inline-block">
               <button className="outline-none focus:outline-none   bg-primary rounded-sm flex items-center min-w-32">
-                <span className="pr-1  flex-1 text-[20px] leading-[28px] font-[500]">
+                <span className="pr-1  flex-1 text-[16px] uppercase  leading-[28px] font-[500]">
                   Categories
                 </span>
                 <span>
@@ -108,14 +108,14 @@ const Header = () => {
                     <span className="pr-1 flex-1">
                       {" "}
                       <Link
-                        className="text-[20px] leading-[28px] font-[500]"
+                        className="text-[16px] uppercase leading-[28px] font-[500]"
                         href="/categories/electrical"
                       >
                         {" "}
                         Electrical
                       </Link>
                     </span>
-                    <span className="mr-auto">
+                    {/* <span className="mr-auto">
                       <svg
                         className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -124,9 +124,9 @@ const Header = () => {
                       >
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
-                    </span>
+                    </span> */}
                   </button>
-                  <ul
+                  {/* <ul
                     className="bg-primary border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -135,21 +135,21 @@ const Header = () => {
                     <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                  </ul>
+                  </ul> */}
                 </li>
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                   <button className="w-full text-left flex items-center outline-none focus:outline-none">
                     <span className="pr-1 flex-1">
                       {" "}
                       <Link
-                        className="text-[20px] leading-[28px] font-[500]"
+                        className="text-[16px] uppercase leading-[28px] font-[500]"
                         href="/categories/hvac"
                       >
                         {" "}
                         HVAC
                       </Link>
                     </span>
-                    <span className="mr-auto">
+                    {/* <span className="mr-auto">
                       <svg
                         className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -158,9 +158,9 @@ const Header = () => {
                       >
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
-                    </span>
+                    </span> */}
                   </button>
-                  <ul
+                  {/* <ul
                     className="bg-heading border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -169,21 +169,21 @@ const Header = () => {
                     <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                  </ul>
+                  </ul> */}
                 </li>
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                   <button className="w-full text-left flex items-center outline-none focus:outline-none">
                     <span className="pr-1 flex-1">
                       {" "}
                       <Link
-                        className="text-[20px] leading-[28px] font-[500]"
+                        className="text-[16px] uppercase leading-[28px] font-[500]"
                         href="/categories/machinery"
                       >
                         {" "}
                         Machinery
                       </Link>
                     </span>
-                    <span className="mr-auto">
+                    {/* <span className="mr-auto">
                       <svg
                         className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -192,9 +192,9 @@ const Header = () => {
                       >
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
-                    </span>
+                    </span> */}
                   </button>
-                  <ul
+                  {/* <ul
                     className="bg-primary border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -203,7 +203,7 @@ const Header = () => {
                     <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                  </ul>
+                  </ul> */}
                 </li>
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                   <button className="w-full text-left flex items-center outline-none focus:outline-none">
@@ -211,14 +211,14 @@ const Header = () => {
                       {" "}
                       {/* <Link href="/our-customer"> Lighting</Link> */}
                       <Link
-                        className="text-[20px] leading-[28px] font-[500]"
+                        className="text-[16px] uppercase  leading-[28px] font-[500]"
                         href="/categories/lighting"
                       >
                         {" "}
                         Lighting
                       </Link>
                     </span>
-                    <span className="mr-auto">
+                    {/* <span className="mr-auto">
                       <svg
                         className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -227,9 +227,9 @@ const Header = () => {
                       >
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
-                    </span>
+                    </span> */}
                   </button>
-                  <ul
+                  {/* <ul
                     className="bg-primary border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -238,21 +238,21 @@ const Header = () => {
                     <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                  </ul>
+                  </ul> */}
                 </li>
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                   <button className="w-full text-left flex items-center outline-none focus:outline-none">
                     <span className="pr-1 flex-1">
                       {" "}
                       <Link
-                        className="text-[20px] leading-[28px] font-[500]"
+                        className="text-[16px] uppercase  leading-[28px] font-[500]"
                         href="/categories/after-marketing"
                       >
                         {" "}
                         Aftermarket
                       </Link>
                     </span>
-                    <span className="mr-auto">
+                    {/* <span className="mr-auto">
                       <svg
                         className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -261,9 +261,9 @@ const Header = () => {
                       >
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
-                    </span>
+                    </span> */}
                   </button>
-                  <ul
+                  {/* <ul
                     className="bg-primary border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -272,13 +272,13 @@ const Header = () => {
                     <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                     <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                  </ul>
+                  </ul> */}
                 </li>
               </ul>
             </div>
             <li className="text-white hover:text-prbg-primary">
               <Link
-                className="text-[20px] leading-[28px] font-[500]"
+                className="text-[16px] uppercase  leading-[28px] font-[500]"
                 href="/our-customer"
               >
                 {" "}
@@ -292,7 +292,7 @@ const Header = () => {
           </li> */}
             <li className="text-white hover:text-prbg-primary">
               <Link
-                className="text-[20px] leading-[28px] font-[500]"
+                className="text-[16px] uppercase  leading-[28px] font-[500]"
                 href="/news-and-events"
               >
                 {" "}
@@ -306,7 +306,7 @@ const Header = () => {
           </li> */}
             <li className="text-white hover:text-prbg-primary">
               <Link
-                className="text-[20px] leading-[28px] font-[500]"
+                className="text-[16px] uppercase  leading-[28px] font-[500]"
                 href="/career"
               >
                 {" "}
@@ -331,7 +331,7 @@ const Header = () => {
         >
           <li className="text-white hover:text-prbg-primary">
             <Link
-              className="text-[20px] leading-[28px] font-[500]"
+              className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/about"
             >
               About Us
@@ -339,7 +339,7 @@ const Header = () => {
           </li>
           <div className="group inline-block">
             <button className="outline-none focus:outline-none   bg-primary rounded-sm flex items-center min-w-32">
-              <span className="pr-1 text-[20px] leading-[28px] font-[500] ">
+              <span className="pr-1 text-[16px] uppercase  leading-[28px] font-[500] ">
                 Categories
               </span>
               <span>
@@ -362,7 +362,7 @@ const Header = () => {
                   <span className="pr-1 flex-1">
                     {" "}
                     <Link
-                      className="text-[20px] leading-[28px] font-[500]"
+                      className="text-[16px] uppercase  leading-[28px] font-[500]"
                       href="/categories/electrical"
                     >
                       {" "}
@@ -396,7 +396,7 @@ const Header = () => {
                   <span className="pr-1 flex-1">
                     {" "}
                     <Link
-                      className="text-[20px] leading-[28px] font-[500]"
+                      className="text-[16px] uppercase  leading-[28px] font-[500]"
                       href="/categories/hvac"
                     >
                       {" "}
@@ -430,7 +430,7 @@ const Header = () => {
                   <span className="pr-1 flex-1">
                     {" "}
                     <Link
-                      className="text-[20px] leading-[28px] font-[500]"
+                      className="text-[16px] uppercase  leading-[28px] font-[500]"
                       href="/categories/machinery"
                     >
                       {" "}
@@ -465,7 +465,7 @@ const Header = () => {
                     {" "}
                     {/* <Link href="/our-customer"> Lighting</Link> */}
                     <Link
-                      className="text-[20px] leading-[28px] font-[500]"
+                      className="text-[16px] uppercase  leading-[28px] font-[500]"
                       href="/categories/lighting"
                     >
                       {" "}
@@ -499,7 +499,7 @@ const Header = () => {
                   <span className="pr-1 flex-1">
                     {" "}
                     <Link
-                      className="text-[20px] leading-[28px] font-[500]"
+                      className="text-[16px] uppercase  leading-[28px] font-[500]"
                       href="/categories/after-marketing"
                     >
                       {" "}
@@ -533,7 +533,7 @@ const Header = () => {
 
           <li className="text-white hover:text-prbg-primary">
             <Link
-              className="text-[20px] leading-[28px] font-[500]"
+              className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/our-customer"
             >
               {" "}
@@ -543,7 +543,7 @@ const Header = () => {
 
           <li className="text-white hover:text-prbg-primary">
             <Link
-              className="text-[20px] leading-[28px] font-[500]"
+              className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/news-and-events"
             >
               {" "}
@@ -553,7 +553,7 @@ const Header = () => {
 
           <li className="text-white hover:text-prbg-primary">
             <Link
-              className="text-[20px] leading-[28px] font-[500]"
+              className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/career"
             >
               {" "}
