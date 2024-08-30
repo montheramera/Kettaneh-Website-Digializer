@@ -3,7 +3,7 @@ import Image from "next/image";
 const AchievementsSection = () => {
   return (
     <section className=" lg:px-20 lg:py-[96px] font-avenir">
-      <div className="flex items-center justify-between gap-20 max-w-[1440px] m-auto">
+      <div className="grid md:grid-cols-2 gap-20 max-w-[1440px] m-auto">
         {/* Right Content Section */}
         <div className=" mt-8 md:mt-0  ">
           <div className="mb-[24px] flex">
@@ -50,8 +50,8 @@ const AchievementsSection = () => {
           </div>
         </div>
 
-        <div className="">
-          <div className="flex">
+        {/* <div className=" bg-heading">
+          <div className="flex bg-heading">
             <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
             <Image
               // src="/images/about/acheivement.png"
@@ -61,7 +61,20 @@ const AchievementsSection = () => {
               height={564}
               className="w-full h-auto"
             />
+          
           </div>
+        </div> */}
+
+        <div className="flex">
+          <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px] "></div>
+          <div
+            className="flex-1"
+            style={{
+              backgroundImage: `url('/images/about/acheivement.png')`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          ></div>
         </div>
       </div>
     </section>

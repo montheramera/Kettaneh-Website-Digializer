@@ -21,7 +21,7 @@ export default function AboutUs() {
         <section className="max-w-[1440px] m-auto">
           <div>
             <div className="mb-[16px] mt-[24px] flex">
-              {/* <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div> */}
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
                 About Us
               </span>
@@ -73,15 +73,6 @@ export default function AboutUs() {
                   backgroundSize: "cover",
                 }}
               ></div>
-              {/* <Image
-                src="/images/about/timeline2_2 3 (1).png"
-                alt="Kettaneh Company Building"
-                // width={561}
-                // height={564}
-                  layout="fill"
-                  objectFit="contain"
-                className="w-full h-auto max-h-[590px] max-w-[561px]"
-              /> */}
             </div>
           </div>
         </section>

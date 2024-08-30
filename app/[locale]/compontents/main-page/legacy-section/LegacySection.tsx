@@ -7,9 +7,9 @@ const LegacySection = () => {
         <div className="md:w-1/2 flex flex-col justify-between lg:h-[342px]">
           <div className="flex-grow">
             <h3 className="font-[800] leading-[40px] text-[36px] text-heading">
-              Our Legacy of <br /> Excellence
+              Our Legacy of <span className="text-primary">Excellence</span>
             </h3>
-            <p className="mt-[10px] text-paragraph font-[500] text-[20px] leading-[28px] mb-[32px] max-w-[700px]">
+            <p className="mt-[30px] text-paragraph font-[500] text-[20px] leading-[28px] mb-[32px] max-w-[700px]">
               For over a century, F. A. Kettaneh & Co LTD Jordan has set
               industry standards, fostering strong ties with clients, employees,
               and communities.

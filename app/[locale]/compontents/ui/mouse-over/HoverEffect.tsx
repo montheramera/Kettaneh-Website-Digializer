@@ -52,18 +52,36 @@ const HoverEffect = () => {
           >
             {maxWidth ? (
               <>
-                <div>
-                  <h2 className="text-[24px] leading-[32px] font-[800] text-start">
-                    100 Years Legacy Engineering Solutions
-                  </h2>
-                  <p className="text-[12px] leading-[16px] font-[500] my-[16px] text-start max-w-[236px]">
-                    Since 1922, delivering top-tier industrial solutions
-                    ensuring unmatched customer satisfaction
-                  </p>
-                  <button className="text-[28px] leading-[28px] font-[500] text-start">
-                    Learn More
-                  </button>
-                </div>
+                {path === "/en" ? (
+                  <div className="flex flex-col  h-full justify-between">
+                    <div>
+                    <h2 className="text-[30px] leading-[32px] font-[800] text-start ">
+                      100 Years Legacy Engineering Solutions eee
+                    </h2>
+                    <p className="text-[18px] leading-[28px] font-[500] my-[16px] text-start max-w-[500px]">
+                      Since 1922, delivering top-tier industrial solutions
+                      ensuring unmatched customer satisfaction
+                    </p>
+
+                    </div>
+                    <button className="text-[16px] leading-[28px] font-[500] text-start">
+                      Learn More
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex flex-col">
+                    <h2 className="text-[24px] leading-[32px] font-[800] text-start">
+                      100 Years Legacy Engineering Solutions
+                    </h2>
+                    <p className="text-[12px] leading-[16px] font-[500] my-[16px] text-start max-w-[236px]">
+                      Since 1922, delivering top-tier industrial solutions
+                      ensuring unmatched customer satisfaction
+                    </p>
+                    <button className="text-[18px] leading-[28px] font-[500] text-start">
+                      Learn More
+                    </button>
+                  </div>
+                )}
               </>
             ) : (
               <>

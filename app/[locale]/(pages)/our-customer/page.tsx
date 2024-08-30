@@ -94,7 +94,7 @@ const index = () => {
             <div>
               <div className="mb-[24px] mt-[24px] flex">
                 <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-                <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
+                <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px] uppercase">
                   Our Customer
                 </span>
               </div>
@@ -117,13 +117,6 @@ const index = () => {
                 exceed expectations and set new standards in the industry.
               </p>
             </div>
-
-            <div className="mb-[36px] mt-[64px] flex justify-start  w-full">
-              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
-                Success Story
-              </span>
-            </div>
           </section>
 
           <section>
@@ -143,7 +136,13 @@ const index = () => {
                 ))}
               </div>
             </div>
+          <div className="mb-[36px] mt-[64px] flex justify-start  w-full max-w-[1440px]  m-auto">
+            <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
+              View Success Stories
+            </span>
+          </div>
           </section>
+
         </div>
         <section>
           <LeadingExcellence />

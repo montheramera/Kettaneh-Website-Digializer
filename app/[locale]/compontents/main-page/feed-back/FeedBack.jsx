@@ -46,7 +46,7 @@ function AdaptiveHeight() {
   };
 
   return (
-    <div className="slider-container bg-primary feedback lg:py-[107px]">
+    <div className="slider-container bg-primary feedback pt-[96px] pb-[146px]">
       <div className="max-w-[1440px] m-auto">
 
       <Slider {...settings}>

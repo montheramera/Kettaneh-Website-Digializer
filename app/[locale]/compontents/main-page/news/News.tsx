@@ -6,7 +6,7 @@ const News = () => {
       <div className="max-w-[1440px] m-auto">
         <div className="">
           <h2 className="font-[800] text-[36px] leading-[40px] text-heading">
-            News and Events
+            News and <span className="text-primary">Events</span>
           </h2>
           <p className="mt-[10px] text-paragraph font-[500] text-[20px] leading-[28px] max-w-[768px]">
             Stay updated with the latest news and upcoming events. Explore what

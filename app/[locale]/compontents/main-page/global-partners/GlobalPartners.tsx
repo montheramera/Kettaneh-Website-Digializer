@@ -14,7 +14,7 @@ export default function GlobalPartners() {
       <div className="flex flex-col lg:flex-row  justify-between items-center max-w-[1440px] m-auto">
         <div className=" lg:min-w-[425px]">
           <h2 className="font-[800] text-[36px] text-[#101828] leading-[40px]">
-            Our Global Partners
+            Our Global <span className="text-primary">Partners</span>
           </h2>
           <p className=" paragraph mb-8 lg:mb-0 text-[20px] leading-[28px] mt-[10px] text-[#475467]">
             More than 30 global brands

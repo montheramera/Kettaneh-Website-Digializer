@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="w-full sm:w-1/3 md:w-auto md:mb-0">
               <h4
                 style={{ fontWeight: 900 }}
-                className="font-[900] text-[20px] leading-[24px] text-primary mb-[16px]"
+                className="font-[900] text-[20px] leading-[24px] text-primary mb-[16px] uppercase"
               >
                 Quick Links
               </h4>
