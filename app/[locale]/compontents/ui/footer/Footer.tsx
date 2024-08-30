@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className=" font-avenir">
-      <div className="max-w-[1440px] m-auto bg-white px-20  lg:pt-[64px] lg:pb-[48px]">
+    <footer className=" font-avenir px-20">
+      <div className="max-w-[1440px] m-auto bg-white   lg:pt-[64px] lg:pb-[48px]">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between ">
           {/* Logo and Description */}
