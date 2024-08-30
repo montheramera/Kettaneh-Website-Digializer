@@ -7,7 +7,7 @@ import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcell
 const page = () => {
     return (
       <>
-        <div className="p-10 lg:px-20 lg:py-[32px] font-avenir ">
+        <div className="p-10 px-20 lg:py-[32px] font-avenir ">
           <div className="max-w-[1440px] m-auto">
             <section className="">
               <div>

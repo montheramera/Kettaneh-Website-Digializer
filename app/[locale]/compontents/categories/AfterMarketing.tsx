@@ -14,7 +14,7 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="max-w-[1440px] m-auto">
+    <div className="max-w-[1440px] m-auto px-20">
       <div className="flex my-[24px]">
           <div
             style={{ background: categoryBg }}
@@ -27,7 +27,7 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
             Categories
           </span>
         </div>
-    <div className="flex flex-col gap-10 md:flex-row ">   
+    <div className="flex flex-col gap-10 md:flex-row lg:justify-between ">   
       <div className="flex-1 bg-gray-200">
         <section className=" ">
           <div
@@ -63,7 +63,7 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
           </div>
         </section>
       </div>
-      <div className="flex-1 bg-gray-200 ">
+      <div className="flex-1 bg-gray-200 justify-end ">
         <AfterMarketingForm />
       </div>
     </div>

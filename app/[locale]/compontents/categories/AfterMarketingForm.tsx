@@ -90,9 +90,9 @@ export default function AfterMarketingForm({
   };
 
   return (
-    <div className="bg-white  mx-auto  lg:pt-0 contact-form lg:min-w-[600px] font-avenir ">
+    <div className="bg-white  mx-auto  lg:pt-0 contact-form  font-avenir ">
       <form
-        className="w-full  px-[24px]"
+        className="w-full  "
         onSubmit={handleSubmit}
       >
         <div className=" flex justify-between w-full ">

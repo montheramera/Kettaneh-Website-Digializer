@@ -15,14 +15,14 @@ const CallToAction: React.FC<CallToActionProps> = ({ background }) => {
       <div className="  mb-96 lg:mb-[170px]  ">
         <div
           style={{ background: background || "#BB4A52" }}
-          className=" hidden  lg:block z-1 min-w-full h-[400px] sm:h-[400px] md:h-[600px] lg:h-[254px] lg:min-h-[254px]  "
+          className=" hidden  lg:block z-1 min-w-full h-[400px] sm:h-[400px] md:h-[600px] lg:h-[254px] lg:min-h-[254px] px-20 "
         >
           <div className="flex flex-col md:flex-row justify-between gap-10 items-center w-full lg:min-h-[254px] max-w-[1440px] m-auto text-white">
             <div className="text-center md:text-left lg:max-w-[768px]">
               <h2 className="text-[36px] font-[800] leading-[40px] mb-[16px]">
                 Experience the Kettaneh Difference
               </h2>
-              <p className="text-[20px] font-[500] leading-[28px] ">
+              <p className="text-[18px] font-[500] leading-[28px] ">
                 Connect with us to discover how we exceed expectations and
                 foster strong relationships
               </p>
@@ -30,7 +30,7 @@ const CallToAction: React.FC<CallToActionProps> = ({ background }) => {
             <div className="mt-4 md:mt-0">
               <button
                 onClick={() => setIsOpen(true)}
-                className="bg-white text-primary px-4 py-1 text-[18px]"
+                className=" text-primary bg-white  px-4 py-1  ml-4 text-[18px] font-[500] leading-[27px]"
               >
                 Get In Touch
               </button>
@@ -79,9 +79,15 @@ const CallToAction: React.FC<CallToActionProps> = ({ background }) => {
                     </p>
                   </div>
                   <div className="mt-4 md:mt-0">
+                    {/* <button
+                      onClick={() => setIsOpen(true)}
+                      className="bg-primary text-white py-2 px-6  font-[500] transition-all"
+                    >
+                      Get In Touch
+                    </button> */}
                     <button
                       onClick={() => setIsOpen(true)}
-                      className="bg-primary text-white py-2 px-6  hover:bg-red-700 transition-all"
+                      className="hidden lg:block text-primary bg-white  px-4 py-1  ml-4 text-[18px] font-[500] leading-[27px]"
                     >
                       Get In Touch
                     </button>

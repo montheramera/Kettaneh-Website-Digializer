@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <nav
-      className={`bg-primary  lg:px-20 p-8 text-white font-[500] text-[18px] ${
+      className={`bg-primary px-20 py-8 text-white font-[500] text-[18px]  ${
         isFixed ? "fixed top-0 left-0 w-full z-50 shadow-md" : ""
       } z-[50000] `}
     >

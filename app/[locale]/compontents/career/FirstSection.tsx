@@ -39,9 +39,9 @@ export default function JobListings() {
 
   return (
     <div className="">
-      <div className="flex flex-col lg:flex-row justify-between gap-8">
+      <div className="flex flex-col lg:flex-row justify-between   lg:gap-32">
         {/* Job Listings */}
-        <div className="flex-1 lg:max-w-[576px]">
+        <div className="  w-1/2 ">
           {jobs.map((job, index) => (
             <div key={index} className="pb-6 mb-6 border-b border-[#EAECF0]">
               <h3 className="text-[24px] font-[800] leading-[28px] text-heading">
@@ -88,7 +88,7 @@ export default function JobListings() {
         </div>
 
         {/* Join Our Team Section */}
-        <div className="flex-1 lg:max-w-[576px]">
+        <div className="w-1/2 ">
           <h2 className="text-[36px] font-[800] leading-[40px] text-heading">
             Join our team
           </h2>

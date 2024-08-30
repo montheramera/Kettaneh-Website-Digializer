@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className=" font-avenir">
-      <div className="max-w-[1440px] m-auto bg-white  lg:pt-[64px] lg:pb-[48px]">
+      <div className="max-w-[1440px] m-auto bg-white px-20  lg:pt-[64px] lg:pb-[48px]">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between ">
           {/* Logo and Description */}
@@ -215,7 +215,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
       </div>
-      <div className="py-[48px] text-center md:text-left font-[350] text-[16px] leading-[24px] text-paragraph bg-[#F9FAFB] ">
+      <div className="py-[48px] text-center md:text-left font-[350] text-[16px] leading-[24px] text-paragraph bg-[#F9FAFB]  px-20 ">
         <div className="flex flex-col md:flex-row justify-between items-center max-w-[1440px] m-auto">
           <p>© 2024 Kettaneh. All rights reserved.</p>
           <p className="flex space-x-4 mt-4 md:mt-0">

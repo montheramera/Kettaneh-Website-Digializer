@@ -18,7 +18,7 @@ const CareerFormNew = () => {
           and become part of our legacy of excellence and innovation.
         </p>
           {/* Form Section */}
-          <div className="lg:min-w-[688px]">
+          <div className="">
             <form className="contact-form">
               <div className="flex flex-col lg:flex-row mb-[8px]">
                 <label

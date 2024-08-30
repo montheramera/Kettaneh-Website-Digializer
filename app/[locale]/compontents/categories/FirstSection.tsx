@@ -29,7 +29,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
   
   return (
     <>
-      <div className=" font-avenir max-w-[1440px] m-auto">
+      <div className=" font-avenir max-w-[1440px] m-auto px-20">
         <section className=" ">
           <div className="">
             <div className="flex my-[24px]">

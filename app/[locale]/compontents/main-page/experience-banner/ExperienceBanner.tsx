@@ -11,7 +11,7 @@ export default function ExperienceBanner() {
    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
   return (
     <>
-      <div className="relative h-[308px] lg:max-h-[308px] w-full font-avenir">
+      <div className="relative h-[308px] lg:max-h-[308px] w-full font-avenir ">
         {/* Background Image */}
         <Image
           src="/images/experence-banner.jpeg"
@@ -23,7 +23,7 @@ export default function ExperienceBanner() {
         />
 
         {/* Content Layer */}
-        <div className="absolute inset-0 bg-paragraph bg-opacity-50   ">
+        <div className="absolute inset-0 bg-paragraph bg-opacity-50  px-20 ">
           <div className="flex items-center flex-col lg:flex-row  justify-between  h-full     lg:py-[32px] font-avenir max-w-[1456px] m-auto">
             <div>
               <h1 className="text-white font-[800] text-[36px] leading-[40px]">
@@ -31,13 +31,30 @@ export default function ExperienceBanner() {
               </h1>
               <p className="text-white mx-h-[768px] font-[500] text-[20px] leading-[28px] mt-[10px]">
                 Connect with us to discover how we exceed expectations and
-                foster strong <br />
-                relationships
+                foster strong relationships
               </p>
             </div>
-            <button
+            {/* <button
               onClick={() => setIsOpen(true)}
               className="bg-primary  text-white px-4 py-1  text-[18px]"
+            >
+              Get In Touch
+            </button> */}
+            {/* <button
+              onClick={() => setIsOpen(true)}
+              className="  bg-primary  text-white  px-4 py-1  ml-4"
+            >
+              Get In Touch
+            </button> */}
+            {/* <button
+              onClick={() => setIsOpen(true)}
+              className="bg-primary  text-white  px-4 py-1  ml-4"
+            >
+              Get In Touch
+            </button> */}
+            <button
+              onClick={() => setIsOpen(true)}
+              className="bg-primary  text-white  px-4 py-1  ml-4 text-[18px] font-[500] leading-[27px]"
             >
               Get In Touch
             </button>
