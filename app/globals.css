@@ -144,10 +144,10 @@ li:hover > button svg {
 }
 
 .feedback .slick-next {
-  right: 50px !important;
+  right: 20px !important;
 }
 .feedback .slick-prev {
-  left: 50px !important;
+  left: -0px !important;
 }
 .feedback .slick-next:before,
 .slick-prev:before {
