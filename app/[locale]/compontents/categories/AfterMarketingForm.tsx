@@ -12,6 +12,7 @@ interface FormData {
   lookingFor: string;
   contactPreference: string;
   interestedIn: string;
+  category: string;
   [key: string]: string;
 }
 
@@ -24,6 +25,7 @@ interface FormErrors {
   interestedIn?: string;
   FirstName?: string;
   LastName?: string;
+  category?: string;
   YourBusiness?: string;
   URLWebsite?: string;
   Message?: string;
@@ -47,6 +49,7 @@ export default function AfterMarketingForm({
     lookingFor: "",
     contactPreference: "",
     interestedIn: "",
+    category:""
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -91,10 +94,7 @@ export default function AfterMarketingForm({
 
   return (
     <div className="bg-white  mx-auto  lg:pt-0 contact-form  font-avenir ">
-      <form
-        className="w-full  "
-        onSubmit={handleSubmit}
-      >
+      <form className="w-full  " onSubmit={handleSubmit}>
         <div className=" flex justify-between w-full ">
           <h2 className="text-[24px] leading-[32px] font-[800] text-[#101828] mb-[8px]">
             Contact Our Aftermarket Team
@@ -121,50 +121,52 @@ export default function AfterMarketingForm({
           service agreements
         </p>
         <div className="">
-          <div className=" flex gap-5">
-          <div className="mb-2">
-            <label
-              className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-              htmlFor="first-name"
-            >
-              First name
-            </label>
-            <input
-              className={` rounded-lg ${errors.FirstName ? "border-red" : ""}`}
-              id="first-name"
-              name="first-name"
-              type="text"
-              placeholder=""
-              value={formData.firstName}
-              onChange={handleInputChange}
-              required
-            />
-            {errors.FirstName && (
-              <p className="text-red text-xs mt-1">{errors.FirstName}</p>
-            )}
-          </div>
+          <div className=" flex gap-5 justify-between">
+            <div className="mb-2">
+              <label
+                className="font-[800] text-[14px] leading-[20px] text-[#344054]"
+                htmlFor="first-name"
+              >
+                First name*
+              </label>
+              <input
+                className={` rounded-lg ${
+                  errors.FirstName ? "border-red" : ""
+                }`}
+                id="first-name"
+                name="first-name"
+                type="text"
+                placeholder=""
+                value={formData.firstName}
+                onChange={handleInputChange}
+                required
+              />
+              {errors.FirstName && (
+                <p className="text-red text-xs mt-1">{errors.FirstName}</p>
+              )}
+            </div>
 
-          <div className="mb-2">
-            <label
-              className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-              htmlFor="last-name"
-            >
-              Last name
-            </label>
-            <input
-              className={` rounded-lg ${errors.LastName ? "border-red" : ""}`}
-              id="last-name"
-              name="last-name"
-              type="text"
-              placeholder=""
-              value={formData.lastName}
-              onChange={handleInputChange}
-              required
-            />
-            {errors.LastName && (
-              <p className="text-red text-xs mt-1">{errors.LastName}</p>
-            )}
-          </div>
+            <div className="mb-2">
+              <label
+                className="font-[800] text-[14px] leading-[20px] text-[#344054]"
+                htmlFor="last-name"
+              >
+                Last name*
+              </label>
+              <input
+                className={` rounded-lg ${errors.LastName ? "border-red" : ""}`}
+                id="last-name"
+                name="last-name"
+                type="text"
+                placeholder=""
+                value={formData.lastName}
+                onChange={handleInputChange}
+                required
+              />
+              {errors.LastName && (
+                <p className="text-red text-xs mt-1">{errors.LastName}</p>
+              )}
+            </div>
           </div>
 
           <div className="mb-2">
@@ -172,7 +174,7 @@ export default function AfterMarketingForm({
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="email"
             >
-              Email
+              Email*
             </label>
             <input
               className={` rounded-lg ${errors.email ? "border-red-500" : ""}`}
@@ -197,7 +199,7 @@ export default function AfterMarketingForm({
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="phone"
             >
-              Phone number
+              Phone number*
             </label>
 
             <IntlTelInput
@@ -219,7 +221,6 @@ export default function AfterMarketingForm({
               <p className="text-red text-xs mt-1">{errors.phone}</p>
             )}
           </div>
-
           <div className="mb-2">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
@@ -290,16 +291,19 @@ export default function AfterMarketingForm({
           <div className="mb-2 flex items-center">
             <input
               id="privacy-checkbox"
-                          type="checkbox"
-                          style={{width:"16px",height:"16px"}}
+              type="checkbox"
+              style={{ width: "16px", height: "16px" }}
               className="h-4 w-4 mt-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
             />
             <label
               htmlFor="privacy-checkbox"
               className="ml-2 text-paragraph text-[16px] leading-[24px] font-[400]"
             >
-              You agree to our friendly <Link href="" className="underline">Privacy Policy</Link> and{" "}
-              <Link href={"underline"}>Terms of Conditions</Link> .
+              You agree to our friendly{" "}
+              <Link href="" className="underline">
+                Privacy Policy
+              </Link>{" "}
+              and <Link href={"underline"}>Terms of Conditions</Link> .
             </label>
           </div>
           <div className="flex items-center justify-center">

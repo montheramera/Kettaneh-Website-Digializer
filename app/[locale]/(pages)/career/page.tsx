@@ -7,18 +7,14 @@ import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcell
 const page = () => {
     return (
       <>
-        <div className="p-10 px-20 lg:py-[32px] font-avenir ">
+        <div className="px-20  font-avenir ">
           <div className="max-w-[1440px] m-auto">
-            <section className="">
-              <div>
-                <div className="mb-10 flex">
+                <div className="flex mb-[24px] mt-[24px]">
                   <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
                   <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
                     Career
                   </span>
                 </div>
-              </div>
-            </section>
             <section>
               <JobListings />
             </section>

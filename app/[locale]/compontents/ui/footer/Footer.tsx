@@ -2,10 +2,10 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className=" font-avenir px-20">
-      <div className="max-w-[1440px] m-auto bg-white   lg:pt-[64px] lg:pb-[48px]">
+    <footer className=" font-avenir ">
+      <div className=" bg-white   lg:pt-[64px] lg:pb-[48px] px-20">
         {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between ">
+        <div className="flex flex-col md:flex-row justify-between max-w-[1440px] m-auto">
           {/* Logo and Description */}
           <div className=" md:mb-0">
             <Image
@@ -215,17 +215,19 @@ export default function Footer() {
 
         {/* Bottom Section */}
       </div>
-      <div className="py-[48px] text-center md:text-left font-[350] text-[16px] leading-[24px] text-paragraph bg-[#F9FAFB]  px-20 ">
-        <div className="flex flex-col md:flex-row justify-between items-center max-w-[1440px] m-auto">
-          <p>© 2024 Kettaneh. All rights reserved.</p>
-          <p className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="underline">
-              Privacy Policy
-            </a>
-            <a href="#" className="underline">
-              Terms and Conditions
-            </a>
-          </p>
+      <div className="py-[48px] text-center md:text-left font-[350] text-[16px] leading-[24px] text-paragraph bg-[#F9FAFB] ">
+        <div className="  px-20">
+          <div className="max-w-[1440px] m-auto flex flex-col md:flex-row justify-between items-center">
+            <p>© 2024 Kettaneh. All rights reserved.</p>
+            <p className="flex space-x-4 mt-4 md:mt-0">
+              <a href="#" className="underline">
+                Privacy Policy
+              </a>
+              <a href="#" className="underline">
+                Terms and Conditions
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

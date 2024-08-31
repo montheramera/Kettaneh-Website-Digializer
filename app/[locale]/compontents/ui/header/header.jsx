@@ -35,7 +35,7 @@ const Header = () => {
       } z-[50000] `}
     >
       <div className="max-w-[1440px] m-auto">
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="mx-auto flex justify-between items-center">
           <div>
             <Link href="/">
               <Image

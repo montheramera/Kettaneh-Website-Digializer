@@ -7,10 +7,10 @@ import React from "react";
 const page = () => {
   return (
     <>
-      <div className="p-8 lg:px-20 lg:py-[32px] font-avenir">
+      <div className=" lg:px-20  font-avenir">
         <section className="max-w-[1440px] m-auto">
           <div>
-            <div className="mb-10 flex">
+            <div className="flex mb-[24px] mt-[24px]">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
                 News and Events
@@ -26,8 +26,6 @@ const page = () => {
           </div>
         </section>
         <div className=" lg:pt-[6px]">
-        
-
           <section className="max-w-[1440px] lg:mt-[48px] m-auto">
             <GallerySection />
           </section>

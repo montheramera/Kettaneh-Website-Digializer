@@ -119,7 +119,7 @@ const TimelineSlider = () => {
   };
 
   return (
-    <section className="lg:px-20 lg:py-[96px] font-avenir slider-logos-arrow border-y-primary  border-opacity-25 border-y-[1px]">
+    <section className="lg:px-20 lg:py-[96px] font-avenir slider-logos-arrow border-y-[#F9FAFB]  border-opacity-25 border-y-[1px]">
       <div className="max-w-[1440px] m-auto">
         <div className="mb-8">
           <h2 className="text-[36px] font-[800] leading-[40px] text-heading">

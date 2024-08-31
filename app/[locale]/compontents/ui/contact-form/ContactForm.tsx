@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
+import { usePathname } from "next/navigation";
 
 interface FormData {
   name: string;
@@ -33,11 +34,23 @@ interface FormContactProps {
   setIsOpenConfirmation: (isOpen: boolean) => void;
 }
 
+function isMarketingOrLightingOrRelated(path:string) {
+  return (
+    path.includes("after-marketing") ||
+    path.includes("lighting") ||
+    path.includes("hvac") ||
+    path.includes("machinery") ||
+    path.includes("electrical")
+  );
+}
+
 export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormContactProps) {
   // State management for form data
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<string>("");
   const [country, setCountry] = useState<string>("");
+  const path = usePathname();
+  console.log("path",path)
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -49,6 +62,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [isShowCategory, setIsShowCategory]=useState<boolean>(false)
 
   // Handle form submission
   const handleSubmit = async (e: FormEvent) => {
@@ -89,6 +103,9 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
     });
   };
 
+  useEffect(() => {
+   setIsShowCategory( isMarketingOrLightingOrRelated(path))
+  },[path])
   return (
     <div className="bg-white shadow-lg mx-auto  lg:pt-0 contact-form lg:min-w-[600px] font-avenir ">
       <form
@@ -121,58 +138,58 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
         </p>
         <div className="">
           <div className="flex gap-4">
-          <div className="mb-4">
-            <label
-              className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-              htmlFor="first-name"
-            >
-              First name
-            </label>
-            <input
-              className={` rounded-lg ${errors.FirstName ? "border-red" : ""}`}
-              id="first-name"
-              name="first-name"
-              type="text"
-              placeholder=""
-              value={formData.firstName}
-              onChange={handleInputChange}
-              required
-            />
-            {errors.FirstName && (
-              <p className="text-red text-xs mt-1">{errors.FirstName}</p>
-            )}
-          </div>
+            <div className="mb-4">
+              <label
+                className="font-[800] text-[14px] leading-[20px] text-[#344054]"
+                htmlFor="first-name"
+              >
+                First name*
+              </label>
+              <input
+                className={` rounded-lg ${
+                  errors.FirstName ? "border-red" : ""
+                }`}
+                id="first-name"
+                name="first-name"
+                type="text"
+                placeholder=""
+                value={formData.firstName}
+                onChange={handleInputChange}
+                required
+              />
+              {errors.FirstName && (
+                <p className="text-red text-xs mt-1">{errors.FirstName}</p>
+              )}
+            </div>
 
-          <div className="mb-4">
-            <label
-              className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-              htmlFor="last-name"
-            >
-              Last name
-            </label>
-            <input
-              className={` rounded-lg ${errors.LastName ? "border-red" : ""}`}
-              id="last-name"
-              name="last-name"
-              type="text"
-              placeholder=""
-              value={formData.lastName}
-              onChange={handleInputChange}
-              required
-            />
-            {errors.LastName && (
-              <p className="text-red text-xs mt-1">{errors.LastName}</p>
-            )}
+            <div className="mb-4">
+              <label
+                className="font-[800] text-[14px] leading-[20px] text-[#344054]"
+                htmlFor="last-name"
+              >
+                Last name*
+              </label>
+              <input
+                className={` rounded-lg ${errors.LastName ? "border-red" : ""}`}
+                id="last-name"
+                name="last-name"
+                type="text"
+                placeholder=""
+                value={formData.lastName}
+                onChange={handleInputChange}
+                required
+              />
+              {errors.LastName && (
+                <p className="text-red text-xs mt-1">{errors.LastName}</p>
+              )}
+            </div>
           </div>
-
-          </div>
-
           <div className="mb-4">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="email"
             >
-              Email
+              Email*
             </label>
             <input
               className={` rounded-lg ${errors.email ? "border-red-500" : ""}`}
@@ -188,7 +205,6 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               <p className="text-red text-xs mt-1">{errors.email}</p>
             )}
           </div>
-
           <div
             //   className="mb-4"
             style={{ marginBottom: "30px" }}
@@ -197,7 +213,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="phone"
             >
-              Phone number
+              Phone number*
             </label>
 
             <IntlTelInput
@@ -219,7 +235,38 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               <p className="text-red text-xs mt-1">{errors.phone}</p>
             )}
           </div>
-
+          {isShowCategory ? (
+            ""
+          ) : (
+            <div className="mb-4">
+              <label
+                className="font-[800] text-[14px] leading-[20px] text-[#344054]"
+                htmlFor="category"
+              >
+                Category*
+              </label>
+              <select
+                className={`rounded-lg w-full ${
+                  errors.category ? "border-red-500" : ""
+                }`}
+                id="category"
+                name="category"
+                value={formData.category}
+                // onChange={handleInputChange}
+                required
+              >
+                <option value="">Select a category</option>
+                <option value="Electrical">Electrical</option>
+                <option value="HVAC">HVAC</option>
+                <option value="Machinery">Machinery</option>
+                <option value="Lighting">Lighting</option>
+                <option value="Aftermarket">Aftermarket</option>
+              </select>
+              {errors.category && (
+                <p className="text-red text-xs mt-1">{errors.category}</p>
+              )}
+            </div>
+          )}{" "}
           <div className="mb-4">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
@@ -242,7 +289,6 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               <p className="text-red text-xs mt-1">{errors.YourBusiness}</p>
             )}
           </div>
-
           <div className="mb-4">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
@@ -265,7 +311,6 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               <p className="text-red text-xs mt-1">{errors.URLWebsite}</p>
             )}
           </div>
-
           <div className="mb-4">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
@@ -287,7 +332,6 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               <p className="text-red text-xs mt-1">{errors.Message}</p>
             )}
           </div>
-
           <div className="flex items-center justify-center">
             <button
               className="bg-primary text-white text-[16px] leading-[24px] font-[800] px-[12px] py-[12px] w-full"
