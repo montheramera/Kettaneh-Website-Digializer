@@ -147,7 +147,7 @@ const index = () => {
         <section>
           <LeadingExcellence />
         </section>
-        <section className="my-[64px]">
+        <section className="">
           <CallToAction />
         </section>
       </>

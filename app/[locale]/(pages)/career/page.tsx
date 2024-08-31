@@ -27,7 +27,7 @@ const page = () => {
         <section>
           <LeadingExcellence />
         </section>
-        <section className="my-[20px] lg:my-[64px]">
+        <section className="">
           <CallToAction />
         </section>
       </>
