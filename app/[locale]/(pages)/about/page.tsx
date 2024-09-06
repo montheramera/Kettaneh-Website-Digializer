@@ -172,7 +172,7 @@ export default function AboutUs() {
           <div className="flex flex-col lg:flex-row justify-between gap-5 mt-[64px]">
             <div className="flex">
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <div className="lg:max-w-[536px]">
+              <div className="">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   Our Mission
                 </h3>
@@ -187,7 +187,7 @@ export default function AboutUs() {
 
             <div className="flex">
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <div className="lg:max-w-[536px]">
+              <div className="">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   Our Vision
                 </h3>
@@ -207,7 +207,7 @@ export default function AboutUs() {
           <div className="flex flex-col lg:flex-row justify-between gap-5 mt-[64px]">
             <div className="flex">
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <div className="lg:max-w-[536px]">
+              <div className="">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   Our Values
                 </h3>
@@ -222,7 +222,7 @@ export default function AboutUs() {
 
             <div className="flex">
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <div className="lg:max-w-[536px]">
+              <div className="">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   Our Promises
                 </h3>

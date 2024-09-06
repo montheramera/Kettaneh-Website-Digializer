@@ -246,7 +246,7 @@ const Header = () => {
                       {" "}
                       <Link
                         className="text-[16px] uppercase  leading-[28px] font-[500]"
-                        href="/categories/after-marketing"
+                        href="/categories/after-market"
                       >
                         {" "}
                         Aftermarket
@@ -500,7 +500,7 @@ const Header = () => {
                     {" "}
                     <Link
                       className="text-[16px] uppercase  leading-[28px] font-[500]"
-                      href="/categories/after-marketing"
+                      href="/categories/after-market"
                     >
                       {" "}
                       Aftermarket

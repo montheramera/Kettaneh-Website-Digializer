@@ -5,7 +5,7 @@ const Achievements = () => {
         <h2 className="font-[800] text-[36px] leading-[40px]">
           Our Achievements at a Glance
         </h2>
-        <p className="text-[20px] leading-[28px] font-[500px] my-[10px] ">
+        <p className="text-[16px] leading-[28px] font-[500px] my-[10px]">
           Delivering Excellence and Building Strong Partnerships Across the
           Globe
         </p>
@@ -15,7 +15,7 @@ const Achievements = () => {
             <div className="my-[20px] font-[800] text-[30px] leading-[28px] text-start">
               Landmark Projects
             </div>
-            <p className="font-[500] text-[20px] leading-[24px] ">
+            <p className="font-[500] text-[16px] leading-[24px] ">
               Successfully completed projects that set industry standards
             </p>
           </div>
@@ -24,7 +24,7 @@ const Achievements = () => {
             <div className="my-[20px] font-[800] text-[30px] leading-[28px] text-start">
               Global Partners
             </div>
-            <p className="font-[500] text-[20px] leading-[24px] ">
+            <p className="font-[500] text-[16px] leading-[24px] ">
               Collaborating with leading brands to deliver innovative solutions
             </p>
           </div>
@@ -33,7 +33,7 @@ const Achievements = () => {
             <div className="my-[20px] font-[800] text-[30px] leading-[28px] text-start">
               Years of experience
             </div>
-            <p className="font-[500] text-[20px] leading-[24px] ">
+            <p className="font-[500] text-[16px] leading-[24px] ">
               Providing top-tier engineering solutions since 1922
             </p>
           </div>
@@ -42,7 +42,7 @@ const Achievements = () => {
             <div className="my-[20px] font-[800] text-[30px] leading-[28px] text-start">
               Rating
             </div>
-            <p className="font-[500] text-[20px] leading-[24px] ">
+            <p className="font-[500] text-[16px] leading-[24px] ">
               High customer satisfaction ratings across all our services
             </p>
           </div>

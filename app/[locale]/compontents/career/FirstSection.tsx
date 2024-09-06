@@ -60,7 +60,7 @@ export default function JobListings() {
               <p className="mt-[8px] text-[18px] font-[400] leading-[28px] text-paragraph">
                 {job.description}
               </p>
-              <div className="flex items-center text-[16px] font-[500] leading-[24px] text-paragraph  space-x-4 mt-[24px]">
+              {/* <div className="flex items-center text-[16px] font-[500] leading-[24px] text-paragraph  space-x-4 mt-[24px]">
                 <span className="flex gap-2">
                   <Image
                     src="/images/icons/location-icon.png"
@@ -82,7 +82,7 @@ export default function JobListings() {
                   />{" "}
                   <span className="mx-2">Full-time</span>
                 </span>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
