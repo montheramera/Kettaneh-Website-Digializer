@@ -7,8 +7,8 @@ import React from "react";
 const page = () => {
   return (
     <>
-      <div className=" lg:px-20  font-avenir">
-        <section className="max-w-[1440px] m-auto">
+      <div className="px-5 lg:px-20  font-avenir">
+        <section className="max-w-[1440px] m-auto mb-[30px] lg:mb-0">
           <div>
             <div className="flex mb-[24px] mt-[24px]">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
@@ -16,16 +16,16 @@ const page = () => {
                 News and Events
               </span>
             </div>
-            <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
+            <h2 className="text-[30px] leading-[36px] lg:text-[36px] font-[800] lg:leading-[40px] text-heading mb-[10px]">
               Explore what&apos;s happening in{" "}
               <span className="text-primary ">our community </span>
             </h2>
-            <p className=" text-[20px] font-[500] leading-[28px] text-paragraph">
+            <p className="text-[18px] lg:text-[20px] font-[500] leading-[28px] text-paragraph">
               Stay updated with the latest news and upcoming events.
             </p>
           </div>
         </section>
-        <div className=" lg:pt-[6px]">
+        <div className="  lg:pt-[6px]">
           <section className="max-w-[1440px] lg:mt-[48px] m-auto">
             <GallerySection />
           </section>

@@ -89,7 +89,7 @@ const index = () => {
 
     return (
       <>
-        <div className=" lg:px-20  font-avenir">
+        <div className="px-5 lg:px-20  font-avenir">
           <section className="max-w-[1440px] m-auto">
             <div>
               <div className="mb-[24px] mt-[24px] flex">
@@ -98,18 +98,18 @@ const index = () => {
                   Our Customer
                 </span>
               </div>
-              <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mt-[16px] mb-[64px]">
+              <h2 className="text-[30px] lg:text-[36px] font-[800] leading-[34px] lg:leading-[40px] text-heading mt-[16px] mb-[30px] lg:mb-[64px]">
                 <span className="text-primary "> Our Valued </span>Partners and
                 Landmark Projects
               </h2>
-              <p className=" text-[20.1px] font-[400] leading-[28px] text-paragraph mt-[64px] lg:max-w-[1216px]">
+              <p className="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:mt-[64px] lg:max-w-[1216px]">
                 At Kettaneh, we pride ourselves on delivering excellence through
                 our innovative engineering solutions and collaborations with
                 premium brands. Our landmark projects reflect our commitment to
                 shaping the future with cutting-edge technology and unparalleled
                 expertise.
               </p>
-              <p className="text-[20.1px] font-[400] leading-[28px] text-paragraph mt-[20px]">
+              <p className="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph mt-[20px]">
                 From hospitality giants like Sheraton and Holiday Inn to leading
                 industrial companies such as Arab Potash and Manaseer Group, our
                 portfolio showcases a diverse range of successful projects.
@@ -124,12 +124,12 @@ const index = () => {
               {/* <LogosSliderOurCustomer /> */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-8 items-center">
                 {logos.map((logo, index) => (
-                  <div key={index} className="flex justify-center items-center">
+                  <div key={index} className={`flex  ${index%2===0?"justify-start":"justify-end"} lg:justify-center items-center`}>
                     <Image
                       src={logo.src}
                       alt={logo.alt}
-                      width={150} // Adjust width according to your needs
-                      height={150} // Adjust height according to your needs
+                      width={500} // Adjust width according to your needs
+                      height={500} // Adjust height according to your needs
                       // objectFit="cover" // Ensures logos maintain their aspect ratio
                     />
                   </div>

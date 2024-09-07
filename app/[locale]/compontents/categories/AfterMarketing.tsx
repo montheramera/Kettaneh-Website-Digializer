@@ -14,7 +14,7 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
   imageUrl,
 }) => {
   return (
-    <section className="px-20">
+    <section className="px-5 lg:px-20">
       <div className="max-w-[1440px] m-auto ">
         <div className="flex my-[24px]">
           <div
@@ -37,7 +37,7 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                 }}
-                className="flex px-10 relative flex-col lg:flex-row  inset-0 bg-paragraph bg-opacity-50  text-[18px] font-[400] leading-[28px] text-paragraph min-h-[900px]"
+                className="flex px-10 relative flex-col lg:flex-row  inset-0 bg-paragraph bg-opacity-50  text-[18px] font-[400] leading-[28px] text-paragraph py-[30px] lg:py-0 lg:min-h-[900px]"
               >
                 <div className="absolute inset-0 bg-paragraph bg-opacity-70"></div>
                 <div className="max-w-[1440px] text-white w-full m-auto z-[100]">
@@ -51,15 +51,6 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
                     ></div>
                     <p className="lg:max-w-[536px]">{categoryParagraph}</p>
                   </div>
-                  {/* <div className="flex items-center border border-[#E5E7EB] max-w-[280px] my-[32px] rounded-md p-3 bg-white">
-                    <span
-                      style={{ background: categoryBg }}
-                      className="inline-block h-3 w-3 rounded-full bg-primary mr-2"
-                    ></span>
-                    <p className="text-heading text-[16px] leading-[20px] font-[500]">
-                      Click a logo to explore products
-                    </p>
-                  </div> */}
                 </div>
               </div>
             </section>

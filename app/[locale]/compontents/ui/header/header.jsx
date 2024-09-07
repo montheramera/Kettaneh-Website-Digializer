@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <nav
-      className={`bg-primary px-20 py-8 text-white font-[500] text-[18px]  ${
+      className={`bg-primary px-5 py-4 lg:px-20 lg:py-8 text-white font-[500] text-[18px]  ${
         isFixed ? "fixed top-0 left-0 w-full z-50 shadow-md" : ""
       } z-[50000] `}
     >
@@ -369,7 +369,7 @@ const Header = () => {
                       Electrical
                     </Link>
                   </span>
-                  <span className="mr-auto">
+                  {/* <span className="mr-auto">
                     <svg
                       className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -378,9 +378,9 @@ const Header = () => {
                     >
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
-                  </span>
+                  </span> */}
                 </button>
-                <ul
+                {/* <ul
                   className="bg-primary border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -389,7 +389,7 @@ const Header = () => {
                   <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                </ul>
+                </ul> */}
               </li>
               <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
@@ -403,7 +403,7 @@ const Header = () => {
                       HVAC
                     </Link>
                   </span>
-                  <span className="mr-auto">
+                  {/* <span className="mr-auto">
                     <svg
                       className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -412,9 +412,9 @@ const Header = () => {
                     >
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
-                  </span>
+                  </span> */}
                 </button>
-                <ul
+                {/* <ul
                   className="bg-primary border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -423,7 +423,7 @@ const Header = () => {
                   <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                </ul>
+                </ul> */}
               </li>
               <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
@@ -437,7 +437,7 @@ const Header = () => {
                       Machinery
                     </Link>
                   </span>
-                  <span className="mr-auto">
+                  {/* <span className="mr-auto">
                     <svg
                       className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -446,9 +446,9 @@ const Header = () => {
                     >
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
-                  </span>
+                  </span> */}
                 </button>
-                <ul
+                {/* <ul
                   className="bg-primary border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -457,7 +457,7 @@ const Header = () => {
                   <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                </ul>
+                </ul> */}
               </li>
               <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
@@ -472,7 +472,7 @@ const Header = () => {
                       Lighting
                     </Link>
                   </span>
-                  <span className="mr-auto">
+                  {/* <span className="mr-auto">
                     <svg
                       className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -481,9 +481,9 @@ const Header = () => {
                     >
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
-                  </span>
+                  </span> */}
                 </button>
-                <ul
+                {/* <ul
                   className="bg-primary border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -492,7 +492,7 @@ const Header = () => {
                   <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                </ul>
+                </ul> */}
               </li>
               <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
@@ -506,7 +506,7 @@ const Header = () => {
                       Aftermarket
                     </Link>
                   </span>
-                  <span className="mr-auto">
+                  {/* <span className="mr-auto">
                     <svg
                       className="fill-current h-4 w-4
             transition duration-150 ease-in-out white-fill"
@@ -515,9 +515,9 @@ const Header = () => {
                     >
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
-                  </span>
+                  </span> */}
                 </button>
-                <ul
+                {/* <ul
                   className="bg-primary border rounded-sm absolute top-0 right-0 
   transition duration-150 ease-in-out origin-top-left
   min-w-32
@@ -526,7 +526,7 @@ const Header = () => {
                   <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Go</li>
                   <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
-                </ul>
+                </ul> */}
               </li>
             </ul>
           </div>

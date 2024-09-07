@@ -45,9 +45,9 @@ const SamplePrevArrow = (props) => {
       onClick={!isDisabled ? onClick : null}
     >
       <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
+        width="56"
+        height="56"
+        viewBox="0 0 56 56"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -119,35 +119,35 @@ const TimelineSlider = () => {
   };
 
   return (
-    <section className="lg:px-20 lg:py-[96px] font-avenir slider-logos-arrow border-y-[#F9FAFB]  border-opacity-25 border-y-[1px]">
+    <section className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir slider-logos-arrow border-y-[#F9FAFB]  border-opacity-25 border-y-[1px]">
       <div className="max-w-[1440px] m-auto">
         <div className="mb-8">
-          <h2 className="text-[36px] font-[800] leading-[40px] text-heading">
+          <h2 className=" text-[30px] lg:text-[36px] font-[800] leading-[40px] text-heading">
             <span className="text-primary"> Our Journey</span> Through Time
           </h2>
-          <p className="text-[20px] text-paragraph font-[500] leading-[28px] mt-[20px]">
+          <p className="text-[20px] lg:text-[30px] text-paragraph font-[500] leading-[28px] mt-[10px] lg:mt-[20px]">
             Celebrating Over a Century of Innovation, Growth, and Customer
             Satisfaction
           </p>
         </div>
 
-        <div className="flex justify-center items-center mt-[64px]">
+        <div className="flex justify-center items-center  mt-[64px] px-8 lg:px-0">
           <div className="relative w-full h-1 bg-primary">
             <div className="absolute left-0 top-[-24px] h-12 border-l-2 border-primary"></div>
-            <div className="absolute left-1/3 h-12 top-[-24px] border-l-2 border-primary"></div>
-            <div className="absolute left-2/3 h-12  top-[-24px] border-l-2 border-primary"></div>
+            <div className="absolute left-1/3 h-12 top-[-24px] border-l-0 lg:border-l-2  border-primary"></div>
+            <div className="absolute left-2/3 h-12  top-[-24px] border-l-0 lg:border-l-2 border-primary"></div>
             <div className=""></div>
           </div>
         </div>
 
         <Slider {...settings}>
           {timelineData.map((item, index) => (
-            <div key={index} className="mt-[48px]">
+            <div key={index} className="mt-[48px] px-8 lg:px-0">
               <div>
-                <p className="text-[60px] text-heading font-[500] leading-[81.96px]">
+                <p className="text-[30px] lg:text-[60px] text-heading font-[500] leading-[81.96px]">
                   {item.year}
                 </p>
-                <p className="text-[16px] text-paragraph font-[400] leading-[24px] lg:max-w-[308px]">
+                <p className="text-[18px] text-paragraph font-[400] leading-[24px] lg:max-w-[308px]">
                   {item.description}
                 </p>
               </div>

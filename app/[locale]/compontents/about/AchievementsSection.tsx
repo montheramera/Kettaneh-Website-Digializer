@@ -2,16 +2,16 @@ import Image from "next/image";
 
 const AchievementsSection = () => {
   return (
-    <section className=" lg:px-20 lg:py-[96px] font-avenir">
+    <section className=" px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir">
       <div className="grid md:grid-cols-2 gap-20 max-w-[1440px] m-auto">
         {/* Right Content Section */}
         <div className=" mt-8 md:mt-0  ">
-          <div className="mb-[24px] flex">
-            <span className="text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
+          <div className="mb-[12px] lg:mb-[24px] flex">
+            <span className="font-[800]  text-heading  mb-[10px] text-[30px] lg:text-[36px] lg:leading-[40px] ">
               Highlighting Our <span className="text-primary">Success</span>
             </span>
           </div>
-          <h2 className="text-[30px] font-[800] leading-[60px] text-heading">
+          <h2 className="text-[24px] lg:text-[30px] font-[800] lg:leading-[60px] text-heading">
             <span className=""> Our Achievements</span> at a Glance
           </h2>
           <div className="grid grid-cols-2 gap-0 mt-[32px]">
@@ -50,23 +50,8 @@ const AchievementsSection = () => {
           </div>
         </div>
 
-        {/* <div className=" bg-heading">
-          <div className="flex bg-heading">
-            <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-            <Image
-              // src="/images/about/acheivement.png"
-              src="/images/our-legacy.png"
-              alt="Achievements Image"
-              width={561}
-              height={564}
-              className="w-full h-auto"
-            />
-          
-          </div>
-        </div> */}
-
         <div className="flex">
-          <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px] "></div>
+          <div className="bg-primary min-w-[5px] w-[5px] min-h-[300px] lg:min-h-[100%] mr-[10px] "></div>
           <div
             className="flex-1"
             style={{

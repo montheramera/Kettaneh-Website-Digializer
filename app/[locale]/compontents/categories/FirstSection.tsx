@@ -29,7 +29,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
   
   return (
     <>
-      <div className=" font-avenir px-20">
+      <div className=" font-avenir px-5 lg:px-20">
         <section className=" max-w-[1440px] m-auto ">
           <div className="">
             <div className="flex my-[24px]">
@@ -75,22 +75,9 @@ const FirstSection: React.FC<FirstSectionProps> = ({
                 </p>
               </div>
             </div>
-
-            {/* <div className="flex max-h-[330px]">
-              <div
-                style={{ background: categoryBg }}
-                className="min-w-[3px] w-[3px] min-h-[100%] mr-[10px]"
-              ></div>
-              <Image
-                src={imageUrl}
-                alt={`${categoryname} image`}
-                width={297}
-                height={330}
-              />
-            </div> */}
           </div>
           <div
-            className={`flex  items-center flex-wrap max-w-[1420px] m-auto gap-10 mt-10 ${
+            className={`flex  items-center flex-wrap max-w-[1420px] m-auto gap-5 lg:gap-10 mt-10 ${
               path === "/en/categories/machinery" ||
               path === "/en/categories/lighting"
                 ? "mt-[40px]"

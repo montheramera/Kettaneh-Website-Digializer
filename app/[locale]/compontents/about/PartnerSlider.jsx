@@ -114,13 +114,13 @@ const PartnerSlider = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
         },
       },
     ],
@@ -128,18 +128,21 @@ const PartnerSlider = () => {
 
     return (
       <>
-        <section className=" lg:px-20 lg:py-[96px] font-avenir   bg-[#F9FAFB] slider-logos-arrow ">
+        <section className=" px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir   bg-[#F9FAFB] slider-logos-arrow ">
           <div className="max-w-[1440px] m-auto">
-            <div className="flex justify-between items-center text-[50px] leading-[48px] font-[800] mb-[110px]">
+            <div className="flex justify-between items-center text-[30px] leading-[36px] lg:text-[50px] lg:leading-[48px] font-[800] mb-[55px] lg:mb-[110px]">
               <h2 className="">
                 Our <span className=" text-primary">Global Partners</span>
               </h2>
-              <span className=" text-primary text-[60px]">+30</span>
+              <span className=" text-primary  text-[30px] lg:text-[60px]">+30</span>
             </div>
             <div className="">
               <Slider {...settings}>
                 {partners.map((partner, index) => (
-                  <div key={index} className="flex justify-center items-center">
+                  <div
+                    key={index}
+                    className="px-8 lg:px-0 flex justify-center items-center"
+                  >
                     <Image
                       src={partner.src}
                       alt={partner.name}

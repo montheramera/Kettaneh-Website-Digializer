@@ -1,23 +1,14 @@
 import AchievementsSection from "@/compontents/about/AchievementsSection";
 import TimelineSlider from "@/compontents/about/TimelineSlider";
 import PartnerSlider from "@/compontents/about/PartnerSlider";
-import Image from "next/image";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 
 export default function AboutUs() {
-   const partners = [
-     { name: "Haier", src: "/images/haier.png" },
-     { name: "Siemens", src: "/images/siemens.png" },
-     { name: "Linde", src: "/images/linde.png" },
-     { name: "Delfin", src: "/images/delfin.png" },
-     { name: "Atlas Copco", src: "/images/atlascopco.png" },
-   ];
 
   return (
     <>
-      <div className=" lg:px-20  font-avenir lg:overflow-hidden">
-        {/* Who we are section */}
+      <div className="px-5  lg:px-20  font-avenir lg:overflow-hidden">
         <section className="max-w-[1440px] m-auto">
           <div>
             <div className="mb-[16px] mt-[24px] flex">
@@ -63,8 +54,8 @@ export default function AboutUs() {
                 committed to serving you.
               </p>
             </div>
-            <div className="flex">
-              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px] "></div>
+            <div className="flex ">
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[300px] lg:min-h-[100%] mr-[10px] "></div>
               <div
                 className="flex-1"
                 style={{
@@ -77,52 +68,9 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* What we do section */}
-        {/* <section className="lg:py-[96px] max-w-[1440px] m-auto">
-          <div className="grid md:grid-cols-2 mt-[64px]  text-[18px] font-[400] leading-[28px] text-paragraph">
-            <div className="flex justify-center items-center flex-wrap gap-10 p-[64px] m-auto ">
-              {partners.map((partner, index) => (
-                <Image
-                  key={index}
-                  src={partner.src}
-                  alt={partner.name}
-                  width={100}
-                  height={30.8}
-                  priority
-                  className="w-[100px] h-[30.8px] object-contain"
-                />
-              ))}
-            </div>
-            <div className="flex">
-              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <div>
-                <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
-                  What we <span className="text-primary ">do </span>?
-                </h2>
-                <p className=" text-[20px] font-[500] leading-[28px] text-paragraph mb-[50px]">
-                  Delivering Excellence Through Quality Brands and Unmatched
-                  Service
-                </p>
-                <p className="text-[20px] font-[500] leading-[28px] text-paragraph">
-                  F. A. Kettaneh & Co LTD Jordan has a long tradition of being a
-                  first-class company - one that has always exceeded the
-                  increasing expectations of its customers and strengthened its
-                  ties with its employees, suppliers and communities. A leading
-                  company in the Jordanian market, which started its operation
-                  in 1948 and since then has represented a number of premium
-                  brands such as Siemens, Atlas Copco, Haier, and Linde to name
-                  a few. With three specialized Departments, Kettaneh is able to
-                  provide and satisfy all market needs for industrial equipment.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
         <section className="max-w-[1440px] m-auto lg:my-[96px]">
           <div>
             <div className="mb-[16px] mt-[24px] flex">
-              {/* <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div> */}
             </div>
             <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
               <span className="text-primary ">Who</span> we are ?
@@ -133,7 +81,7 @@ export default function AboutUs() {
           </div>
           <div className="grid md:grid-cols-2 mt-[51px]  gap-10 text-[18px] font-[400] leading-[28px] text-paragraph">
             <div className="flex">
-              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px] "></div>
+              <div className="bg-primary min-w-[5px] w-[5px] min-h-[300px] lg:min-h-[100%] mr-[10px] "></div>
               <div
                 className="flex-1"
                 style={{
@@ -161,7 +109,7 @@ export default function AboutUs() {
         </section>
       </div>
 
-      <section className="bg-primary text-white lg:px-20 lg:pt-[96px] font-avenir">
+      <section className="bg-primary text-white px-5 py-4 mt-[30px] lg:px-20 lg:pt-[96px] font-avenir">
         <div className="max-w-[1440px] m-auto">
           <h2 className="text-[36px] font-[800] leading-[40px]  mb-[10px]">
             Where are we heading to?
@@ -169,7 +117,7 @@ export default function AboutUs() {
           <p className=" text-[20px] font-[500] leading-[28px] ">
             Charting the Future with Innovation and Integrity
           </p>
-          <div className="flex flex-col lg:flex-row justify-between gap-5 mt-[64px]">
+          <div className="flex flex-col lg:flex-row justify-between gap-10 mt-[64px]">
             <div className="flex">
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="">
@@ -202,9 +150,9 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-      <section className="bg-primary text-white lg:px-20 lg:pt-[1px] lg:pb-[96px] font-avenir">
+      <section className="bg-primary text-white px-5 py-4 lg:px-20 lg:pt-[1px] lg:pb-[96px] font-avenir">
         <div className="max-w-[1440px] m-auto">
-          <div className="flex flex-col lg:flex-row justify-between gap-5 mt-[64px]">
+          <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-5 mt-[32] lg:mt-[64px]">
             <div className="flex">
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="">

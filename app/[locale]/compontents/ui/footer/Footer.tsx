@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className=" font-avenir ">
-      <div className=" bg-white   lg:pt-[64px] lg:pb-[48px] px-20">
+      <div className=" bg-white   lg:pt-[64px] lg:pb-[48px] px-5 lg:px-20">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between max-w-[1440px] m-auto">
           {/* Logo and Description */}
@@ -16,7 +16,7 @@ export default function Footer() {
               height={56.29}
               className="mb-[16px]"
             />
-            <p className="text-[16px] font-[400] text-paragraph leading-[24px] max-w-[320px]">
+            <p className="text-[16px] font-[400] text-paragraph leading-[24px] lg:max-w-[320px]">
               F. A. Kettaneh & Co LTD Jordan has a long tradition of being a
               first-class company - one that has always exceeded the increasing
               expectations of its customers
@@ -24,8 +24,8 @@ export default function Footer() {
           </div>
 
           {/* Links Section */}
-          <div className="flex flex-wrap lg:flex-grow lg:max-w-[700px] justify-between w-full md:w-auto ">
-            <div className="w-full sm:w-1/3 md:w-auto md:mb-0">
+          <div className="flex flex-wrap gap-10 flex-grow lg:max-w-[700px] justify-between w-full md:w-auto mt-[30px] lg:mt-0 ">
+            <div className="  md:w-auto md:mb-0">
               <h4
                 style={{ fontWeight: 900 }}
                 className="font-[900] text-[20px] leading-[24px] text-primary mb-[16px] uppercase"
@@ -75,7 +75,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="w-full sm:w-1/3 md:w-auto  md:mb-0">
+            <div className=" md:w-auto  md:mb-0">
               <h4 className="font-[900] text-[20px] leading-[20px] text-primary mb-[16px] uppercase">
                 Categories
               </h4>
@@ -122,7 +122,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="w-full sm:w-1/3 md:w-auto">
+            <div className=" md:w-auto">
               <h4 className="font-[900] text-[20px] leading-[20px] text-primary mb-[16px] uppercase">
                 Connect with us
               </h4>

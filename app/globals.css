@@ -324,8 +324,7 @@ li:hover > button svg {
 
   .slick-prev{
     left: -50px !important;
-    /* top:0px; */
-    /* background-color: aqua !important; */
+   
   }
          /* .custom-next-arrow,
          .custom-prev-arrow {
@@ -411,4 +410,17 @@ li:hover > button svg {
       right: 0px !important;
     }
   }
+    .slider-logos-arrow{
+      .slick-next {
+          right: -12px !important;
+          z-index: 100;
+        }
+      
+        .slick-prev {
+          left: -20px !important;
+          margin-top: 8px !important;
+          z-index: 100;
+      
+        }
+    }
 }

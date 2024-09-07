@@ -7,7 +7,7 @@ import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcell
 const page = () => {
     return (
       <>
-        <div className="px-20  font-avenir ">
+        <div className="px-5 lg:px-20  font-avenir ">
           <div className="max-w-[1440px] m-auto">
                 <div className="flex mb-[24px] mt-[24px]">
                   <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
