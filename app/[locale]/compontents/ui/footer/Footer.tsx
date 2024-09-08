@@ -159,7 +159,11 @@ export default function Footer() {
                     height={24}
                   />
                 </a> */}
-                <a href="#">
+                <a
+                  href="https://www.instagram.com/kettanehjo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {/* <img src="/path-to-instagram-icon.png" alt="Instagram" /> */}
                   <Image
                     src="/images/icons/insta.png"
@@ -169,7 +173,11 @@ export default function Footer() {
                     height={24}
                   />
                 </a>
-                <a href="#">
+                <a
+                  href="https://www.facebook.com/KettanehJo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {/* <img src="/path-to-facebook-icon.png" alt="Facebook" /> */}
                   <Image
                     src="/images/icons/facebook.png"
@@ -179,7 +187,11 @@ export default function Footer() {
                     height={24}
                   />
                 </a>
-                <a href="#">
+                <a
+                  href="https://www.linkedin.com/company/f.a.kettaneh&coltdinjordansince1948/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {/* <img src="/path-to-linkedin-icon.png" alt="LinkedIn" /> */}
                   <Image
                     src="/images/icons/linkedin.png"
@@ -189,7 +201,11 @@ export default function Footer() {
                     height={24}
                   />
                 </a>
-                <a href="#">
+                <a
+                  href="https://www.youtube.com/channel/UCN_3mZJzPJrh-gAkWwd0kfw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src="/images/icons/youtube.png"
                     alt="YouTube"

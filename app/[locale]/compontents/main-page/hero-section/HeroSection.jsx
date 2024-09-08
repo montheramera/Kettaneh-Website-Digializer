@@ -68,7 +68,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div> */}
-          <section className="absolute z-[5000] top-[0px] w-full ">
+          <section className="hidden lg:block absolute z-[5000] top-[0px] w-full ">
             <HoverEffect />
           </section>
         </div>

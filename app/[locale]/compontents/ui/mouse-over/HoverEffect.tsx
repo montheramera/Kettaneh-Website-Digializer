@@ -17,7 +17,7 @@ const HoverEffect = () => {
   const path = usePathname();
 
   return (
-    <div className="container1 font-avenir justify-between overflow-hidden">
+    <div className="hidden lg:flex container1 font-avenir justify-between overflow-hidden">
       <div
         onMouseOver={(e) => {
           e.stopPropagation();
@@ -55,14 +55,13 @@ const HoverEffect = () => {
                 {path === "/en" ? (
                   <div className="flex flex-col  h-full justify-between">
                     <div>
-                    <h2 className="text-[30px] leading-[32px] font-[800] text-start ">
-                      100 Years Legacy Engineering Solutions eee
-                    </h2>
-                    <p className="text-[18px] leading-[28px] font-[500] my-[16px] text-start max-w-[500px]">
-                      Since 1922, delivering top-tier industrial solutions
-                      ensuring unmatched customer satisfaction
-                    </p>
-
+                      <h2 className="text-[30px] leading-[32px] font-[800] text-start ">
+                        100 Years Legacy Engineering Solutions eee
+                      </h2>
+                      <p className="text-[18px] leading-[28px] font-[500] my-[16px] text-start max-w-[500px]">
+                        Since 1922, delivering top-tier industrial solutions
+                        ensuring unmatched customer satisfaction
+                      </p>
                     </div>
                     <button className="text-[16px] leading-[28px] font-[500] text-start">
                       Learn More

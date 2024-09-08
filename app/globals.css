@@ -4,7 +4,7 @@
 
 @layer base {
   img {
-    width: auto;
+    /* width: auto; */
     height: auto;
   }
 }
@@ -82,7 +82,7 @@ p{
     font-family: "Avenir-light";
 }
 img {
-  width: auto;
+  /* width: auto; */
 }
 
 /* since nested groupes are not supported we have to use 

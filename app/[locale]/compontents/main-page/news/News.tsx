@@ -2,10 +2,10 @@ import Image from "next/image";
 
 const News = () => {
   return (
-    <div className=" lg:px-20 lg:py-[96px] font-avenir border-y-[#F9FAFB]  border-opacity-25 border-y-[5px]">
+    <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir border-y-[#F9FAFB]  border-opacity-25 border-y-[5px]">
       <div className="max-w-[1440px] m-auto">
         <div className="">
-          <h2 className="font-[800] text-[36px] leading-[40px] text-heading">
+          <h2 className="font-[800] text-[30px] leading-[36px] lg:text-[36px] lg:leading-[40px] text-heading">
             News and <span className="text-primary">Events</span>
           </h2>
           <p className="mt-[10px] text-paragraph font-[500] text-[20px] leading-[28px] max-w-[768px]">
@@ -13,7 +13,7 @@ const News = () => {
             &apos;s happening in our community.
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-[64px] ">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-[30px] lg:my-[64px] ">
           <div className="lg:col-span-2 shadow-lg">
             {/* <div className="relative w-[769px] h-[337px] mb-6"> */}
             <Image
@@ -40,7 +40,7 @@ const News = () => {
               })}
             </p>
           </div>
-          <div className="lg:col-span-1 space-y-10">
+          <div className="lg:col-span-1 space-y-10 mb-[30px] lg:mb-0">
             <div>
               <div className="gap-2 flex">
                 <div className="relative w-[24px] h-[24px]">
