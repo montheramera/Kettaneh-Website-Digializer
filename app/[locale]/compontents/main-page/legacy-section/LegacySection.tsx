@@ -1,6 +1,17 @@
 import Image from "next/image";
 
-const LegacySection = () => {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchMain = async ()=>{
+  const res = await fetch(`${API_URL}/api/main-pages?populate=*`);
+  const data = await res.json();
+  const mainData = data.data.map((el: any)=>el.attributes);
+  return mainData;
+}
+
+const LegacySection = async() => {
+  const mainData = await fetchMain();
+  const legacyImage = mainData[0].our_legacy_img.data.attributes
   return (
     <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir border-y-[#F9FAFB]  border-opacity-25 border-y-[1px] ">
       <div className="flex flex-col md:flex-row items-center md:items-start max-w-[1440px] m-auto justify-between">
@@ -23,8 +34,8 @@ const LegacySection = () => {
           <div className="bg-primary w-[4px] min-h-[100%] mr-[4px]"></div>
           <div>
             <Image
-              src={"/images/our-legacy.png"}
-              alt="Legacy Image"
+              src={legacyImage.url}
+              alt={legacyImage.name}
               width={561}
               height={342}
               priority

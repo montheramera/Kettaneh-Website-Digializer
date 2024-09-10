@@ -43,17 +43,39 @@ const imagesLogos = [
   },
 ];
 
-const page = () => {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchCategoryByTitle = async (title: string) => {
+  const res = await fetch(`${API_URL}/api/categories?populate[category][populate]=*&populate=image&filters[title]=${title}`);
+  const data = await res.json();
+  const categories = data.data;
+  return categories;
+};
+
+const fetchPartnersByCategory = async (categoryTitle: string) => {
+  const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo,categories&filters[Partner][categories][title][$eq]=${encodeURIComponent(categoryTitle)}`);
+  const data = await res.json();
+  const partners = data.data.map((el: any)=>{
+    const image = {...el.attributes.Partner.logo.data.attributes}
+    image.src = image.url;
+    return image
+  });
+  return partners;
+};
+
+const page = async() => {
+  let machineryCategory = await fetchCategoryByTitle('Machinery');
+  const categoryTitle = machineryCategory[0].attributes.title
+  let partners = await fetchPartnersByCategory(categoryTitle);
+
   return (
     <>
       <FirstSection
-        categoryname={"Machinery"}
-        categoryParagraph={
-          "At our Machinery Business Unit, we strongly believe that the success of our customers relies on us providing them with solutions to reduce their operating costs, streamline their process and keep their equipment running at peak performance under the most stringent conditions. Such solutions are available from within our global brands such as Atlas Copco, Linde, Delfin, Kubota and Vulcan."
-        }
-        categoryBg={"#E78F6D"}
-        imagesLogos={imagesLogos}
-        imageUrl={"/images/categories/machinery/machinery.png"}
+          categoryname={machineryCategory[0]?.attributes?.title}
+          categoryParagraph={machineryCategory[0]?.attributes?.category?.summary}
+          categoryBg={machineryCategory[0]?.attributes?.category?.background_color}
+          imagesLogos={partners}
+          imageUrl={machineryCategory[0]?.attributes?.category?.image?.data?.attributes?.url}
       />
       <section className="hidden lg:block">
         <LeadingExcellence />

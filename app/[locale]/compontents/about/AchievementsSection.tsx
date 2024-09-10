@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const AchievementsSection = () => {
+const AchievementsSection = ({achivements, image}: any) => {
   return (
     <section className=" px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir">
       <div className="grid md:grid-cols-2 gap-20 max-w-[1440px] m-auto">
@@ -15,7 +15,17 @@ const AchievementsSection = () => {
             <span className=""> Our Achievements</span> at a Glance
           </h2>
           <div className="grid grid-cols-2 gap-0 mt-[32px]">
-            <div className="text-center py-4">
+            {achivements.map((el: any, index: number)=>(
+              <div className={index == 1 ? "border-l  border-[#D1D5DB] text-center py-4": index == 2 ? "text-center py-4 border-t border-[#D1D5DB]": index == 3 ? "text-center py-4  border-l border-t border-[#D1D5DB]" :"text-center py-4"} key={index}>
+              <h4 className="text-[48px] font-[800] leading-[60px] text-primary">
+                {el.number}
+              </h4>
+              <p className="text-[18px] text-paragraph font-[500] leading-[28px]">
+                {el.title}
+              </p>
+            </div>
+            ))}
+            {/* <div className="text-center py-4">
               <h4 className="text-[48px] font-[800] leading-[60px] text-primary">
                 100
               </h4>
@@ -46,7 +56,7 @@ const AchievementsSection = () => {
               <p className="text-[18px] text-paragraph font-[500] leading-[28px]">
                 Landmark Projects
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -55,7 +65,7 @@ const AchievementsSection = () => {
           <div
             className="flex-1"
             style={{
-              backgroundImage: `url('/images/about/acheivement.png')`,
+              backgroundImage: `url(${image.url})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
             }}

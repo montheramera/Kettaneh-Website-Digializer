@@ -27,9 +27,8 @@ const feedsback = [
   },
 ];
 
-function AdaptiveHeight() {
+function AdaptiveHeight({testimonials}) {
  
-
   const settings = {
     className: "",
     dots: true,
@@ -50,11 +49,11 @@ function AdaptiveHeight() {
       <div className="max-w-[1440px] m-auto">
 
       <Slider {...settings}>
-        {feedsback.map((feedback, index) => (
+        {testimonials.map((testimonial, index) => (
           <div key={index}>
             <div className="font-avenir  text-white px-10 lg:px-0">
               <p className="text-[20px] leading-[30px] lg:text-[24px] font-[400] lg:leading-[40px] flex justify-center lg:min-h-[160px] text-center lg:px-[60px]">
-                &ldquo; {feedback.text} &rdquo;
+                &ldquo; {testimonial.text} &rdquo;
               </p>
               <div className="flex justify-center items-center">
                 <div className="text-yellow-400  mt-[16px] mb-[8px] text-[20px] text-[#FEC84B]">
@@ -62,7 +61,7 @@ function AdaptiveHeight() {
                 </div>
               </div>
               <div className="text-center font-[800] text-[18px] leading-[28px]">
-                {feedback.by}
+                {testimonial.name}
               </div>
             </div>
           </div>

@@ -1,6 +1,17 @@
 import Image from "next/image";
 
-export default function GlobalPartners() {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchGlobalPartners = async ()=>{
+  const res = await fetch(`${API_URL}/api/partners?populate=Partner.logo`);
+  const data = await res.json();
+  const GlobalPartners = data.data.map((el: any)=>el.attributes.Partner).filter((el: any)=>el.is_at_home);
+  
+  return GlobalPartners;
+}
+
+export default async function GlobalPartners() {
+  const globalPartners = await fetchGlobalPartners();
   const partners = [
     { name: "Haier", src: "/images/haier.png" },
     { name: "Siemens", src: "/images/siemens.png" },
@@ -24,14 +35,14 @@ export default function GlobalPartners() {
         </div>
         {/* flex-wrap */}
         <div className="flex  items-center lg:justify-center space-y-8 space-x-8 lg:space-y-0 lg:space-x-4">
-          {partners.map((partner, index) => (
+          {globalPartners.map((partner:any, index: number) => (
             <div
               key={index}
               className={`${index==0?"mt-[22px] lg:mt-0":""}`}
             >
               <Image
-                src={partner.src}
-                alt={partner.name}
+                src={partner?.logo?.data?.attributes?.url}
+                alt={partner?.title}
                 width={100}
                 height={30.8}
                 priority

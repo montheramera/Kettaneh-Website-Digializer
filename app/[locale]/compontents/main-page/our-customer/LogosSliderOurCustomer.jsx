@@ -56,7 +56,7 @@ const SamplePrevArrow = (props) => {
     </div>
   );
 };
-function LogosSliderOurCustomer() {
+function LogosSliderOurCustomer({clients}) {
   const logos = [
     { alt: "customer logo 1", src: "/images/customer-logos/kett.png" },
     { alt: "customer logo 20", src: "/images/customer-logos/_0001_logo33.png" },
@@ -112,6 +112,9 @@ function LogosSliderOurCustomer() {
     { alt: "customer logo 21", src: "/images/customer-logos/_0000_14514.png" },
   ];
 
+  const firstSlider = clients.filter(el=> el.slider === "slider_1");
+  const secondSlider = clients.filter(el=> el.slider === "slider_2");
+
   const settings = {
     className: "slider variable-width",
     dots: false,
@@ -145,11 +148,11 @@ function LogosSliderOurCustomer() {
       <div className=" customer-logos slider-logos-arrow ">
         <div className="slider-container main-logos">
           <Slider {...settings}>
-            {logos.slice(0, 11).map((logo, index) => (
+            {firstSlider.map((client, index) => (
               <Image
                 key={index}
-                src={logo.src}
-                alt={logo.alt}
+                src={client.logo.data.attributes.url}
+                alt={client.logo.data.attributes.name}
                 priority
                 width={400}
                 height={400}
@@ -163,11 +166,11 @@ function LogosSliderOurCustomer() {
       <div className=" customer-logos slider-logos-arrow mt-10">
         <div className="slider-container main-logos">
           <Slider {...settings}>
-            {logos.slice(12).map((logo, index) => (
+            {secondSlider.map((client, index) => (
               <Image
                 key={index}
-                src={logo.src}
-                alt={logo.alt}
+                src={client.logo.data.attributes.url}
+                alt={client.logo.data.attributes.name}
                 priority
                 width={400}
                 height={400}

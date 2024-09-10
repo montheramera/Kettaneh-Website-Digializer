@@ -5,8 +5,26 @@ import ScrollSlider from '@/compontents/ui/mobile-scroll-categories/MobileScroll
 import HoverEffect from '@/compontents/ui/mouse-over/HoverEffect';
 import Image from 'next/image';
 import React from 'react';
+import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer';
+import BlocksRendererComponent from '@/compontents/ui/blocs-renderer/BlockRenderer';
 
-const index = () => {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchCustomerData = async () => {
+  const res = await fetch(`${API_URL}/api/our-customer-pages?populate=*`);
+  const data = await res.json();
+  const customerData = data.data.map((el: any)=>el.attributes)
+  return customerData;
+};
+
+const fetchClients = async ()=>{
+  const res = await fetch(`${API_URL}/api/clients?populate[Client][populate]=*&populate=logo`);
+  const data = await res.json();
+  const Clients = data.data.map((el: any)=>el.attributes.Client)
+  return Clients;
+}
+
+const index = async() => {
     const logos = [
       { alt: "customer logo 1", src: "/images/customer-logos/kett.png" },
       {
@@ -88,6 +106,8 @@ const index = () => {
       },
     ];
 
+    const customerData = await fetchCustomerData();
+    const Clients = await fetchClients();
     return (
       <>
         <div className="px-5 lg:px-20  font-avenir">
@@ -104,19 +124,14 @@ const index = () => {
                 Landmark Projects
               </h2>
               <p className="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:mt-[64px] lg:max-w-[1216px]">
-                At Kettaneh, we pride ourselves on delivering excellence through
-                our innovative engineering solutions and collaborations with
-                premium brands. Our landmark projects reflect our commitment to
-                shaping the future with cutting-edge technology and unparalleled
-                expertise.
+                {/* {customerData[0].text} */}
               </p>
               <p className="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph mt-[20px]">
-                From hospitality giants like Sheraton and Holiday Inn to leading
-                industrial companies such as Arab Potash and Manaseer Group, our
-                portfolio showcases a diverse range of successful projects.
-                Explore our work and discover how we continuously strive to
-                exceed expectations and set new standards in the industry.
+                {/* {customerData[2].text} */}
               </p>
+              
+
+                <BlocksRendererComponent content={customerData[0]?.description} classes="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:mt-[64px] lg:max-w-[1216px]"/>
             </div>
           </section>
 
@@ -124,16 +139,11 @@ const index = () => {
             <div className="mt-[64px] mb-[32px] max-w-[1440px] m-auto">
               {/* <LogosSliderOurCustomer /> */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-8 items-center">
-                {logos.map((logo, index) => (
-                  <div
-                    key={index}
-                    className={`flex  ${
-                      index % 2 === 0 ? "justify-start" : "justify-end"
-                    } lg:justify-center items-center`}
-                  >
+                {Clients.map((logo: any, index:number) => (
+                  <div key={index} className={`flex  ${index%2===0?"justify-start":"justify-end"} lg:justify-center items-center`}>
                     <Image
-                      src={logo.src}
-                      alt={logo.alt}
+                      src={logo.logo.data.attributes.url}
+                      alt={logo.logo.data.attributes.name}
                       width={500} // Adjust width according to your needs
                       height={500} // Adjust height according to your needs
                       // objectFit="cover" // Ensures logos maintain their aspect ratio

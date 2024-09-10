@@ -1,8 +1,17 @@
 import Image from "next/image";
 import LogosSliderOurCustomer from "./LogosSliderOurCustomer"
 
-const OurCustomer = () => {
-  
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchClients = async ()=>{
+  const res = await fetch(`${API_URL}/api/clients?populate[Client][populate]=*&populate=logo`);
+  const data = await res.json();
+  const Clients = data.data.map((el: any)=>el.attributes.Client);
+  return Clients;
+}
+
+const OurCustomer = async() => {
+  const Clients = await fetchClients();
   return (
     <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir ">
       <div className="max-w-[1440px] m-auto">
@@ -17,7 +26,7 @@ const OurCustomer = () => {
           </p>
         </div>
         <div className="mt-[64px]">
-          <LogosSliderOurCustomer />
+          <LogosSliderOurCustomer clients={Clients} />
         </div>
 
         <div className="mt-[30px] lg:mt-[100px] flex justify-start w-full">

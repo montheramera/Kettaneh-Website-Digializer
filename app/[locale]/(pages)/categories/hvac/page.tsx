@@ -19,17 +19,40 @@ const imagesLogos = [
   
 ];
 
-const page = () => {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchCategoryByTitle = async (title: string) => {
+  const res = await fetch(`${API_URL}/api/categories?populate[category][populate]=*&populate=image&filters[title]=${title}`);
+  const data = await res.json();
+  const categories = data.data;
+  return categories;
+};
+
+const fetchPartnersByCategory = async (categoryTitle: string) => {
+  const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo,categories&filters[Partner][categories][title][$eq]=${encodeURIComponent(categoryTitle)}`);
+  const data = await res.json();
+  const partners = data.data.map((el: any)=>{
+    const image = {...el.attributes.Partner.logo.data.attributes}
+    image.src = image.url;
+    return image
+  });
+  return partners;
+};
+
+const page = async () => {
+
+  let hvacCategory = await fetchCategoryByTitle('hvac');
+  const categoryTitle = hvacCategory[0].attributes.title
+  let partners = await fetchPartnersByCategory(categoryTitle);
+
   return (
     <>
       <FirstSection
-        categoryname={"HVAC"}
-        categoryParagraph={
-          "Our HVAC department provides the market with comfortable and healthy air quality, for both heating & cooling seasons from world leaders such as Haier and our locally renowned brand that is Home Master."
-        }
-        categoryBg={"#5389B9"}
-        imagesLogos={imagesLogos}
-        imageUrl={"/images/categories/hvac/hvac.png"}
+          categoryname={hvacCategory[0]?.attributes?.title}
+          categoryParagraph={hvacCategory[0]?.attributes?.category?.summary}
+          categoryBg={hvacCategory[0]?.attributes?.category?.background_color}
+          imagesLogos={partners}
+          imageUrl={hvacCategory[0]?.attributes?.category?.image?.data?.attributes?.url}
       />
       <section className="hidden lg:block">
         <LeadingExcellence />

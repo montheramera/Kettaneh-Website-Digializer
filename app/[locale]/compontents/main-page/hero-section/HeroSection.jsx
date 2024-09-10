@@ -2,7 +2,18 @@
 import HoverEffect from '@/compontents/ui/mouse-over/HoverEffect';
 import React from 'react';
 
-const HeroSection = () => {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchCategories = async ()=>{
+  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const data = await res.json();
+  const Categories = data.data.map(el=>({title: el.attributes.title, category: el.attributes.category})).sort((a, b)=> a.category.id - b.category.id);
+  return Categories;
+}
+
+
+const HeroSection = async() => {
+  const categories = await fetchCategories();
     return (
       <div className="bg-primary lg:px-20 p-0 lg:p-10 font-avenir ">
         <div className="relative group max-w-[1440px] m-auto min-h-[0px] lg:min-h-[125px]">
@@ -69,7 +80,7 @@ const HeroSection = () => {
             </div>
           </div> */}
           <section className="hidden lg:block absolute z-[5000] top-[0px] w-full ">
-            <HoverEffect />
+            <HoverEffect categories={categories}/>
           </section>
 
        

@@ -25,7 +25,6 @@ const FirstSection: React.FC<FirstSectionProps> = ({
 }) => {
   
   const path = usePathname();
-  console.log("router", path);
   
   return (
     <>

@@ -5,7 +5,17 @@ import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScroll
 import Image from "next/image";
 import React from "react";
 
-const page = () => {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchEvents = async () => {
+  const res = await fetch(`${API_URL}/api/events?populate[Event][populate]=*&populate=image`);
+  const data = await res.json();
+  const events = data.data.filter((el: any)=>!el.attributes.Event.Is_main);
+  return events;
+};
+
+const page = async() => {
+  const events = await fetchEvents();
   return (
     <>
       <div className="px-5 lg:px-20  font-avenir">
@@ -28,7 +38,7 @@ const page = () => {
         </section>
         <div className="  lg:pt-[6px]">
           <section className="max-w-[1440px] lg:mt-[48px] m-auto">
-            <GallerySection />
+            <GallerySection events={events} />
           </section>
         </div>
       </div>

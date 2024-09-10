@@ -1,6 +1,18 @@
 import Image from "next/image";
 
-const News = () => {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchEvents = async ()=>{
+  const res = await fetch(`${API_URL}/api/events?populate[Event][populate]=*&populate=image`);
+  const data = await res.json();
+  const Events = data.data.map((el: any)=>el.attributes.Event);
+  return Events;
+}
+
+const News = async() => {
+  const Events = await fetchEvents();
+  const mainEvent = Events.find((el: any)=> el.Is_main);
+  const otherEvents = Events.filter((el: any)=> !el.Is_main && el.is_at_main)
   return (
     <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir border-y-[#F9FAFB]  border-opacity-25 border-y-[5px]">
       <div className="max-w-[1440px] m-auto">
@@ -17,8 +29,8 @@ const News = () => {
           <div className="lg:col-span-2 shadow-lg">
             {/* <div className="relative w-[769px] h-[337px] mb-6"> */}
             <Image
-              src={"/images/news/Frame 1272631876.png"}
-              alt="Haier Factory Visit"
+              src={mainEvent.image.data.attributes.url}
+              alt={mainEvent.title}
               //   layout="fill"
               //   objectFit="cover"
               width={769}
@@ -27,11 +39,11 @@ const News = () => {
             />
             {/* </div> */}
             <h3 className="font-[800] mt-[20px] text-[18px] leading-[28px] mx-2 text-[#111928] ">
-              Haier Factory Visit
+              {mainEvent.title}
             </h3>
 
             <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] underline ">
-              {new Date().toLocaleDateString("en-US", {
+              {new Date(mainEvent.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
@@ -128,20 +140,21 @@ const News = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
-          <div className="shadow-lg">
+          {otherEvents.map((event: any, index: number)=> (
+            <div className="shadow-lg">
             <div className="relative  w-[100%] h-[176px]">
               <Image
-                src={"/images/news/card-header.png"}
-                alt="F.A. Kettaneh Kick Off Meeting"
+                src={event.image.data.attributes.url}
+                alt={event.title}
                 layout="fill"
                 objectFit="cover"
               />
             </div>
             <h3 className="font-[800] text-[18px] leading-[28px] text-heading my-[10px] mx-2">
-              F.A. Kettaneh Kick Off Meeting
+              {event.title}
             </h3>
             <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] underline">
-              {new Date().toLocaleDateString("en-US", {
+              {new Date(event.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
@@ -150,8 +163,9 @@ const News = () => {
               })}
             </p>
           </div>
+          ))}
 
-          <div className="shadow-lg">
+          {/* <div className="shadow-lg">
             <div className="relative  w-[100%] h-[176px]">
               <Image
                 src={"/images/news/card-header (1).png"}
@@ -198,7 +212,7 @@ const News = () => {
                 minute: "2-digit",
               })}
             </p>
-          </div>
+          </div> */}
         </div>
 
         <button className="mt-[40px] bg-primary text-white py-2 px-6 ">

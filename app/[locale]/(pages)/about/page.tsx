@@ -4,9 +4,50 @@ import PartnerSlider from "@/compontents/about/PartnerSlider";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
+import BlocksRendererComponent from "@/compontents/ui/blocs-renderer/BlockRenderer";
 
-export default function AboutUs() {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
+const fetchAchivements = async () => {
+  const res = await fetch(`${API_URL}/api/achievements?populate=*`);
+  const data = await res.json();
+  const achivements = data.data.map((el: any)=> el.attributes.Achievement)
+  return achivements;
+}
+
+const fetchGlobalPartners = async () => {
+  const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo`);
+  const data = await res.json();
+  const partners = data.data.map((el: any)=>{
+    const image = {...el.attributes.Partner.logo.data.attributes}
+    image.src = image.url;
+    return image
+  });
+  return partners;
+};
+
+const fetchAboutData = async () => {
+  const res = await fetch(`${API_URL}/api/about-pages?populate=*`);
+  const data = await res.json();
+  const about = data.data;
+  const AboutData = {
+    title: about[0].attributes.title,
+    description1: about[0].attributes.description_section1,
+    description2: about[0].attributes.description_section2,
+    first_section_iamge: about[0].attributes.first_section_iamge.data.attributes,
+    second_section_iamge: about[0].attributes.second_section_image.data.attributes,
+    Achievement_section_image: about[0].attributes.Achievement_section_image.data.attributes,
+    Time_lines: about[0].attributes.Time_lines,
+    beliefs_and_goals: about[0].attributes.beliefs_and_goals
+  }
+  console.log(AboutData.description1);
+  return AboutData;
+};
+
+export default async function AboutUs() {
+  const AboutData = await fetchAboutData();
+  const Achivements = await fetchAchivements();
+  const GlobalPartners = await fetchGlobalPartners();
   return (
     <>
       <div className="px-5  lg:px-20  font-avenir lg:overflow-hidden">
@@ -15,7 +56,7 @@ export default function AboutUs() {
             <div className="mb-[16px] mt-[24px] flex">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
-                About Us
+                {AboutData.title}
               </span>
             </div>
             <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
@@ -28,39 +69,20 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-2 mt-[51px]  gap-10 text-[18px] font-[400] leading-[28px] text-paragraph">
             <div className="flex">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <p className="">
-                Ever since the company &apos;s establishment in 1922, the
-                Kettaneh Group has sought to provide true satisfaction to its
-                customers and potential clients.
-                <br />
-                <br />
-                Francis the eldest of the four Kettaneh brothers first
-                established the company alone but was later joined by his
-                brother Alfred, and afterwards by Charles and Desire. Four
-                determined men working hand, hand in hand, to start out what
-                later expanded into the Kettaneh Freres ventures.
-                <br />
-                <br />
-                Expansion came when they became sole distributors of a number of
-                US brands in the region.
-                <br />
-                This was the push they needed to conduct what was to be a long
-                productive and diversified business development.
-                <br />
-                <br />A professional entrepreneurial spirit, and commitment to
-                family values, as well as the personal development of Kettaneh’s
-                employees are the foundation on which the Group’s entire
-                operation is based. Today, the Francis and Charles Kettaneh
-                families own the Group and as always Kettaneh since 1922 is,
-                committed to serving you.
-              </p>
+                <div className="flex flex-col">
+                {
+                  AboutData.description1.map((el: any, index: number)=> (
+                    <BlocksRendererComponent key={index} content={[el]}/>
+                  ))
+                }
+                </div>
             </div>
             <div className="flex ">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[300px] lg:min-h-[100%] mr-[10px] "></div>
               <div
                 className="flex-1"
                 style={{
-                  backgroundImage: `url('/images/about/timeline2_2 3 (1).png')`,
+                  backgroundImage: `url(${AboutData.first_section_iamge.url})`,
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                 }}
@@ -85,7 +107,7 @@ export default function AboutUs() {
               <div
                 className="flex-1"
                 style={{
-                  backgroundImage: `url('/images/about/timeline2_2 3 (1).png')`,
+                  backgroundImage: `url(${AboutData.second_section_iamge.url})`,
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                 }}
@@ -93,17 +115,12 @@ export default function AboutUs() {
             </div>
             <div className="flex">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <p className="">
-                F. A. Kettaneh & Co LTD Jordan has a long tradition of being a
-                first-class company - one that has always exceeded the
-                increasing expectations of its customers and strengthened its
-                ties with its employees, suppliers and communities. A leading
-                company in the Jordanian market, which started its operation in
-                1948 and since then has represented a number of premium brands
-                such as Siemens, Atlas Copco, Haier, and Linde to name a few.
-                With three specialized Departments, Kettaneh is able to provide
-                and satisfy all market needs for industrial equipment.
-              </p>
+              {/* {AboutData.description2.map((el: any, index:number)=>(
+                <p key={index} className="">{el.text}</p>
+              ))
+              } */}
+
+            <BlocksRendererComponent content={AboutData?.description2}/>
             </div>
           </div>
         </section>
@@ -118,81 +135,49 @@ export default function AboutUs() {
             Charting the Future with Innovation and Integrity
           </p>
           <div className="flex flex-col lg:flex-row justify-between gap-10 mt-[64px]">
-            <div className="flex">
+            {AboutData.beliefs_and_goals.slice(0,2).map((el: any, index: number)=>(
+              <div className="flex" key={index}>
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
-                  Our Mission
+                  {el.title}
                 </h3>
                 <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
-                  Leverage on our historical and ethical business reputation in
-                  the region to meet the changing needs of our customers by
-                  offering them integrated solutions and services through an
-                  expanded offering of leading brands.
+                  {el.description}
                 </p>
               </div>
             </div>
-
-            <div className="flex">
-              <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <div className="">
-                <h3 className="text-[24px] font-[600] leading-[30px]">
-                  Our Vision
-                </h3>
-                <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
-                  Lead the market by expanding our product portfolio and
-                  integrating it into profitable services and solutions that add
-                  comfort, safety, and reliability to our customers while
-                  protecting our environment.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
       <section className="bg-primary text-white px-5 py-4 lg:px-20 lg:pt-[1px] lg:pb-[96px] font-avenir">
         <div className="max-w-[1440px] m-auto">
           <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-5 mt-[32] lg:mt-[64px]">
-            <div className="flex">
+          {AboutData.beliefs_and_goals.slice(2,4).map((el: any, index: number)=>(
+              <div className="flex" key={index}>
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="">
                 <h3 className="text-[24px] font-[600] leading-[30px]">
-                  Our Values
+                  {el.title}
                 </h3>
                 <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
-                  Leverage on our historical and ethical business reputation in
-                  the region to meet the changing needs of our customers by
-                  offering them integrated solutions and services through an
-                  expanded offering of leading brands.
+                  {el.description}
                 </p>
               </div>
             </div>
-
-            <div className="flex">
-              <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <div className="">
-                <h3 className="text-[24px] font-[600] leading-[30px]">
-                  Our Promises
-                </h3>
-                <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
-                  Lead the market by expanding our product portfolio and
-                  integrating it into profitable services and solutions that add
-                  comfort, safety, and reliability to our customers while
-                  protecting our environment.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
       <section>
-        <AchievementsSection />
+        <AchievementsSection achivements={Achivements} image={AboutData.Achievement_section_image}/>
       </section>
       <section className="overflow-hidden">
-        <TimelineSlider />
+        <TimelineSlider timelineData={AboutData.Time_lines}/>
       </section>
       <section className="overflow-hidden">
-        <PartnerSlider />
+        <PartnerSlider partners={GlobalPartners} />
       </section>
       <section className="hidden lg:block">
         <LeadingExcellence />
