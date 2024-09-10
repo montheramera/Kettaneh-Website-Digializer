@@ -29,17 +29,38 @@ const imagesLogos = [
   },
 ];
 
-const page = () => {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchCategoryByTitle = async (title: string) => {
+  const res = await fetch(`${API_URL}/api/categories?populate[category][populate]=*&populate=image&filters[title]=${title}`);
+  const data = await res.json();
+  const categories = data.data;
+  return categories;
+};
+
+const fetchPartnersByCategory = async (categoryTitle: string) => {
+  const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo,categories&filters[Partner][categories][title][$eq]=${encodeURIComponent(categoryTitle)}`);
+  const data = await res.json();
+  const partners = data.data.map((el: any)=>{
+    const image = {...el.attributes.Partner.logo.data.attributes}
+    image.src = image.url;
+    return image
+  });
+  return partners;
+};
+
+const page = async() => {
+  let LightingCategory = await fetchCategoryByTitle(' Lighting');
+  const categoryTitle = LightingCategory[0].attributes.title
+  let partners = await fetchPartnersByCategory(categoryTitle);
   return (
     <>
       <FirstSection
-        categoryname={"Lighting"}
-        categoryParagraph={
-          "Our lighting solutions are designed to make our days always brighter while providing easy to install, innovative, reliable and affordable solutions for homes and businesses. Our lighting Business Unit offers such valuable solutions across our multiple brands such as Leviton, Pelsan, P.U.K, Tridonic, Northcliff, Orbik, Secom, Ikizler Megaman, Relco, Pedas, Disano, Grupo MCI and Boluce."
-        }
-        categoryBg={"#E7C460"}
-        imagesLogos={imagesLogos}
-        imageUrl={"/images/categories/lighting/lighting.png"}
+        categoryname={LightingCategory[0]?.attributes?.title}
+        categoryParagraph={LightingCategory[0]?.attributes?.category?.summary}
+        categoryBg={LightingCategory[0]?.attributes?.category?.background_color}
+        imagesLogos={partners}
+        imageUrl={LightingCategory[0]?.attributes?.category?.image?.data?.attributes?.url}
       />
       <section>
         <LeadingExcellence />

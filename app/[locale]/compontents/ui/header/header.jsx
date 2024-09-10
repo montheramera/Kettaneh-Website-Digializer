@@ -282,7 +282,7 @@ const Header = () => {
                 href="/our-customer"
               >
                 {" "}
-                Our Cusomers
+                Our Customers
               </Link>
             </li>
             {/* <li>

@@ -60,39 +60,39 @@ const SamplePrevArrow = (props) => {
   );
 };
 
-const PartnerSlider = () => {
-  const partners = [
-    {
-      name: "Flender",
-      src: "/images/about/gold-pattern/1.png",
-      width: 142.5,
-      height: 36,
-    },
-    {
-      name: "Leviton",
-      src: "/images/about/gold-pattern/2.png",
-      width: 142.5,
-      height: 36,
-    },
-    {
-      name: "Epiroc",
-      src: "/images/about/gold-pattern/3.png",
-      width: 142.5,
-      height: 36,
-    },
-    {
-      name: "Orbik",
-      src: "/images/about/gold-pattern/4.png",
-      width: 142.5,
-      height: 36,
-    },
-    {
-      name: "Secom",
-      src: "/images/about/gold-pattern/5.png",
-      width: 142.5,
-      height: 36,
-    },
-  ];
+const PartnerSlider = ({partners}) => {
+  // const partners = [
+  //   {
+  //     name: "Flender",
+  //     src: "/images/about/gold-pattern/1.png",
+  //     width: 142.5,
+  //     height: 36,
+  //   },
+  //   {
+  //     name: "Leviton",
+  //     src: "/images/about/gold-pattern/2.png",
+  //     width: 142.5,
+  //     height: 36,
+  //   },
+  //   {
+  //     name: "Epiroc",
+  //     src: "/images/about/gold-pattern/3.png",
+  //     width: 142.5,
+  //     height: 36,
+  //   },
+  //   {
+  //     name: "Orbik",
+  //     src: "/images/about/gold-pattern/4.png",
+  //     width: 142.5,
+  //     height: 36,
+  //   },
+  //   {
+  //     name: "Secom",
+  //     src: "/images/about/gold-pattern/5.png",
+  //     width: 142.5,
+  //     height: 36,
+  //   },
+  // ];
 
   const settings = {
     infinite: true,

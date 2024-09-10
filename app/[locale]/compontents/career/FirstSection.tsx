@@ -1,7 +1,7 @@
 import Image from "next/image";
 import CareerFormNew from "@/compontents/career/CareerFormNew";
 
-export default function JobListings() {
+export default function JobListings({careers}: any) {
   const jobs = [
     {
       title: "Sales Engineer",
@@ -42,23 +42,23 @@ export default function JobListings() {
       <div className="flex flex-col lg:flex-row justify-between   lg:gap-32">
         {/* Job Listings */}
         <div className="w-full  lg:w-1/2 ">
-          {jobs.map((job, index) => (
+          {careers.map((career: any, index: number) => (
             <div key={index} className="pb-6 mb-6 border-b border-[#EAECF0]">
               <h3 className="text-[24px] font-[800] leading-[28px] text-heading">
-                {job.title}
+                {career?.attributes?.career?.title}
                 <span
                   style={{
-                    background: job.departmentBg,
-                    color: job.departmentColor,
-                    border: `1px solid ${job.departmentColor}`,
+                    background: career?.attributes.category.data.attributes.category.background_color,
+                    color: career?.attributes.category.data.attributes.category.btn_color,
+                    border: `1px solid ${career?.attributes.category.data.attributes.category.btn_color}`,
                   }}
-                  className={`ml-2 border-[${job.departmentColor}] border p-2 rounded-3xl text-[14px] font-[500] leading-[20px] text-[${job.departmentColor}] bg-[${job.departmentBg}]`}
+                  className={`ml-2 border-[${career?.attributes.category.data.attributes.category.btn_color}] border p-2 rounded-3xl text-[14px] font-[500] leading-[20px] text-[${career?.attributes.category.data.attributes.category.btn_color}] bg-[${career?.attributes.category.data.attributes.category.background_color}]`}
                 >
-                  {job.department}
+                  {career?.attributes?.category?.data?.attributes?.title} Department
                 </span>
               </h3>
               <p className="mt-[8px] text-[18px] font-[400] leading-[28px] text-paragraph">
-                {job.description}
+                {career?.attributes?.career?.description}
               </p>
               {/* <div className="flex items-center text-[16px] font-[500] leading-[24px] text-paragraph  space-x-4 mt-[24px]">
                 <span className="flex gap-2">

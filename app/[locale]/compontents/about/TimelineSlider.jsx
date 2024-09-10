@@ -63,36 +63,9 @@ const SamplePrevArrow = (props) => {
   );
 };
 
-const TimelineSlider = () => {
+const TimelineSlider = ({timelineData}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const timelineData = [
-    {
-      year: "1922",
-      description:
-        "Ever since the company's establishment in 1922, the Kettaneh Group has sought to provide true satisfaction to its customers and potential clients.",
-    },
-    {
-      year: "1952",
-      description:
-        "Expansion came when they became sole distributors of a number of US brands in the region.",
-    },
-    {
-      year: "1953",
-      description:
-        "Ever since the company's establishment in 1922, the Kettaneh Group has sought to provide true satisfaction to its customers and potential clients.",
-    },
-    {
-      year: "1954",
-      description:
-        "Ever since the company's establishment in 1922, the Kettaneh Group has sought to provide true satisfaction to its customers and potential clients.",
-    },
-    {
-      year: "1955",
-      description:
-        "Ever since the company's establishment in 1922, the Kettaneh Group has sought to provide true satisfaction to its customers and potential clients.",
-    },
-  ];
 
   const settings = {
     cssEase: "linear",

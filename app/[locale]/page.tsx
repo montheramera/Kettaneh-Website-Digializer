@@ -8,7 +8,18 @@ import News from "@/compontents/main-page/news/News";
 import AdaptiveHeight from "@/compontents/main-page/feed-back/FeedBack";
 import ExperienceBanner from "@/compontents/main-page/experience-banner/ExperienceBanner";
 
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchTestimonials = async ()=>{
+  const res = await fetch(`${API_URL}/api/testimonials?populate[Testimonial][populate]=*`);
+  const data = await res.json();
+  const Testimonials = data.data.map((el: any)=>el.attributes.Testimonial);
+  return Testimonials;
+}
+
 export default async function Home() {
+
+  const Testimonials = await fetchTestimonials();
   const t = await getTranslations();
   return (
     <main className="min-h-screen ">
@@ -31,7 +42,7 @@ export default async function Home() {
         <News />
       </div>
       <div>
-        <AdaptiveHeight />
+        <AdaptiveHeight testimonials={Testimonials} />
       </div>
       <div>
         <ExperienceBanner />
