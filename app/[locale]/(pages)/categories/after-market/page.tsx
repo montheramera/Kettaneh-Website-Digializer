@@ -38,7 +38,7 @@ const page = () => {
       <section className="hidden lg:block">
         <LeadingExcellence />
       </section>
-      <section className="block lg:hidden">
+      <section className="block lg:hidden mt-[30px]">
         <ScrollSlider />
       </section>
       <CallToAction />
