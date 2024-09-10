@@ -7,6 +7,7 @@ import OurCustomer from "@/compontents/main-page/our-customer/OurCustomer";
 import News from "@/compontents/main-page/news/News";
 import AdaptiveHeight from "@/compontents/main-page/feed-back/FeedBack";
 import ExperienceBanner from "@/compontents/main-page/experience-banner/ExperienceBanner";
+import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
 
 export default async function Home() {
   const t = await getTranslations();
@@ -15,6 +16,9 @@ export default async function Home() {
       <div className="">
         <HeroSection />
       </div>
+      <section className="block lg:hidden">
+        <ScrollSlider />
+      </section>
       <div className="lg:mt-[250px]">
         <GlobalPartners />
       </div>

@@ -4,8 +4,8 @@ import React from 'react';
 
 const HeroSection = () => {
     return (
-      <div className="bg-primary lg:px-20 p-10 font-avenir ">
-        <div className="relative group max-w-[1440px] m-auto  lg:min-h-[125px]">
+      <div className="bg-primary lg:px-20 p-0 lg:p-10 font-avenir ">
+        <div className="relative group max-w-[1440px] m-auto min-h-[0px] lg:min-h-[125px]">
           {/* <div className=" text-white">
             <h1 className=" font-[800] text-[60px] leading-none">
               100 Years Legacy Engineering Solutions
@@ -71,6 +71,8 @@ const HeroSection = () => {
           <section className="hidden lg:block absolute z-[5000] top-[0px] w-full ">
             <HoverEffect />
           </section>
+
+       
         </div>
       </div>
     );

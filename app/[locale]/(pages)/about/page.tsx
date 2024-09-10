@@ -3,6 +3,7 @@ import TimelineSlider from "@/compontents/about/TimelineSlider";
 import PartnerSlider from "@/compontents/about/PartnerSlider";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
+import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
 
 export default function AboutUs() {
 
@@ -70,8 +71,7 @@ export default function AboutUs() {
 
         <section className="max-w-[1440px] m-auto lg:my-[96px]">
           <div>
-            <div className="mb-[16px] mt-[24px] flex">
-            </div>
+            <div className="mb-[16px] mt-[24px] flex"></div>
             <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
               <span className="text-primary ">Who</span> we are ?
             </h2>
@@ -194,8 +194,11 @@ export default function AboutUs() {
       <section className="overflow-hidden">
         <PartnerSlider />
       </section>
-      <section>
+      <section className="hidden lg:block">
         <LeadingExcellence />
+      </section>
+      <section className="block lg:hidden">
+        <ScrollSlider />
       </section>
       <section>
         <CallToAction />

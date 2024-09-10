@@ -1,6 +1,7 @@
 import FirstSection from "@/compontents/categories/FirstSection";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
+import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
 import React from "react";
 const imagesLogos = [
   {
@@ -54,8 +55,11 @@ const page = () => {
         imagesLogos={imagesLogos}
         imageUrl={"/images/categories/machinery/machinery.png"}
       />
-      <section>
+      <section className="hidden lg:block">
         <LeadingExcellence />
+      </section>
+      <section className="block lg:hidden">
+        <ScrollSlider />
       </section>
       <CallToAction />
     </>

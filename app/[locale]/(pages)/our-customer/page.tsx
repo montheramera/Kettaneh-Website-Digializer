@@ -1,6 +1,7 @@
 import LogosSliderOurCustomer from '@/compontents/main-page/our-customer/LogosSliderOurCustomer';
 import CallToAction from '@/compontents/ui/call-action/CallToAction';
 import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcellence';
+import ScrollSlider from '@/compontents/ui/mobile-scroll-categories/MobileScrollCategories';
 import HoverEffect from '@/compontents/ui/mouse-over/HoverEffect';
 import Image from 'next/image';
 import React from 'react';
@@ -124,7 +125,12 @@ const index = () => {
               {/* <LogosSliderOurCustomer /> */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-8 items-center">
                 {logos.map((logo, index) => (
-                  <div key={index} className={`flex  ${index%2===0?"justify-start":"justify-end"} lg:justify-center items-center`}>
+                  <div
+                    key={index}
+                    className={`flex  ${
+                      index % 2 === 0 ? "justify-start" : "justify-end"
+                    } lg:justify-center items-center`}
+                  >
                     <Image
                       src={logo.src}
                       alt={logo.alt}
@@ -136,16 +142,18 @@ const index = () => {
                 ))}
               </div>
             </div>
-          <div className="mb-[36px] mt-[64px] flex justify-start  w-full max-w-[1440px]  m-auto">
-            <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
-              View Success Stories
-            </span>
-          </div>
+            <div className="mb-[36px] mt-[64px] flex justify-start  w-full max-w-[1440px]  m-auto">
+              <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
+                View Success Stories
+              </span>
+            </div>
           </section>
-
         </div>
-        <section>
+        <section className="hidden lg:block">
           <LeadingExcellence />
+        </section>
+        <section className="block lg:hidden">
+          <ScrollSlider />
         </section>
         <section className="">
           <CallToAction />

@@ -1,6 +1,7 @@
 import GallerySection from "@/compontents/news-and-events/GallerySection";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
+import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
 import Image from "next/image";
 import React from "react";
 
@@ -32,8 +33,11 @@ const page = () => {
         </div>
       </div>
 
-      <section>
+      <section className="hidden lg:block">
         <LeadingExcellence />
+      </section>
+      <section className="block lg:hidden">
+        <ScrollSlider />
       </section>
 
       <section className=" ">
