@@ -11,7 +11,7 @@ export default function ExperienceBanner() {
    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
   return (
     <>
-      <div className="relative h-[308px] lg:max-h-[308px] w-full font-avenir my-[30px] lg:my-0">
+      <div className="relative h-[308px] lg:max-h-[308px] w-full font-avenir mb-[30px] lg:my-0">
         {/* Background Image */}
         <Image
           src="/images/experence-banner.jpeg"

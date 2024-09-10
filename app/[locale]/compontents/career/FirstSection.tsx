@@ -52,7 +52,7 @@ export default function JobListings() {
                     color: job.departmentColor,
                     border: `1px solid ${job.departmentColor}`,
                   }}
-                  className={`ml-2 border-[${job.departmentColor}] border p-2 rounded-3xl text-[14px] font-[500] leading-[20px] text-[${job.departmentColor}] bg-[${job.departmentBg}]`}
+                  className={`ml-2 border-[${job.departmentColor}] border p-2 rounded-3xl text-[14px] font-[500] leading-[20px] text-[${job.departmentColor}] bg-[${job.departmentBg}] whitespace-nowrap`}
                 >
                   {job.department}
                 </span>

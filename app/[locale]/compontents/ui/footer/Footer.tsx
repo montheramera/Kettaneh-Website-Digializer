@@ -127,14 +127,16 @@ export default function Footer() {
                 Connect with us
               </h4>
               <p className="font-light text-paragraph leading-[24px] text-[14px] flex gap-2">
-                <Image
-                  src="/images/icons/whatsapp.png"
-                  alt="Kettaneh Logo"
-                  priority
-                  width={24}
-                  height={24}
-                />{" "}
-                <span>+962 6 4398642</span>
+                <a className="flex" href="https://wa.me/+96264398642">
+                  <Image
+                    src="/images/icons/whatsapp.png"
+                    alt="Kettaneh Logo"
+                    priority
+                    width={24}
+                    height={24}
+                  />{" "}
+                  <span>+962 6 4398642</span>
+                </a>
               </p>
               <p className="font-[500] text-paragraph leading-[24px]  text-[16px] flex gap-2 my-[20px]">
                 <Image
@@ -214,11 +216,11 @@ export default function Footer() {
                     height={24}
                   />
                 </a>
-                <a href="#">
+                <a href="tel:+96264398642">
                   {/* <img src="/path-to-whatsapp-icon.png" alt="WhatsApp" /> */}
                   <Image
                     src="/images/icons/call.png"
-                    alt="WhatsApp"
+                    alt="call"
                     priority
                     width={24}
                     height={24}
@@ -231,11 +233,11 @@ export default function Footer() {
 
         {/* Bottom Section */}
       </div>
-      <div className="py-[48px] text-center md:text-left font-[350] text-[16px] leading-[24px] text-paragraph bg-[#F9FAFB] ">
-        <div className="  px-20">
-          <div className="max-w-[1440px] m-auto flex flex-col md:flex-row justify-between items-center">
+      <div className="py-[48px] mt-[30px] lg:mt-0 text-center md:text-left font-[350] text-[16px] leading-[24px] text-paragraph bg-[#F9FAFB] ">
+        <div className="px-5  lg:px-20">
+          <div className="max-w-[1440px] lg:m-auto flex flex-col  md:flex-row lg:justify-between lg:items-center">
             <p>© 2024 Kettaneh. All rights reserved.</p>
-            <p className="flex space-x-4 mt-4 md:mt-0">
+            <p className="flex justify-between lg:justify-normal space-x-4 mt-4 md:mt-0">
               <a href="#" className="underline">
                 Privacy Policy
               </a>

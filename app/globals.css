@@ -434,7 +434,7 @@ li:hover > button svg {
       
         .slick-prev {
           left: -20px !important;
-          margin-top: 8px !important;
+          margin-top: 15px !important;
           z-index: 100;
       
         }

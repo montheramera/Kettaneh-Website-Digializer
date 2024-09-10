@@ -31,14 +31,12 @@ const Header = () => {
   return (
     <nav
       className={`bg-primary px-5 py-4 lg:px-20 lg:py-8 text-white font-[500] text-[18px]  ${
-        isFixed
-          ? "fixed top-0 left-0 w-full z-50 shadow-md"
-          : ""
+        isFixed ? "fixed top-0 left-0 w-full z-50 shadow-md" : ""
       } z-[50000] `}
     >
       <div className="max-w-[1440px] m-auto">
         <div className="mx-auto flex justify-between items-center">
-          <div>
+          <div onClick={() => setIsMenuOpen(false)}>
             <Link href="/">
               <Image
                 src="/images/logo.png"
@@ -77,7 +75,10 @@ const Header = () => {
               isMenuOpen ? "block" : "hidden"
             }`}
           >
-            <li className="text-white hover:text-prbg-primary">
+            <li
+              className="text-white hover:text-prbg-primary"
+              // onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
               <Link
                 className="text-[16px] uppercase leading-[28px] font-[500]"
                 href="/about"
@@ -102,7 +103,7 @@ const Header = () => {
                 </span>
               </button>
               <ul
-                className="bg-primary z-[2000000] border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+                className="bg-primary z-[2000000] border rounded-sm transform scale-0 group-hover:scale-100 absolute
   transition duration-150 ease-in-out origin-top min-w-32"
               >
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -129,7 +130,7 @@ const Header = () => {
                     </span> */}
                   </button>
                   {/* <ul
-                    className="bg-primary border rounded-sm absolute top-0 right-0 
+                    className="bg-primary border rounded-sm absolute top-0 right-0
   transition duration-150 ease-in-out origin-top-left
   min-w-32
   "
@@ -163,7 +164,7 @@ const Header = () => {
                     </span> */}
                   </button>
                   {/* <ul
-                    className="bg-heading border rounded-sm absolute top-0 right-0 
+                    className="bg-heading border rounded-sm absolute top-0 right-0
   transition duration-150 ease-in-out origin-top-left
   min-w-32
   "
@@ -197,7 +198,7 @@ const Header = () => {
                     </span> */}
                   </button>
                   {/* <ul
-                    className="bg-primary border rounded-sm absolute top-0 right-0 
+                    className="bg-primary border rounded-sm absolute top-0 right-0
   transition duration-150 ease-in-out origin-top-left
   min-w-32
   "
@@ -232,7 +233,7 @@ const Header = () => {
                     </span> */}
                   </button>
                   {/* <ul
-                    className="bg-primary border rounded-sm absolute top-0 right-0 
+                    className="bg-primary border rounded-sm absolute top-0 right-0
   transition duration-150 ease-in-out origin-top-left
   min-w-32
   "
@@ -266,7 +267,7 @@ const Header = () => {
                     </span> */}
                   </button>
                   {/* <ul
-                    className="bg-primary border rounded-sm absolute top-0 right-0 
+                    className="bg-primary border rounded-sm absolute top-0 right-0
   transition duration-150 ease-in-out origin-top-left
   min-w-32
   "
@@ -331,7 +332,10 @@ const Header = () => {
             isMenuOpen ? "block" : "hidden"
           }`}
         >
-          <li className="text-white hover:text-prbg-primary">
+          <li
+            className="text-white hover:text-prbg-primary"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/about"
@@ -356,10 +360,13 @@ const Header = () => {
               </span>
             </button>
             <ul
-              className="bg-primary border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+              className="bg-primary border rounded-sm transform scale-0 group-hover:scale-100 absolute
   transition duration-150 ease-in-out origin-top min-w-32"
             >
-              <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100 ">
+              <li
+                className="rounded-sm relative px-3 py-1 hover:bg-gray-100 "
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
@@ -373,7 +380,10 @@ const Header = () => {
                   </span>
                 </button>
               </li>
-              <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+              <li
+                className="rounded-sm relative px-3 py-1 hover:bg-gray-100"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
@@ -387,7 +397,10 @@ const Header = () => {
                   </span>
                 </button>
               </li>
-              <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+              <li
+                className="rounded-sm relative px-3 py-1 hover:bg-gray-100"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
@@ -401,7 +414,10 @@ const Header = () => {
                   </span>
                 </button>
               </li>
-              <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+              <li
+                className="rounded-sm relative px-3 py-1 hover:bg-gray-100"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
@@ -415,7 +431,10 @@ const Header = () => {
                   </span>
                 </button>
               </li>
-              <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+              <li
+                className="rounded-sm relative px-3 py-1 hover:bg-gray-100"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
                   <span className="pr-1 flex-1">
                     {" "}
@@ -432,7 +451,10 @@ const Header = () => {
             </ul>
           </div>
 
-          <li className="text-white hover:text-prbg-primary">
+          <li
+            className="text-white hover:text-prbg-primary"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/our-customer"
@@ -442,7 +464,10 @@ const Header = () => {
             </Link>
           </li>
 
-          <li className="text-white hover:text-prbg-primary">
+          <li
+            className="text-white hover:text-prbg-primary"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/news-and-events"
@@ -452,7 +477,10 @@ const Header = () => {
             </Link>
           </li>
 
-          <li className="text-white hover:text-prbg-primary">
+          <li
+            className="text-white hover:text-prbg-primary"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/career"
@@ -462,7 +490,10 @@ const Header = () => {
             </Link>
           </li>
           <button
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              setIsOpen(true);
+              setIsMenuOpen(!isMenuOpen);
+            }}
             className=" lg:hidden text-primary bg-white max-w-[200px] px-4 py-1"
           >
             Get In Touch
@@ -494,3 +525,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
