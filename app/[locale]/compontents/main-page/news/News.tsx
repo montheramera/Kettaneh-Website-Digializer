@@ -140,29 +140,29 @@ const News = async() => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
-          {otherEvents.map((event: any, index: number)=> (
-            <div className="shadow-lg">
-            <div className="relative  w-[100%] h-[176px]">
-              <Image
-                src={event.image.data.attributes.url}
-                alt={event.title}
-                layout="fill"
-                objectFit="cover"
-              />
+          {otherEvents.map((event: any, index: number) => (
+            <div className="shadow-lg" key={index}>
+              <div className="relative  w-[100%] h-[176px]">
+                <Image
+                  src={event.image.data.attributes.url}
+                  alt={event.title}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+              <h3 className="font-[800] text-[18px] leading-[28px] text-heading my-[10px] mx-2">
+                {event.title}
+              </h3>
+              <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] underline">
+                {new Date(event.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </p>
             </div>
-            <h3 className="font-[800] text-[18px] leading-[28px] text-heading my-[10px] mx-2">
-              {event.title}
-            </h3>
-            <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] underline">
-              {new Date(event.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </p>
-          </div>
           ))}
 
           {/* <div className="shadow-lg">
