@@ -83,13 +83,11 @@ export default function ScrollSlider() {
   useEffect(() => {
     if (!isMobile) return;
 
-    window.addEventListener("wheel", handleScroll, { passive: false });
-    window.addEventListener("touchstart", handleTouchStart);
+    // window.addEventListener("wheel", handleScroll, { passive: false });
     window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
     return () => {
-      window.removeEventListener("wheel", handleScroll);
-      window.removeEventListener("touchstart", handleTouchStart);
+      // window.removeEventListener("wheel", handleScroll);
       window.removeEventListener("touchmove", handleTouchMove);
     };
   }, [currentSlide, isScrolling, isMobile]);
