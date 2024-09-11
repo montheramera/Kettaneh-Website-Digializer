@@ -61,38 +61,6 @@ const SamplePrevArrow = (props) => {
 };
 
 const PartnerSlider = ({partners}) => {
-  // const partners = [
-  //   {
-  //     name: "Flender",
-  //     src: "/images/about/gold-pattern/1.png",
-  //     width: 142.5,
-  //     height: 36,
-  //   },
-  //   {
-  //     name: "Leviton",
-  //     src: "/images/about/gold-pattern/2.png",
-  //     width: 142.5,
-  //     height: 36,
-  //   },
-  //   {
-  //     name: "Epiroc",
-  //     src: "/images/about/gold-pattern/3.png",
-  //     width: 142.5,
-  //     height: 36,
-  //   },
-  //   {
-  //     name: "Orbik",
-  //     src: "/images/about/gold-pattern/4.png",
-  //     width: 142.5,
-  //     height: 36,
-  //   },
-  //   {
-  //     name: "Secom",
-  //     src: "/images/about/gold-pattern/5.png",
-  //     width: 142.5,
-  //     height: 36,
-  //   },
-  // ];
 
   const settings = {
     infinite: true,
@@ -100,6 +68,7 @@ const PartnerSlider = ({partners}) => {
     speed: 10000,
     autoplaySpeed: 10000,
     cssEase: "linear",
+    // centerMode: true,
     slidesToShow: 5,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
@@ -108,19 +77,19 @@ const PartnerSlider = ({partners}) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 5,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
     ],
@@ -128,30 +97,34 @@ const PartnerSlider = ({partners}) => {
 
     return (
       <>
-        <section className=" px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir   bg-[#F9FAFB] slider-logos-arrow ">
+        <section className=" px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir   bg-[#F9FAFB]  ">
           <div className="max-w-[1440px] m-auto">
             <div className="flex justify-between items-center text-[30px] leading-[36px] lg:text-[50px] lg:leading-[48px] font-[800] mb-[55px] lg:mb-[110px]">
               <h2 className="">
                 Our <span className=" text-primary">Global Partners</span>
               </h2>
-              <span className=" text-primary  text-[30px] lg:text-[60px]">+30</span>
+              <span className=" text-primary  text-[30px] lg:text-[60px]">
+                +30
+              </span>
             </div>
-            <div className="">
-              <Slider {...settings}>
-                {partners.map((partner, index) => (
-                  <div
-                    key={index}
-                    className="px-8 lg:px-0 flex justify-center items-center"
-                  >
-                    <Image
-                      src={partner.src}
-                      alt={partner.name}
-                      width={163.64}
-                      height={26.2}
-                    />
-                  </div>
-                ))}
-              </Slider>
+            <div className=" customer-logos slider-logos-arrow">
+              <div className="slider-container main-logos">
+                <Slider {...settings}>
+                  {partners.map((partner, index) => (
+                  
+                      <Image
+                        key={index}
+                        src={partner.src}
+                        alt={partner.name}
+                        priority
+                        width={200}
+                        height={200}
+                        className="px-5 lg:px-10 flex justify-center items-center"
+                      />
+                
+                  ))}
+                </Slider>
+              </div>
             </div>
           </div>
         </section>
