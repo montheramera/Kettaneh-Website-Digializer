@@ -137,7 +137,7 @@ export default function Footer() {
               </p>
               <p className="font-[500] text-paragraph leading-[24px]  text-[16px] flex gap-2 my-[20px]">
                 <Image
-                  src="/images/icons/marker-pin-02.png"
+                  src="/images/icons/location.svg"
                   alt="Kettaneh Logo"
                   priority
                   width={24}
@@ -165,7 +165,7 @@ export default function Footer() {
                 >
                   {/* <img src="/path-to-instagram-icon.png" alt="Instagram" /> */}
                   <Image
-                    src="/images/icons/insta.png"
+                    src="/images/icons/insta.svg"
                     alt="Kettaneh Logo"
                     priority
                     width={24}
@@ -179,7 +179,7 @@ export default function Footer() {
                 >
                   {/* <img src="/path-to-facebook-icon.png" alt="Facebook" /> */}
                   <Image
-                    src="/images/icons/facebook.png"
+                    src="/images/icons/facebook.svg"
                     alt="Facebook"
                     priority
                     width={24}
@@ -193,7 +193,7 @@ export default function Footer() {
                 >
                   {/* <img src="/path-to-linkedin-icon.png" alt="LinkedIn" /> */}
                   <Image
-                    src="/images/icons/linkedin.png"
+                    src="/images/icons/linkedin.svg"
                     alt="LinkedIn"
                     priority
                     width={24}
@@ -206,7 +206,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                 >
                   <Image
-                    src="/images/icons/youtube.png"
+                    src="/images/icons/youtube.svg"
                     alt="YouTube"
                     priority
                     width={24}
@@ -220,7 +220,7 @@ export default function Footer() {
                 >
                   {/* <img src="/path-to-whatsapp-icon.png" alt="WhatsApp" /> */}
                   <Image
-                    src="/images/icons/call.png"
+                    src="/images/icons/what's.svg"
                     alt="call"
                     priority
                     width={24}
