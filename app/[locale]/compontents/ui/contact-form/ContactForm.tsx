@@ -4,6 +4,7 @@ import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
 import { usePathname } from "next/navigation";
+import { parseUTMParameters } from "@/utilis/utmParser";
 
 interface FormData {
   first_name: string,
@@ -78,11 +79,18 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
     your_business_industry: "",
     url_website: "",
     message: "",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isShowCategory, setIsShowCategory]=useState<boolean>(false)
 
+  const utmData = parseUTMParameters();
+  console.log(utmData);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     formData.phone_number = phone;
@@ -94,7 +102,13 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
       setErrors(validationErrors);
       return;
     }
-    await submitForm(formData);
+     const Data = {...formData, utm_source: utmData.utm_source,
+          utm_medium: utmData.utm_medium,
+          utm_campaign: utmData.utm_campaign,
+          utm_term: utmData.utm_term,
+          utm_content: utmData.utm_content}
+
+    await submitForm(Data);
   };
 
   const validateForm = (data: FormData): FormErrors => {

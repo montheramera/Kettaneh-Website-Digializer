@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, ChangeEvent, FormEvent } from "react";
 import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
+import { parseUTMParameters } from "@/utilis/utmParser";
 
 interface FormData {
   first_name: string,
@@ -61,23 +62,34 @@ export default function AfterMarketingForm() {
     your_business_industry: "",
     url_website: "",
     message: "",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: ""
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const utmData = parseUTMParameters();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     formData.phone_number = phone;
     formData.country_code = countryCode
-    formData.category = 'Aftermarket'
-    console.log("Form Data Submitted", formData);
+    formData.category = 'Aftermarket';
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
 
-    await submitForm(formData);
+     const Data = {...formData, utm_source: utmData.utm_source,
+          utm_medium: utmData.utm_medium,
+          utm_campaign: utmData.utm_campaign,
+          utm_term: utmData.utm_term,
+          utm_content: utmData.utm_content}
+
+    await submitForm(Data);
   };
 
   const validateForm = (data: FormData): FormErrors => {

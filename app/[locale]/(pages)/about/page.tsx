@@ -40,7 +40,6 @@ const fetchAboutData = async () => {
     Time_lines: about[0].attributes.Time_lines,
     beliefs_and_goals: about[0].attributes.beliefs_and_goals
   }
-  console.log(AboutData.description1);
   return AboutData;
 };
 

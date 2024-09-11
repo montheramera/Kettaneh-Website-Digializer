@@ -2,6 +2,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import Image from "next/image";
 import IntlTelInput from "react-intl-tel-input";
+import { parseUTMParameters } from "@/utilis/utmParser";
 
 interface Form {
   full_name: string;
@@ -10,7 +11,7 @@ interface Form {
   country_code: string;
   phone_number: string;
   cv_resume: File | null;
-  [key: string]: string | File | null;
+  [key: string]: string | File | null | undefined;
 }
 
 interface FormErrors {
@@ -56,27 +57,35 @@ const CareerFormNew = () => {
         category:"",
         country_code: "",
         phone_number: "",
-        cv_resume: null
+        cv_resume: null,
+        utm_source: "",
+        utm_medium: "",
+        utm_campaign: "",
+        utm_term: "",
+        utm_content: ""
       });
       const [errors, setErrors] = useState<FormErrors>({});
+
+      const utmData = parseUTMParameters();
 
       const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         formData.phone_number = phone;
         formData.country_code = countryCode;
-        console.log("Form Data Submitted", formData);
         const validationErrors = validateForm(formData);
         if (Object.keys(validationErrors).length > 0) {
           setErrors(validationErrors);
           return;
         }
-      
-        const result = await submitForm(formData);
+        const Data = {...formData, utm_source: utmData.utm_source,
+             utm_medium: utmData.utm_medium,
+             utm_campaign: utmData.utm_campaign,
+             utm_term: utmData.utm_term,
+             utm_content: utmData.utm_content}
+        const result = await submitForm(Data);
         if (result === 'ok') {
-          // Handle successful form submission
           console.log('Form submitted successfully');
         } else {
-          // Handle form submission error
           console.error('Form submission failed');
         }
       };
