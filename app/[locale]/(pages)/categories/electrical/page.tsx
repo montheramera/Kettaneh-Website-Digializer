@@ -38,7 +38,7 @@ import { useRouter } from 'next/router';
     const fetchPartnersByCategory = async (categoryTitle: string) => {
       const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo,categories&filters[Partner][categories][title][$eq]=${encodeURIComponent(categoryTitle)}`);
       const data = await res.json();
-      const partners = data.data.map((el: any)=>{
+      const partners = data?.data?.map((el: any)=>{
         const image = {...el.attributes.Partner.logo.data.attributes}
         image.src = image.url;
         return image

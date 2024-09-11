@@ -1,5 +1,6 @@
 import Image from "next/image";
 import LogosSliderOurCustomer from "./LogosSliderOurCustomer"
+import Link from "next/link";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
@@ -31,9 +32,14 @@ const OurCustomer = async() => {
 
         <div className="mt-[30px] lg:mt-[100px] flex justify-start w-full">
           {/* <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div> */}
-          <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
-           View Success Stories
-          </span>
+          {/* <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]"></span> */}
+          <Link
+            href="/our-customer"
+            className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]"
+            aria-label="Go to the    Our Customer Page"
+          >
+            View Success Stories
+          </Link>
         </div>
       </div>
     </div>

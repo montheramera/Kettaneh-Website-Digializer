@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -8,14 +9,20 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between max-w-[1440px] m-auto">
           {/* Logo and Description */}
           <div className=" md:mb-0">
-            <Image
-              src="/images/footer-logo.png"
-              alt="Kettaneh Logo"
-              priority
-              width={233}
-              height={56.29}
-              className="mb-[16px]"
-            />
+            <Link
+              href="/"
+              className="font-light text-paragraph leading-[24px] text-[14px]"
+              aria-label="Go to the Home Page"
+            >
+              <Image
+                src="/images/footer-logo.png"
+                alt="Kettaneh Logo"
+                priority
+                width={233}
+                height={56.29}
+                className="mb-[16px]"
+              />
+            </Link>
             <p className="text-[16px] font-[400] text-paragraph leading-[24px] lg:max-w-[320px]">
               F. A. Kettaneh & Co LTD Jordan has a long tradition of being a
               first-class company - one that has always exceeded the increasing
@@ -33,46 +40,41 @@ export default function Footer() {
                 Quick Links
               </h4>
               <ul className="flex flex-col gap-3">
-                <li>
-                  <a
-                    href="#"
-                    className=" font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className=" font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className=" font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    Our Customer
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className=" font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    News and Events
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className=" font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    Career
-                  </a>
-                </li>
+                <Link
+                  href="/"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the Home Page"
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/about"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the  About Us Page"
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/our-customer"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the    Our Customer Page"
+                >
+                  Our Customer
+                </Link>
+                <Link
+                  href="/news-and-events"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the  News and Events Page"
+                >
+                  News and Events
+                </Link>
+                <Link
+                  href="/career"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the    Career Page"
+                >
+                  Career
+                </Link>
               </ul>
             </div>
             <div className=" md:w-auto  md:mb-0">
@@ -80,61 +82,56 @@ export default function Footer() {
                 Categories
               </h4>
               <ul className="flex flex-col gap-3 ">
-                <li>
-                  <a
-                    href="#"
-                    className="font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    Electrical
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    HVAC
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    Machinery
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    Lighting
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="font-light text-paragraph leading-[24px] text-[14px]"
-                  >
-                    Aftermarket
-                  </a>
-                </li>
+                <Link
+                  href="/categories/electrical"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the    Electrical Page"
+                >
+                  Electrical
+                </Link>
+                <Link
+                  href="/categories/hvac"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the  HVAC Page"
+                >
+                  HVAC
+                </Link>
+                <Link
+                  href="/categories/machinery"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the    Machinery Page"
+                >
+                  Machinery
+                </Link>
+                <Link
+                  href="/categories/lighting"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the  Lighting Page"
+                >
+                  Lighting
+                </Link>
+                <Link
+                  href="/categories/after-market"
+                  className="font-light text-paragraph leading-[24px] text-[14px]"
+                  aria-label="Go to the  Aftermarket Page"
+                >
+                  Aftermarket
+                </Link>
               </ul>
             </div>
             <div className=" md:w-auto">
               <h4 className="font-[900] text-[20px] leading-[20px] text-primary mb-[16px] uppercase">
                 Connect with us
               </h4>
-              <p className="font-light text-paragraph leading-[24px] text-[14px] flex gap-2">
-                <a className="flex" href="https://wa.me/+96264398642">
+              <p className="font-light text-paragraph leading-[24px] text-[14px] flex">
+                <a href="tel:+96264398642" className="flex gap-2">
                   <Image
-                    src="/images/icons/whatsapp.png"
+                    src="/images/icons/call.svg"
                     alt="Kettaneh Logo"
                     priority
                     width={24}
                     height={24}
-                  />{" "}
+                  />
                   <span>+962 6 4398642</span>
                 </a>
               </p>
@@ -216,7 +213,11 @@ export default function Footer() {
                     height={24}
                   />
                 </a>
-                <a href="tel:+96264398642">
+                <a
+                  href="https://wa.me/+96264398642"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {/* <img src="/path-to-whatsapp-icon.png" alt="WhatsApp" /> */}
                   <Image
                     src="/images/icons/call.png"
@@ -237,10 +238,11 @@ export default function Footer() {
         <div className="px-5  lg:px-20">
           <div className="max-w-[1440px] lg:m-auto flex flex-col  md:flex-row lg:justify-between lg:items-center">
             <p>© 2024 Kettaneh. All rights reserved.</p>
-            <p className="flex justify-between lg:justify-normal space-x-4 mt-4 md:mt-0">
+            <p className="flex justify-center gap-2 lg:justify-normal space-x-4 mt-4 md:mt-0">
               <a href="#" className="underline">
                 Privacy Policy
               </a>
+              <span className=" lg:hidden">|</span>
               <a href="#" className="underline">
                 Terms and Conditions
               </a>

@@ -10,7 +10,7 @@ import ExperienceBanner from "@/compontents/main-page/experience-banner/Experien
 import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
-
+console.log("API_URL", API_URL);
 const fetchTestimonials = async ()=>{
   const res = await fetch(`${API_URL}/api/testimonials?populate[Testimonial][populate]=*`);
   const data = await res.json();

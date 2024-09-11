@@ -12,6 +12,7 @@ const fetchGlobalPartners = async ()=>{
 
 export default async function GlobalPartners() {
   const globalPartners = await fetchGlobalPartners();
+  console.log("globalPartners", globalPartners[1].logo.data.attributes.height);
   const partners = [
     { name: "Haier", src: "/images/haier.png" },
     { name: "Siemens", src: "/images/siemens.png" },
@@ -34,19 +35,36 @@ export default async function GlobalPartners() {
           </p>
         </div>
         {/* flex-wrap */}
-        <div className="flex  items-center lg:justify-center space-y-8 space-x-8 lg:space-y-0 lg:space-x-4">
-          {globalPartners.map((partner:any, index: number) => (
+        {/* <div className="flex flex-wrap items-center lg:justify-center space-y-8 space-x-8 lg:space-y-0 lg:space-x-4">
+          {globalPartners.map((partner: any, index: number) => (
             <div
               key={index}
-              className={`${index==0?"mt-[22px] lg:mt-0":""}`}
+              // className={`${index == 0 ? "mt-[22px] lg:mt-0" : ""}`}
+              // width={100}
+              // height={30.8}
             >
               <Image
                 src={partner?.logo?.data?.attributes?.url}
                 alt={partner?.title}
-                width={100}
-                height={30.8}
+                width={partner?.logo.data.attributes.width}
+                height={partner?.logo.data.attributes.height}
                 priority
-                className="w-[100px] h-[30.8px] object-contain"
+                // className="w-[100px] he-[30px] lg:w-[150px] lg:h-[45.8px] object-contain flex flex-wrap"
+              />
+            </div>
+          ))}
+        </div> */}
+
+        <div className="flex flex-wrap justify-between lg:justify-center gap-8 mt-[30px] lg:mt-0">
+          {globalPartners.map((partner: any, index: number) => (
+            <div key={index} className="flex justify-center">
+              <Image
+                src={partner?.logo?.data?.attributes?.url}
+                alt={partner?.title}
+                width={partner?.logo?.data?.attributes?.width || 150} // Default width if not available
+                height={partner?.logo?.data?.attributes?.height || 45.8} // Default height if not available
+                priority
+                className="object-contain"
               />
             </div>
           ))}

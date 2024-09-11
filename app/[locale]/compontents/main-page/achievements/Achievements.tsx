@@ -38,50 +38,7 @@ const Achievements = async() => {
               </div>
             ))
           }
-          {/* <div className="flex flex-col items-center lg:items-start">
-            <div className="font-[800] text-[60px] leading-[60px] text-start">
-              +100
-            </div>
-            <div className="my-[20px] font-[800] text-[30px] leading-[28px] text-start">
-              Landmark Projects
-            </div>
-            <p className="font-[500] text-[16px] leading-[24px] text-center lg:text-start">
-              Successfully completed projects that set industry standards
-            </p>
-          </div>
-          <div className="flex flex-col items-center lg:items-start">
-            <div className="font-[800] text-[60px] leading-[60px] text-start">
-              +30
-            </div>
-            <div className="my-[20px] font-[800] text-[30px] leading-[28px] text-start">
-              Global Partners
-            </div>
-            <p className="font-[500] text-[16px] leading-[24px] text-center lg:text-start">
-              Collaborating with leading brands to deliver innovative solutions
-            </p>
-          </div>
-          <div className="flex flex-col items-center lg:items-start">
-            <div className="font-[800] text-[60px] leading-[60px] text-start">
-              +100
-            </div>
-            <div className="my-[20px] font-[800] text-[30px] leading-[28px] text-start">
-              Years of experience
-            </div>
-            <p className="font-[500] text-[16px] leading-[24px] text-center lg:text-start">
-              Providing top-tier engineering solutions since 1922
-            </p>
-          </div>
-          <div className="flex flex-col items-center lg:items-start">
-            <div className="font-[800] text-[60px] leading-[60px] text-start">
-              +4.7
-            </div>
-            <div className="my-[20px] font-[800] text-[30px] leading-[28px] text-start">
-              Rating
-            </div>
-            <p className="font-[500] text-[16px] leading-[24px] text-center lg:text-start">
-              High customer satisfaction ratings across all our services
-            </p>
-          </div> */}
+        
         </div>
       </div>
     </div>

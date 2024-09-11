@@ -83,7 +83,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
                 : ""
             } `}
           >
-            {imagesLogos.map((partner, index) => (
+            {imagesLogos?.map((partner, index) => (
               <Image
                 key={index}
                 src={partner.src}

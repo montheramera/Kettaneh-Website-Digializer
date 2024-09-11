@@ -51,17 +51,19 @@ function AdaptiveHeight({testimonials}) {
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => (
           <div key={index}>
-            <div className="font-avenir  text-white px-10 lg:px-0">
+            <div className="font-avenir  text-white px-10 lg:px-0 min-h-[300px] lg:min-h-0  flex items-center">
+              <div className="">
               <p className="text-[20px] leading-[30px] lg:text-[24px] font-[400] lg:leading-[40px] flex justify-center lg:min-h-[160px] text-center lg:px-[60px]">
                 &ldquo; {testimonial.text} &rdquo;
               </p>
-              <div className="flex justify-center items-center">
+              {/* <div className="flex justify-center items-center">
                 <div className="text-yellow-400  mt-[16px] mb-[8px] text-[20px] text-[#FEC84B]">
-                  {/* Replace with actual star icons if needed */}★ ★ ★ ★ ★
+                 ★ ★ ★ ★ ★
                 </div>
-              </div>
+              </div> */}
               <div className="text-center font-[800] text-[18px] leading-[28px]">
                 {testimonial.name}
+              </div>
               </div>
             </div>
           </div>

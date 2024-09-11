@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
@@ -26,9 +27,13 @@ const LegacySection = async() => {
               and communities.
             </p>
           </div>
-          <button className="bg-primary max-w-[196px] mb-8 lg:mb-0 text-white py-2 px-4 ">
+          <Link
+            href="/about"
+            className="bg-primary max-w-[196px] mb-8 lg:mb-0 text-white py-2 px-4"
+            aria-label="Go to the  About Us Page"
+          >
             Explore Our Journey
-          </button>
+          </Link>
         </div>
         <div className="md:w-1/2 flex  justify-end">
           <div className="bg-primary w-[4px] min-h-[100%] mr-[4px]"></div>

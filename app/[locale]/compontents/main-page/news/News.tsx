@@ -1,18 +1,24 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
-const fetchEvents = async ()=>{
-  const res = await fetch(`${API_URL}/api/events?populate[Event][populate]=*&populate=image`);
+
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+
+const fetchEvents = async () => {
+  const res = await fetch(
+    `${API_URL}/api/events?populate[Event][populate]=*&populate=image`
+  );
   const data = await res.json();
-  const Events = data.data.map((el: any)=>el.attributes.Event);
+  const Events = data.data.map((el: any) => el.attributes.Event);
   return Events;
-}
+};
 
-const News = async() => {
+const News = async () => {
+
   const Events = await fetchEvents();
-  const mainEvent = Events.find((el: any)=> el.Is_main);
-  const otherEvents = Events.filter((el: any)=> !el.Is_main && el.is_at_main)
+  const mainEvent = Events.find((el: any) => el.Is_main);
+  const otherEvents = Events.filter((el: any) => !el.Is_main && el.is_at_main);
   return (
     <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir border-y-[#F9FAFB]  border-opacity-25 border-y-[5px]">
       <div className="max-w-[1440px] m-auto">
@@ -215,9 +221,13 @@ const News = async() => {
           </div> */}
         </div>
 
-        <button className="mt-[40px] bg-primary text-white py-2 px-6 ">
+        <Link
+          href="/news-and-events"
+          aria-label="Go to the News and Events Page"
+          className="mt-[40px] bg-primary text-white py-2 px-6 inline-block"
+        >
           Explore News and Events
-        </button>
+        </Link>
       </div>
     </div>
   );
