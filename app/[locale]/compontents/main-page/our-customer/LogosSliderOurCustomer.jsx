@@ -1,6 +1,3 @@
-
-
-
 "use client";
 import Image from "next/image";
 import React from "react";
@@ -56,67 +53,12 @@ const SamplePrevArrow = (props) => {
     </div>
   );
 };
-function LogosSliderOurCustomer({clients}) {
-  const logos = [
-    { alt: "customer logo 1", src: "/images/customer-logos/kett.png" },
-    { alt: "customer logo 20", src: "/images/customer-logos/_0001_logo33.png" },
-    { alt: "customer logo 18", src: "/images/customer-logos/_0006_14134.png" },
-    { alt: "customer logo 4", src: "/images/customer-logos/_0020_Potash.png" },
-    {
-      alt: "customer logo 10",
-      src: "/images/customer-logos/_0014_sheraton-hotels-logo-11529406977kvwmlh14rx.png",
-    },
-    {
-      alt: "customer logo 13",
-      src: "/images/customer-logos/_0011_1341345.png",
-    },
-    { alt: "customer logo 12", src: "/images/customer-logos/_0012_256256.png" },
-    {
-      alt: "customer logo 19",
-      src: "/images/customer-logos/_0002_Layer-92.png",
-    },
-    { alt: "customer logo 7", src: "/images/customer-logos/_0017_hq_logo.png" },
-    {
-      alt: "customer logo 9",
-      src: "/images/customer-logos/_0015_Layer-87.png",
-    },
-    { alt: "customer logo 15", src: "/images/customer-logos/_0009_367367.png" },
-    { alt: "customer logo 2", src: "/images/customer-logos/_0022_cement.png" },
-    {
-      alt: "customer logo 3",
-      src: "/images/customer-logos/_0021_Layer-88.png",
-    },
-    {
-      alt: "customer logo 5",
-      src: "/images/customer-logos/_0019_ArabBankLogo.png",
-    },
-    { alt: "customer logo 6", src: "/images/customer-logos/_0018_index.png" },
-    {
-      alt: "customer logo 8",
-      src: "/images/customer-logos/_0016_Layer-86.png",
-    },
-    { alt: "customer logo 11", src: "/images/customer-logos/_0013_حمودة.png" },
-    {
-      alt: "customer logo 14",
-      src: "/images/customer-logos/_0010_Layer-89.png",
-    },
-
-    {
-      alt: "customer logo 16",
-      src: "/images/customer-logos/_0008_s5UBoHjS_400x400.png",
-    },
-    {
-      alt: "customer logo 17",
-      src: "/images/customer-logos/_0007_Layer-90.png",
-    },
-    { alt: "customer logo 21", src: "/images/customer-logos/_0000_14514.png" },
-  ];
-
-  const firstSlider = clients.filter(el=> el.slider === "slider_1");
-  const secondSlider = clients.filter(el=> el.slider === "slider_2");
+function MultipleItems({ clients }) {
+  const firstSlider = clients.filter((el) => el.slider === "slider_1");
+  const secondSlider = clients.filter((el) => el.slider === "slider_2");
 
   const settings = {
-    className: "slider variable-width",
+    // className: "slider variable-width",
     dots: false,
     infinite: true,
     autoplay: true,
@@ -124,28 +66,25 @@ function LogosSliderOurCustomer({clients}) {
     autoplaySpeed: 1000,
     cssEase: "linear",
     centerMode: true,
-    slidesToShow: 3,
+    slidesToShow: 7,
     slidesToScroll: 1,
-    variableWidth: true,
+    // variableWidth: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    customPaging: function (i) {
-      return (
-        <div
-          style={{
-            width: "15px",
-            height: "15px",
-            background: "gray",
-            borderRadius: "50%",
-          }}
-        />
-      );
-    },
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <>
-      <div className=" customer-logos slider-logos-arrow ">
+      <div className=" customer-logos slider-logos-arrow mt-10">
         <div className="slider-container main-logos">
           <Slider {...settings}>
             {firstSlider.map((client, index) => (
@@ -184,4 +123,4 @@ function LogosSliderOurCustomer({clients}) {
   );
 }
 
-export default LogosSliderOurCustomer;
+export default MultipleItems;
