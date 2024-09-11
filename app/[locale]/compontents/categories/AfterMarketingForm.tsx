@@ -6,82 +6,90 @@ import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
 
 interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  lookingFor: string;
-  contactPreference: string;
-  interestedIn: string;
-  category: string;
+  first_name: string,
+  last_name: string,
+  email: string,
+  category:string,
+  country_code: string,
+  phone_number: string,
+  your_business_industry: string,
+  url_website: string,
+  message: string,
   [key: string]: string;
 }
 
 interface FormErrors {
-  name?: string;
+  first_name?: string;
+  last_name?: string;
   email?: string;
-  phone?: string;
-  lookingFor?: string;
-  contactPreference?: string;
-  interestedIn?: string;
-  FirstName?: string;
-  LastName?: string;
   category?: string;
-  YourBusiness?: string;
-  URLWebsite?: string;
-  Message?: string;
+  country_code?: string;
+  phone_number?: string;
+  your_business_industry?: string;
+  url_website?: string;
+  message?: string;
   [key: string]: string | undefined;
 }
+const submitForm = async (formData: any) => {
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+  const res = await fetch(`${API_URL}/api/inquiries`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ data: formData }),
+    }
+  );
 
+  return 'ok';
+};
 
-export default function AfterMarketingForm({
- 
-
-}) {
+export default function AfterMarketingForm() {
   // State management for form data
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<string>("");
   const [country, setCountry] = useState<string>("");
 
   const [formData, setFormData] = useState<FormData>({
-    name: "",
+    first_name: "",
+    last_name: "",
     email: "",
-    phone: "",
-    lookingFor: "",
-    contactPreference: "",
-    interestedIn: "",
-    category:""
+    category:"",
+    country_code: "",
+    phone_number: "",
+    your_business_industry: "",
+    url_website: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
 
-  // Handle form submission
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
-    // Validate form data
-
+    formData.phone_number = phone;
+    formData.country_code = countryCode
+    formData.category = 'Aftermarket'
+    console.log("Form Data Submitted", formData);
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-    console.log("Form Data Submitted", formData);
+
+    await submitForm(formData);
   };
 
-  // Validate form fields
   const validateForm = (data: FormData): FormErrors => {
     let errors: FormErrors = {};
-    if (!data.name) errors.name = "Name is required";
+    if (!data.first_name) errors.first_name = "First Name is required";
+    if (!data.last_name) errors.last_name = "Last Name is required";
     if (!data.email) errors.email = "Email is required";
     // if (!data.phone) errors.phone = "Phone is required";
-    if (!data.lookingFor) errors.lookingFor = "Please select an option";
-    if (!data.contactPreference)
-      errors.contactPreference = "Please select a contact preference";
-    if (!data.interestedIn) errors.interestedIn = "Please select a room type";
+    // if (!data.category) errors.category = "Please select a Category";
     return errors;
   };
 
-  // Handle form input changes
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -125,46 +133,46 @@ export default function AfterMarketingForm({
             <div className="mb-2">
               <label
                 className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-                htmlFor="first-name"
+                htmlFor="first_name"
               >
                 First name*
               </label>
               <input
                 className={` rounded-lg ${
-                  errors.FirstName ? "border-red" : ""
+                  errors.first_name ? "border-red" : ""
                 }`}
-                id="first-name"
-                name="first-name"
+                id="first_name"
+                name="first_name"
                 type="text"
                 placeholder=""
-                value={formData.firstName}
+                value={formData.first_name}
                 onChange={handleInputChange}
                 required
               />
-              {errors.FirstName && (
-                <p className="text-red text-xs mt-1">{errors.FirstName}</p>
+              {errors.first_name && (
+                <p className="text-red text-xs mt-1">{errors.first_name}</p>
               )}
             </div>
 
             <div className="mb-2">
               <label
                 className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-                htmlFor="last-name"
+                htmlFor="last_name"
               >
                 Last name*
               </label>
               <input
-                className={` rounded-lg ${errors.LastName ? "border-red" : ""}`}
-                id="last-name"
-                name="last-name"
+                className={` rounded-lg ${errors.last_name ? "border-red" : ""}`}
+                id="last_name"
+                name="last_name"
                 type="text"
                 placeholder=""
-                value={formData.lastName}
+                value={formData.last_name}
                 onChange={handleInputChange}
                 required
               />
-              {errors.LastName && (
-                <p className="text-red text-xs mt-1">{errors.LastName}</p>
+              {errors.last_name && (
+                <p className="text-red text-xs mt-1">{errors.last_name}</p>
               )}
             </div>
           </div>
@@ -197,7 +205,7 @@ export default function AfterMarketingForm({
           >
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-              htmlFor="phone"
+              htmlFor="phone_number"
             >
               Phone number*
             </label>
@@ -217,53 +225,53 @@ export default function AfterMarketingForm({
                 );
               }}
             />
-            {errors.phone && (
-              <p className="text-red text-xs mt-1">{errors.phone}</p>
+            {errors.phone_number && (
+              <p className="text-red text-xs mt-1">{errors.phone_number}</p>
             )}
           </div>
           <div className="mb-2">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-              htmlFor="your-business"
+              htmlFor="your_business_industry"
             >
               Your Business Industry (Optional)
             </label>
             <input
               className={` rounded-lg ${
-                errors.YourBusiness ? "border-red-500" : ""
+                errors.your_business_industry ? "border-red-500" : ""
               }`}
-              id="your-business"
-              name="your-business"
+              id="your_business_industry"
+              name="your_business_industry"
               type="text"
               placeholder=""
-              value={formData.yourBusiness}
+              value={formData.your_business_industry}
               onChange={handleInputChange}
             />
-            {errors.YourBusiness && (
-              <p className="text-red text-xs mt-1">{errors.YourBusiness}</p>
+            {errors.your_business_industry && (
+              <p className="text-red text-xs mt-1">{errors.your_business_industry}</p>
             )}
           </div>
 
           <div className="mb-2">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-              htmlFor="url-website"
+              htmlFor="url_website"
             >
               URL Website (Optional)
             </label>
             <input
               className={` rounded-lg ${
-                errors.URLWebsite ? "border-red-500" : ""
+                errors.url_website ? "border-red-500" : ""
               }`}
-              id="url-website"
-              name="url-website"
+              id="url_website"
+              name="url_website"
               type="text"
               placeholder=""
-              value={formData.urlWebsite}
+              value={formData.url_website}
               onChange={handleInputChange}
             />
-            {errors.URLWebsite && (
-              <p className="text-red text-xs mt-1">{errors.URLWebsite}</p>
+            {errors.url_website && (
+              <p className="text-red text-xs mt-1">{errors.url_website}</p>
             )}
           </div>
 
@@ -276,16 +284,16 @@ export default function AfterMarketingForm({
             </label>
             <textarea
               className={` rounded-lg min-h-[120px] ${
-                errors.Message ? "border-red-500" : ""
+                errors.message ? "border-red-500" : ""
               }`}
               id="message"
               name="message"
               placeholder="Leave us a message..."
-              value={formData.Message}
+              value={formData.message}
               onChange={handleInputChange}
             />
-            {errors.Message && (
-              <p className="text-red text-xs mt-1">{errors.Message}</p>
+            {errors.message && (
+              <p className="text-red text-xs mt-1">{errors.message}</p>
             )}
           </div>
           <div className="mb-2 flex items-center">

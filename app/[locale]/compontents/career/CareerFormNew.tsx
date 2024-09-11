@@ -1,12 +1,113 @@
 "use client";
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import Image from "next/image";
 import IntlTelInput from "react-intl-tel-input";
 
+interface Form {
+  full_name: string;
+  email: string;
+  category: string;
+  country_code: string;
+  phone_number: string;
+  cv_resume: File | null;
+  [key: string]: string | File | null;
+}
+
+interface FormErrors {
+  full_name?: string;
+  email?: string;
+  category?: string;
+  country_code?: string;
+  phone_number?: string;
+  cv_resume?: string;
+  [key: string]: string | undefined;
+}
+
+const submitForm = async (formData: Form) => {
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+
+  // Create FormData instance
+  const data = new FormData();
+  
+  data.append(`files.cv_resume`, formData['cv_resume'] as File); 
+  data.append(`data`, JSON.stringify(formData));
+  
+
+  const res = await fetch(`${API_URL}/api/cvs`, {
+    method: 'POST',
+    body: data,
+  });
+
+  if (!res.ok) {
+    console.error('Error uploading file:', await res.text());
+    return 'error';
+  }
+  
+  return 'ok';
+};
+
 const CareerFormNew = () => {
-  const [phone, setPhone] = useState();
-  const [countryCode, setCountryCode] = useState();
-  const [country, setCountry] = useState();
+    const [phone, setPhone] = useState ("");
+    const [countryCode, setCountryCode] = useState ("");
+    const [country, setCountry] = useState("");
+    const [formData, setFormData] = useState<Form>({
+        full_name: "",
+        email: "",
+        category:"",
+        country_code: "",
+        phone_number: "",
+        cv_resume: null
+      });
+      const [errors, setErrors] = useState<FormErrors>({});
+
+      const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        formData.phone_number = phone;
+        formData.country_code = countryCode;
+        console.log("Form Data Submitted", formData);
+        const validationErrors = validateForm(formData);
+        if (Object.keys(validationErrors).length > 0) {
+          setErrors(validationErrors);
+          return;
+        }
+      
+        const result = await submitForm(formData);
+        if (result === 'ok') {
+          // Handle successful form submission
+          console.log('Form submitted successfully');
+        } else {
+          // Handle form submission error
+          console.error('Form submission failed');
+        }
+      };
+
+  const validateForm = (data: Form): FormErrors => {
+    let errors: FormErrors = {};
+    if (!data.full_name) errors.first_name = "Full Name is required";
+    if (!data.email) errors.email = "Email is required";
+    if (!data.category) errors.category = "Please select a Category";
+    if (!data.cv_resume) errors.cv_resume = "Cv Is Required";
+    return errors;
+  };
+
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    setFormData({
+      ...formData,
+      cv_resume: file,
+    });
+  };
+
   return (
     <section className="font-avenir">
       <div className="">
@@ -19,18 +120,20 @@ const CareerFormNew = () => {
         </p>
         {/* Form Section */}
         <div className="">
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="flex flex-col lg:flex-row mb-[8px]">
               <label
-                htmlFor="full-name"
+                htmlFor="full_name"
                 className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
               >
                 Full Name*
               </label>
               <input
                 type="text"
-                id="full-name"
-                name="full-name"
+                id="full_name"
+                name="full_name"
+                value={formData.full_name}
+                onChange={handleInputChange}
                 className=" block w-full border border-gray-300 rounded-md shadow-sm p-3"
                 required
               />
@@ -47,6 +150,8 @@ const CareerFormNew = () => {
                 type="email"
                 id="email"
                 name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
                 required
               />
@@ -84,7 +189,7 @@ const CareerFormNew = () => {
          
             <div className="flex flex-col lg:flex-row mb-[8px]">
               <label
-                htmlFor="email"
+                htmlFor="category"
                 className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
               >
                 Category*
@@ -96,11 +201,11 @@ const CareerFormNew = () => {
                 }`}
                 id="category"
                 name="category"
-                // value={formData.category}
-                // onChange={handleInputChange}
+                value={formData.category}
+                onChange={handleInputChange}
                 required
               >
-                <option value="">Select a category</option>
+                <option disabled value="">Select a category</option>
                 <option value="Electrical">Electrical</option>
                 <option value="HVAC">HVAC</option>
                 <option value="Machinery">Machinery</option>
@@ -111,7 +216,7 @@ const CareerFormNew = () => {
 
             <div className="flex flex-col lg:flex-row mb-[24px]">
               <label
-                htmlFor="cv"
+                htmlFor="cv_resume"
                 className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
               >
                 CV / Resume*
@@ -135,7 +240,7 @@ const CareerFormNew = () => {
                   </svg>
                   <div className="flex justify-center text-sm text-gray-600">
                     <label
-                      htmlFor="file-upload"
+                      htmlFor="cv_resume"
                       className="relative cursor-pointer bg-white rounded-md font-medium text-red-600 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500"
                     >
                       <span className="text-primary text-center w-full">
@@ -143,9 +248,10 @@ const CareerFormNew = () => {
                         Click to upload
                       </span>
                       <input
-                        id="file-upload"
-                        name="file-upload"
+                        id="cv_resume"
+                        name="cv_resume"
                         type="file"
+                        onChange={handleFileChange}
                         className="sr-only w-full"
                       />
                     </label>

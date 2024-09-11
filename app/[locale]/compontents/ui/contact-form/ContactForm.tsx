@@ -6,29 +6,46 @@ import "react-intl-tel-input/dist/main.css";
 import { usePathname } from "next/navigation";
 
 interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  lookingFor: string;
-  contactPreference: string;
-  interestedIn: string;
+  first_name: string,
+  last_name: string,
+  email: string,
+  category:string,
+  country_code: string,
+  phone_number: string,
+  your_business_industry: string,
+  url_website: string,
+  message: string,
   [key: string]: string;
 }
 
 interface FormErrors {
-  name?: string;
+  first_name?: string;
+  last_name?: string;
   email?: string;
-  phone?: string;
-  lookingFor?: string;
-  contactPreference?: string;
-  interestedIn?: string;
-  FirstName?: string;
-  LastName?: string;
-  YourBusiness?: string;
-  URLWebsite?: string;
-  Message?: string;
+  category?: string;
+  country_code?: string;
+  phone_number?: string;
+  your_business_industry?: string;
+  url_website?: string;
+  message?: string;
   [key: string]: string | undefined;
 }
+
+const submitForm = async (formData: any) => {
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+  const res = await fetch(`${API_URL}/api/inquiries`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ data: formData }),
+    }
+  );
+
+  return 'ok';
+};
+
 interface FormContactProps {
   setIsOpen: (isOpen: boolean) => void;
   setIsOpenConfirmation: (isOpen: boolean) => void;
@@ -50,25 +67,26 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
   const [countryCode, setCountryCode] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const path = usePathname();
-  console.log("path",path)
 
   const [formData, setFormData] = useState<FormData>({
-    name: "",
+    first_name: "",
+    last_name: "",
     email: "",
-    phone: "",
-    lookingFor: "",
-    contactPreference: "",
-    interestedIn: "",
+    category: path ? path : "",
+    country_code: "",
+    phone_number: "",
+    your_business_industry: "",
+    url_website: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isShowCategory, setIsShowCategory]=useState<boolean>(false)
 
-  // Handle form submission
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
-      // Validate form data
+    formData.phone_number = phone;
+    formData.country_code = countryCode
       setIsOpen(false)
       setIsOpenConfirmation(true)
     const validationErrors = validateForm(formData);
@@ -76,25 +94,21 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
       setErrors(validationErrors);
       return;
     }
-    console.log("Form Data Submitted", formData);
+    await submitForm(formData);
   };
 
-  // Validate form fields
   const validateForm = (data: FormData): FormErrors => {
     let errors: FormErrors = {};
-    if (!data.name) errors.name = "Name is required";
+    if (!data.first_name) errors.first_name = "First Name is required";
+    if (!data.last_name) errors.last_name = "Last Name is required";
     if (!data.email) errors.email = "Email is required";
+    if (!data.category) errors.category = "Please select a Category";
     // if (!data.phone) errors.phone = "Phone is required";
-    if (!data.lookingFor) errors.lookingFor = "Please select an option";
-    if (!data.contactPreference)
-      errors.contactPreference = "Please select a contact preference";
-    if (!data.interestedIn) errors.interestedIn = "Please select a room type";
     return errors;
   };
 
-  // Handle form input changes
   const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -141,46 +155,46 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
             <div className="mb-4">
               <label
                 className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-                htmlFor="first-name"
+                htmlFor="first_name"
               >
                 First name*
               </label>
               <input
                 className={` rounded-lg ${
-                  errors.FirstName ? "border-red" : ""
+                  errors.first_name ? "border-red" : ""
                 }`}
-                id="first-name"
-                name="first-name"
+                id="first_name"
+                name="first_name"
                 type="text"
                 placeholder=""
-                value={formData.firstName}
+                value={formData.first_name}
                 onChange={handleInputChange}
                 required
               />
-              {errors.FirstName && (
-                <p className="text-red text-xs mt-1">{errors.FirstName}</p>
+              {errors.first_name && (
+                <p className="text-red text-xs mt-1">{errors.first_name}</p>
               )}
             </div>
 
             <div className="mb-4">
               <label
                 className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-                htmlFor="last-name"
+                htmlFor="last_name"
               >
                 Last name*
               </label>
               <input
-                className={` rounded-lg ${errors.LastName ? "border-red" : ""}`}
-                id="last-name"
-                name="last-name"
+                className={` rounded-lg ${errors.last_name ? "border-red" : ""}`}
+                id="last_name"
+                name="last_name"
                 type="text"
                 placeholder=""
-                value={formData.lastName}
+                value={formData.last_name}
                 onChange={handleInputChange}
                 required
               />
-              {errors.LastName && (
-                <p className="text-red text-xs mt-1">{errors.LastName}</p>
+              {errors.last_name && (
+                <p className="text-red text-xs mt-1">{errors.last_name}</p>
               )}
             </div>
           </div>
@@ -231,8 +245,8 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
                 );
               }}
             />
-            {errors.phone && (
-              <p className="text-red text-xs mt-1">{errors.phone}</p>
+            {errors.phone_number && (
+              <p className="text-red text-xs mt-1">{errors.phone_number}</p>
             )}
           </div>
           {isShowCategory ? (
@@ -252,7 +266,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
                 id="category"
                 name="category"
                 value={formData.category}
-                // onChange={handleInputChange}
+                onChange={handleInputChange}
                 required
               >
                 <option value="">Select a category</option>
@@ -270,45 +284,45 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
           <div className="mb-4">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-              htmlFor="your-business"
+              htmlFor="your_business_industry"
             >
               Your Business Industry (Optional)
             </label>
             <input
               className={` rounded-lg ${
-                errors.YourBusiness ? "border-red-500" : ""
+                errors.your_business_industry ? "border-red-500" : ""
               }`}
-              id="your-business"
-              name="your-business"
+              id="your_business_industry"
+              name="your_business_industry"
               type="text"
               placeholder=""
-              value={formData.yourBusiness}
+              value={formData.your_business_industry}
               onChange={handleInputChange}
             />
-            {errors.YourBusiness && (
-              <p className="text-red text-xs mt-1">{errors.YourBusiness}</p>
+            {errors.your_business_industry && (
+              <p className="text-red text-xs mt-1">{errors.your_business_industry}</p>
             )}
           </div>
           <div className="mb-4">
             <label
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
-              htmlFor="url-website"
+              htmlFor="url_website"
             >
               URL Website (Optional)
             </label>
             <input
               className={` rounded-lg ${
-                errors.URLWebsite ? "border-red-500" : ""
+                errors.url_website ? "border-red-500" : ""
               }`}
-              id="url-website"
-              name="url-website"
+              id="url_website"
+              name="url_website"
               type="text"
               placeholder=""
-              value={formData.urlWebsite}
+              value={formData.url_website}
               onChange={handleInputChange}
             />
-            {errors.URLWebsite && (
-              <p className="text-red text-xs mt-1">{errors.URLWebsite}</p>
+            {errors.url_website && (
+              <p className="text-red text-xs mt-1">{errors.url_website}</p>
             )}
           </div>
           <div className="mb-4">
@@ -320,16 +334,16 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
             </label>
             <textarea
               className={` rounded-lg min-h-[134px] ${
-                errors.Message ? "border-red-500" : ""
+                errors.message ? "border-red-500" : ""
               }`}
               id="message"
               name="message"
               placeholder="Leave us a message..."
-              value={formData.Message}
+              value={formData.message}
               onChange={handleInputChange}
             />
-            {errors.Message && (
-              <p className="text-red text-xs mt-1">{errors.Message}</p>
+            {errors.message && (
+              <p className="text-red text-xs mt-1">{errors.message}</p>
             )}
           </div>
           <div className="flex items-center justify-center">
