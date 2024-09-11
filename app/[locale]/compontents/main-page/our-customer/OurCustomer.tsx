@@ -17,7 +17,7 @@ const OurCustomer = async() => {
     <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir ">
       <div className="max-w-[1440px] m-auto">
         <div className="">
-          <h2 className="font-[800] text-[30px] leading-[36px] lg:text-[36px] lg:leading-[40px]">
+          <h2 className="font-[800] text-heading text-[30px] leading-[36px] lg:text-[36px] lg:leading-[40px]">
             Explore Our <span className="text-primary">Customer</span>
           </h2>
           <p className="font-[500] text-paragraph text-[20px] leading-[28px] mt-[10px]">
