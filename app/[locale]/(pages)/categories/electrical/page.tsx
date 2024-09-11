@@ -36,7 +36,7 @@ import { useRouter } from 'next/router';
     };
     
     const fetchPartnersByCategory = async (categoryTitle: string) => {
-      const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo,categories&filters[Partner][categories][title][$eq]=${encodeURIComponent(categoryTitle)}`);
+      const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo,categories&filters[categories][title][$eq]=${encodeURIComponent(categoryTitle)}`);
       const data = await res.json();
       const partners = data?.data?.map((el: any)=>{
         const image = {...el.attributes.Partner.logo.data.attributes}
@@ -51,6 +51,7 @@ const page = async () => {
   let electricalCategory = await fetchCategoryByTitle('Electrical');
   const categoryTitle = electricalCategory[0].attributes.title
   let partners = await fetchPartnersByCategory(categoryTitle);
+  console.log("partners", partners);
     return (
       <>
         <FirstSection
