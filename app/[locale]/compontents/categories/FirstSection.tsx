@@ -76,12 +76,8 @@ const FirstSection: React.FC<FirstSectionProps> = ({
             </div>
           </div>
           <div
-            className={`flex  items-center flex-wrap max-w-[1420px] m-auto gap-5 lg:gap-10 mt-10 ${
-              path === "/en/categories/machinery" ||
-              path === "/en/categories/lighting"
-                ? "mt-[40px]"
-                : ""
-            } `}
+            className={`flex  items-center flex-wrap max-w-[1420px] m-auto gap-5 lg:gap-10 mt-10 mb-[30px] lg:mb-0
+              `}
           >
             {imagesLogos?.map((partner, index) => (
               <Image
