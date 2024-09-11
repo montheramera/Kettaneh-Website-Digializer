@@ -1,6 +1,8 @@
 
 import HoverEffect from '@/compontents/ui/mouse-over/HoverEffect';
 import React from 'react';
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
@@ -14,6 +16,17 @@ const fetchCategories = async ()=>{
 
 const HeroSection = async() => {
   const categories = await fetchCategories();
+   const DynamicHoverEffect = dynamic(
+     () => import("@/compontents/ui/mouse-over/HoverEffect"),
+     {
+       ssr: false,
+       loading: () => (
+         <>
+          loading ........
+         </>
+       ),
+     }
+   );
     return (
       <div className="bg-primary lg:px-20 p-0 lg:p-10 font-avenir ">
         <div className="relative group max-w-[1440px] m-auto min-h-[0px] lg:min-h-[125px]">
@@ -80,10 +93,11 @@ const HeroSection = async() => {
             </div>
           </div> */}
           <section className="hidden lg:block absolute z-[5000] top-[0px] w-full ">
-            <HoverEffect categories={categories}/>
+            {/* <HoverEffect categories={categories}/> */}
+            <Suspense fallback={"loading"}>
+              <DynamicHoverEffect categories={categories} />
+            </Suspense>
           </section>
-
-       
         </div>
       </div>
     );
