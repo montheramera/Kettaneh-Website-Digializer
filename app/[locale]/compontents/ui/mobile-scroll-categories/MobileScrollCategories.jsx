@@ -127,15 +127,12 @@ export default function ScrollSlider({ categories }) {
                 <p className="text-[14px] leading-[24px] font-medium text-center mb-6 md:text-[18px] md:leading-[28px] max-w-[90%] md:max-w-[500px]">
                   {category.category.description}
                 </p>
-                {/* <button className="px-4 py-2 text-[14px] leading-[20px] font-medium md:text-[16px] md:px-6 md:py-3 hover:bg-opacity-80 transition">
-                  Learn More
-                </button> */}
                 <Link
                     href={category.category.button_path}
-                    className="px-4 py-2 text-[14px] leading-[20px] font-medium md:text-[16px] md:px-6 md:py-3 hover:bg-opacity-80 transition"
+                    className="px-4 py-2 text-[14px] leading-[20px] font-medium md:text-[16px] md:px-6 md:py-3 hover:bg-opacity-80 transition uppercase"
                     aria-label={category.category.heading}
                   >
-                    Learn More
+                    LEARN MORE
                   </Link>
               </div>
             </div>
