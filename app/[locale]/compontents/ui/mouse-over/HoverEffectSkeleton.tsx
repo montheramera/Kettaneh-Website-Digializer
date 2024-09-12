@@ -2,7 +2,7 @@ const HoverEffectSkeleton = ({isFull}: any) => {
     return (
       <div className="hidden lg:flex container1 font-avenir justify-between overflow-hidden">
         {Array(6).fill(0).map((_, index) => (
-            index === 0 ? <CustomeBanner isFull={isFull} /> : <div
+            index === 0 ? <CustomeBanner key={index} isFull={isFull} /> : <div
             key={index}
             className={`section overflow-hidden max-w-[100px] transition-all duration-2000 animate-pulse`}
           >
