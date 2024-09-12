@@ -1,8 +1,10 @@
 import FirstSection from "@/compontents/categories/FirstSection";
+import ScrollSliders from "@/compontents/categories/ScrollSliders";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
-import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
-import React from "react";
+import FirstSectionSkeleton from "@/compontents/ui/skeleton/FirstSectionSkeleton";
+import dynamic from "next/dynamic";
+import React, { Suspense } from "react";
 const imagesLogos = [
   {
     name: "Siemens",
@@ -14,7 +16,7 @@ const imagesLogos = [
     name: "Haier",
     src: "/images/categories/lighting/logos/2.png",
     width: 150,
-    height:57.87,
+    height: 57.87,
   },
   {
     name: "Siemens",
@@ -42,32 +44,54 @@ const fetchCategoryByTitle = async (title: string) => {
 const fetchPartnersByCategory = async (categoryTitle: string) => {
   const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo,categories&filters[Partner][categories][title][$eq]=${encodeURIComponent(categoryTitle)}`);
   const data = await res.json();
-  const partners = data.data.map((el: any)=>{
-    const image = {...el.attributes.Partner.logo.data.attributes}
+  const partners = data.data.map((el: any) => {
+    const image = { ...el.attributes.Partner.logo.data.attributes }
     image.src = image.url;
     return image
   });
   return partners;
 };
 
-const page = async() => {
+const page = async () => {
   let LightingCategory = await fetchCategoryByTitle(' Lighting');
   const categoryTitle = LightingCategory[0].attributes.title
   let partners = await fetchPartnersByCategory(categoryTitle);
+
+  const DynamicFirstSection = dynamic(
+    () => import('@/compontents/categories/FirstSection'),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+          <FirstSectionSkeleton />
+        </>
+      ),
+    }
+  );
+
   return (
     <>
-      <FirstSection
+      {/* <FirstSection
         categoryname={LightingCategory[0]?.attributes?.title}
         categoryParagraph={LightingCategory[0]?.attributes?.category?.summary}
         categoryBg={LightingCategory[0]?.attributes?.category?.background_color}
         imagesLogos={partners}
         imageUrl={LightingCategory[0]?.attributes?.category?.image?.data?.attributes?.url}
-      />
+      /> */}
+      <Suspense fallback={"loading"}>
+        <DynamicFirstSection
+          categoryname={LightingCategory[0]?.attributes?.title}
+          categoryParagraph={LightingCategory[0]?.attributes?.category?.summary}
+          categoryBg={LightingCategory[0]?.attributes?.category?.background_color}
+          imagesLogos={partners}
+          imageUrl={LightingCategory[0]?.attributes?.category?.image?.data?.attributes?.url}
+        />
+      </Suspense>
       <section className="hidden lg:block">
         <LeadingExcellence />
       </section>
       <section className="block lg:hidden">
-        <ScrollSlider />
+        <ScrollSliders />
       </section>
       <CallToAction />
     </>

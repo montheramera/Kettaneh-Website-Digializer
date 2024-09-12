@@ -12,6 +12,7 @@ const config: Config = {
       white: "#FFFFFF",
       heading: "#101828",
       paragraph: "#475467",
+      skeleton: "#999999"
     },
     extend: {
       borderOpacity: {

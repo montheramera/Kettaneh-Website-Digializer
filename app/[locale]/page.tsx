@@ -7,7 +7,15 @@ import OurCustomer from "@/compontents/main-page/our-customer/OurCustomer";
 import News from "@/compontents/main-page/news/News";
 import AdaptiveHeight from "@/compontents/main-page/feed-back/FeedBack";
 import ExperienceBanner from "@/compontents/main-page/experience-banner/ExperienceBanner";
-import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
+import dynamic from "next/dynamic";
+import GlobalPartnersSkeleton from "./compontents/ui/skeleton/GlobalPartnersSkeleton";
+import { Suspense } from "react";
+import LegacySectionSkeleton from "./compontents/ui/skeleton/LegacySectionSkeleton";
+import MainAchievementsSkeleton from "./compontents/ui/skeleton/MainAchievementsSkeleton";
+import MainCustomerSkeleton from "./compontents/ui/skeleton/MainCustomerSkeleton";
+import NewsSkeleton from "./compontents/ui/skeleton/NewsSkeleton";
+import TestimonialsSkeleton from "./compontents/ui/skeleton/TestimonialsSkeleton";
+import ScrollSliders from "./compontents/categories/ScrollSliders";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 console.log("API_URL", API_URL);
@@ -22,31 +30,117 @@ export default async function Home() {
 
   const Testimonials = await fetchTestimonials();
   const t = await getTranslations();
+
+  const DynamicGlobalPartners = dynamic(
+    () => import('@/compontents/main-page/global-partners/GlobalPartners'),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+          <GlobalPartnersSkeleton />
+        </>
+      ),
+    }
+  );
+  const DynamicLegacySection = dynamic(
+    () => import('@/compontents/main-page/legacy-section/LegacySection'),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+          <LegacySectionSkeleton />
+        </>
+      ),
+    }
+  );
+  const DynamicMainAchievements = dynamic(
+    () => import('@/compontents/main-page/achievements/Achievements'),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+          <MainAchievementsSkeleton />
+        </>
+      ),
+    }
+  );
+  const DynamicMainCustomer = dynamic(
+    () => import('@/compontents/main-page/our-customer/OurCustomer'),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+          <MainCustomerSkeleton />
+        </>
+      ),
+    }
+  );
+  const DynamicNewsSection = dynamic(
+    () => import('@/compontents/main-page/news/News'),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+          <NewsSkeleton />
+        </>
+      ),
+    }
+  );
+  const DynamicTestimonialsSection = dynamic(
+    () => import('@/compontents/main-page/feed-back/FeedBack'),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+          <TestimonialsSkeleton />
+        </>
+      ),
+    }
+  );
+
   return (
     <main className="min-h-screen ">
       <div className="">
         <HeroSection />
       </div>
       <section className="block lg:hidden">
-        <ScrollSlider />
+        <ScrollSliders />
       </section>
       <div className="lg:mt-[250px]">
-        <GlobalPartners />
+        {/* <GlobalPartners /> */}
+        <Suspense fallback={"loading"}>
+              <DynamicGlobalPartners />
+        </Suspense>
       </div>
       <div>
-        <LegacySection />
+        {/* <LegacySection /> */}
+        <Suspense fallback={"loading"}>
+              <DynamicLegacySection />
+        </Suspense>
       </div>
       <div>
-        <Achievements />
+        {/* <Achievements /> */}
+        <Suspense fallback={"loading"}>
+              <DynamicMainAchievements />
+        </Suspense>
       </div>
       <div className="overflow-hidden">
-        <OurCustomer />
+        {/* <OurCustomer /> */}
+        <Suspense fallback={"loading"}>
+              <DynamicMainCustomer />
+        </Suspense>
       </div>
       <div>
-        <News />
+        {/* <News /> */}
+        <Suspense fallback={"loading"}>
+              <DynamicNewsSection />
+        </Suspense>
       </div>
       <div>
-        <AdaptiveHeight testimonials={Testimonials} />
+        {/* <AdaptiveHeight testimonials={Testimonials} /> */}
+        <Suspense fallback={"loading"}>
+              <DynamicTestimonialsSection testimonials={Testimonials} />
+        </Suspense>
       </div>
       <div>
         <ExperienceBanner />

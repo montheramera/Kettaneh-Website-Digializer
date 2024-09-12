@@ -3,6 +3,7 @@ import HoverEffect from '@/compontents/ui/mouse-over/HoverEffect';
 import React from 'react';
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import HoverEffectSkeleton from '@/compontents/ui/mouse-over/HoverEffectSkeleton';
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
@@ -22,7 +23,7 @@ const HeroSection = async() => {
        ssr: false,
        loading: () => (
          <>
-          loading ........
+          <HoverEffectSkeleton isFull={true} />
          </>
        ),
      }
