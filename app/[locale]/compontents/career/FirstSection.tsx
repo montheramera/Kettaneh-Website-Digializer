@@ -52,7 +52,7 @@ export default function JobListings({careers}: any) {
                     color: career?.attributes.category.data.attributes.category.btn_color,
                     border: `1px solid ${career?.attributes.category.data.attributes.category.btn_color}`,
                   }}
-                  className={`ml-2 border-[${career?.attributes.category.data.attributes.category.btn_color}] border p-2 rounded-3xl text-[14px] font-[500] leading-[20px] text-[${career?.attributes.category.data.attributes.category.btn_color}] bg-[${career?.attributes.category.data.attributes.category.background_color}]`}
+                  className={`ml-2 border-[${career?.attributes.category.data.attributes.category.btn_color}] border p-2 rounded-3xl text-[14px] font-[500] leading-[20px] text-[${career?.attributes.category.data.attributes.category.btn_color}] bg-[${career?.attributes.category.data.attributes.category.background_color}] whitespace-nowrap`}
                 >
                   {career?.attributes?.category?.data?.attributes?.title} Department
                 </span>
