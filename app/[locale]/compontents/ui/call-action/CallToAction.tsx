@@ -15,7 +15,7 @@ const CallToAction: React.FC<CallToActionProps> = ({ background }) => {
       <div className="">
         <div
           style={{ background: background || "#BB4A52" }}
-          className="px-5 lg:px-20 py-[30px] my-[30px] min-w-full  lg:h-[254px] lg:min-h-[254px] "
+          className="px-5 lg:px-20 py-[30px] lg:py-0 my-[30px] min-w-full  lg:h-[254px] lg:min-h-[254px] "
         >
           <div className="flex flex-col md:flex-row justify-between gap-10 items-center w-full lg:min-h-[254px] max-w-[1440px] m-auto text-white">
             <div className="text-center md:text-left lg:max-w-[768px]">
