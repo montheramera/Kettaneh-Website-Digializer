@@ -1,8 +1,10 @@
 import FirstSection from "@/compontents/categories/FirstSection";
+import ScrollSliders from "@/compontents/categories/ScrollSliders";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
-import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
-import React from "react";
+import FirstSectionSkeleton from "@/compontents/ui/skeleton/FirstSectionSkeleton";
+import dynamic from "next/dynamic";
+import React, { Suspense } from "react";
 const imagesLogos = [
   {
     name: "Siemens",
@@ -28,7 +30,7 @@ const imagesLogos = [
     width: 150,
     height: 73,
   },
-  
+
   {
     name: "Siemens",
     src: "/images/categories/machinery/logos/5.png",
@@ -65,33 +67,55 @@ const fetchPartnersByCategory = async (categoryTitle: string) => {
     }
   );
   const data = await res.json();
-  const partners = data.data.map((el: any)=>{
-    const image = {...el.attributes.Partner.logo.data.attributes}
+  const partners = data.data.map((el: any) => {
+    const image = { ...el.attributes.Partner.logo.data.attributes }
     image.src = image.url;
     return image
   });
   return partners;
 };
 
-const page = async() => {
+const page = async () => {
   let machineryCategory = await fetchCategoryByTitle('Machinery');
   const categoryTitle = machineryCategory[0].attributes.title
   let partners = await fetchPartnersByCategory(categoryTitle);
 
+  const DynamicFirstSection = dynamic(
+    () => import('@/compontents/categories/FirstSection'),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+          <FirstSectionSkeleton />
+        </>
+      ),
+    }
+  );
+
   return (
     <>
-      <FirstSection
+      {/* <FirstSection
+        categoryname={machineryCategory[0]?.attributes?.title}
+        categoryParagraph={machineryCategory[0]?.attributes?.category?.summary}
+        categoryBg={machineryCategory[0]?.attributes?.category?.background_color}
+        imagesLogos={partners}
+        imageUrl={machineryCategory[0]?.attributes?.category?.image?.data?.attributes?.url}
+      /> */}
+
+      <Suspense fallback={"loading"}>
+        <DynamicFirstSection
           categoryname={machineryCategory[0]?.attributes?.title}
           categoryParagraph={machineryCategory[0]?.attributes?.category?.summary}
           categoryBg={machineryCategory[0]?.attributes?.category?.background_color}
           imagesLogos={partners}
           imageUrl={machineryCategory[0]?.attributes?.category?.image?.data?.attributes?.url}
-      />
+        />
+      </Suspense>
       <section className="hidden lg:block">
         <LeadingExcellence />
       </section>
       <section className="block lg:hidden">
-        <ScrollSlider />
+        <ScrollSliders />
       </section>
       <CallToAction />
     </>

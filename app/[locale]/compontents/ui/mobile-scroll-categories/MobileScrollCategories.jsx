@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
-export default function ScrollSlider() {
+export default function ScrollSlider({ categories }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(false); // Mobile check
-  const totalSlides = 4; // Total number of slides
+  const totalSlides = categories.length; // Total number of slides
   const slideRefs = useRef([]); // References to slide elements
 
   // Mobile detection based on window width
@@ -95,17 +95,16 @@ export default function ScrollSlider() {
   return (
     <div className="mobile-scroll-categories">
       <div className="bg-primary relative">
-        {[...Array(totalSlides)].map((_, index) => (
+        {categories.map((category, index) => (
           <div
             key={index}
             ref={(el) => (slideRefs.current[index] = el)}
-            className={`slide ${
-              currentSlide === index
+            className={`slide ${currentSlide === index
                 ? "block sticky top-0 left-0 right-0"
                 : currentSlide > index
-                ? "block sticky top-0 left-0 right-0"
-                : "hidden"
-            }`}
+                  ? "block sticky top-0 left-0 right-0"
+                  : "hidden"
+              }`}
             style={{
               height: "100vh",
               transition: "opacity 0.8s ease",
@@ -114,17 +113,22 @@ export default function ScrollSlider() {
           >
             <div className="relative h-[100vh] w-full bg-[#75B4C2]">
               <Image
-                src="/images/image1.jpg"
+                src={category.category.image.data.attributes.url}
                 alt="Background"
                 className="w-full"
                 layout="fill"
                 objectFit="cover"
               />
-              <div className="absolute inset-0 bg-opacity-50 bg-[#75B4C2] top-0 left-0 right-0 bottom-0 text-white flex justify-center items-center flex-col">
-                <h1>Slide {index + 1}</h1>
-                <h1>heading</h1>
-                <p>paragraph</p>
-                <button>button</button>
+              <div className="absolute inset-0 bg-opacity-60 bg-[#75B4C2] text-white flex flex-col justify-center items-center p-4 md:p-8 shadow-lg">
+                <h2 className="text-[24px] leading-[32px] font-bold text-center mb-4 md:text-[30px]">
+                  {category.category.heading}
+                </h2>
+                <p className="text-[14px] leading-[24px] font-medium text-center mb-6 md:text-[18px] md:leading-[28px] max-w-[90%] md:max-w-[500px]">
+                  {category.category.description}
+                </p>
+                <button className="px-4 py-2 text-[14px] leading-[20px] font-medium md:text-[16px] md:px-6 md:py-3 hover:bg-opacity-80 transition">
+                  Learn More
+                </button>
               </div>
             </div>
           </div>

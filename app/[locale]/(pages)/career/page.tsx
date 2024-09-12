@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import JobListings from '@/compontents/career/FirstSection';
 import CareerForm from "@/compontents/career/CareerForm";
 import CallToAction from '@/compontents/ui/call-action/CallToAction';
 import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcellence';
-import ScrollSlider from '@/compontents/ui/mobile-scroll-categories/MobileScrollCategories';
+import dynamic from 'next/dynamic';
+import JobListingsSkeleton from '@/compontents/ui/skeleton/JobListingSkeleton';
+import ScrollSliders from '@/compontents/categories/ScrollSliders';
 
 const page = async() => {
   let res = await fetch('https://kettaneh-strapi.onrender.com/api/careers?populate[career]=*&populate[category][populate]=title,category')
   let data = await res.json()
   let careers = [...data.data];
+
+  const DynamicJobListing = dynamic(
+    () => import("@/compontents/career/FirstSection"),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+         <JobListingsSkeleton />
+        </>
+      ),
+    }
+  );
     return (
       <>
         <div className="px-5 lg:px-20  font-avenir ">
@@ -20,7 +34,11 @@ const page = async() => {
               </span>
             </div>
             <section>
-              <JobListings careers={careers} />
+              {/* <JobListings careers={careers} /> */}
+
+              <Suspense fallback={"loading"}>
+                <DynamicJobListing careers={careers} />
+              </Suspense>
             </section>
 
             {/* <section>
@@ -32,7 +50,7 @@ const page = async() => {
           <LeadingExcellence />
         </section>
         <section className="block lg:hidden mt-[30px]">
-          <ScrollSlider />
+          <ScrollSliders />
         </section>
         <section className="">
           <CallToAction />

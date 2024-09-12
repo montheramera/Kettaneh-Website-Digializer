@@ -1,9 +1,11 @@
+import ScrollSliders from "@/compontents/categories/ScrollSliders";
 import GallerySection from "@/compontents/news-and-events/GallerySection";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
-import ScrollSlider from "@/compontents/ui/mobile-scroll-categories/MobileScrollCategories";
+import GallerySectionSkeleton from "@/compontents/ui/skeleton/GallerySectionSkeleton";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
@@ -16,6 +18,17 @@ const fetchEvents = async () => {
 
 const page = async() => {
   const events = await fetchEvents();
+  const DynamicGallerySection = dynamic(
+    () => import("@/compontents/news-and-events/GallerySection"),
+    {
+      ssr: false,
+      loading: () => (
+        <>
+         <GallerySectionSkeleton />
+        </>
+      ),
+    }
+  );
   return (
     <>
       <div className="px-5 lg:px-20  font-avenir">
@@ -38,7 +51,10 @@ const page = async() => {
         </section>
         <div className="  lg:pt-[6px]">
           <section className="max-w-[1440px] lg:mt-[48px] m-auto">
-            <GallerySection events={events} />
+            {/* <GallerySection events={events} /> */}
+            <Suspense fallback={"loading"}>
+                <DynamicGallerySection events={events} />
+              </Suspense>
           </section>
         </div>
       </div>
@@ -47,7 +63,7 @@ const page = async() => {
         <LeadingExcellence />
       </section>
       <section className="block lg:hidden">
-        <ScrollSlider />
+        <ScrollSliders />
       </section>
 
       <section className=" ">

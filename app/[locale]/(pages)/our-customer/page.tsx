@@ -1,12 +1,15 @@
 import LogosSliderOurCustomer from '@/compontents/main-page/our-customer/LogosSliderOurCustomer';
 import CallToAction from '@/compontents/ui/call-action/CallToAction';
 import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcellence';
-import ScrollSlider from '@/compontents/ui/mobile-scroll-categories/MobileScrollCategories';
 import HoverEffect from '@/compontents/ui/mouse-over/HoverEffect';
 import Image from 'next/image';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer';
 import BlocksRendererComponent from '@/compontents/ui/blocs-renderer/BlockRenderer';
+import CustomerLogoSkeleton from '@/compontents/ui/skeleton/CustomerLogoSkeleton';
+import dynamic from 'next/dynamic';
+import ParagraphSkeleton from '@/compontents/ui/skeleton/ParagrapgSkeleton';
+import ScrollSliders from '@/compontents/categories/ScrollSliders';
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
@@ -108,6 +111,28 @@ const index = async() => {
 
     const customerData = await fetchCustomerData();
     const Clients = await fetchClients();
+    const DynamicLogoSection = dynamic(
+      () => import('@/compontents/customer/CustomerSection'),
+      {
+        ssr: false,
+        loading: () => (
+          <>
+           <CustomerLogoSkeleton />
+          </>
+        ),
+      }
+    );
+    const DynamicParagraph = dynamic(
+      () => import('@/compontents/ui/blocs-renderer/BlockRenderer'),
+      {
+        ssr: false,
+        loading: () => (
+          <>
+           <ParagraphSkeleton />
+          </>
+        ),
+      }
+    );
     return (
       <>
         <div className="px-5 lg:px-20  font-avenir">
@@ -123,35 +148,17 @@ const index = async() => {
                 <span className="text-primary "> Our Valued </span>Partners and
                 Landmark Projects
               </h2>
-              <p className="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:mt-[64px] lg:max-w-[1216px]">
-                {/* {customerData[0].text} */}
-              </p>
-              <p className="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph mt-[20px]">
-                {/* {customerData[2].text} */}
-              </p>
-              
+              <Suspense fallback={"loading"}>
+                <DynamicParagraph content={customerData[0]?.description} classes="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:mt-[64px] lg:max-w-[1216px]" />
+              </Suspense>
 
-                <BlocksRendererComponent content={customerData[0]?.description} classes="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:mt-[64px] lg:max-w-[1216px]"/>
             </div>
           </section>
 
           <section>
-            <div className="mt-[64px] mb-[32px] max-w-[1440px] m-auto">
-              {/* <LogosSliderOurCustomer /> */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-8 items-center">
-                {Clients.map((logo: any, index:number) => (
-                  <div key={index} className={`flex  ${index%2===0?"justify-start":"justify-end"} lg:justify-center items-center`}>
-                    <Image
-                      src={logo.logo.data.attributes.url}
-                      alt={logo.logo.data.attributes.name}
-                      width={500} // Adjust width according to your needs
-                      height={500} // Adjust height according to your needs
-                      // objectFit="cover" // Ensures logos maintain their aspect ratio
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+            <Suspense fallback={"loading"}>
+                <DynamicLogoSection Clients={Clients} />
+              </Suspense>
             <div className="mb-[36px] mt-[64px] flex justify-start  w-full max-w-[1440px]  m-auto">
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
                 View Success Stories
@@ -163,7 +170,7 @@ const index = async() => {
           <LeadingExcellence />
         </section>
         <section className="block lg:hidden">
-          <ScrollSlider />
+          <ScrollSliders />
         </section>
         <section className="">
           <CallToAction />
