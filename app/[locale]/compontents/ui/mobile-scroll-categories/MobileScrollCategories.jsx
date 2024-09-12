@@ -2,6 +2,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function ScrollSlider({ categories }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -111,7 +112,7 @@ export default function ScrollSlider({ categories }) {
               opacity: currentSlide === index || currentSlide > index ? 1 : 0,
             }}
           >
-            <div className="relative h-[100vh] w-full bg-[#75B4C2]">
+            <div className={`relative h-[100vh] w-full bg-[${category.category.background_color}]`}>
               <Image
                 src={category.category.image.data.attributes.url}
                 alt="Background"
@@ -119,16 +120,23 @@ export default function ScrollSlider({ categories }) {
                 layout="fill"
                 objectFit="cover"
               />
-              <div className="absolute inset-0 bg-opacity-60 bg-[#75B4C2] text-white flex flex-col justify-center items-center p-4 md:p-8 shadow-lg">
+              <div className={`absolute inset-0 bg-opacity-60 bg-[${category.category.background_color}] text-white flex flex-col justify-center items-center p-4 md:p-8 shadow-lg`}>
                 <h2 className="text-[24px] leading-[32px] font-bold text-center mb-4 md:text-[30px]">
                   {category.category.heading}
                 </h2>
                 <p className="text-[14px] leading-[24px] font-medium text-center mb-6 md:text-[18px] md:leading-[28px] max-w-[90%] md:max-w-[500px]">
                   {category.category.description}
                 </p>
-                <button className="px-4 py-2 text-[14px] leading-[20px] font-medium md:text-[16px] md:px-6 md:py-3 hover:bg-opacity-80 transition">
+                {/* <button className="px-4 py-2 text-[14px] leading-[20px] font-medium md:text-[16px] md:px-6 md:py-3 hover:bg-opacity-80 transition">
                   Learn More
-                </button>
+                </button> */}
+                <Link
+                    href={category.category.button_path}
+                    className="px-4 py-2 text-[14px] leading-[20px] font-medium md:text-[16px] md:px-6 md:py-3 hover:bg-opacity-80 transition"
+                    aria-label={category.category.heading}
+                  >
+                    Learn More
+                  </Link>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const HoverEffect = ({ categories }: any) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -44,9 +45,10 @@ function CustomeBanner({ path, isActive, category, onMouseEnter }: any) {
           priority
         />
         <div
-          className={`absolute inset-0 bg-opacity-50 bg-primary flex justify-end ${
+          className={`absolute inset-0 bg-opacity-50 bg-[${category.category.background_color}] flex justify-end ${
             isActive ? "p-10" : "p-1"
           } flex-col transition-all duration-[2000ms] animate-fadeInStep`}
+          // style={{backgroundColor: category.category.background_color, opacity: 0.5, top: '0px', left: '0px', bottom: '0px', right: '0px'}}
         >
           {isActive ? (
             <>
@@ -60,9 +62,13 @@ function CustomeBanner({ path, isActive, category, onMouseEnter }: any) {
                       {category.category.description}
                     </p>
                   </div>
-                  <button className="text-[16px] leading-[28px] font-[500] text-start">
+                  <Link
+                    href={category.category.button_path}
+                    className="text-[18px] leading-[28px] font-[500] text-start z-999"
+                    aria-label={category.category.heading}
+                  >
                     Learn More
-                  </button>
+                  </Link>
                 </div>
               ) : (
                 <div className="flex flex-col">
@@ -72,9 +78,16 @@ function CustomeBanner({ path, isActive, category, onMouseEnter }: any) {
                   <p className="text-[12px] leading-[16px] font-[500] my-[16px] text-start max-w-[236px]">
                     {category.category.description}
                   </p>
-                  <button className="text-[18px] leading-[28px] font-[500] text-start">
+                  {/* <button className="text-[18px] leading-[28px] font-[500] text-start">
                     Learn More
-                  </button>
+                  </button> */}
+                  <Link
+                    href={category.category.button_path}
+                    className="text-[18px] leading-[28px] font-[500] text-start z-999"
+                    aria-label={category.category.heading}
+                  >
+                    Learn More
+                  </Link>
                 </div>
               )}
             </>

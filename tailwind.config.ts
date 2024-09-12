@@ -1,10 +1,20 @@
 import type { Config } from "tailwindcss";
-
+const colorClasses = [
+  '#BB4A52',
+  '#B2DDFF', 
+  '#5389B9',
+  '#F9DBAF',
+  '#E7C460',
+  '#6ba18f'
+]
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  safelist: [
+    ...colorClasses.map((color) => `bg-[${color}]`)
   ],
   theme: {
     colors: {
