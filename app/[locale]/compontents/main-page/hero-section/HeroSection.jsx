@@ -93,7 +93,7 @@ const HeroSection = async() => {
               </div>
             </div>
           </div> */}
-          <section className="hidden lg:block absolute z-[5000] top-[0px] w-full ">
+          <section className="hidden lg:block absolute z-[100] top-[0px] w-full ">
             {/* <HoverEffect categories={categories}/> */}
             <Suspense fallback={"loading"}>
               <DynamicHoverEffect categories={categories} />

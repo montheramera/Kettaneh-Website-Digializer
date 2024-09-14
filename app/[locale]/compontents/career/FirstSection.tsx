@@ -119,8 +119,10 @@ const categories = await fetchCategories();
             </a>
             mentioning the job & title departments in the subject.
           </p>
-
+          <div className="mt-10">
+            
           <CareerFormNew categories={categories} />
+</div>
           {/* <h3 className="text-[20px] font-[800] leading-[28px] text-heading mt-[32px]">
             Requirements
           </h3>
