@@ -113,9 +113,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
       utm_term: utmData.utm_term,
       utm_content: utmData.utm_content
     }
-    // await submitForm(Data);
-    console.log(Data);
-    console.log(selectedCategories);
+    await submitForm(Data);
   };
 
   const validateForm = (data: FormData): FormErrors => {
