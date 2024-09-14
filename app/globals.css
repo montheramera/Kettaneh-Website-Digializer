@@ -200,10 +200,6 @@ li:hover > button svg {
   }
 
   .intl-tel-input input:focus {
-    /* border-color: var(--brand-color);
-    border-width: 2px;
-    outline: none;
-    box-shadow: none !important; */
     outline: none;
     border-color: #00aaff;
     box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
@@ -219,7 +215,14 @@ li:hover > button svg {
 
   .selected-flag {
     display: flex !important;
+    color: black;
   }
+     .intl-tel-input .country-list {
+       color: black;
+       z-index: 10000000000000000 !important;
+       /* max-height: 300px !important;
+     position: absolute !important; */
+     }
   input,
   select,
   textarea {
@@ -405,8 +408,20 @@ li:hover > button svg {
     }
 }
 
+    :host .intl-tel-input .country-list {
+      color: black;
+      z-index: 100000000!important;
+      /* max-height: 300px !important;
+         position: absolute !important; */
+    }
 @media only screen and (max-width: 767px) {
   /* Your mobile-specific styles go here */
+  :host .intl-tel-input .country-list {
+      color: black;
+      z-index: 200000000000000000000000000 !important;
+      /* max-height: 300px !important;
+       position: absolute !important; */
+    }
   .feedback .slick-dots {
     bottom: 10px;
   }
