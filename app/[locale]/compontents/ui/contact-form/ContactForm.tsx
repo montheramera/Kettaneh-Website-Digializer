@@ -7,18 +7,41 @@ import { parseUTMParameters } from "@/utilis/utmParser";
 import MultiSelectDropdown from "../multi-select/MultiSelectDropdown";
 
 
+// interface FormData {
+//   first_name: string,
+//   last_name: string,
+//   email: string,
+//   category:number[],
+//   country_code: string,
+//   phone_number: string,
+//   your_business_industry: string,
+//   url_website: string,
+//   message: string,
+//   [key: string]: string | number[];
+// }
+// interface Category {
+//   title: string;
+//   id: string; // Adjust based on your actual id type (e.g., number, string, etc.)
+// }
+
+interface Category {
+  title: string;
+  id: number;
+}
+
 interface FormData {
-  first_name: string,
-  last_name: string,
-  email: string,
-  category:number[],
-  country_code: string,
-  phone_number: string,
-  your_business_industry: string,
-  url_website: string,
-  message: string,
+  first_name: string;
+  last_name: string;
+  email: string;
+  category: number[];
+  country_code: string;
+  phone_number: string;
+  your_business_industry: string;
+  url_website: string;
+  message: string;
   [key: string]: string | number[];
 }
+
 
 interface FormErrors {
   first_name?: string;
@@ -56,7 +79,7 @@ interface FormContactProps {
 
 function isMarketingOrLightingOrRelated(path:string) {
   return (
-    path.includes("after-marketing") ||
+    path.includes("after-market") ||
     path.includes("lighting") ||
     path.includes("hvac") ||
     path.includes("machinery") ||
@@ -74,22 +97,45 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
   const path = usePathname();
   const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-  const [formData, setFormData] = useState<FormData>({
-    first_name: "",
-    last_name: "",
-    email: "",
-    category: path ? [categories.find((el: any)=> path.split('/').includes(el.title.toLowerCase()))?.id] : [],
-    country_code: "",
-    phone_number: "",
-    your_business_industry: "",
-    url_website: "",
-    message: "",
-    utm_source: "",
-    utm_medium: "",
-    utm_campaign: "",
-    utm_term: "",
-    utm_content: "",
-  });
+  // const [formData, setFormData] = useState<FormData>({
+  //   first_name: "",
+  //   last_name: "",
+  //   email: "",
+  //   category: path
+  //     ? [
+  //         categories?.find((el: Category) =>
+  //           path.split("/").includes(el.title.toLowerCase())
+  //         )?.id   
+  //       ]
+  //     : [],
+  //   country_code: "",
+  //   phone_number: "",
+  //   your_business_industry: "",
+  //   url_website: "",
+  //   message: "",
+  //   utm_source: "",
+  //   utm_medium: "",
+  //   utm_campaign: "",
+  //   utm_term: "",
+  //   utm_content: "",
+  // });
+
+const [formData, setFormData] = useState<FormData>({
+  first_name: "",
+  last_name: "",
+  email: "",
+  category: [], // Default to empty array if `path` is falsy
+  country_code: "",
+  phone_number: "",
+  your_business_industry: "",
+  url_website: "",
+  message: "",
+  utm_source: "",
+  utm_medium: "",
+  utm_campaign: "",
+  utm_term: "",
+  utm_content: "",
+});
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isShowCategory, setIsShowCategory]=useState<boolean>(false)
@@ -119,7 +165,8 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
       utm_content: utmData.utm_content
     }
 
-      const result = await submitForm(Data);
+    const result = await submitForm(Data);
+    console.log("result", result);
 
       if (result === "ok") {
         //Success Logic
@@ -155,8 +202,20 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
   };
 
   useEffect(() => {
-   setIsShowCategory( isMarketingOrLightingOrRelated(path))
-  },[path])
+    setIsShowCategory(isMarketingOrLightingOrRelated(path))
+  
+    // Safely check if the category exists before accessing `.id`
+    console.log("categories", categories);
+    const cate = categories?.find((el: any) =>
+      path.split("/").includes(el.title.toLowerCase()) 
+    ) ||{id:1}
+    if (cate) {
+      setFormData((oldState: FormData) => ({
+        ...oldState,
+        category: [cate.id],
+      }));
+    }
+  },[path,categories])
 
   useEffect(()=>{
     async function fetchCurrentCountry(){
