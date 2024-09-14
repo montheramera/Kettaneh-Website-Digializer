@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { parseUTMParameters } from "@/utilis/utmParser";
 import MultiSelectDropdown from "../multi-select/MultiSelectDropdown";
 
+
 interface FormData {
   first_name: string,
   last_name: string,
@@ -70,7 +71,8 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
   const [countryCode, setCountryCode] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const path = usePathname();
-  
+  const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     first_name: "",
     last_name: "",
@@ -95,6 +97,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
 
   const utmData = parseUTMParameters();
   const handleSubmit = async (e: FormEvent) => {
+    setLoading(true)
     e.preventDefault();
     formData.phone_number = phone;
     formData.country_code = countryCode
@@ -114,7 +117,19 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
       utm_term: utmData.utm_term,
       utm_content: utmData.utm_content
     }
-    await submitForm(Data);
+
+      const result = await submitForm(Data);
+
+      if (result === "ok") {
+        //Success Logic
+        setLoading(false);
+        setIsOpen(true);
+        setIsOpenConfirmation(true);
+      } else {
+        setLoading(false);
+        setError(true);
+        //Fail Logic
+      }
   };
 
   const validateForm = (data: FormData): FormErrors => {
@@ -423,7 +438,32 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
               className="bg-primary text-white text-[16px] leading-[24px] font-[800] px-[12px] py-[12px] w-full"
               type="submit"
             >
-              Send Message
+              {loading ? (
+                // Spinner while loading
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  ></path>
+                </svg>
+              ) : (
+                // Button text when not loading
+                "Send Message"
+              )}
             </button>
           </div>
         </div>

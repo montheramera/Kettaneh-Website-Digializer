@@ -245,7 +245,7 @@ export default function AfterMarketingForm({id}: any) {
               style={{ direction: "ltr", width: "100%" }}
               inputClassName="font-[800] text-[14px] leading-[20px]"
               geoIpLookup={handleGeoIpLookup}
-              defaultCountry={curCountry.toLowerCase() || 'ae'}
+              defaultCountry={curCountry.toLowerCase() || 'jo'}
               separateDialCode={true}
               preferredCountries={["ae", "sa", "eg", "qa", "bh", "om", "kw", "jo", "lb", "sy", "iq", "ye", "ma", "dz", "ly", "sd", "so"]}
               onPhoneNumberChange={(status, value, countryData, number, id) => {

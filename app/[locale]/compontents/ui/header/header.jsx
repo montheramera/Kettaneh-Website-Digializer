@@ -32,7 +32,7 @@ const Header = ({categories}) => {
     <nav
       className={`bg-primary px-5 py-4 lg:px-20 lg:py-8 text-white font-[500] text-[18px]  ${
         isFixed ? "fixed top-0 left-0 w-full z-50 shadow-md" : ""
-      } z-[80] `}
+      } z-[80]`}
     >
       <div className="max-w-[1440px] m-auto">
         <div className="mx-auto flex justify-between items-center">

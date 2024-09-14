@@ -6,7 +6,8 @@ import IntlTelInput from "react-intl-tel-input";
 const CareerForm = () => {
       const [phone, setPhone] = useState ();
       const [countryCode, setCountryCode] = useState ();
-      const [country, setCountry] = useState();
+  const [country, setCountry] = useState();
+  const [loading,setLoading]=useState(false)
   return (
     <section className="font-avenir">
       <div className="">

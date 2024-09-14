@@ -4,6 +4,9 @@ import Image from "next/image";
 import IntlTelInput from "react-intl-tel-input";
 import { parseUTMParameters } from "@/utilis/utmParser";
 import MultiSelectDropdown from "../ui/multi-select/MultiSelectDropdown";
+import ModelFormContact from "../ui/model/Model";
+import ConfirmationMessage from "../ui/confirmation-message/ConfirmationMessage";
+
 
 interface Form {
   full_name: string;
@@ -25,28 +28,6 @@ interface FormErrors {
   [key: string]: string | undefined;
 }
 
-const submitForm = async (formData: Form) => {
-  const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
-
-  // Create FormData instance
-  const data = new FormData();
-
-  data.append(`files.cv_resume`, formData['cv_resume'] as File);
-  data.append(`data`, JSON.stringify(formData));
-
-
-  const res = await fetch(`${API_URL}/api/cvs`, {
-    method: 'POST',
-    body: data,
-  });
-
-  if (!res.ok) {
-    console.error('Error uploading file:', await res.text());
-    return 'error';
-  }
-
-  return 'ok';
-};
 
 const CareerFormNew = ({categories}: any) => {
   const [phone, setPhone] = useState("");
@@ -65,13 +46,17 @@ const CareerFormNew = ({categories}: any) => {
     utm_term: "",
     utm_content: ""
   });
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [error, setError] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<any[]>([]);
   const [curCountry, setCurCountry] = useState<string>('');
-
+  const [loading, setLoading] = useState(false)
+  const[isOpen,setIsOpen]=useState(false)
+   const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
   const utmData = parseUTMParameters();
 
   const handleSubmit = async (e: FormEvent) => {
+    setLoading(true)
+    setError(false)
     e.preventDefault();
     formData.phone_number = phone;
     formData.country_code = countryCode;
@@ -90,10 +75,16 @@ const CareerFormNew = ({categories}: any) => {
       utm_content: utmData.utm_content
     }
     const result = await submitForm(Data);
-
+   
     if (result === 'ok') {
       //Success Logic
+      setLoading(false)
+      setIsOpen(true)
+      setIsOpenConfirmation(true)
+    
     } else {
+      setLoading(false);
+      setError(true)
       //Fail Logic
     }
   };
@@ -125,12 +116,34 @@ const CareerFormNew = ({categories}: any) => {
     });
   };
 
-  useEffect(()=>{
-    async function fetchCurrentCountry(){
-      const response = await fetch('https://www.digializer.com/country-detect/ip-adress.json');
-      const data = await response.json();
-      setCurCountry(data.country_code)
+  const submitForm = async (formData: Form) => {
+    const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+
+    // Create FormData instance
+    const data = new FormData();
+
+    data.append(`files.cv_resume`, formData["cv_resume"] as File);
+    data.append(`data`, JSON.stringify(formData));
+
+    const res = await fetch(`${API_URL}/api/cvs`, {
+      method: "POST",
+      body: data,
+    });
+
+    if (!res.ok) {
+      console.error("Error uploading file:", await res.text());
+      return "error";
     }
+
+    return "ok";
+  };
+
+ const  fetchCurrentCountry= async ()=>{
+    const response = await fetch('https://www.digializer.com/country-detect/ip-adress.json');
+    const data = await response.json();
+    setCurCountry(data.country_code)
+  }
+  useEffect(()=>{
     fetchCurrentCountry();
   }, [])
 
@@ -139,7 +152,7 @@ const CareerFormNew = ({categories}: any) => {
       callback(curCountry);
     } else {
       // Fallback if country detection fails
-      callback('ae'); // Default to 'ae' (UAE)
+      callback("jo"); // Default to 'ae' (UAE)
     }
   };
 
@@ -167,7 +180,7 @@ const CareerFormNew = ({categories}: any) => {
               />
             </div>
 
-            <div className="flex flex-col lg:flex-row mb-[8px]">
+            <div className="flex flex-col lg:flex-row mb-[10px]">
               <label
                 htmlFor="email"
                 className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
@@ -185,7 +198,7 @@ const CareerFormNew = ({categories}: any) => {
               />
             </div>
 
-            <div className="flex flex-col lg:flex-row mb-[24px]">
+            <div className="flex flex-col lg:flex-row mb-[8px]">
               <label
                 htmlFor="phone-number"
                 className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
@@ -197,9 +210,27 @@ const CareerFormNew = ({categories}: any) => {
                 style={{ direction: "ltr", width: "100%" }}
                 inputClassName="font-[800] text-[14px] leading-[20px]"
                 geoIpLookup={handleGeoIpLookup}
-                defaultCountry={curCountry.toLowerCase() || 'ae'}
+                defaultCountry={curCountry.toLowerCase() || "jo"}
                 separateDialCode={true}
-                preferredCountries={["ae", "sa", "eg", "qa", "bh", "om", "kw", "jo", "lb", "sy", "iq", "ye", "ma", "dz", "ly", "sd", "so"]}
+                preferredCountries={[
+                  "ae",
+                  "sa",
+                  "eg",
+                  "qa",
+                  "bh",
+                  "om",
+                  "kw",
+                  "jo",
+                  "lb",
+                  "sy",
+                  "iq",
+                  "ye",
+                  "ma",
+                  "dz",
+                  "ly",
+                  "sd",
+                  "so",
+                ]}
                 onPhoneNumberChange={(
                   status,
                   value,
@@ -216,7 +247,6 @@ const CareerFormNew = ({categories}: any) => {
               />
             </div>
 
-
             <div className="flex flex-col lg:flex-row mb-[8px]">
               <label
                 htmlFor="category"
@@ -224,27 +254,10 @@ const CareerFormNew = ({categories}: any) => {
               >
                 Category*
               </label>
-              {/* <select
-                className={`rounded-lg w-full ${""
-                  // errors.category ? "border-red-500" : ""
-                  }`}
-                id="category"
-                name="category"
-                value={formData.category}
-                onChange={handleInputChange}
-                required
-              >
-                <option disabled value="">Select a category</option>
-                <option value="Electrical">Electrical</option>
-                <option value="HVAC">HVAC</option>
-                <option value="Machinery">Machinery</option>
-                <option value="Lighting">Lighting</option>
-                <option value="Aftermarket">Aftermarket</option>
-              </select> */}
               <MultiSelectDropdown
-                  options={categories}
-                  selectedOptions={selectedCategories}
-                  onChange={setSelectedCategories}
+                options={categories}
+                selectedOptions={selectedCategories}
+                onChange={setSelectedCategories}
               />
             </div>
 
@@ -300,51 +313,59 @@ const CareerFormNew = ({categories}: any) => {
               </div>
             </div>
 
-            {/* <div className="flex flex-col lg:flex-row mb-[8px]">
-              <label
-                htmlFor="captcha"
-                className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
-              >
-                What code is in the image?*
-              </label>
-              <input
-                type="text"
-                id="captcha"
-                name="captcha"
-                className="mt-1  block w-full border border-gray-300 rounded-md shadow-sm p-3"
-                placeholder="Enter the characters shown in the image"
-                required
-              />
-            </div>
-            <div className="my-2 lg:ml-[150px] ">
-              <Image
-                src="/images/career/Code.png"
-                alt="Captcha"
-                width={160}
-                height={53.33}
-              />
-            </div> */}
+            {error && (
+              <p className="text-primary text-[16px] leading-[24px] font-[800]">
+                Something go wrong please try again
+              </p>
+            )}
             <div className="flex items-center justify-center">
               <button
-                className="bg-primary text-white text-[16px] leading-[24px] font-[800] px-[12px] py-[12px] w-full mt-[10px]"
+                className="bg-primary text-white text-[16px] leading-[24px] font-[800] px-[12px] py-[12px] w-full mt-[10px] flex items-center justify-center"
                 type="submit"
+                disabled={loading} // Disable the button when loading is true
               >
-                Submit
+                {loading ? (
+                  // Spinner while loading
+                  <svg
+                    className="animate-spin h-5 w-5 mr-3 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                ) : (
+                  // Button text when not loading
+                  "Submit"
+                )}
               </button>
             </div>
-            {/* <div>
-                <button
-                  type="submit"
-                  className="w-full flex justify-center py-3 px-6 border border-transparent rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                >
-                  Submit
-                </button>
-              </div> */}
           </form>
         </div>
 
         {/* Image Section */}
       </div>
+      {isOpenConfirmation && (
+        <>
+          <ModelFormContact setIsOpen={setIsOpen} isOpen={isOpen}>
+            <ConfirmationMessage
+              setIsOpenConfirmation={setIsOpenConfirmation}
+            />
+          </ModelFormContact>
+        </>
+      )}
     </section>
   );
 };
