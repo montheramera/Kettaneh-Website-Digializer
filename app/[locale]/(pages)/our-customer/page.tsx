@@ -27,98 +27,12 @@ const fetchClients = async ()=>{
   return Clients;
 }
 
-const fetchCategories = async ()=>{
-  const res = await fetch(`${API_URL}/api/categories?populate=*`);
-  const data = await res.json();
-  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
-  return Categories;
-}
 
 const index = async() => {
-    const logos = [
-      { alt: "customer logo 1", src: "/images/customer-logos/kett.png" },
-      {
-        alt: "customer logo 2",
-        src: "/images/customer-logos/_0022_cement.png",
-      },
-      {
-        alt: "customer logo 3",
-        src: "/images/customer-logos/_0021_Layer-88.png",
-      },
-      {
-        alt: "customer logo 4",
-        src: "/images/customer-logos/_0020_Potash.png",
-      },
-      {
-        alt: "customer logo 5",
-        src: "/images/customer-logos/_0019_ArabBankLogo.png",
-      },
-      { alt: "customer logo 6", src: "/images/customer-logos/_0018_index.png" },
-      {
-        alt: "customer logo 7",
-        src: "/images/customer-logos/_0017_hq_logo.png",
-      },
-      {
-        alt: "customer logo 8",
-        src: "/images/customer-logos/_0016_Layer-86.png",
-      },
-      {
-        alt: "customer logo 9",
-        src: "/images/customer-logos/_0015_Layer-87.png",
-      },
-      {
-        alt: "customer logo 10",
-        src: "/images/customer-logos/_0014_sheraton-hotels-logo-11529406977kvwmlh14rx.png",
-      },
-      {
-        alt: "customer logo 11",
-        src: "/images/customer-logos/_0013_حمودة.png",
-      },
-      {
-        alt: "customer logo 12",
-        src: "/images/customer-logos/_0012_256256.png",
-      },
-      {
-        alt: "customer logo 13",
-        src: "/images/customer-logos/_0011_1341345.png",
-      },
-      {
-        alt: "customer logo 14",
-        src: "/images/customer-logos/_0010_Layer-89.png",
-      },
-      {
-        alt: "customer logo 15",
-        src: "/images/customer-logos/_0009_367367.png",
-      },
-      {
-        alt: "customer logo 16",
-        src: "/images/customer-logos/_0008_s5UBoHjS_400x400.png",
-      },
-      {
-        alt: "customer logo 17",
-        src: "/images/customer-logos/_0007_Layer-90.png",
-      },
-      {
-        alt: "customer logo 18",
-        src: "/images/customer-logos/_0006_14134.png",
-      },
-      {
-        alt: "customer logo 19",
-        src: "/images/customer-logos/_0002_Layer-92.png",
-      },
-      {
-        alt: "customer logo 20",
-        src: "/images/customer-logos/_0001_logo33.png",
-      },
-      {
-        alt: "customer logo 21",
-        src: "/images/customer-logos/_0000_14514.png",
-      },
-    ];
+ 
 
     const customerData = await fetchCustomerData();
     const Clients = await fetchClients();
-    const categories = await fetchCategories();
     const DynamicLogoSection = dynamic(
       () => import('@/compontents/customer/CustomerSection'),
       {
@@ -181,7 +95,7 @@ const index = async() => {
           <ScrollSliders />
         </section>
         <section className="">
-          <CallToAction categories={categories}/>
+          <CallToAction />
         </section>
       </>
     );

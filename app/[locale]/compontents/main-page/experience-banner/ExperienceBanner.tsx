@@ -6,7 +6,7 @@ import ModelFormContact from '@/compontents/ui/model/Model';
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function ExperienceBanner({categories}: any) {
+export default function ExperienceBanner() {
    const [isOpen, setIsOpen] = useState(false);
    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
   return (
@@ -67,7 +67,7 @@ export default function ExperienceBanner({categories}: any) {
             <ContactForm
               setIsOpen={setIsOpen}
               setIsOpenConfirmation={setIsOpenConfirmation}
-              categories={categories}
+              // categories={categories}
             />
           </ModelFormContact>
         </>

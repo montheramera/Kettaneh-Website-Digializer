@@ -1,6 +1,4 @@
-import AfterMarketing from "@/compontents/categories/AfterMarketing";
-import AfterMarketingForm from "@/compontents/categories/AfterMarketingForm";
-import FirstSection from "@/compontents/categories/FirstSection";
+
 import ScrollSliders from "@/compontents/categories/ScrollSliders";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
@@ -17,17 +15,10 @@ const fetchCategoryByTitle = async (title: string) => {
   return categories;
 };
 
-const fetchCategories = async ()=>{
-  const res = await fetch(`${API_URL}/api/categories?populate=*`);
-  const data = await res.json();
-  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
-  return Categories;
-}
 
 const page = async () => {
 
   let AfterMarketCategory = await fetchCategoryByTitle('After Market');
-  const categories = await fetchCategories();
   const DynamicFirstSection = dynamic(
     () => import('@/compontents/categories/AfterMarketing'),
     {
@@ -79,7 +70,7 @@ const page = async () => {
       <section className="block lg:hidden mt-[30px]">
         <ScrollSliders />
       </section>
-      <CallToAction categories={categories} />
+      <CallToAction />
     </>
   );
 };

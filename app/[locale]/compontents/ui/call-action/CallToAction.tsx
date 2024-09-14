@@ -6,9 +6,8 @@ import ConfirmationMessage from "../confirmation-message/ConfirmationMessage";
 import ContactForm from "../contact-form/ContactForm";
 interface CallToActionProps {
   background?: string;
-  categories?: any[]
 }
-const CallToAction: React.FC<CallToActionProps> = ({ background, categories }) => {
+const CallToAction: React.FC<CallToActionProps> = ({ background }) => {
    const [isOpen, setIsOpen] = useState(false);
    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
   return (
@@ -45,7 +44,7 @@ const CallToAction: React.FC<CallToActionProps> = ({ background, categories }) =
             <ContactForm
               setIsOpen={setIsOpen}
               setIsOpenConfirmation={setIsOpenConfirmation}
-              categories={categories}
+              // categories={categories}
             />
           </ModelFormContact>
         </>

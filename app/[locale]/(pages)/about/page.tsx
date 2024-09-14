@@ -1,6 +1,4 @@
-import AchievementsSection from "@/compontents/about/AchievementsSection";
-import TimelineSlider from "@/compontents/about/TimelineSlider";
-import PartnerSlider from "@/compontents/about/PartnerSlider";
+
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 import BlocksRendererComponent from "@/compontents/ui/blocs-renderer/BlockRenderer";
@@ -33,13 +31,6 @@ const fetchGlobalPartners = async () => {
   return partners;
 };
 
-const fetchCategories = async ()=>{
-  const res = await fetch(`${API_URL}/api/categories?populate=*`);
-  const data = await res.json();
-  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
-  return Categories;
-}
-
 const fetchAboutData = async () => {
   const res = await fetch(`${API_URL}/api/about-pages?populate=*`);
   const data = await res.json();
@@ -61,7 +52,6 @@ export default async function AboutUs() {
   const AboutData = await fetchAboutData();
   const Achivements = await fetchAchivements();
   const GlobalPartners = await fetchGlobalPartners();
-  const categories = await fetchCategories();
   const DynamicAchievementSection = dynamic(
     () => import('@/compontents/about/AchievementsSection'),
     {
@@ -139,7 +129,7 @@ export default async function AboutUs() {
         <ScrollSliders />
       </section>
       <section>
-        <CallToAction categories={categories} />
+        <CallToAction  />
       </section>
     </>
   );

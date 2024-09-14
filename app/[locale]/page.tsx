@@ -1,11 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import HeroSection from "@/compontents/main-page/hero-section/HeroSection";
-import GlobalPartners from "@/compontents/main-page/global-partners/GlobalPartners";
-import LegacySection from "@/compontents/main-page/legacy-section/LegacySection";
-import Achievements from "@/compontents/main-page/achievements/Achievements";
-import OurCustomer from "@/compontents/main-page/our-customer/OurCustomer";
-import News from "@/compontents/main-page/news/News";
-import AdaptiveHeight from "@/compontents/main-page/feed-back/FeedBack";
 import ExperienceBanner from "@/compontents/main-page/experience-banner/ExperienceBanner";
 import dynamic from "next/dynamic";
 import GlobalPartnersSkeleton from "./compontents/ui/skeleton/GlobalPartnersSkeleton";
@@ -25,16 +19,11 @@ const fetchTestimonials = async ()=>{
   return Testimonials;
 }
 
-const fetchCategories = async ()=>{
-  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
-  const data = await res.json();
-  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
-  return Categories;
-}
+
 
 export default async function Home() {
 
-  const categories = await fetchCategories();
+
   const Testimonials = await fetchTestimonials();
   const t = await getTranslations();
 
@@ -150,7 +139,7 @@ export default async function Home() {
         </Suspense>
       </div>
       <div>
-        <ExperienceBanner categories={categories} />
+        <ExperienceBanner  />
       </div>
     </main>
   );

@@ -1,10 +1,8 @@
 import ScrollSliders from "@/compontents/categories/ScrollSliders";
-import GallerySection from "@/compontents/news-and-events/GallerySection";
 import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 import GallerySectionSkeleton from "@/compontents/ui/skeleton/GallerySectionSkeleton";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import React, { Suspense } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
@@ -16,16 +14,11 @@ const fetchEvents = async () => {
   return events;
 };
 
-const fetchCategories = async ()=>{
-  const res = await fetch(`${API_URL}/api/categories?populate=*`);
-  const data = await res.json();
-  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
-  return Categories;
-}
+
 
 const page = async() => {
   const events = await fetchEvents();
-  const categories = await fetchCategories();
+
   const DynamicGallerySection = dynamic(
     () => import("@/compontents/news-and-events/GallerySection"),
     {
@@ -75,7 +68,7 @@ const page = async() => {
       </section>
 
       <section className=" ">
-        <CallToAction categories={categories} />
+        <CallToAction  />
       </section>
     </>
   );
