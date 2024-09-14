@@ -148,7 +148,7 @@ li:hover > button svg {
 }
 .feedback .slick-prev {
   left: -0px !important;
-  z-index: 500;
+  z-index: 70;
 }
 .feedback .slick-next:before,
 .slick-prev:before {
@@ -447,13 +447,13 @@ li:hover > button svg {
     .slider-logos-arrow{
       .slick-next {
           right: -12px !important;
-          z-index: 100;
+          z-index: 70;
         }
       
         .slick-prev {
           left: -20px !important;
           margin-top: 15px !important;
-          z-index: 100;
+          z-index: 70;
       
         }
     }
