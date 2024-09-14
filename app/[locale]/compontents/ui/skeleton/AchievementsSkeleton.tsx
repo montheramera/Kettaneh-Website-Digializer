@@ -1,7 +1,7 @@
 // components/ui/skeleton/AchievementsSkeleton.tsx
 const AchievementsSkeleton = () => {
     return (
-      <section className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir">
+      <section className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir overflow-hidden">
         <div className="grid md:grid-cols-2 gap-20 max-w-[1440px] m-auto">
           {/* Right Content Section */}
           <div className="mt-8 md:mt-0">

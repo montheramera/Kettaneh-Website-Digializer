@@ -53,7 +53,7 @@ function CustomBanner({ path, isActive, category, onMouseEnter }: any) {
                 <div className="flex flex-col h-full justify-between">
                   <Link
                     href={category.category.button_path}
-                    className="text-[18px] leading-[28px] font-[500] text-start z-999"
+                    className="text-[18px] leading-[28px] font-[500] text-start z-88"
                     aria-label={category.category.heading}
                   >
                     <div>
@@ -73,7 +73,7 @@ function CustomBanner({ path, isActive, category, onMouseEnter }: any) {
                 <div className="flex flex-col">
                   <Link
                     href={category.category.button_path}
-                    className="text-[18px] leading-[28px] font-[500] text-start z-999"
+                    className="text-[18px] leading-[28px] font-[500] text-start z-88"
                     aria-label={category.category.heading}
                   >
                     <h2 className="text-[24px] leading-[32px] font-[800] text-start">

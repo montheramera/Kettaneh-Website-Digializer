@@ -224,7 +224,9 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
                 Last name*
               </label>
               <input
-                className={` rounded-lg ${errors.last_name ? "border-red" : "w-full"}`}
+                className={` rounded-lg ${
+                  errors.last_name ? "border-red" : "w-full"
+                }`}
                 id="last_name"
                 name="last_name"
                 type="text"
@@ -246,7 +248,9 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
               Email*
             </label>
             <input
-              className={` rounded-lg ${errors.email ? "border-red-500" : "w-full"}`}
+              className={` rounded-lg ${
+                errors.email ? "border-red-500" : "w-full"
+              }`}
               id="email"
               name="email"
               type="email"
@@ -276,9 +280,27 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
               inputClassName="font-[800] text-[14px] leading-[20px]"
               // name="phone"
               geoIpLookup={handleGeoIpLookup}
-              defaultCountry={curCountry.toLowerCase() || 'ae'}
+              defaultCountry={curCountry.toLowerCase() || "jo"}
               separateDialCode={true}
-              preferredCountries={["ae", "sa", "eg", "qa", "bh", "om", "kw", "jo", "lb", "sy", "iq", "ye", "ma", "dz", "ly", "sd", "so"]}
+              preferredCountries={[
+                "ae",
+                "sa",
+                "eg",
+                "qa",
+                "bh",
+                "om",
+                "kw",
+                "jo",
+                "lb",
+                "sy",
+                "iq",
+                "ye",
+                "ma",
+                "dz",
+                "ly",
+                "sd",
+                "so",
+              ]}
               onPhoneNumberChange={(status, value, countryData, number, id) => {
                 setPhone(number);
                 setCountryCode(countryData.dialCode || "");
@@ -319,9 +341,9 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
                 <option value="Aftermarket">Aftermarket</option>
               </select> */}
               <MultiSelectDropdown
-                  options={categories}
-                  selectedOptions={selectedCategories}
-                  onChange={setSelectedCategories}
+                options={categories}
+                selectedOptions={selectedCategories}
+                onChange={setSelectedCategories}
               />
               {errors.category && (
                 <p className="text-red text-xs mt-1">{errors.category}</p>
@@ -347,7 +369,9 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
               onChange={handleInputChange}
             />
             {errors.your_business_industry && (
-              <p className="text-red text-xs mt-1">{errors.your_business_industry}</p>
+              <p className="text-red text-xs mt-1">
+                {errors.your_business_industry}
+              </p>
             )}
           </div>
           <div className="mb-4">

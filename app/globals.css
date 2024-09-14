@@ -219,7 +219,7 @@ li:hover > button svg {
   }
      .intl-tel-input .country-list {
        color: black;
-       z-index: 10000000000000000 !important;
+       z-index: 1000 !important;
        /* max-height: 300px !important;
      position: absolute !important; */
      }
@@ -408,7 +408,7 @@ li:hover > button svg {
     }
 }
 
-    :host .intl-tel-input .country-list {
+    .intl-tel-input .country-list {
       color: black;
       z-index: 100000000!important;
       /* max-height: 300px !important;
@@ -416,9 +416,9 @@ li:hover > button svg {
     }
 @media only screen and (max-width: 767px) {
   /* Your mobile-specific styles go here */
-  :host .intl-tel-input .country-list {
+  .intl-tel-input .country-list {
       color: black;
-      z-index: 200000000000000000000000000 !important;
+      z-index: 2000 !important;
       /* max-height: 300px !important;
        position: absolute !important; */
     }

@@ -11,7 +11,7 @@ const FirstSectionSkeleton = () => {
           </div>
           <div className="flex px-10 relative flex-col lg:flex-row inset-0 bg-paragraph bg-opacity-50 text-[18px] font-[400] leading-[28px] text-paragraph min-h-[300px]">
             <div className="absolute inset-0 bg-paragraph bg-opacity-70"></div>
-            <div className="max-w-[1440px] text-white w-full m-auto z-[100]">
+            <div className="max-w-[1440px] text-white w-full m-auto z-[88]">
               <h2 className="text-[36px] font-[800] leading-[40px] mt-[30px] mb-[32px] bg-skeleton animate-pulse h-[40px] w-[300px] block"></h2>
               <div className="flex">
                 <div className="min-w-[5px] w-[5px] min-h-[100%] mr-[10px] bg-skeleton animate-pulse"></div>
