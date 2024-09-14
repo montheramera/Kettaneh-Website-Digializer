@@ -1,5 +1,5 @@
 "use client";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
 import IntlTelInput from "react-intl-tel-input";
 import { parseUTMParameters } from "@/utilis/utmParser";
@@ -67,6 +67,7 @@ const CareerFormNew = ({categories}: any) => {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [selectedCategories, setSelectedCategories] = useState<any[]>([]);
+  const [curCountry, setCurCountry] = useState<string>('');
 
   const utmData = parseUTMParameters();
 
@@ -124,6 +125,24 @@ const CareerFormNew = ({categories}: any) => {
     });
   };
 
+  useEffect(()=>{
+    async function fetchCurrentCountry(){
+      const response = await fetch('https://www.digializer.com/country-detect/ip-adress.json');
+      const data = await response.json();
+      setCurCountry(data.country_code)
+    }
+    fetchCurrentCountry();
+  }, [])
+
+  const handleGeoIpLookup = (callback: any) => {
+    if (curCountry) {
+      callback(curCountry);
+    } else {
+      // Fallback if country detection fails
+      callback('ae'); // Default to 'ae' (UAE)
+    }
+  };
+
   return (
     <section className="font-avenir">
       <div className="">
@@ -177,7 +196,8 @@ const CareerFormNew = ({categories}: any) => {
                 containerClassName="intl-tel-input"
                 style={{ direction: "ltr", width: "100%" }}
                 inputClassName="font-[800] text-[14px] leading-[20px]"
-                defaultCountry="ae"
+                geoIpLookup={handleGeoIpLookup}
+                defaultCountry={curCountry.toLowerCase() || 'ae'}
                 separateDialCode={true}
                 preferredCountries={["ae", "sa", "eg", "qa", "bh", "om", "kw", "jo", "lb", "sy", "iq", "ye", "ma", "dz", "ly", "sd", "so"]}
                 onPhoneNumberChange={(

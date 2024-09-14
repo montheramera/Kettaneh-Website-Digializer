@@ -91,6 +91,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
   const [errors, setErrors] = useState<FormErrors>({});
   const [isShowCategory, setIsShowCategory]=useState<boolean>(false)
   const [selectedCategories, setSelectedCategories] = useState<any[]>([]);
+  const [curCountry, setCurCountry] = useState<string>('');
 
   const utmData = parseUTMParameters();
   const handleSubmit = async (e: FormEvent) => {
@@ -140,6 +141,25 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
   useEffect(() => {
    setIsShowCategory( isMarketingOrLightingOrRelated(path))
   },[path])
+
+  useEffect(()=>{
+    async function fetchCurrentCountry(){
+      const response = await fetch('https://www.digializer.com/country-detect/ip-adress.json');
+      const data = await response.json();
+      setCurCountry(data.country_code)
+    }
+    fetchCurrentCountry();
+  }, [])
+
+  const handleGeoIpLookup = (callback: any) => {
+    if (curCountry) {
+      callback(curCountry);
+    } else {
+      // Fallback if country detection fails
+      callback('ae'); // Default to 'ae' (UAE)
+    }
+  };
+  
   return (
     <div className="bg-white shadow-lg mx-auto  lg:pt-0 contact-form lg:min-w-[600px] font-avenir ">
       <form
@@ -255,7 +275,8 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
               style={{ direction: "ltr", width: "100%" }}
               inputClassName="font-[800] text-[14px] leading-[20px]"
               // name="phone"
-              defaultCountry="ae"
+              geoIpLookup={handleGeoIpLookup}
+              defaultCountry={curCountry.toLowerCase() || 'ae'}
               separateDialCode={true}
               preferredCountries={["ae", "sa", "eg", "qa", "bh", "om", "kw", "jo", "lb", "sy", "iq", "ye", "ma", "dz", "ly", "sd", "so"]}
               onPhoneNumberChange={(status, value, countryData, number, id) => {
