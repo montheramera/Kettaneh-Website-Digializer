@@ -5,14 +5,12 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 const fetchGlobalPartners = async ()=>{
   const res = await fetch(`${API_URL}/api/partners?populate=Partner.logo`);
   const data = await res.json();
-  const GlobalPartners = data.data.map((el: any)=>el.attributes.Partner).filter((el: any)=>el.is_at_home);
-  
+  const GlobalPartners = data.data.map((el: any)=>el.attributes.Partner).filter((el: any)=>el.promated_to_front_page);
   return GlobalPartners;
 }
 
 export default async function GlobalPartners() {
   const globalPartners = await fetchGlobalPartners();
-  console.log("globalPartners", globalPartners[1].logo.data.attributes.height);
   const partners = [
     { name: "Haier", src: "/images/haier.png" },
     { name: "Siemens", src: "/images/siemens.png" },

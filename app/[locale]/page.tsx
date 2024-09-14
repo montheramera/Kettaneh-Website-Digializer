@@ -18,7 +18,6 @@ import TestimonialsSkeleton from "./compontents/ui/skeleton/TestimonialsSkeleton
 import ScrollSliders from "./compontents/categories/ScrollSliders";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
-console.log("API_URL", API_URL);
 const fetchTestimonials = async ()=>{
   const res = await fetch(`${API_URL}/api/testimonials?populate[Testimonial][populate]=*`);
   const data = await res.json();
@@ -26,8 +25,16 @@ const fetchTestimonials = async ()=>{
   return Testimonials;
 }
 
+const fetchCategories = async ()=>{
+  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const data = await res.json();
+  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
+  return Categories;
+}
+
 export default async function Home() {
 
+  const categories = await fetchCategories();
   const Testimonials = await fetchTestimonials();
   const t = await getTranslations();
 
@@ -143,7 +150,7 @@ export default async function Home() {
         </Suspense>
       </div>
       <div>
-        <ExperienceBanner />
+        <ExperienceBanner categories={categories} />
       </div>
     </main>
   );

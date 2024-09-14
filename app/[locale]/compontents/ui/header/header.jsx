@@ -6,7 +6,7 @@ import ModelFormContact from "../model/Model";
 import ConfirmationMessage from "../confirmation-message/ConfirmationMessage";
 import Link from "next/link";
 
-const Header = () => {
+const Header = ({categories}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
@@ -505,6 +505,7 @@ const Header = () => {
               <ContactForm
                 setIsOpen={setIsOpen}
                 setIsOpenConfirmation={setIsOpenConfirmation}
+                categories={categories}
               />
             </ModelFormContact>
           </>

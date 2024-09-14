@@ -3,15 +3,16 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import Image from "next/image";
 import IntlTelInput from "react-intl-tel-input";
 import { parseUTMParameters } from "@/utilis/utmParser";
+import MultiSelectDropdown from "../ui/multi-select/MultiSelectDropdown";
 
 interface Form {
   full_name: string;
   email: string;
-  category: string;
+  category: any[];
   country_code: string;
   phone_number: string;
   cv_resume: File | null;
-  [key: string]: string | File | null | undefined;
+  [key: string]: string | any[] | File | null | undefined;
 }
 
 interface FormErrors {
@@ -29,10 +30,10 @@ const submitForm = async (formData: Form) => {
 
   // Create FormData instance
   const data = new FormData();
-  
-  data.append(`files.cv_resume`, formData['cv_resume'] as File); 
+
+  data.append(`files.cv_resume`, formData['cv_resume'] as File);
   data.append(`data`, JSON.stringify(formData));
-  
+
 
   const res = await fetch(`${API_URL}/api/cvs`, {
     method: 'POST',
@@ -43,52 +44,58 @@ const submitForm = async (formData: Form) => {
     console.error('Error uploading file:', await res.text());
     return 'error';
   }
-  
+
   return 'ok';
 };
 
-const CareerFormNew = () => {
-    const [phone, setPhone] = useState ("");
-    const [countryCode, setCountryCode] = useState ("");
-    const [country, setCountry] = useState("");
-    const [formData, setFormData] = useState<Form>({
-        full_name: "",
-        email: "",
-        category:"",
-        country_code: "",
-        phone_number: "",
-        cv_resume: null,
-        utm_source: "",
-        utm_medium: "",
-        utm_campaign: "",
-        utm_term: "",
-        utm_content: ""
-      });
-      const [errors, setErrors] = useState<FormErrors>({});
+const CareerFormNew = ({categories}: any) => {
+  const [phone, setPhone] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [country, setCountry] = useState("");
+  const [formData, setFormData] = useState<Form>({
+    full_name: "",
+    email: "",
+    category: [],
+    country_code: "",
+    phone_number: "",
+    cv_resume: null,
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: ""
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [selectedCategories, setSelectedCategories] = useState<any[]>([]);
 
-      const utmData = parseUTMParameters();
+  const utmData = parseUTMParameters();
 
-      const handleSubmit = async (e: FormEvent) => {
-        e.preventDefault();
-        formData.phone_number = phone;
-        formData.country_code = countryCode;
-        const validationErrors = validateForm(formData);
-        if (Object.keys(validationErrors).length > 0) {
-          setErrors(validationErrors);
-          return;
-        }
-        const Data = {...formData, utm_source: utmData.utm_source,
-             utm_medium: utmData.utm_medium,
-             utm_campaign: utmData.utm_campaign,
-             utm_term: utmData.utm_term,
-             utm_content: utmData.utm_content}
-        const result = await submitForm(Data);
-        if (result === 'ok') {
-          console.log('Form submitted successfully');
-        } else {
-          console.error('Form submission failed');
-        }
-      };
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    formData.phone_number = phone;
+    formData.country_code = countryCode;
+    const validationErrors = validateForm(formData);
+    // if (Object.keys(validationErrors).length > 0) {
+    //   setErrors(validationErrors);
+    //   return;
+    // }
+    const Data = {
+      ...formData,
+      category: selectedCategories.map((el)=> el.id),
+      utm_source: utmData.utm_source,
+      utm_medium: utmData.utm_medium,
+      utm_campaign: utmData.utm_campaign,
+      utm_term: utmData.utm_term,
+      utm_content: utmData.utm_content
+    }
+    const result = await submitForm(Data);
+
+    if (result === 'ok') {
+      //Success Logic
+    } else {
+      //Fail Logic
+    }
+  };
 
   const validateForm = (data: Form): FormErrors => {
     let errors: FormErrors = {};
@@ -120,13 +127,6 @@ const CareerFormNew = () => {
   return (
     <section className="font-avenir">
       <div className="">
-        <h2 className="text-[36px] font-[800] leading-[40px] text-heading mt-[10px] mb-[10px]">
-          Advance <span className="text-primary">Your Career</span> with Us
-        </h2>
-        <p className="text-[20px] font-[500] leading-[28px] text-paragraph lg:max-w-[768px] mb-[20px]">
-          Explore exciting career opportunities at F.A. Kettaneh & Co LTD Jordan
-          and become part of our legacy of excellence and innovation.
-        </p>
         {/* Form Section */}
         <div className="">
           <form className="contact-form" onSubmit={handleSubmit}>
@@ -179,6 +179,7 @@ const CareerFormNew = () => {
                 inputClassName="font-[800] text-[14px] leading-[20px]"
                 defaultCountry="ae"
                 separateDialCode={true}
+                preferredCountries={["ae", "sa", "eg", "qa", "bh", "om", "kw", "jo", "lb", "sy", "iq", "ye", "ma", "dz", "ly", "sd", "so"]}
                 onPhoneNumberChange={(
                   status,
                   value,
@@ -195,7 +196,7 @@ const CareerFormNew = () => {
               />
             </div>
 
-         
+
             <div className="flex flex-col lg:flex-row mb-[8px]">
               <label
                 htmlFor="category"
@@ -203,11 +204,10 @@ const CareerFormNew = () => {
               >
                 Category*
               </label>
-              <select
-                className={`rounded-lg w-full ${
-                  ""
+              {/* <select
+                className={`rounded-lg w-full ${""
                   // errors.category ? "border-red-500" : ""
-                }`}
+                  }`}
                 id="category"
                 name="category"
                 value={formData.category}
@@ -220,7 +220,12 @@ const CareerFormNew = () => {
                 <option value="Machinery">Machinery</option>
                 <option value="Lighting">Lighting</option>
                 <option value="Aftermarket">Aftermarket</option>
-              </select>
+              </select> */}
+              <MultiSelectDropdown
+                  options={categories}
+                  selectedOptions={selectedCategories}
+                  onChange={setSelectedCategories}
+              />
             </div>
 
             <div className="flex flex-col lg:flex-row mb-[24px]">
@@ -235,6 +240,7 @@ const CareerFormNew = () => {
                 style={{ width: "100%", color: "#d0d5dd" }}
               >
                 <div className="space-y-1 text-center">
+                  {formData.cv_resume && <span>{formData.cv_resume.name}</span>}
                   <svg
                     className="mx-auto h-12 w-12 text-gray-400"
                     stroke="currentColor"
@@ -274,7 +280,7 @@ const CareerFormNew = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row mb-[8px]">
+            {/* <div className="flex flex-col lg:flex-row mb-[8px]">
               <label
                 htmlFor="captcha"
                 className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
@@ -291,14 +297,13 @@ const CareerFormNew = () => {
               />
             </div>
             <div className="my-2 lg:ml-[150px] ">
-              {/* Add your captcha image here */}
               <Image
                 src="/images/career/Code.png"
                 alt="Captcha"
                 width={160}
                 height={53.33}
               />
-            </div>
+            </div> */}
             <div className="flex items-center justify-center">
               <button
                 className="bg-primary text-white text-[16px] leading-[24px] font-[800] px-[12px] py-[12px] w-full mt-[10px]"

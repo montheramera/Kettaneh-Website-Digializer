@@ -10,13 +10,13 @@ interface FormData {
   first_name: string,
   last_name: string,
   email: string,
-  category:string,
+  category:string[],
   country_code: string,
   phone_number: string,
   your_business_industry: string,
   url_website: string,
   message: string,
-  [key: string]: string;
+  [key: string]: string | string[];
 }
 
 interface FormErrors {
@@ -46,7 +46,7 @@ const submitForm = async (formData: any) => {
   return 'ok';
 };
 
-export default function AfterMarketingForm() {
+export default function AfterMarketingForm({id}: any) {
   // State management for form data
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<string>("");
@@ -56,7 +56,7 @@ export default function AfterMarketingForm() {
     first_name: "",
     last_name: "",
     email: "",
-    category:"",
+    category:[id],
     country_code: "",
     phone_number: "",
     your_business_industry: "",
@@ -76,7 +76,6 @@ export default function AfterMarketingForm() {
     e.preventDefault();
     formData.phone_number = phone;
     formData.country_code = countryCode
-    formData.category = 'Aftermarket';
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -97,6 +96,7 @@ export default function AfterMarketingForm() {
     if (!data.first_name) errors.first_name = "First Name is required";
     if (!data.last_name) errors.last_name = "Last Name is required";
     if (!data.email) errors.email = "Email is required";
+    if (!data.message) errors.message = "Message is required";
     // if (!data.phone) errors.phone = "Phone is required";
     // if (!data.category) errors.category = "Please select a Category";
     return errors;
@@ -151,7 +151,7 @@ export default function AfterMarketingForm() {
               </label>
               <input
                 className={` rounded-lg ${
-                  errors.first_name ? "border-red" : ""
+                  errors.first_name ? "border-red" : "w-full"
                 }`}
                 id="first_name"
                 name="first_name"
@@ -174,7 +174,7 @@ export default function AfterMarketingForm() {
                 Last name*
               </label>
               <input
-                className={` rounded-lg ${errors.last_name ? "border-red" : ""}`}
+                className={` rounded-lg ${errors.last_name ? "border-red" : "w-full"}`}
                 id="last_name"
                 name="last_name"
                 type="text"
@@ -197,7 +197,7 @@ export default function AfterMarketingForm() {
               Email*
             </label>
             <input
-              className={` rounded-lg ${errors.email ? "border-red-500" : ""}`}
+              className={` rounded-lg ${errors.email ? "border-red-500" : "w-full"}`}
               id="email"
               name="email"
               type="email"
@@ -229,6 +229,7 @@ export default function AfterMarketingForm() {
               // name="phone"
               defaultCountry="ae"
               separateDialCode={true}
+              preferredCountries={["ae", "sa", "eg", "qa", "bh", "om", "kw", "jo", "lb", "sy", "iq", "ye", "ma", "dz", "ly", "sd", "so"]}
               onPhoneNumberChange={(status, value, countryData, number, id) => {
                 setPhone(number);
                 setCountryCode(countryData.dialCode || "");
@@ -250,7 +251,7 @@ export default function AfterMarketingForm() {
             </label>
             <input
               className={` rounded-lg ${
-                errors.your_business_industry ? "border-red-500" : ""
+                errors.your_business_industry ? "border-red-500" : "w-full"
               }`}
               id="your_business_industry"
               name="your_business_industry"
@@ -273,7 +274,7 @@ export default function AfterMarketingForm() {
             </label>
             <input
               className={` rounded-lg ${
-                errors.url_website ? "border-red-500" : ""
+                errors.url_website ? "border-red-500" : "w-full"
               }`}
               id="url_website"
               name="url_website"
@@ -292,17 +293,18 @@ export default function AfterMarketingForm() {
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="message"
             >
-              Message
+              Message*
             </label>
             <textarea
               className={` rounded-lg min-h-[120px] ${
-                errors.message ? "border-red-500" : ""
+                errors.message ? "border-red-500" : "w-full"
               }`}
               id="message"
               name="message"
               placeholder="Leave us a message..."
               value={formData.message}
               onChange={handleInputChange}
+              required
             />
             {errors.message && (
               <p className="text-red text-xs mt-1">{errors.message}</p>

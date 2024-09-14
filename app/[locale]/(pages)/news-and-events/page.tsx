@@ -16,8 +16,16 @@ const fetchEvents = async () => {
   return events;
 };
 
+const fetchCategories = async ()=>{
+  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const data = await res.json();
+  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
+  return Categories;
+}
+
 const page = async() => {
   const events = await fetchEvents();
+  const categories = await fetchCategories();
   const DynamicGallerySection = dynamic(
     () => import("@/compontents/news-and-events/GallerySection"),
     {
@@ -67,7 +75,7 @@ const page = async() => {
       </section>
 
       <section className=" ">
-        <CallToAction />
+        <CallToAction categories={categories} />
       </section>
     </>
   );

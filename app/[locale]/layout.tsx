@@ -21,10 +21,8 @@ interface RootLayoutProps {
 ////////////////////////////
 
 function saveOrUpdateUTMParameters() {
-  console.log("here is");
   if (typeof window !== "undefined") {
     const queryParams = new URLSearchParams(window.location.search);
-    console.log("here is queryParams", queryParams);
     // Define an array to store UTM parameters
     const utmParams: { key: string; value: string | null }[] = [];
 

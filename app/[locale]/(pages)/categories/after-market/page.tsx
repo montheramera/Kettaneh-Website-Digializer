@@ -17,11 +17,19 @@ const fetchCategoryByTitle = async (title: string) => {
   return categories;
 };
 
+const fetchCategories = async ()=>{
+  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const data = await res.json();
+  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
+  return Categories;
+}
+
 const page = async () => {
 
   let AfterMarketCategory = await fetchCategoryByTitle('After Market');
+  const categories = await fetchCategories();
   const DynamicFirstSection = dynamic(
-    () => import('@/compontents/categories/FirstSection'),
+    () => import('@/compontents/categories/AfterMarketing'),
     {
       ssr: false,
       loading: () => (
@@ -45,7 +53,8 @@ const page = async () => {
           categoryname={AfterMarketCategory[0]?.attributes?.title}
           categoryParagraph={AfterMarketCategory[0]?.attributes?.category?.summary}
           categoryBg={AfterMarketCategory[0]?.attributes?.category?.background_color}
-          imageUrl={AfterMarketCategory[0]?.attributes?.category?.image?.data?.attributes?.url} imagesLogos={[]}        />
+          categoryId = {AfterMarketCategory[0].attributes.id}
+          imageUrl={AfterMarketCategory[0]?.attributes?.category?.image?.data?.attributes?.url} />
       </Suspense>
 
       {/* <FirstSection
@@ -70,7 +79,7 @@ const page = async () => {
       <section className="block lg:hidden mt-[30px]">
         <ScrollSliders />
       </section>
-      <CallToAction />
+      <CallToAction categories={categories} />
     </>
   );
 };

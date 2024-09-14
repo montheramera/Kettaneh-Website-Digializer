@@ -7,11 +7,19 @@ import dynamic from 'next/dynamic';
 import JobListingsSkeleton from '@/compontents/ui/skeleton/JobListingSkeleton';
 import ScrollSliders from '@/compontents/categories/ScrollSliders';
 
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+const fetchCategories = async ()=>{
+  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const data = await res.json();
+  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
+  return Categories;
+}
+
 const page = async() => {
   let res = await fetch('https://kettaneh-strapi.onrender.com/api/careers?populate[career]=*&populate[category][populate]=title,category')
   let data = await res.json()
   let careers = [...data.data];
-
+  const categories = await fetchCategories();
   const DynamicJobListing = dynamic(
     () => import("@/compontents/career/FirstSection"),
     {
@@ -53,7 +61,7 @@ const page = async() => {
           <ScrollSliders />
         </section>
         <section className="">
-          <CallToAction />
+          <CallToAction categories={categories}/>
         </section>
       </>
     );

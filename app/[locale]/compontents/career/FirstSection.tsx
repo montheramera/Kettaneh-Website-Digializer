@@ -1,7 +1,16 @@
 import Image from "next/image";
 import CareerFormNew from "@/compontents/career/CareerFormNew";
 
-export default function JobListings({careers}: any) {
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const fetchCategories = async ()=>{
+  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const data = await res.json();
+  const Categories = data.data.map((el: any)=>({id:el.id, title: el.attributes.title, category: el.attributes.category})).filter((el:any)=>el.title != "kettaneh");
+  return Categories;
+}
+
+export default async function JobListings({careers}: any) {
   const jobs = [
     {
       title: "Sales Engineer",
@@ -36,12 +45,21 @@ export default function JobListings({careers}: any) {
         "We're looking for sales engineer experienced in Water pumps to join our team.",
     },
   ];
-
+const categories = await fetchCategories();
   return (
     <div className="">
       <div className="flex flex-col lg:flex-row justify-between   lg:gap-32">
         {/* Job Listings */}
         <div className="w-full  lg:w-1/2 ">
+          <div className="">
+            <h2 className="text-[36px] font-[800] leading-[40px] text-heading mt-[10px] mb-[10px]">
+              Advance <span className="text-primary">Your Career</span> with Us
+            </h2>
+            <p className="text-[20px] font-[500] leading-[28px] text-paragraph lg:max-w-[768px] mb-[20px]">
+              Explore exciting career opportunities at F.A. Kettaneh & Co LTD Jordan
+              and become part of our legacy of excellence and innovation.
+            </p>
+          </div>
           {careers.map((career: any, index: number) => (
             <div key={index} className="pb-6 mb-6 border-b border-[#EAECF0]">
               <h3 className="text-[24px] font-[800] leading-[28px] text-heading">
@@ -102,7 +120,7 @@ export default function JobListings({careers}: any) {
             mentioning the job & title departments in the subject.
           </p>
 
-          <CareerFormNew />
+          <CareerFormNew categories={categories} />
           {/* <h3 className="text-[20px] font-[800] leading-[28px] text-heading mt-[32px]">
             Requirements
           </h3>

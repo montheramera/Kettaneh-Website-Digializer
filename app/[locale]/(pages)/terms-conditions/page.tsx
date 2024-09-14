@@ -16,7 +16,6 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 const fetchTermsData = async () => {
   const res = await fetch(`${API_URL}/api/pages?populate=*`);
   const data = await res.json();
-  console.log(data.data[1].attributes.text);
   const terms = data.data.map((el: any)=> el.attributes).filter((el: any)=> el.title === "Terms And Conditions");
   return terms;
 };

@@ -33,6 +33,13 @@ const fetchGlobalPartners = async () => {
   return partners;
 };
 
+const fetchCategories = async ()=>{
+  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const data = await res.json();
+  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
+  return Categories;
+}
+
 const fetchAboutData = async () => {
   const res = await fetch(`${API_URL}/api/about-pages?populate=*`);
   const data = await res.json();
@@ -54,6 +61,7 @@ export default async function AboutUs() {
   const AboutData = await fetchAboutData();
   const Achivements = await fetchAchivements();
   const GlobalPartners = await fetchGlobalPartners();
+  const categories = await fetchCategories();
   const DynamicAchievementSection = dynamic(
     () => import('@/compontents/about/AchievementsSection'),
     {
@@ -131,7 +139,7 @@ export default async function AboutUs() {
         <ScrollSliders />
       </section>
       <section>
-        <CallToAction />
+        <CallToAction categories={categories} />
       </section>
     </>
   );

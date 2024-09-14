@@ -5,12 +5,14 @@ interface FirstSectionProps {
   categoryname: string;
   categoryParagraph: string;
   categoryBg: string;
+  categoryId: number;
   imageUrl: string;
 }
 const AfterMarketing: React.FC<FirstSectionProps> = ({
   categoryname,
   categoryParagraph,
   categoryBg,
+  categoryId,
   imageUrl,
 }) => {
   return (
@@ -56,7 +58,7 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
             </section>
           </div>
           <div className="flex-1 bg-gray-200 justify-end ">
-            <AfterMarketingForm />
+            <AfterMarketingForm id={categoryId} />
           </div>
         </div>
       </div>

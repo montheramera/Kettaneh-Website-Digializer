@@ -5,18 +5,19 @@ import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
 import { usePathname } from "next/navigation";
 import { parseUTMParameters } from "@/utilis/utmParser";
+import MultiSelectDropdown from "../multi-select/MultiSelectDropdown";
 
 interface FormData {
   first_name: string,
   last_name: string,
   email: string,
-  category:string,
+  category:number[],
   country_code: string,
   phone_number: string,
   your_business_industry: string,
   url_website: string,
   message: string,
-  [key: string]: string;
+  [key: string]: string | number[];
 }
 
 interface FormErrors {
@@ -50,6 +51,7 @@ const submitForm = async (formData: any) => {
 interface FormContactProps {
   setIsOpen: (isOpen: boolean) => void;
   setIsOpenConfirmation: (isOpen: boolean) => void;
+  categories?: any[]
 }
 
 function isMarketingOrLightingOrRelated(path:string) {
@@ -62,18 +64,18 @@ function isMarketingOrLightingOrRelated(path:string) {
   );
 }
 
-export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormContactProps) {
+export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categories=[] }: FormContactProps) {
   // State management for form data
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const path = usePathname();
-
+  
   const [formData, setFormData] = useState<FormData>({
     first_name: "",
     last_name: "",
     email: "",
-    category: path ? path : "",
+    category: path ? [categories.find((el: any)=> path.split('/').includes(el.title.toLowerCase()))?.id] : [],
     country_code: "",
     phone_number: "",
     your_business_industry: "",
@@ -88,9 +90,9 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isShowCategory, setIsShowCategory]=useState<boolean>(false)
+  const [selectedCategories, setSelectedCategories] = useState<any[]>([]);
 
   const utmData = parseUTMParameters();
-  console.log(utmData);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     formData.phone_number = phone;
@@ -102,12 +104,15 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
       setErrors(validationErrors);
       return;
     }
-     const Data = {...formData, utm_source: utmData.utm_source,
-          utm_medium: utmData.utm_medium,
-          utm_campaign: utmData.utm_campaign,
-          utm_term: utmData.utm_term,
-          utm_content: utmData.utm_content}
-
+    const Data = {
+      ...formData,
+      category: selectedCategories.map((el)=> el.id) && formData.category,
+      utm_source: utmData.utm_source,
+      utm_medium: utmData.utm_medium,
+      utm_campaign: utmData.utm_campaign,
+      utm_term: utmData.utm_term,
+      utm_content: utmData.utm_content
+    }
     await submitForm(Data);
   };
 
@@ -117,6 +122,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
     if (!data.last_name) errors.last_name = "Last Name is required";
     if (!data.email) errors.email = "Email is required";
     if (!data.category) errors.category = "Please select a Category";
+    if (!data.message) errors.message = "Message is required";
     // if (!data.phone) errors.phone = "Phone is required";
     return errors;
   };
@@ -175,7 +181,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               </label>
               <input
                 className={` rounded-lg ${
-                  errors.first_name ? "border-red" : ""
+                  errors.first_name ? "border-red" : "w-full"
                 }`}
                 id="first_name"
                 name="first_name"
@@ -198,7 +204,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
                 Last name*
               </label>
               <input
-                className={` rounded-lg ${errors.last_name ? "border-red" : ""}`}
+                className={` rounded-lg ${errors.last_name ? "border-red" : "w-full"}`}
                 id="last_name"
                 name="last_name"
                 type="text"
@@ -220,7 +226,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               Email*
             </label>
             <input
-              className={` rounded-lg ${errors.email ? "border-red-500" : ""}`}
+              className={` rounded-lg ${errors.email ? "border-red-500" : "w-full"}`}
               id="email"
               name="email"
               type="email"
@@ -251,6 +257,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               // name="phone"
               defaultCountry="ae"
               separateDialCode={true}
+              preferredCountries={["ae", "sa", "eg", "qa", "bh", "om", "kw", "jo", "lb", "sy", "iq", "ye", "ma", "dz", "ly", "sd", "so"]}
               onPhoneNumberChange={(status, value, countryData, number, id) => {
                 setPhone(number);
                 setCountryCode(countryData.dialCode || "");
@@ -273,7 +280,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               >
                 Category*
               </label>
-              <select
+              {/* <select
                 className={`rounded-lg w-full ${
                   errors.category ? "border-red-500" : ""
                 }`}
@@ -289,7 +296,12 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
                 <option value="Machinery">Machinery</option>
                 <option value="Lighting">Lighting</option>
                 <option value="Aftermarket">Aftermarket</option>
-              </select>
+              </select> */}
+              <MultiSelectDropdown
+                  options={categories}
+                  selectedOptions={selectedCategories}
+                  onChange={setSelectedCategories}
+              />
               {errors.category && (
                 <p className="text-red text-xs mt-1">{errors.category}</p>
               )}
@@ -304,7 +316,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
             </label>
             <input
               className={` rounded-lg ${
-                errors.your_business_industry ? "border-red-500" : ""
+                errors.your_business_industry ? "border-red-500" : "w-full"
               }`}
               id="your_business_industry"
               name="your_business_industry"
@@ -326,7 +338,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
             </label>
             <input
               className={` rounded-lg ${
-                errors.url_website ? "border-red-500" : ""
+                errors.url_website ? "border-red-500" : "w-full"
               }`}
               id="url_website"
               name="url_website"
@@ -344,17 +356,18 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
               className="font-[800] text-[14px] leading-[20px] text-[#344054]"
               htmlFor="message"
             >
-              Message
+              Message*
             </label>
             <textarea
               className={` rounded-lg min-h-[134px] ${
-                errors.message ? "border-red-500" : ""
+                errors.message ? "border-red-500" : "w-full"
               }`}
               id="message"
               name="message"
               placeholder="Leave us a message..."
               value={formData.message}
               onChange={handleInputChange}
+              required
             />
             {errors.message && (
               <p className="text-red text-xs mt-1">{errors.message}</p>

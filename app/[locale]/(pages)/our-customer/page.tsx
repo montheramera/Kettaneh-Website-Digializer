@@ -27,6 +27,13 @@ const fetchClients = async ()=>{
   return Clients;
 }
 
+const fetchCategories = async ()=>{
+  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const data = await res.json();
+  const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
+  return Categories;
+}
+
 const index = async() => {
     const logos = [
       { alt: "customer logo 1", src: "/images/customer-logos/kett.png" },
@@ -111,6 +118,7 @@ const index = async() => {
 
     const customerData = await fetchCustomerData();
     const Clients = await fetchClients();
+    const categories = await fetchCategories();
     const DynamicLogoSection = dynamic(
       () => import('@/compontents/customer/CustomerSection'),
       {
@@ -173,7 +181,7 @@ const index = async() => {
           <ScrollSliders />
         </section>
         <section className="">
-          <CallToAction />
+          <CallToAction categories={categories}/>
         </section>
       </>
     );

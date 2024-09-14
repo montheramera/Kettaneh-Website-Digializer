@@ -18,7 +18,7 @@ const News = async () => {
 
   const Events = await fetchEvents();
   const mainEvent = Events.find((el: any) => el.Is_main);
-  const otherEvents = Events.filter((el: any) => !el.Is_main && el.is_at_main);
+  const otherEvents = Events.filter((el: any) => !el.Is_main && el.promated_to_front_page);
   return (
     <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir border-y-[#F9FAFB]  border-opacity-25 border-y-[5px]">
       <div className="max-w-[1440px] m-auto">
