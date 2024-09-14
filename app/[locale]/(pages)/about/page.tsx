@@ -34,7 +34,7 @@ const fetchGlobalPartners = async () => {
 };
 
 const fetchCategories = async ()=>{
-  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const res = await fetch(`${API_URL}/api/categories?populate=*`);
   const data = await res.json();
   const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
   return Categories;

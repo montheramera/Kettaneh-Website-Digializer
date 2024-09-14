@@ -106,14 +106,16 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
     }
     const Data = {
       ...formData,
-      category: selectedCategories.map((el)=> el.id) && formData.category,
+      category: selectedCategories.length ? selectedCategories.map((el)=> el.id) : formData.category,
       utm_source: utmData.utm_source,
       utm_medium: utmData.utm_medium,
       utm_campaign: utmData.utm_campaign,
       utm_term: utmData.utm_term,
       utm_content: utmData.utm_content
     }
-    await submitForm(Data);
+    // await submitForm(Data);
+    console.log(Data);
+    console.log(selectedCategories);
   };
 
   const validateForm = (data: FormData): FormErrors => {

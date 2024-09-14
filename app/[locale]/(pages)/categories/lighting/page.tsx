@@ -63,7 +63,7 @@ const fetchPartnersByCategory = async (categoryTitle: string) => {
 };
 
 const fetchCategories = async ()=>{
-  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const res = await fetch(`${API_URL}/api/categories?populate=*`);
   const data = await res.json();
   const Categories = data.data.map((el: any)=>({id: el.id, title: el.attributes.title, category: el.attributes.category})).filter((el: any)=> el.title != "kettaneh");
   return Categories;
@@ -74,7 +74,7 @@ const page = async () => {
   const categoryTitle = LightingCategory[0].attributes.title
   let partners = await fetchPartnersByCategory(categoryTitle);
   const categories = await fetchCategories();
-  
+
   const DynamicFirstSection = dynamic(
     () => import('@/compontents/categories/FirstSection'),
     {
