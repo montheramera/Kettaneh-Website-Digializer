@@ -52,7 +52,7 @@ const submitForm = async (formData: any) => {
 interface FormContactProps {
   setIsOpen: (isOpen: boolean) => void;
   setIsOpenConfirmation: (isOpen: boolean) => void;
-  categories?: any[]
+  // categories?: any[]
 }
 
 function isMarketingOrLightingOrRelated(path:string) {
@@ -65,8 +65,10 @@ function isMarketingOrLightingOrRelated(path:string) {
   );
 }
 
-export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categories=[] }: FormContactProps) {
+export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormContactProps) {
+
   // State management for form data
+  const [categories, setCategories]=useState([]);
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<string>("");
   const [country, setCountry] = useState<string>("");
@@ -166,6 +168,24 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation, categori
     fetchCurrentCountry();
   }, [])
 
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+    useEffect(() => {
+      async function fetchCategories() {
+        const res = await fetch(
+          `${API_URL}/api/categories?populate=category.image`
+        );
+        const data = await res.json();
+        const Categories = data.data
+          .map((el: any) => ({
+            id: el.id,
+            title: el.attributes.title,
+            category: el.attributes.category,
+          }))
+          .filter((el: any) => el.title != "kettaneh");
+        setCategories(Categories);
+      }
+      fetchCategories();
+    }, []);
   const handleGeoIpLookup = (callback: any) => {
     if (curCountry) {
       callback(curCountry);
