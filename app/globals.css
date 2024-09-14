@@ -419,6 +419,8 @@ li:hover > button svg {
   .intl-tel-input .country-list {
       color: black;
       z-index: 2000 !important;
+      max-height: 500px !important;
+      margin-top: 200px !important;
       /* max-height: 300px !important;
        position: absolute !important; */
     }

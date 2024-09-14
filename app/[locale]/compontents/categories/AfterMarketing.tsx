@@ -42,7 +42,7 @@ const AfterMarketing: React.FC<FirstSectionProps> = ({
                 className="flex px-10 relative flex-col lg:flex-row  inset-0 bg-paragraph bg-opacity-50  text-[18px] font-[400] leading-[28px] text-paragraph py-[30px] lg:py-0 lg:min-h-[900px]"
               >
                 <div className="absolute inset-0 bg-paragraph bg-opacity-70"></div>
-                <div className="max-w-[1440px] text-white w-full m-auto z-[100]">
+                <div className="max-w-[1440px] text-white w-full m-auto z-[50]">
                   <h2 className=" text-[36px] font-[800] leading-[40px]  mt-[30px] mb-[32px]">
                     {categoryname}
                   </h2>
