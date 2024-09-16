@@ -104,19 +104,22 @@ const TimelineSlider = ({timelineData}) => {
           </p>
         </div>
 
-        <div className="flex justify-center items-center  mt-[64px] px-8 lg:px-0">
+        {/* <div className="flex justify-center items-center  mt-[64px] px-8 lg:px-0">
           <div className="relative w-full h-1 bg-primary">
             <div className="absolute left-0 top-[-24px] h-12 border-l-2 border-primary"></div>
             <div className="absolute left-1/3 h-12 top-[-24px] border-l-0 lg:border-l-2  border-primary"></div>
             <div className="absolute left-2/3 h-12  top-[-24px] border-l-0 lg:border-l-2 border-primary"></div>
             <div className=""></div>
           </div>
-        </div>
+        </div> */}
 
         <Slider {...settings}>
           {timelineData.map((item, index) => (
-            <div key={index} className="mt-[48px] px-8 lg:px-0">
-              <div>
+            <div key={index} className=" px-8 lg:px-0">
+              <div className="h-1 bg-primary relative mt-[48px]">
+                <div className="absolute left-0 top-[-24px] h-12 border-l-2 border-primary"></div>
+              </div>
+              <div className="mt-[48px]">
                 <p className="text-[30px] lg:text-[60px] text-heading font-[500] leading-[81.96px]">
                   {item.year}
                 </p>
