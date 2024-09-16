@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   img {
     /* width: auto; */
@@ -9,27 +10,27 @@
   }
 }
 :root {
-  --foreground-rgb: 0, 0, 0;
+  /* --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255; */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    /* --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0; */
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
@@ -233,13 +234,22 @@ li:hover > button svg {
     border-radius: 6px;
     font-size: 16px;
     color: #333;
+    background-color: white !important
   }
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+      background-color: white !important;
+      color: black !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
 
   input:focus,
-  select:focus {
+  select:focus ,textarea:focus {
     outline: none;
     border-color: #00aaff;
-    box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+    background-color: white !important;
+    /* box-shadow: 0 0 5px rgba(0, 170, 255, 0.5); */
   }
 
   /* form button {

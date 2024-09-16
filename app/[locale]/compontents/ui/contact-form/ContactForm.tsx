@@ -6,24 +6,6 @@ import { usePathname } from "next/navigation";
 import { parseUTMParameters } from "@/utilis/utmParser";
 import MultiSelectDropdown from "../multi-select/MultiSelectDropdown";
 
-
-// interface FormData {
-//   first_name: string,
-//   last_name: string,
-//   email: string,
-//   category:number[],
-//   country_code: string,
-//   phone_number: string,
-//   your_business_industry: string,
-//   url_website: string,
-//   message: string,
-//   [key: string]: string | number[];
-// }
-// interface Category {
-//   title: string;
-//   id: string; // Adjust based on your actual id type (e.g., number, string, etc.)
-// }
-
 interface Category {
   title: string;
   id: number;
@@ -68,7 +50,12 @@ const submitForm = async (formData: any) => {
     }
   );
 
-  return 'ok';
+  if (!res.ok) {
+    console.error("Error uploading file:", await res.text());
+    return "error";
+  }
+
+  return "ok";
 };
 
 interface FormContactProps {
@@ -97,29 +84,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
   const path = usePathname();
   const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-  // const [formData, setFormData] = useState<FormData>({
-  //   first_name: "",
-  //   last_name: "",
-  //   email: "",
-  //   category: path
-  //     ? [
-  //         categories?.find((el: Category) =>
-  //           path.split("/").includes(el.title.toLowerCase())
-  //         )?.id   
-  //       ]
-  //     : [],
-  //   country_code: "",
-  //   phone_number: "",
-  //   your_business_industry: "",
-  //   url_website: "",
-  //   message: "",
-  //   utm_source: "",
-  //   utm_medium: "",
-  //   utm_campaign: "",
-  //   utm_term: "",
-  //   utm_content: "",
-  // });
-
+ 
 const [formData, setFormData] = useState<FormData>({
   first_name: "",
   last_name: "",
@@ -148,7 +113,7 @@ const [formData, setFormData] = useState<FormData>({
     e.preventDefault();
     formData.phone_number = phone;
     formData.country_code = countryCode
-      setIsOpen(false)
+      // setIsOpen(false)
       setIsOpenConfirmation(true)
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length > 0) {
@@ -164,14 +129,11 @@ const [formData, setFormData] = useState<FormData>({
       utm_term: utmData.utm_term,
       utm_content: utmData.utm_content
     }
-
     const result = await submitForm(Data);
-    console.log("result", result);
-
       if (result === "ok") {
         //Success Logic
         setLoading(false);
-        setIsOpen(true);
+        setIsOpen(false);
         setIsOpenConfirmation(true);
       } else {
         setLoading(false);
@@ -203,9 +165,6 @@ const [formData, setFormData] = useState<FormData>({
 
   useEffect(() => {
     setIsShowCategory(isMarketingOrLightingOrRelated(path))
-  
-    // Safely check if the category exists before accessing `.id`
-    console.log("categories", categories);
     const cate = categories?.find((el: any) =>
       path.split("/").includes(el.title.toLowerCase()) 
     ) ||{id:1}
@@ -293,7 +252,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
                 First name*
               </label>
               <input
-                className={` rounded-lg ${
+                className={` rounded-lg bg-white ${
                   errors.first_name ? "border-red" : "w-full"
                 }`}
                 id="first_name"
@@ -317,7 +276,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
                 Last name*
               </label>
               <input
-                className={` rounded-lg ${
+                className={` rounded-lg bg-white ${
                   errors.last_name ? "border-red" : "w-full"
                 }`}
                 id="last_name"
@@ -335,7 +294,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
           </div>
           <div className="mb-4">
             <label
-              className="font-[800] text-[14px] leading-[20px] text-[#344054]"
+              className="font-[800] text-[14px] leading-[20px] bg-white text-[#344054]"
               htmlFor="email"
             >
               Email*
@@ -511,6 +470,11 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
               <p className="text-red text-xs mt-1">{errors.message}</p>
             )}
           </div>
+          {error && (
+            <p className="text-primary text-[16px] leading-[24px] font-[800] my-3">
+              Something go wrong please try again
+            </p>
+          )}
           <div className="flex items-center justify-center">
             <button
               className="bg-primary text-white text-[16px] leading-[24px] font-[800] px-[12px] py-[12px] w-full"

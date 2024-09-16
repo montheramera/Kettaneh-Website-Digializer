@@ -5,6 +5,8 @@ import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
 import { parseUTMParameters } from "@/utilis/utmParser";
+import ModelFormContact from "../ui/model/Model";
+import ConfirmationMessage from "../ui/confirmation-message/ConfirmationMessage";
 
 interface FormData {
   first_name: string,
@@ -43,7 +45,12 @@ const submitForm = async (formData: any) => {
     }
   );
 
-  return 'ok';
+  if (!res.ok) {
+    console.error("Error uploading file:", await res.text());
+    return "error";
+  }
+
+  return "ok";
 };
 
 export default function AfterMarketingForm({id}: any) {
@@ -51,7 +58,8 @@ export default function AfterMarketingForm({id}: any) {
   const [phone, setPhone] = useState<string>("");
   const [countryCode, setCountryCode] = useState<string>("");
   const [country, setCountry] = useState<string>("");
-
+  const [loading, setLoading] = useState(false);
+  const [error,setError]=useState(false)
   const [formData, setFormData] = useState<FormData>({
     first_name: "",
     last_name: "",
@@ -71,9 +79,13 @@ export default function AfterMarketingForm({id}: any) {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [curCountry, setCurCountry] = useState<string>('');
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
   const utmData = parseUTMParameters();
 
   const handleSubmit = async (e: FormEvent) => {
+      setLoading(true);
+      setError(false);
     e.preventDefault();
     formData.phone_number = phone;
     formData.country_code = countryCode
@@ -89,7 +101,17 @@ export default function AfterMarketingForm({id}: any) {
           utm_term: utmData.utm_term,
           utm_content: utmData.utm_content}
 
-    await submitForm(Data);
+    const result=await submitForm(Data);
+    if (result === "ok") {
+      //Success Logic
+      setLoading(false);
+      setIsOpen(true);
+      setIsOpenConfirmation(true);
+    } else {
+      setLoading(false);
+      setError(true);
+      //Fail Logic
+    }
   };
 
   const validateForm = (data: FormData): FormErrors => {
@@ -137,22 +159,6 @@ export default function AfterMarketingForm({id}: any) {
           <h2 className="text-[24px] leading-[32px] font-[800] text-[#101828] mb-[8px]">
             Contact Our Aftermarket Team
           </h2>
-          {/* <button className=" text-[#101828]" onClick={() => setIsOpen(false)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button> */}
         </div>
         <p className="text-paragraph text-[18px] leading-[28px] font-[400] mb-[16px]">
           Reach out for expert maintenance services, warranty contracts, and
@@ -192,7 +198,9 @@ export default function AfterMarketingForm({id}: any) {
                 Last name*
               </label>
               <input
-                className={` rounded-lg ${errors.last_name ? "border-red" : "w-full"}`}
+                className={` rounded-lg ${
+                  errors.last_name ? "border-red" : "w-full"
+                }`}
                 id="last_name"
                 name="last_name"
                 type="text"
@@ -215,7 +223,9 @@ export default function AfterMarketingForm({id}: any) {
               Email*
             </label>
             <input
-              className={` rounded-lg ${errors.email ? "border-red-500" : "w-full"}`}
+              className={` rounded-lg ${
+                errors.email ? "border-red-500" : "w-full"
+              }`}
               id="email"
               name="email"
               type="email"
@@ -245,9 +255,27 @@ export default function AfterMarketingForm({id}: any) {
               style={{ direction: "ltr", width: "100%" }}
               inputClassName="font-[800] text-[14px] leading-[20px]"
               geoIpLookup={handleGeoIpLookup}
-              defaultCountry={curCountry.toLowerCase() || 'jo'}
+              defaultCountry={curCountry.toLowerCase() || "jo"}
               separateDialCode={true}
-              preferredCountries={["ae", "sa", "eg", "qa", "bh", "om", "kw", "jo", "lb", "sy", "iq", "ye", "ma", "dz", "ly", "sd", "so"]}
+              preferredCountries={[
+                "ae",
+                "sa",
+                "eg",
+                "qa",
+                "bh",
+                "om",
+                "kw",
+                "jo",
+                "lb",
+                "sy",
+                "iq",
+                "ye",
+                "ma",
+                "dz",
+                "ly",
+                "sd",
+                "so",
+              ]}
               onPhoneNumberChange={(status, value, countryData, number, id) => {
                 setPhone(number);
                 setCountryCode(countryData.dialCode || "");
@@ -279,7 +307,9 @@ export default function AfterMarketingForm({id}: any) {
               onChange={handleInputChange}
             />
             {errors.your_business_industry && (
-              <p className="text-red text-xs mt-1">{errors.your_business_industry}</p>
+              <p className="text-red text-xs mt-1">
+                {errors.your_business_industry}
+              </p>
             )}
           </div>
 
@@ -333,7 +363,7 @@ export default function AfterMarketingForm({id}: any) {
               id="privacy-checkbox"
               type="checkbox"
               style={{ width: "16px", height: "16px" }}
-              className="h-4 w-4 mt-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+              className="h-4 w-4  text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
             />
             <label
               htmlFor="privacy-checkbox"
@@ -346,16 +376,57 @@ export default function AfterMarketingForm({id}: any) {
               and <Link href={"underline"}>Terms of Conditions</Link> .
             </label>
           </div>
+
+          {error && (
+            <p className="text-primary text-[16px] leading-[24px] font-[800] my-3">
+              Something go wrong please try again
+            </p>
+          )}
           <div className="flex items-center justify-center">
             <button
-              className="bg-primary text-white text-[16px] leading-[24px] font-[800] px-[12px] py-[12px] w-full"
+              className="bg-primary text-white text-[16px] leading-[24px] font-[800] px-[12px] py-[12px] w-full flex items-center justify-center"
               type="submit"
             >
-              Send Message
+              {/* Send Message */}
+              {loading ? (
+                // Spinner while loading
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  ></path>
+                </svg>
+              ) : (
+                // Button text when not loading
+                "Send Message"
+              )}
             </button>
           </div>
         </div>
       </form>
+      {isOpenConfirmation && (
+        <>
+          <ModelFormContact setIsOpen={setIsOpen} isOpen={isOpen}>
+            <ConfirmationMessage
+              setIsOpenConfirmation={setIsOpenConfirmation}
+            />
+          </ModelFormContact>
+        </>
+      )}
     </div>
   );
 }
