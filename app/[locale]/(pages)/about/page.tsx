@@ -35,15 +35,16 @@ const fetchAboutData = async () => {
   const res = await fetch(`${API_URL}/api/about-pages?populate=*`);
   const data = await res.json();
   const about = data.data;
+  console.log('=====', about);
   const AboutData = {
-    title: about[0].attributes.title,
-    description1: about[0].attributes.description_section1,
-    description2: about[0].attributes.description_section2,
-    first_section_iamge: about[0].attributes.first_section_iamge.data.attributes,
-    second_section_iamge: about[0].attributes.second_section_image.data.attributes,
-    Achievement_section_image: about[0].attributes.Achievement_section_image.data.attributes,
-    Time_lines: about[0].attributes.Time_lines,
-    beliefs_and_goals: about[0].attributes.beliefs_and_goals
+    title: about[0]?.attributes?.title,
+    description1: about[0]?.attributes.description_section1,
+    description2: about[0]?.attributes?.description_section2,
+    first_section_iamge: about[0]?.attributes?.first_section_iamge?.data?.attributes,
+    second_section_iamge: about[0]?.attributes?.second_section_image?.data?.attributes,
+    Achievement_section_image: about[0]?.attributes?.Achievement_section_image?.data?.attributes,
+    Time_lines: about[0]?.attributes?.Time_lines,
+    beliefs_and_goals: about[0]?.attributes?.beliefs_and_goals
   }
   return AboutData;
 };
@@ -107,13 +108,13 @@ export default async function AboutUs() {
       <section>
         {/* <AchievementsSection achivements={Achivements} image={AboutData.Achievement_section_image}/> */}
         <Suspense fallback={"loading"}>
-          <DynamicAchievementSection achivements={Achivements} image={AboutData.Achievement_section_image}/>
+          <DynamicAchievementSection achivements={Achivements} image={AboutData?.Achievement_section_image}/>
         </Suspense>
       </section>
       <section className="overflow-hidden">
         {/* <TimelineSlider timelineData={AboutData.Time_lines}/> */}
         <Suspense fallback={"loading"}>
-          <DynamicTimeLineSection timelineData={AboutData.Time_lines}/>
+          <DynamicTimeLineSection timelineData={AboutData?.Time_lines}/>
         </Suspense>
       </section>
       <section className="overflow-hidden">

@@ -189,7 +189,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
     useEffect(() => {
       async function fetchCategories() {
         const res = await fetch(
-          `${API_URL}/api/categories?populate=category.image`
+          `${API_URL}/api/categories?populate=category.image&filters[title][$ne]=kettaneh`
         );
         const data = await res.json();
         const Categories = data.data
@@ -198,7 +198,6 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
             title: el.attributes.title,
             category: el.attributes.category,
           }))
-          .filter((el: any) => el.title != "kettaneh");
         setCategories(Categories);
       }
       fetchCategories();

@@ -14,9 +14,9 @@ import ScrollSliders from '@/compontents/categories/ScrollSliders';
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
 const fetchPrivacyData = async () => {
-  const res = await fetch(`${API_URL}/api/pages?populate=*`);
+  const res = await fetch(`${API_URL}/api/pages?populate=*&filters[title][$eq]=Privacy Policy`);
   const data = await res.json();
-  const privacy = data.data.map((el: any)=> el.attributes).filter((el: any)=> el.title === "Privacy Policy");
+  const privacy = data.data.map((el: any)=> el.attributes);
   return privacy;
 };
 
@@ -53,7 +53,7 @@ const page = async() => {
             </div>
           </section>
         </div>
-        <section className="hidden lg:block">
+        {/* <section className="hidden lg:block">
           <LeadingExcellence />
         </section>
         <section className="block lg:hidden">
@@ -61,7 +61,7 @@ const page = async() => {
         </section>
         <section className="">
           <CallToAction />
-        </section>
+        </section> */}
       </>
     );
 };

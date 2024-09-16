@@ -18,7 +18,6 @@ const fetchGlobalPartners = async () => {
     return GlobalPartners;
     
   } catch(error) {
-    console.log("errorsss", error)
     return []
   }
 }

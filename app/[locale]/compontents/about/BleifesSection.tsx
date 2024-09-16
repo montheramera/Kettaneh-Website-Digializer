@@ -10,7 +10,7 @@ const BleifesSection = ({AboutData}: any) => {
             <div className="mb-[16px] mt-[24px] flex">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
-                {AboutData.title}
+                {AboutData?.title}
               </span>
             </div>
             <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
@@ -25,7 +25,7 @@ const BleifesSection = ({AboutData}: any) => {
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
                 <div className="flex flex-col">
                 {
-                  AboutData.description1.map((el: any, index: number)=> (
+                  AboutData?.description1.map((el: any, index: number)=> (
                     <BlocksRendererComponent key={index} content={[el]}/>
                   ))
                 }
@@ -36,7 +36,7 @@ const BleifesSection = ({AboutData}: any) => {
               <div
                 className="flex-1"
                 style={{
-                  backgroundImage: `url(${AboutData.first_section_iamge.url})`,
+                  backgroundImage: `url(${AboutData?.first_section_iamge.url})`,
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                 }}
@@ -61,7 +61,7 @@ const BleifesSection = ({AboutData}: any) => {
               <div
                 className="flex-1"
                 style={{
-                  backgroundImage: `url(${AboutData.second_section_iamge.url})`,
+                  backgroundImage: `url(${AboutData?.second_section_iamge.url})`,
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                 }}
@@ -89,7 +89,7 @@ const BleifesSection = ({AboutData}: any) => {
             Charting the Future with Innovation and Integrity
           </p>
           <div className="flex flex-col lg:flex-row justify-between gap-10 mt-[64px]">
-            {AboutData.beliefs_and_goals.slice(0,2).map((el: any, index: number)=>(
+            {AboutData?.beliefs_and_goals.slice(0,2).map((el: any, index: number)=>(
               <div className="flex" key={index}>
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="">
@@ -108,7 +108,7 @@ const BleifesSection = ({AboutData}: any) => {
       <section className="bg-primary text-white px-5 py-4 lg:px-20 lg:pt-[1px] lg:pb-[96px] font-avenir">
         <div className="max-w-[1440px] m-auto">
           <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-5 mt-[32] lg:mt-[64px]">
-          {AboutData.beliefs_and_goals.slice(2,4).map((el: any, index: number)=>(
+          {AboutData?.beliefs_and_goals.slice(2,4).map((el: any, index: number)=>(
               <div className="flex" key={index}>
               <div className="bg-white min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <div className="">

@@ -19,10 +19,6 @@ const fetchCategoryByTitle = async (title: string) => {
 const page = async () => {
 
   let AfterMarketCategory = await fetchCategoryByTitle('After-Market');
-  console.log(
-    "AfterMarketCategory[0].attributes.id",
-    AfterMarketCategory[0].attributes.category.id
-  );
   const DynamicFirstSection = dynamic(
     () => import('@/compontents/categories/AfterMarketing'),
     {
