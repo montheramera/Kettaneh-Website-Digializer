@@ -35,7 +35,6 @@ const fetchAboutData = async () => {
   const res = await fetch(`${API_URL}/api/about-pages?populate=*`);
   const data = await res.json();
   const about = data.data;
-  console.log('=====', about);
   const AboutData = {
     title: about[0]?.attributes?.title,
     description1: about[0]?.attributes.description_section1,
