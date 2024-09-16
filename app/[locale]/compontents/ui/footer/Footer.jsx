@@ -238,13 +238,13 @@ export default function Footer() {
         <div className="px-5  lg:px-20">
           <div className="max-w-[1440px] lg:m-auto flex flex-col  md:flex-row lg:justify-between lg:items-center">
             <p>© 2024 Kettaneh. All rights reserved.</p>
-            <p className="flex justify-center gap-2 lg:justify-normal space-x-4 mt-4 md:mt-0">
+            <p className="flex justify-center gap-2 lg:justify-normal space-x-1 md:space-x-4 mt-4 md:mt-0">
               {/* <a href="#" className="underline">
                 Privacy Policy
               </a> */}
               <Link
                 href="/privacy-policy"
-                className="underline"
+                className="underline text-sm md:text-base whitespace-nowrap"
                 aria-label="Go to the  Privacy Policy Page"
               >
                 Privacy Policy
@@ -252,7 +252,7 @@ export default function Footer() {
               <span className=" lg:hidden">|</span>
               <Link
                 href="/terms-conditions"
-                className="underline"
+                className="underline text-sm md:text-base whitespace-nowrap"
                 aria-label="Go to the Terms and Conditions Page"
               >
                 Terms and Condition
@@ -260,7 +260,7 @@ export default function Footer() {
               <span className=" lg:hidden">|</span>
               <Link
                 href="/cookies-policy"
-                className="underline"
+                className="underline text-sm md:text-base whitespace-nowrap"
                 aria-label="Go to the  Cookies Policy Page"
               >
                 Cookies Policy
