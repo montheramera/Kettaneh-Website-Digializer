@@ -1,15 +1,8 @@
-import LogosSliderOurCustomer from '@/compontents/main-page/our-customer/LogosSliderOurCustomer';
-import CallToAction from '@/compontents/ui/call-action/CallToAction';
-import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcellence';
-import HoverEffect from '@/compontents/ui/mouse-over/HoverEffect';
-import Image from 'next/image';
+
 import React, { Suspense } from 'react';
-import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer';
-import BlocksRendererComponent from '@/compontents/ui/blocs-renderer/BlockRenderer';
-import CustomerLogoSkeleton from '@/compontents/ui/skeleton/CustomerLogoSkeleton';
 import dynamic from 'next/dynamic';
 import ParagraphSkeleton from '@/compontents/ui/skeleton/ParagrapgSkeleton';
-import ScrollSliders from '@/compontents/categories/ScrollSliders';
+;
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
@@ -36,7 +29,7 @@ const page = async() => {
     );
     return (
       <>
-        <div className="px-5 lg:px-20  font-avenir">
+        <div className="px-5 lg:px-20  font-avenir h-screen">
           <section className="max-w-[1440px] m-auto">
             <div>
               <div className="mb-[24px] mt-[24px] flex">
@@ -53,15 +46,7 @@ const page = async() => {
             </div>
           </section>
         </div>
-        {/* <section className="hidden lg:block">
-          <LeadingExcellence />
-        </section>
-        <section className="block lg:hidden">
-          <ScrollSliders />
-        </section>
-        <section className="">
-          <CallToAction />
-        </section> */}
+     
       </>
     );
 };

@@ -135,153 +135,67 @@ const TimelineSlider = ({timelineData}) => {
 export default TimelineSlider;
 
 // "use client";
-// import React, { useState } from "react";
-// import Slider from "react-slick";
+// import React, { useState, useEffect, useRef } from "react";
 
-// const SampleNextArrow = ({ className, onClick, disabled }) => {
+// const TimelineSection = ({ year, description, isActive }) => {
 //   return (
-//     <div
-//       className={`${className} absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer ${
-//         disabled ? "opacity-50 cursor-not-allowed" : ""
-//       }`}
-//       onClick={disabled ? null : onClick}
-//     >
-//       <svg
-//         width="56"
-//         height="56"
-//         viewBox="0 0 56 56"
-//         fill="none"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         <path
-//           d="M10 18L16 12L10 6"
-//           stroke="black"
-//           strokeWidth="2"
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//         />
-//       </svg>
-//     </div>
-//   );
-// };
-
-// const SamplePrevArrow = ({ className, onClick, disabled }) => {
-//   return (
-//     <div
-//       className={`${className} absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer ${
-//         disabled ? "opacity-50 cursor-not-allowed" : ""
-//       }`}
-//       onClick={disabled ? null : onClick}
-//     >
-//       <svg
-//         width="24"
-//         height="24"
-//         viewBox="0 0 24 24"
-//         fill="none"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         <path
-//           d="M14 18L8 12L14 6"
-//           stroke="black"
-//           strokeWidth="2"
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//         />
-//       </svg>
-//     </div>
-//   );
-// };
-
-// const TimelineSlider = () => {
-//   const timelineData = [
-//     {
-//       year: "1922",
-//       description:
-//         "Ever since the company's establishment in 1922, the Kettaneh Group has sought to provide true satisfaction to its customers and potential clients.",
-//     },
-//     {
-//       year: "1952",
-//       description:
-//         "Expansion came when they became sole distributors of a number of US brands in the region.",
-//     },
-//     {
-//       year: "1953",
-//       description:
-//         "Ever since the company's establishment in 1922, the Kettaneh Group has sought to provide true satisfaction to its customers and potential clients.",
-//     },
-//     {
-//       year: "1954",
-//       description:
-//         "Ever since the company's establishment in 1922, the Kettaneh Group has sought to provide true satisfaction to its customers and potential clients.",
-//     },
-//     {
-//       year: "1955",
-//       description:
-//         "Ever since the company's establishment in 1922, the Kettaneh Group has sought to provide true satisfaction to its customers and potential clients.",
-//     },
-//   ];
-
-//   const [currentSlide, setCurrentSlide] = useState(0);
-
-//   const settings = {
-//     cssEase: "linear",
-//     slidesToShow: 3,
-//     slidesToScroll: 1,
-//     infinite: false,
-//     nextArrow: (
-//       <SampleNextArrow disabled={currentSlide >= timelineData.length - 3} />
-//     ),
-//     prevArrow: <SamplePrevArrow disabled={currentSlide === 0} />,
-//     beforeChange: (oldIndex, newIndex) => {
-//       setCurrentSlide(newIndex);
-//     },
-//     responsive: [
-//       {
-//         breakpoint: 768,
-//         settings: {
-//           slidesToShow: 1,
-//           slidesToScroll: 1,
-//         },
-//       },
-//     ],
-//   };
-
-//   return (
-//     <section className="lg:px-20 lg:py-[96px] font-avenir slider-logos-arrow">
-//       <div className="max-w-[1440px] m-auto">
-//         <div className="mb-8">
-//           <h2 className="text-[36px] font-[800] leading-[40px] text-heading">
-//             <span className="text-primary"> Our Journey</span> Through Time
-//           </h2>
-//           <p className="text-[20px] text-paragraph font-[500] leading-[28px] mt-[20px]">
-//             Celebrating Over a Century of Innovation, Growth, and Customer
-//             Satisfaction
-//           </p>
-//         </div>
-
-//         <Slider {...settings}>
-//           {timelineData.map((item, index) => (
-//             <div key={index} className="mt-[48px] relative">
-//               {/* Line above the slide */}
-//               <div
-//                 className={`absolute top-[-24px] left-1/2 transform -translate-x-1/2 h-12 border-l-2 border-primary transition-opacity duration-500 ${
-//                   index === currentSlide ? "opacity-100" : "opacity-30"
-//                 }`}
-//               ></div>
-//               <div>
-//                 <p className="text-[60px] text-heading font-[500] leading-[81.96px]">
-//                   {item.year}
-//                 </p>
-//                 <p className="text-[16px] text-paragraph font-[400] leading-[24px] lg:max-w-[308px]">
-//                   {item.description}
-//                 </p>
-//               </div>
-//             </div>
-//           ))}
-//         </Slider>
+//     <div className="relative flex flex-col items-center mb-16">
+//       {/* Vertical Line */}
+//       <div
+//         className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-300 ${
+//           isActive ? "bg-primary" : "bg-gray-300"
+//         }`}
+//       ></div>
+//       {/* Timeline content */}
+//       <div className="relative z-10 bg-white p-4 shadow-md">
+//         <p className="text-4xl font-bold">{year}</p>
+//         <p className="text-md mt-2">{description}</p>
 //       </div>
-//     </section>
+//     </div>
 //   );
 // };
 
-// export default TimelineSlider;
+// const ScrollTimeline = ({ timelineData }) => {
+//   const [activeIndex, setActiveIndex] = useState(0);
+//   const timelineRefs = useRef([]);
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       timelineRefs.current.forEach((ref, index) => {
+//         const rect = ref.getBoundingClientRect();
+//         if (rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
+//           setActiveIndex(index);
+//         }
+//       });
+//     };
+
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   return (
+//     <div className="relative">
+//       {/* Timeline Vertical line */}
+//       <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300"></div>
+
+//       {timelineData.map((item, index) => (
+//         <div
+//           key={index}
+//           ref={(el) => (timelineRefs.current[index] = el)}
+//           className="mb-16"
+//         >
+//           <TimelineSection
+//             year={item.year}
+//             description={item.description}
+//             isActive={index === activeIndex}
+//           />
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default ScrollTimeline;
+
+
+
