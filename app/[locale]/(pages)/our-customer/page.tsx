@@ -81,11 +81,11 @@ const index = async() => {
             <Suspense fallback={"loading"}>
                 <DynamicLogoSection Clients={Clients} />
               </Suspense>
-            <div className="mb-[36px] mt-[64px] flex justify-start  w-full max-w-[1440px]  m-auto">
+            {/* <div className="mb-[36px] mt-[64px] flex justify-start  w-full max-w-[1440px]  m-auto">
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
                 View Success Stories
               </span>
-            </div>
+            </div> */}
           </section>
         </div>
         <section className="hidden lg:block">

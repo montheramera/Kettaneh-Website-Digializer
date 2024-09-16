@@ -97,7 +97,7 @@ const PartnerSlider = ({partners}) => {
 
     return (
       <>
-        <section className=" px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir   bg-[#F9FAFB]  ">
+        <section className=" px-5  lg:px-20 font-avenir   bg-[#F9FAFB]  ">
           <div className="max-w-[1440px] m-auto">
             <div className="flex justify-between items-center text-[30px] leading-[36px] lg:text-[50px] lg:leading-[48px] font-[800] mb-[55px] lg:mb-[110px]">
               <h2 className="text-heading">
@@ -111,17 +111,38 @@ const PartnerSlider = ({partners}) => {
               <div className="slider-container main-logos">
                 <Slider {...settings}>
                   {partners.map((partner, index) => (
-                  
-                      <Image
-                        key={index}
-                        src={partner.src}
-                        alt={partner.name}
-                        priority
-                        width={200}
-                        height={200}
-                        className="px-5 lg:px-10 flex justify-center items-center"
-                      />
-                
+                    // <div
+                    //   key={index}
+                    //   className="flex justify-center items-center h-[100%] bg-primary"
+                    // >
+                    //   <Image
+                    //     key={index}
+                    //     src={partner.src}
+                    //     alt={partner.name}
+                    //     priority
+                    //     width={200}
+                    //     height={200}
+                    //     className="px-5 lg:px-10  "
+                    //   />
+                    // </div>
+                    <div
+                      key={index}
+                      className="flex justify-center items-center h-full"
+                    >
+                      <div
+                        className="flex justify-center items-center w-full h-full"
+                        style={{ height: "150px" }}
+                      >
+                        <Image
+                          src={partner.src}
+                          alt={partner.name}
+                          priority
+                          width={200}
+                          height={200} // Make image take full height of its container
+                          className="px-5 lg:px-10 max-h-full object-contain"
+                        />
+                      </div>
+                    </div>
                   ))}
                 </Slider>
               </div>

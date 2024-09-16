@@ -9,7 +9,7 @@ const HoverEffect = ({ categories }: any) => {
   const path = usePathname();
 
   return (
-    <div className="hidden lg:flex container1 font-avenir justify-between overflow-hidden">
+    <div className="hidden lg:flex container1 font-avenir justify-between items-center overflow-hidden">
       {categories.map((category: any, index: number) => (
         <CustomBanner
           key={index}
@@ -28,11 +28,11 @@ function CustomBanner({ path, isActive, category, onMouseEnter }: any) {
     <div
       onMouseEnter={onMouseEnter}
       className={`section overflow-hidden ${isActive ? "max-w-[850px]" : "max-w-[100px]"
-        } transition-all duration-2000`}
+        } transition-all duration-2000 flex items-center`}
     >
       <div
         className={`relative ${path === "/en" ? "h-[400px]" : "h-[270px]"
-          } w-full font-avenir`}
+          } w-full font-avenir flex items-center`}
       >
         <Image
           src={category.category.image.data.attributes.url}
