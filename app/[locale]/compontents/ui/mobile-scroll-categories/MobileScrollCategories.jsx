@@ -24,7 +24,7 @@ export default function ScrollSlider({ categories }) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
+ 
 
   const handleTouchStart = (e) => {
     setIsScrolling(false);
