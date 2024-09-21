@@ -11,7 +11,36 @@ import BleifesSection from "@/compontents/about/BleifesSection";
 import BleifesSectionSkeleton from "@/compontents/ui/skeleton/BleifesSectionSkeleton";
 import ScrollSliders from "@/compontents/categories/ScrollSliders";
 
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+
+type Props = {
+  params: { title: string, description: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+export async function generateMetadata({ params }: Props) {
+  try {
+    const res = await fetch(`${API_URL}/api/about-pages?populate=seo`);
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
+    const data = await res.json();
+    const seoAttributes = data.data[0]?.attributes.seo;
+
+    return {
+      title: seoAttributes?.meta_title || 'Default Title',
+      description: seoAttributes?.meta_description || 'Default Description',
+    };
+  } catch (error) {
+    return {
+      title: 'Default Title',
+      description: 'Default Description',
+    };
+  }
+}
+
 
 const fetchAchivements = async () => {
   const res = await fetch(`${API_URL}/api/achievements?populate=*`);
@@ -32,7 +61,7 @@ const fetchGlobalPartners = async () => {
 };
 
 const fetchAboutData = async () => {
-  const res = await fetch(`${API_URL}/api/about-pages?populate=*`);
+  const res = await fetch(`${API_URL}/api/about-pages?populate=first_section_iamge,second_section_image,Achievement_section_image,Time_lines,beliefs_and_goals,description_section1,description_section2,title`);
   const data = await res.json();
   const about = data.data;
   const AboutData = {

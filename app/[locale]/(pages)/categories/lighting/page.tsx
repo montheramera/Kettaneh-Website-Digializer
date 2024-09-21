@@ -9,6 +9,33 @@ import React, { Suspense } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
+type Props = {
+  params: { title: string, description: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+export async function generateMetadata({ params }: Props) {
+  try {
+    const res = await fetch(`${API_URL}/api/categories?filters[title]=Lighting&populate=seo`);
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
+    const data = await res.json();
+    const seoAttributes = data.data[0]?.attributes.seo;
+
+    return {
+      title: seoAttributes?.meta_title || 'Default Title',
+      description: seoAttributes?.meta_description || 'Default Description',
+    };
+  } catch (error) {
+    return {
+      title: 'Default Title',
+      description: 'Default Description',
+    };
+  }
+}
+
 const fetchCategoryByTitle = async (title: string) => {
   const res = await fetch(`${API_URL}/api/categories?populate[category][populate]=*&populate=image&filters[title]=${title}`);
   const data = await res.json();
@@ -40,7 +67,7 @@ const fetchPartnersByCategory = async (categoryTitle: string) => {
 
 
 const page = async () => {
-  let LightingCategory = await fetchCategoryByTitle(' Lighting');
+  let LightingCategory = await fetchCategoryByTitle('Lighting');
   const categoryTitle = LightingCategory[0].attributes.title
   let partners = await fetchPartnersByCategory(categoryTitle);
 

@@ -7,6 +7,34 @@ import JobListingsSkeleton from '@/compontents/ui/skeleton/JobListingSkeleton';
 import ScrollSliders from '@/compontents/categories/ScrollSliders';
 
  const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+
+ type Props = {
+  params: { title: string, description: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+export async function generateMetadata({ params }: Props) {
+  try {
+    const res = await fetch(`${API_URL}/api/career-seos?populate=seo`);
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
+    const data = await res.json();
+    const seoAttributes = data.data[0]?.attributes.seo;
+
+    return {
+      title: seoAttributes?.meta_title || 'Default Title',
+      description: seoAttributes?.meta_description || 'Default Description',
+    };
+  } catch (error) {
+    return {
+      title: 'Default Title',
+      description: 'Default Description',
+    };
+  }
+}
+
 const page = async() => {
   let res = await fetch(
     `${API_URL}/api/careers?populate[career]=*&populate[category][populate]=title,category`
