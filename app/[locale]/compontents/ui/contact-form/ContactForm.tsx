@@ -331,7 +331,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
               inputClassName="font-[800] text-[14px] leading-[20px]"
               // name="phone"
               geoIpLookup={handleGeoIpLookup}
-              defaultCountry={curCountry.toLowerCase() || "jo"}
+              defaultCountry={curCountry ? curCountry.toLowerCase() : "jo"}
               separateDialCode={true}
               preferredCountries={[
                 "ae",
