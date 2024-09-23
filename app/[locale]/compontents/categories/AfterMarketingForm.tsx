@@ -358,7 +358,7 @@ export default function AfterMarketingForm({id}: any) {
               <p className="text-red text-xs mt-1">{errors.message}</p>
             )}
           </div>
-          <div className="mb-2 flex items-center">
+          {/* <div className="mb-2 flex items-center">
             <input
               id="privacy-checkbox"
               type="checkbox"
@@ -375,7 +375,7 @@ export default function AfterMarketingForm({id}: any) {
               </Link>{" "}
               and <Link href={"underline"}>Terms of Conditions</Link> .
             </label>
-          </div>
+          </div> */}
 
           {error && (
             <p className="text-primary text-[16px] leading-[24px] font-[800] my-3">

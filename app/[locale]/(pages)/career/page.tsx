@@ -15,10 +15,7 @@ import ScrollSliders from '@/compontents/categories/ScrollSliders';
 export async function generateMetadata({ params }: Props) {
   try {
     const res = await fetch(`${API_URL}/api/career-seos?populate=seo`, {
-      method: "GET",
-      headers: {
-        "Cache-Control": "no-store", // Specify cache control header
-      },
+      cache: "no-store",
     });
 
     if (!res.ok) {
@@ -27,6 +24,7 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json();
     const seoAttributes = data.data[0]?.attributes.seo;
+   
 
     return {
       title: seoAttributes?.meta_title || 'Default Title',

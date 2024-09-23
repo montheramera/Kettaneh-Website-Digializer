@@ -15,12 +15,10 @@ type Props = {
 }
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/categories?filters[title]=Lighting&populate=seo`, {
-      method: "GET",
-      headers: {
-        "Cache-Control": "no-store", // Specify cache control header
-      },
-    });
+    const res = await fetch(
+      `${API_URL}/api/categories?filters[title]=Lighting&populate=seo`,
+      { cache: "no-store" }
+    );
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
@@ -53,12 +51,7 @@ const fetchPartnersByCategory = async (categoryTitle: string) => {
     `${API_URL}/api/partners?populate[Partner][populate]=logo,categories&filters[categories][title][$eq]=${encodeURIComponent(
       categoryTitle
     )}`,
-    {
-      method: "GET",
-      headers: {
-        "Cache-Control": "no-store", // Specify cache control header
-      },
-    }
+    { cache: "no-store" }
   );
   const data = await res.json();
   const partners = data.data.map((el: any) => {

@@ -14,12 +14,10 @@ type Props = {
 }
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/categories?filters[title]=After-Market&populate=seo`, {
-      method: "GET",
-      headers: {
-        "Cache-Control": "no-store", // Specify cache control header
-      },
-    });
+    const res = await fetch(
+      `${API_URL}/api/categories?filters[title]=After-Market&populate=seo`,
+      { cache: "no-store" }
+    );
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
