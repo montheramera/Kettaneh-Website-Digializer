@@ -7,7 +7,12 @@ import ParagraphSkeleton from '@/compontents/ui/skeleton/ParagrapgSkeleton';
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
 const fetchTermsData = async () => {
-  const res = await fetch(`${API_URL}/api/pages?populate=*&filters[title][$eq]=Terms And Conditions`);
+  const res = await fetch(`${API_URL}/api/pages?populate=*&filters[title][$eq]=Terms And Conditions`, {
+    method: "GET",
+    headers: {
+      "Cache-Control": "no-store", // Specify cache control header
+    },
+  });
   const data = await res.json();
   const terms = data.data.map((el: any)=> el.attributes);
   return terms;

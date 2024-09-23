@@ -36,7 +36,12 @@ type Props = {
 }
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/categories?filters[title]=Electrical&populate=seo`);
+    const res = await fetch(`${API_URL}/api/categories?filters[title]=Electrical&populate=seo`, {
+      method: "GET",
+      headers: {
+        "Cache-Control": "no-store", // Specify cache control header
+      },
+    });
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);

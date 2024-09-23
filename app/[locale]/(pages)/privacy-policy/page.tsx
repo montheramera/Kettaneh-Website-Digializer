@@ -8,7 +8,12 @@ import ParagraphSkeleton from '@/compontents/ui/skeleton/ParagrapgSkeleton';
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
 const fetchPrivacyData = async () => {
-  const res = await fetch(`${API_URL}/api/pages?populate=*&filters[title][$eq]=Privacy Policy`);
+  const res = await fetch(`${API_URL}/api/pages?populate=*&filters[title][$eq]=Privacy Policy`, {
+    method: "GET",
+    headers: {
+      "Cache-Control": "no-store", // Specify cache control header
+    },
+  });
   const data = await res.json();
   const privacy = data.data.map((el: any)=> el.attributes);
   return privacy;
