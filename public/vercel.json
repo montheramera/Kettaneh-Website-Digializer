@@ -1,8 +1,10 @@
 {
   "functions": {
     "api/**/*.js": {
-      "maxDuration": 50, 
-      "memory": "512MB"
+      "maxDuration": 45
+    },
+    "pages/*.tsx": {
+      "maxDuration": 45 
     }
   }
 }
