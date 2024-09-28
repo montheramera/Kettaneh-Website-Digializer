@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: Props) {
   }
 }
 
+
 const page = async() => {
   let res = await fetch(
     `${API_URL}/api/careers?populate[career]=*&populate[category][populate]=title,category`
