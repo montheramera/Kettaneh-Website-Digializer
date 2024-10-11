@@ -96,7 +96,7 @@ const BleifesSection = ({AboutData}: any) => {
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   {el.title}
                 </h3>
-                <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
+                <p className="text-[18px] font-[400] leading-[28px] mt-[8px] text-justify">
                   {el.description}
                 </p>
               </div>
@@ -115,7 +115,7 @@ const BleifesSection = ({AboutData}: any) => {
                 <h3 className="text-[24px] font-[600] leading-[30px]">
                   {el.title}
                 </h3>
-                <p className="text-[18px] font-[400] leading-[28px] mt-[8px]">
+                <p className="text-[18px] font-[400] leading-[28px] mt-[8px] text-justify">
                   {el.description}
                 </p>
               </div>

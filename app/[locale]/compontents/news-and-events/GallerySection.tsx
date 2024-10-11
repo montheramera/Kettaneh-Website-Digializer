@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function GallerySection({events}:any) {
   const images = [
@@ -26,8 +27,12 @@ export default function GallerySection({events}:any) {
     <div className="font-avenir">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map((event:any, index: number) => (
-          <div
+          <Link
+            href={`/news-and-events/${event.attributes.Event.title}`}
             key={index}
+            aria-label="Go to the News and Events Page"
+          >
+          <div
             className="bg-white shadow-md rounded-md overflow-hidden"
           >
             <Image
@@ -50,6 +55,7 @@ export default function GallerySection({events}:any) {
               })}
             </p>
           </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -79,7 +79,7 @@ function CustomBanner({ path, isActive, category, onMouseEnter }: any) {
                     <h2 className="text-[24px] leading-[32px] font-[800] text-start">
                       {category.category.heading}
                     </h2>
-                    <p className="text-[12px] leading-[16px] font-[500] my-[16px] text-start max-w-[236px]">
+                    <p className="text-[12px] leading-[16px] font-[500] my-[16px] text-start max-w-[570px]">
                       {category.category.description}
                     </p>
                     <button className="text-[18px] leading-[28px] font-[500] text-start">

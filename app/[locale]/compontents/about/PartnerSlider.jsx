@@ -97,7 +97,7 @@ const PartnerSlider = ({partners}) => {
 
     return (
       <>
-        <section className=" px-5  lg:px-20 font-avenir   bg-[#F9FAFB]  ">
+        <section className=" px-5  lg:px-20 font-avenir bg-[#F9FAFB] pt-8">
           <div className="max-w-[1440px] m-auto">
             <div className="flex justify-between items-center text-[30px] leading-[36px] lg:text-[50px] lg:leading-[48px] font-[800] mb-[55px] lg:mb-[110px]">
               <h2 className="text-heading">
