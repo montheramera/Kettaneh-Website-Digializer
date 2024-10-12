@@ -150,12 +150,13 @@ const News = async () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {otherEvents.map((event: any, index: number) => (
+            
             <Link
-              href={`/news-and-events/${event.title}`}
+              href={`/news-and-events/${event.title?.replaceAll(' ', '-')}`}
               key={index}
               aria-label="Go to the News and Events Page"
             >
-              <div className="shadow-lg" key={index}>
+              <div className="shadow-lg">
                 <div className="relative  w-[100%] h-[176px]">
                   <Image
                     src={event.image.data.attributes.url}

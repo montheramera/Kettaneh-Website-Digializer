@@ -4,7 +4,7 @@ import BlocksRendererComponent from "../ui/blocs-renderer/BlockRenderer";
 
 const EventDetails = async ({ event, FeaturedEvents }: any) => {
     return (
-        <div className="px-4 lg:px-20 py-10 lg:py-16 font-avenir bg-gray-50">
+        <div className="py-10 lg:py-16 font-avenir bg-gray-50">
             <div className="max-w-[1440px] m-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     {/* Event Details */}
@@ -38,7 +38,7 @@ const EventDetails = async ({ event, FeaturedEvents }: any) => {
                         <div className="space-y-8">
                             {FeaturedEvents.map((event: any, index: number) => (
                                 <Link
-                                    href={`/news-and-events/${event.attributes.Event.title}`}
+                                    href={`/news-and-events/${event.attributes.Event.title?.replaceAll(' ', '-')}`}
                                     key={index}
                                     aria-label={`Go to the event: ${event.attributes.Event.title}`}
                                     className="mb-4"

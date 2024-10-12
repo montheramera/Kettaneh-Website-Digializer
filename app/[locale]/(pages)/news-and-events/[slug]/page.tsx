@@ -56,7 +56,7 @@ const fetchEventByTitle = async (title: string) => {
 };
 
 const page = async ({ params }: PageProps) => {
-    const title = params.slug;
+    const title = params.slug.replaceAll('-', ' ');
     const featuredEvents = await fetchEvents();
     const event = await fetchEventByTitle(title as string)
     const DynamicGallerySection = dynamic(

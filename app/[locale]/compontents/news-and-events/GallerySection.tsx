@@ -28,7 +28,7 @@ export default function GallerySection({events}:any) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map((event:any, index: number) => (
           <Link
-            href={`/news-and-events/${event.attributes.Event.title}`}
+            href={`/news-and-events/${event.attributes.Event.title?.replaceAll(' ', '-')}`}
             key={index}
             aria-label="Go to the News and Events Page"
           >
