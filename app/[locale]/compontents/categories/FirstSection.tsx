@@ -2,30 +2,25 @@
 import Image from 'next/image';
 import React from 'react';
 import { usePathname } from "next/navigation";
+import Link from 'next/link';
 
-export type Logo = {
-  name: string;
-  src: string;
-  width: number; // or number, depending on how you plan to use it
-  height: number; // or number, depending on how you plan to use it
-};
+
 interface FirstSectionProps {
   categoryname: string; // The name of the category
   categoryParagraph: string; // The paragraph or description of the category
   categoryBg: string; // The background image URL or color for the section
-    imagesLogos: Logo[];
+  partners: any[];
   imageUrl:string  // Array of logos with their respective types
 }
 const FirstSection: React.FC<FirstSectionProps> = ({
   categoryname,
   categoryParagraph,
   categoryBg,
-  imagesLogos,
+  partners,
   imageUrl,
 }) => {
   
   const path = usePathname();
-  
   return (
     <>
       <div className=" font-avenir px-5 lg:px-20">
@@ -79,16 +74,18 @@ const FirstSection: React.FC<FirstSectionProps> = ({
             className={`flex  items-center flex-wrap max-w-[1420px] m-auto gap-5 lg:gap-10 mt-10 mb-[30px] lg:mb-0
               `}
           >
-            {imagesLogos?.map((partner, index) => (
-              <Image
-                key={index}
-                src={partner.src}
-                alt={partner.name}
-                width={partner.width}
-                height={partner.height}
-                priority
-                className=""
-              />
+            {partners?.map((partner, index) => (
+              <Link key={index} href={`${path}/${partner.title}`} className='cursor-pointer'>
+                  <Image
+                    src={partner.logo.data.attributes.url}
+                    alt={partner.logo.data.attributes.name}
+                    width={partner.logo.data.attributes.width}
+                    height={partner.logo.data.attributes.height}
+                    priority
+                    className=""
+                  />
+              </Link>
+              
             ))}
           </div>
         </section>

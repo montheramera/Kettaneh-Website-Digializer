@@ -4,7 +4,6 @@ import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcell
 import GallerySectionSkeleton from "@/compontents/ui/skeleton/GallerySectionSkeleton";
 import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
-import { useParams } from "next/navigation";
 import EventDetails from "@/compontents/event-details/EventDetails";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL

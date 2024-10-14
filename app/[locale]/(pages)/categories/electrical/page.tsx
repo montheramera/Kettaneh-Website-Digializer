@@ -7,7 +7,7 @@ import FirstSectionSkeleton from '@/compontents/ui/skeleton/FirstSectionSkeleton
 import dynamic from 'next/dynamic';
 import ScrollSliders from '@/compontents/categories/ScrollSliders';
 
-const imagesLogos = [
+const partners = [
   {
     name: "Siemens",
     src: "/images/categories/electrical/logos/1.png",
@@ -76,9 +76,8 @@ const fetchPartnersByCategory = async (categoryTitle: string) => {
   );
   const data = await res.json();
   const partners = data?.data?.map((el: any) => {
-    const image = { ...el.attributes.Partner.logo.data.attributes }
-    image.src = image.url;
-    return image
+    const partner = { ...el.attributes.Partner }
+    return partner
   });
   return partners;
 };
@@ -108,7 +107,7 @@ const page = async () => {
           categoryname={electricalCategory[0]?.attributes?.title}
           categoryParagraph={electricalCategory[0]?.attributes?.category?.summary}
           categoryBg={electricalCategory[0]?.attributes?.category?.background_color}
-          imagesLogos={partners}
+          partners={partners}
           // imageUrl={"/images/categories/electrical/electrical.png"}
           imageUrl={electricalCategory[0]?.attributes?.category?.image?.data?.attributes?.url}
         />

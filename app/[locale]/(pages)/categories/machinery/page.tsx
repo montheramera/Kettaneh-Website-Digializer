@@ -54,9 +54,8 @@ const fetchPartnersByCategory = async (categoryTitle: string) => {
   );
   const data = await res.json();
   const partners = data.data.map((el: any) => {
-    const image = { ...el.attributes.Partner.logo.data.attributes }
-    image.src = image.url;
-    return image
+    const partner = { ...el.attributes.Partner }
+    return partner
   });
   return partners;
 };
@@ -96,7 +95,7 @@ const page = async () => {
           categoryname={machineryCategory[0]?.attributes?.title}
           categoryParagraph={machineryCategory[0]?.attributes?.category?.summary}
           categoryBg={machineryCategory[0]?.attributes?.category?.background_color}
-          imagesLogos={partners}
+          partners={partners}
           imageUrl={machineryCategory[0]?.attributes?.category?.image?.data?.attributes?.url}
         />
       </Suspense>
