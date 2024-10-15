@@ -28,15 +28,20 @@ interface FormErrors {
   [key: string]: string | undefined;
 }
 
+interface CareerFormNewProps {
+  categories?: any[];
+  selectedCategory?: any[];
+}
 
-const CareerFormNew = ({categories}: any) => {
+
+const CareerFormNew = ({categories = [], selectedCategory = []}: CareerFormNewProps) => {
   const [phone, setPhone] = useState("");
   const [countryCode, setCountryCode] = useState("");
   const [country, setCountry] = useState("");
   const [formData, setFormData] = useState<Form>({
     full_name: "",
     email: "",
-    category: [],
+    category: selectedCategory.length > 0 ? [...selectedCategory] : [],
     country_code: "",
     phone_number: "",
     cv_resume: null,
@@ -67,7 +72,7 @@ const CareerFormNew = ({categories}: any) => {
     // }
     const Data = {
       ...formData,
-      category: selectedCategories.map((el)=> el.id),
+      category: selectedCategory.length > 0 ? [...selectedCategory] : selectedCategories.map((el)=> el.id),
       utm_source: utmData.utm_source,
       utm_medium: utmData.utm_medium,
       utm_campaign: utmData.utm_campaign,
@@ -247,7 +252,7 @@ const CareerFormNew = ({categories}: any) => {
               />
             </div>
 
-            <div className="flex flex-col lg:flex-row mb-[8px]">
+            <div className={`flex flex-col lg:flex-row mb-[8px] ${selectedCategory.length > 0 && 'hidden'}`}>
               <label
                 htmlFor="category"
                 className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"

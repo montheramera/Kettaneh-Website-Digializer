@@ -34,7 +34,7 @@ const BlocksRendererComponent = ({ content, classes = "" }:any) => {
           }
         },
         link: ({ children, url }) => <Link href={url}>{children}</Link>,
-        list: ({ children, format }) => format === 'unordered' ? <ul className='text-paragraph text-base font-normal'>{children}</ul> : <ol className='text-paragraph text-base font-normal'>{children}</ol>
+        list: ({ children, format }) => format === 'unordered' ? <ul className='text-paragraph text-base font-light list-disc'>{children}</ul> : <ol className='text-paragraph text-base font-light'>{children}</ol>
       }}
     />
   );

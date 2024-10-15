@@ -22,8 +22,8 @@ export default function Product({products, partner, category }: any){
             <Image
               src={partner.logo.data.attributes.url}
               alt={partner.title}
-              width={300}
-              height={176}
+              width={partner.logo.data.attributes.width}
+              height={partner.logo.data.attributes.height}
               className="object-cover h-auto"
             />
           </div>
@@ -35,13 +35,13 @@ export default function Product({products, partner, category }: any){
                   style={{ background: category.category.background_color }}
                   className="w-1 h-12 mr-2"
                 />
-                <div className="flex flex-row space-x-6">
+                <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6">
                   <Image
                     src={product.product.image.data.attributes.url}
                     alt={product.product.title}
                     width={300}
                     height={176}
-                    className="object-cover rounded-md border border-[#ddd]"
+                    className="object-cover w-full lg:w-[300px] rounded-md border border-[#ddd]"
                   />
                   <div className="flex flex-col items-start">
                     <h3 className="text-3xl font-semibold">{product.product.title}</h3>

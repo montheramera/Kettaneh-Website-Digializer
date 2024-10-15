@@ -43,7 +43,7 @@ const page = async() => {
   let res = await fetch(
     `${API_URL}/api/careers?populate[career]=*&populate[category][populate]=title,category`
   );
-  let data = await res.json()
+  let data = await res.json();
   let careers = [...data.data];
 
   const DynamicJobListing = dynamic(

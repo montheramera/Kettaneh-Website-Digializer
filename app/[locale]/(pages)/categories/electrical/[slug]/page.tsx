@@ -42,7 +42,6 @@ const fetchProductsByPartnerTitle = async (title: string) => {
 
 const Page = async ({ params }: PageProps) => {
   const { products, partner, category }: any = await fetchProductsByPartnerTitle(params.slug);
-console.log("xxx",products);
   return (
     <>
       {
