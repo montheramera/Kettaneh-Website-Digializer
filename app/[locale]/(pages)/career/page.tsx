@@ -14,7 +14,7 @@ import ScrollSliders from '@/compontents/categories/ScrollSliders';
 }
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/main?populate[seo][populate]=*`, {
+    const res = await fetch(`${API_URL}/api/career-seo?populate[seo][populate]=*`, {
       cache: "no-store",
     })
 

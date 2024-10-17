@@ -21,28 +21,69 @@ export async function generateMetadata({ params }: Props) {
   try {
     const res = await fetch(`${API_URL}/api/client-seo?populate[seo][populate]=*`, {
       cache: "no-store",
-    });
+    })
 
     if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
+      throw new Error(`HTTP error! status: ${res.status}`)
     }
 
-    const data = await res.json();
-    const seoAttributes = data.data?.attributes.seo;
+    const data = await res.json()
+    const seo = data.data?.attributes?.seo || {}
+    const title = seo.meta_title || 'Default Title'
+    const description = seo.meta_description || 'Default Description'
+    const favicon = seo.fav_icon?.data?.attributes?.url || '/default-favicon.ico'
+    const url = seo.link || 'https://example.com'
+    // const siteName = seo.site_name || 'Your Site Name'
+    // const locale = seo.locale || 'en_US'
+    // const type = seo.type || 'website'
+    // const twitterHandle = seo.twitter_handle || '@yourtwitterhandle'
 
     return {
-      title: seoAttributes?.meta_title || 'Default Title',
-      description: seoAttributes?.meta_description || 'Default Description',
-      favIcon: seoAttributes?.fav_icon?.data.attributes.url || '/default-favicon.ico',
-      url: seoAttributes?.link || '',
-    };
+      title,
+      description,
+      icons: {
+        icon: favicon,
+        shortcut: favicon,
+        apple: favicon,
+      },
+      
+    }
   } catch (error) {
+    console.error('Error fetching metadata:', error)
+
+    // Return default metadata if there's an error
     return {
       title: 'Default Title',
       description: 'Default Description',
-      favIcon: '/default-favicon.ico',
-      url: '',
-    };
+      icons: {
+        icon: '/default-favicon.ico',
+        shortcut: '/default-favicon.ico',
+        apple: '/default-favicon.ico',
+      },
+      metadataBase: new URL('https://example.com'),
+      alternates: {
+        canonical: 'https://example.com',
+      },
+      openGraph: {
+        title: 'Default Title',
+        description: 'Default Description',
+        url: 'https://example.com',
+        siteName: 'Your Site Name',
+        locale: 'en_US',
+        type: 'website',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: 'Default Title',
+        description: 'Default Description',
+        site: '@yourtwitterhandle',
+        creator: '@yourtwitterhandle',
+      },
+      other: {
+        'og:image': '/default-og-image.jpg',
+        'twitter:image': '/default-twitter-image.jpg',
+      },
+    }
   }
 }
 
