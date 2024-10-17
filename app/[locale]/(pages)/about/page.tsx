@@ -20,7 +20,7 @@ type Props = {
 }
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/about-pages?populate=seo`, {
+    const res = await fetch(`${API_URL}/api/about-us?populate[seo][populate]=*`, {
       cache: "no-store",
     });
 
@@ -29,16 +29,20 @@ export async function generateMetadata({ params }: Props) {
     }
 
     const data = await res.json();
-    const seoAttributes = data.data[0]?.attributes.seo;
+    const seoAttributes = data.data?.attributes.seo;
 
     return {
       title: seoAttributes?.meta_title || 'Default Title',
       description: seoAttributes?.meta_description || 'Default Description',
+      favIcon: seoAttributes?.fav_icon?.data.attributes.url || '/default-favicon.ico',
+      url: seoAttributes?.link || '',
     };
   } catch (error) {
     return {
       title: 'Default Title',
       description: 'Default Description',
+      favIcon: '/default-favicon.ico',
+      url: '',
     };
   }
 }
@@ -63,18 +67,18 @@ const fetchGlobalPartners = async () => {
 };
 
 const fetchAboutData = async () => {
-  const res = await fetch(`${API_URL}/api/about-pages?populate=first_section_iamge,second_section_image,Achievement_section_image,Time_lines,beliefs_and_goals,description_section1,description_section2,title`);
+  const res = await fetch(`${API_URL}/api/about-us?populate=first_section_image,second_section_image,Achievement_section_image,Time_lines,beliefs_and_goals,description_section1,description_section2,title`);
   const data = await res.json();
   const about = data.data;
   const AboutData = {
-    title: about[0]?.attributes?.title,
-    description1: about[0]?.attributes.description_section1,
-    description2: about[0]?.attributes?.description_section2,
-    first_section_iamge: about[0]?.attributes?.first_section_iamge?.data?.attributes,
-    second_section_iamge: about[0]?.attributes?.second_section_image?.data?.attributes,
-    Achievement_section_image: about[0]?.attributes?.Achievement_section_image?.data?.attributes,
-    Time_lines: about[0]?.attributes?.Time_lines,
-    beliefs_and_goals: about[0]?.attributes?.beliefs_and_goals
+    title: about?.attributes?.title,
+    description1: about?.attributes.description_section_1,
+    description2: about?.attributes?.description_section_2,
+    first_section_image: about?.attributes?.first_section_image?.data?.attributes,
+    second_section_image: about?.attributes?.second_section_image?.data?.attributes,
+    Achievement_section_image: about?.attributes?.Achievement_section_image?.data?.attributes,
+    Time_lines: about?.attributes?.Time_lines,
+    beliefs_and_goals: about?.attributes?.beliefs_and_goals
   }
   return AboutData;
 };

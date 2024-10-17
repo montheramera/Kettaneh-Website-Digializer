@@ -19,7 +19,7 @@ type Props = {
 }
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/client-seos?populate=seo`, {
+    const res = await fetch(`${API_URL}/api/client-seo?populate[seo][populate]=*`, {
       cache: "no-store",
     });
 
@@ -28,24 +28,28 @@ export async function generateMetadata({ params }: Props) {
     }
 
     const data = await res.json();
-    const seoAttributes = data.data[0]?.attributes.seo;
+    const seoAttributes = data.data?.attributes.seo;
 
     return {
       title: seoAttributes?.meta_title || 'Default Title',
       description: seoAttributes?.meta_description || 'Default Description',
+      favIcon: seoAttributes?.fav_icon?.data.attributes.url || '/default-favicon.ico',
+      url: seoAttributes?.link || '',
     };
   } catch (error) {
     return {
       title: 'Default Title',
       description: 'Default Description',
+      favIcon: '/default-favicon.ico',
+      url: '',
     };
   }
 }
 
 const fetchCustomerData = async () => {
-  const res = await fetch(`${API_URL}/api/our-customer-pages?populate=*`);
+  const res = await fetch(`${API_URL}/api/our-customer?populate=*`);
   const data = await res.json();
-  const customerData = data.data.map((el: any)=>el.attributes)
+  const customerData = data.data.attributes
   return customerData;
 };
 
@@ -100,7 +104,7 @@ const index = async() => {
                 Landmark Projects
               </h2>
               <Suspense fallback={"loading"}>
-                <DynamicParagraph content={customerData[0]?.description} classes="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:mt-[64px] lg:max-w-[1216px]" />
+                <DynamicParagraph content={customerData?.description} classes="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:mt-[64px] lg:max-w-[1216px]" />
               </Suspense>
 
             </div>

@@ -16,7 +16,7 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
   try {
     const res = await fetch(
-      `${API_URL}/api/categories?filters[title]=Lighting&populate=seo`,
+      `${API_URL}/api/categories?filters[title]=Lighting&populate[seo][populate]=*`,
       { cache: "no-store" }
     );
 
@@ -30,11 +30,15 @@ export async function generateMetadata({ params }: Props) {
     return {
       title: seoAttributes?.meta_title || 'Default Title',
       description: seoAttributes?.meta_description || 'Default Description',
+      favIcon: seoAttributes?.fav_icon?.data.attributes.url || '/default-favicon.ico',
+      url: seoAttributes?.link || '',
     };
   } catch (error) {
     return {
       title: 'Default Title',
       description: 'Default Description',
+      favIcon: '/default-favicon.ico',
+      url: '',
     };
   }
 }
