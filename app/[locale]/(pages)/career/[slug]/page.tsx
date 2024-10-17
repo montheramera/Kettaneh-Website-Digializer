@@ -18,7 +18,7 @@ type PageProps = {
 };
 
 async function getJobBySlug(slug: string) {
-    const res = await fetch(`${API_URL}/api/careers?populate[career]=*&populate[category][populate]=title,category&filters[slug][$eq]=${encodeURIComponent(slug)}`, {
+    const res = await fetch(`${API_URL}/api/careers?populate[career][populate]=*&populate[category][populate]=title,category&filters[slug][$eq]=${encodeURIComponent(slug)}`, {
       cache: "no-store",
     });
     const data = await res.json();

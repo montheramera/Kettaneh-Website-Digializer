@@ -24,8 +24,6 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json()
     const seo = data.data?.attributes?.seo || {}
-
-    console.log(seo);
     const title = seo.meta_title || 'Default Title'
     const description = seo.meta_description || 'Default Description'
     const favicon = seo.fav_icon?.data?.attributes?.url || '/default-favicon.ico'

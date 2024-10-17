@@ -95,7 +95,7 @@ export default function ScrollSlider({ categories }) {
                 <h2 className="text-[24px] leading-[32px] font-bold text-center mb-4 md:text-[30px]">
                   {category.category.heading}
                 </h2>
-                <p className="text-[14px] leading-[24px] font-medium text-center mb-6 md:text-[18px] md:leading-[28px] max-w-[90%] md:max-w-[500px]">
+                <p className="lowercase text-[14px] leading-[24px] font-medium text-center mb-6 md:text-[18px] md:leading-[28px] max-w-[90%] md:max-w-[500px]">
                   {category.category.description}
                 </p>
                 <Link

@@ -8,7 +8,7 @@ export default function Product({products, partner, category }: any){
           <div className="flex items-center my-6">
             <div
               style={{ background: category.category.background_color }}
-              className="w-1 h-full mr-2"
+              className="w-1 h-[40px] mr-2"
             />
             <span
               style={{ background: category.category.background_color }}
@@ -18,7 +18,7 @@ export default function Product({products, partner, category }: any){
             </span>
           </div>
 
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mx-3 mb-6">
             <Image
               src={partner.logo.data.attributes.url}
               alt={partner.title}

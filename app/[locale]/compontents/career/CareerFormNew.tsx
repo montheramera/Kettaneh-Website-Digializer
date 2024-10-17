@@ -190,7 +190,7 @@ const CareerFormNew = ({categories = [], selectedCategory = []}: CareerFormNewPr
                 htmlFor="email"
                 className="text-[14px] font-[800] leading-[20px] text-heading lg:min-w-[150px]"
               >
-                Email*
+                Work Email*
               </label>
               <input
                 type="email"
