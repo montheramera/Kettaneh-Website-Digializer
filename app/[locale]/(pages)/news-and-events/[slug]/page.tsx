@@ -9,7 +9,7 @@ import EventDetails from "@/compontents/event-details/EventDetails";
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
 type Props = {
-    params: { title: string, description: string }
+    params: { slug: string, title: string, description: string }
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
@@ -19,32 +19,74 @@ type PageProps = {
 };
 export async function generateMetadata({ params }: Props) {
     try {
-        const res = await fetch(`${API_URL}/api/event-seos?populate[seo][populate]=*`, {
-            cache: "no-store",
-        });
-
-        if (!res.ok) {
-            throw new Error(`HTTP error! status: ${res.status}`);
-        }
-
-        const data = await res.json();
-        const seoAttributes = data.data[0]?.attributes.seo;
-
-        return {
-            title: seoAttributes?.meta_title || 'Default Title',
-            description: seoAttributes?.meta_description || 'Default Description',
-            favIcon: seoAttributes?.fav_icon?.data.attributes.url || '/default-favicon.ico',
-            url: seoAttributes?.link || '',
-        };
+        const newsTitle = params.slug.replaceAll('-', ' ');
+      const res = await fetch(`${API_URL}/api/events/${newsTitle}?populate[seo][populate]=*`, {
+        cache: "no-store",
+      })
+  
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`)
+      }
+  
+      const data = await res.json();
+      const seo = data.data?.attributes?.seo || {}
+      const title = seo.meta_title || 'Default Title'
+      const description = seo.meta_description || 'Default Description'
+      const favicon = seo.fav_icon?.data?.attributes?.url || '/default-favicon.ico'
+      const url = seo.link || 'https://example.com'
+      // const siteName = seo.site_name || 'Your Site Name'
+      // const locale = seo.locale || 'en_US'
+      // const type = seo.type || 'website'
+      // const twitterHandle = seo.twitter_handle || '@yourtwitterhandle'
+  
+      return {
+        title,
+        description,
+        icons: {
+          icon: favicon,
+          shortcut: favicon,
+          apple: favicon,
+        },
+        
+      }
     } catch (error) {
-        return {
-            title: 'Default Title',
-            description: 'Default Description',
-            favIcon: '/default-favicon.ico',
-      url: '',
-        };
+      console.error('Error fetching metadata:', error)
+  
+      // Return default metadata if there's an error
+      return {
+        title: 'Default Title',
+        description: 'Default Description',
+        icons: {
+          icon: '/default-favicon.ico',
+          shortcut: '/default-favicon.ico',
+          apple: '/default-favicon.ico',
+        },
+        metadataBase: new URL('https://example.com'),
+        alternates: {
+          canonical: 'https://example.com',
+        },
+        openGraph: {
+          title: 'Default Title',
+          description: 'Default Description',
+          url: 'https://example.com',
+          siteName: 'Your Site Name',
+          locale: 'en_US',
+          type: 'website',
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title: 'Default Title',
+          description: 'Default Description',
+          site: '@yourtwitterhandle',
+          creator: '@yourtwitterhandle',
+        },
+        other: {
+          'og:image': '/default-og-image.jpg',
+          'twitter:image': '/default-twitter-image.jpg',
+        },
+      }
     }
-}
+  }
 
 const fetchEvents = async () => {
     const res = await fetch(`${API_URL}/api/events?populate[Event][populate]=*&populate=image&sort[0]=createdAt:desc&pagination[pageSize]=3`);
