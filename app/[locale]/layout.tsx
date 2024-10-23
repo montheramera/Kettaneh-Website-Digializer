@@ -2,6 +2,7 @@
 // import type { Metadata } from "next";
 import "../globals.css";
 import PageWrapper from "@/compontents/ui/layout/PageWrapper";
+import Script from "next/script";
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -110,6 +111,18 @@ export default function RootLayout({
           rel="stylesheet"
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+        <Script
+          id="google-analytics"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-K3HZZV5Z');
+            `,
+          }}
         />
       </head>
       <body className="font-avenir">
