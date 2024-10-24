@@ -23,7 +23,7 @@ export function parseUTMParameters() {
     const utmCampaignValue = getCookie("utm_campaign");
     const utmTermValue = getCookie("utm_term");
     const utmContentValue = getCookie("utm_content");
-  
+    const hubspotUtckValue = getCookie("hubspotutk");
     
   
     return {
@@ -32,5 +32,6 @@ export function parseUTMParameters() {
       utm_campaign: utmCampaignValue,
       utm_term: utmTermValue,
       utm_content: utmContentValue,
+      hubspotUtckValue,
     }
   }

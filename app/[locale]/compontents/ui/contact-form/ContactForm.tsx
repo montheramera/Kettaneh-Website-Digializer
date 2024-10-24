@@ -2,7 +2,7 @@
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import IntlTelInput from "react-intl-tel-input";
 import "react-intl-tel-input/dist/main.css";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { parseUTMParameters } from "@/utilis/utmParser";
 import MultiSelectDropdown from "../multi-select/MultiSelectDropdown";
 
@@ -16,7 +16,7 @@ interface FormData {
   first_name: string;
   last_name: string;
   email: string;
-  category: number[];
+  category: any[];
   country_code: string;
   phone_number: string;
   your_business_industry: string;
@@ -83,42 +83,57 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
   const [countryCode, setCountryCode] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const path = usePathname();
+  const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
- 
-const [formData, setFormData] = useState<FormData>({
-  first_name: "",
-  last_name: "",
-  email: "",
-  category: [], // Default to empty array if `path` is falsy
-  country_code: "",
-  phone_number: "",
-  your_business_industry: "",
-  url_website: "",
-  message: "",
-  utm_source: "",
-  utm_medium: "",
-  utm_campaign: "",
-  utm_term: "",
-  utm_content: "",
-});
+  const [error, setError] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string>("");
+  const [crmCategory, setCrmCategory] = useState<string>("");
+  const [formData, setFormData] = useState<FormData>({
+    first_name: "",
+    last_name: "",
+    email: "",
+    category: [],
+    country_code: "",
+    phone_number: "",
+    your_business_industry: "",
+    url_website: "",
+    message: "",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: "",
+  });
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isShowCategory, setIsShowCategory]=useState<boolean>(false)
   const [selectedCategories, setSelectedCategories] = useState<any[]>([]);
   const [curCountry, setCurCountry] = useState<string>('');
+  const [fullUrl, setFullUrl] = useState("");
 
   const utmData = parseUTMParameters();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const queryString = searchParams.toString();
+      const currentUrl = `${window.location.origin}${path}${queryString ? `?${queryString}` : ""
+        }`;
+      setFullUrl(currentUrl);
+    }
+  }, [path, searchParams]);
+
   const handleSubmit = async (e: FormEvent) => {
-    setLoading(true)
+    setLoading(true);
+    setError(false);
+    setSuccessMessage("");
     e.preventDefault();
     formData.phone_number = phone;
     formData.country_code = countryCode
-      // setIsOpen(false)
-      setIsOpenConfirmation(true)
+    // setIsOpenConfirmation(true)
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      setLoading(false);
       return;
     }
     const Data = {
@@ -130,9 +145,38 @@ const [formData, setFormData] = useState<FormData>({
       utm_term: utmData.utm_term,
       utm_content: utmData.utm_content
     }
+
+    const crmData = {
+      properties: {
+        firstname: formData.first_name,
+        lastname: formData.last_name,
+        email: formData.email,
+        phone: formData.phone_number,
+        mobilephone: formData.phone_number,
+        country: country,
+        hs_country_region_code: formData.country_code,
+        website: formData.url_website,
+        industry: formData.your_business_industry,
+        message: formData.message,
+        hs_lead_status: "NEW",
+        category: selectedCategories.length ? selectedCategories.map((el)=>el.title).toString().replaceAll(',', ';') : crmCategory,
+        urlPage: fullUrl ? fullUrl : "https://kettaneh-website-digializer.vercel.app/en",
+        // pagePath: `landing-page-form/`,
+      },
+    }
     const result = await submitForm(Data);
-      if (result === "ok") {
-        //Success Logic
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: crmData,
+      }),
+    });
+    const { success } = await response.json();
+    console.log(success);
+      if (success && result === "ok") {
         setLoading(false);
         setIsOpen(false);
         setIsOpenConfirmation(true);
@@ -168,12 +212,13 @@ const [formData, setFormData] = useState<FormData>({
     setIsShowCategory(isMarketingOrLightingOrRelated(path))
     const cate = categories?.find((el: any) =>
       path.split("/").includes(el.title.toLowerCase()) 
-    ) ||{id:1}
+    ) ||{id:1, title: ''}
     if (cate) {
       setFormData((oldState: FormData) => ({
         ...oldState,
         category: [cate.id],
       }));
+      setCrmCategory(cate.title)
     }
   },[path,categories])
 
@@ -196,7 +241,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
         const Categories = data.data
           .map((el: any) => ({
             id: el.id,
-            title: el.attributes.title,
+            title: el.attributes.title.replace('-', ' '),
             category: el.attributes.category,
           }))
         setCategories(Categories);
@@ -222,7 +267,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
           <h2 className="text-[36px] leading-[40px] font-[800] text-[#101828] mb-[16px]">
             Get in touch
           </h2>
-          <button className=" text-[#101828]" onClick={() => setIsOpen(false)}>
+          <button className="flex justify-center items-center text-[#101828]" onClick={() => setIsOpen(false)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
