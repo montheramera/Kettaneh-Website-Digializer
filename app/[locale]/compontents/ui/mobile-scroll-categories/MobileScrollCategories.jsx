@@ -43,6 +43,7 @@ export default function ScrollSlider({ categories }) {
       if (slideTopPosition >= 0) {
         setIsScrolling(true);
         setCurrentSlide((prev) => prev - 1);
+        
         // setTimeout(() => setIsScrolling(false), 800);
       }
     }
