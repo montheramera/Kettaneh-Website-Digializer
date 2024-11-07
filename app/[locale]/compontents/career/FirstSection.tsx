@@ -11,7 +11,7 @@ const fetchCategories = async ()=>{
   return Categories;
 }
 
-export default async function JobListings({careers}: any) {
+export default async function JobListings({careers, pageData}: any) {
   const jobs = [
     {
       title: "Sales Engineer",
@@ -57,8 +57,7 @@ export default async function JobListings({careers}: any) {
               Advance <span className="text-primary">Your Career</span> with Us
             </h2>
             <p className="text-[20px] font-[500] leading-[28px] text-paragraph lg:max-w-[768px] mb-[20px]">
-              Explore exciting career opportunities at F.A. Kettaneh & Co LTD Jordan
-              and become part of our legacy of excellence and innovation.
+              {pageData.description1}
             </p>
           </div>
           {careers.map((career: any, index: number) => (
@@ -111,16 +110,18 @@ export default async function JobListings({careers}: any) {
         {/* Join Our Team Section */}
         <div className="w-full lg:w-1/2 ">
           <h2 className="text-[36px] font-[800] leading-[40px] text-heading">
-            Join our team
+            {pageData.heading2}
           </h2>
           <p className="mt-[20px] text-[20px] font-[400] leading-[28px] text-paragraph">
-            F.A. Kettaneh is opening the below mentioned vacancies, please apply
+            {/* F.A. Kettaneh is opening the below mentioned vacancies, please apply
             to
             <a href="mailto:rula@kettaneh.com.jo" className="text-primary">
               {" "}
               rula@kettaneh.com.jo{" "}
             </a>
             mentioning the job & title departments in the subject.
+             */}
+             {pageData.description2}
           </p>
           <div className="mt-10">
             

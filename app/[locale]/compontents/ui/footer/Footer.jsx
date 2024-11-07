@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Footer() {
+export default function Footer({data}) {
   return (
     <footer className=" font-avenir ">
       <div className=" bg-white   lg:pt-[64px] lg:pb-[48px] px-5 lg:px-20">
@@ -24,9 +24,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[16px] font-[400] text-paragraph leading-[24px] lg:max-w-[320px]">
-              F. A. Kettaneh & Co LTD Jordan has a long tradition of being a
-              first-class company - one that has always exceeded the increasing
-              expectations of its customers
+              {data.description}
             </p>
           </div>
 

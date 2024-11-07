@@ -73,8 +73,9 @@ const BleifesSection = ({ AboutData }: any) => {
                 <p key={index} className="">{el.text}</p>
               ))
               } */}
-
-              <BlocksRendererComponent content={AboutData?.description2} />
+              <div className="flex flex-col">
+                <BlocksRendererComponent content={AboutData?.description2} />
+              </div>
             </div>
           </div>
         </section>

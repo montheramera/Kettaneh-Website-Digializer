@@ -123,7 +123,7 @@ const fetchPartnersByCategory = async (categoryTitle: string) => {
 
 const page = async () => {
 
-  let hvacCategory = await fetchCategoryByTitle('hvac');
+  let hvacCategory = await fetchCategoryByTitle('HVAC');
   const categoryTitle = hvacCategory[0].attributes.title
   let partners = await fetchPartnersByCategory(categoryTitle);
 

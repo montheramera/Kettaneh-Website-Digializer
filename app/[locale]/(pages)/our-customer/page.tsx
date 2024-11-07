@@ -88,14 +88,18 @@ export async function generateMetadata({ params }: Props) {
 }
 
 const fetchCustomerData = async () => {
-  const res = await fetch(`${API_URL}/api/our-customer?populate=*`);
+  const res = await fetch(`${API_URL}/api/our-customer?populate=*`, {
+    cache: "no-store",
+  });
   const data = await res.json();
   const customerData = data.data.attributes
   return customerData;
 };
 
 const fetchClients = async ()=>{
-  const res = await fetch(`${API_URL}/api/clients?populate[Client][populate]=*&populate=logo`);
+  const res = await fetch(`${API_URL}/api/clients?populate[Client][populate]=*&populate=logo`, {
+    cache: "no-store",
+  });
   const data = await res.json();
   const Clients = data.data.map((el: any)=>el.attributes.Client)
   return Clients;
@@ -137,16 +141,21 @@ const index = async() => {
               <div className="mb-[24px] mt-[24px] flex">
                 <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
                 <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px] uppercase">
-                  Our Customer
+                  {customerData?.title}
                 </span>
               </div>
               <h2 className="text-[30px] lg:text-[36px] font-[800] leading-[34px] lg:leading-[40px] text-heading mt-[16px] mb-[30px] lg:mb-[64px]">
                 <span className="text-primary "> Our Valued </span>Partners and
                 Landmark Projects
               </h2>
-              <Suspense fallback={"loading"}>
-                <DynamicParagraph content={customerData?.description} classes="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:mt-[64px] lg:max-w-[1216px]" />
-              </Suspense>
+              <div className="flex flex-row">
+                <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div> 
+                <div>
+                <Suspense fallback={"loading"}>
+                  <DynamicParagraph content={customerData?.description} classes="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:max-w-[1216px]" />
+                </Suspense>
+                </div>
+              </div>
 
             </div>
           </section>

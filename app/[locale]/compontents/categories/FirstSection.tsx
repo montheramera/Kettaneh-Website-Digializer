@@ -59,7 +59,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
                 ></div>
                 <p className="lg:max-w-[536px]">{categoryParagraph}</p>
               </div>
-              <div className="flex items-center border border-[#E5E7EB] max-w-[280px] my-[32px] rounded-md p-3 bg-white">
+              <div className="flex items-center border border-[#E5E7EB] max-w-[280px] my-[32px] p-3 bg-white">
                 <span
                   style={{ background: categoryBg }}
                   className="inline-block h-3 w-3 rounded-full bg-primary mr-2"

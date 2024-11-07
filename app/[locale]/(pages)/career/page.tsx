@@ -82,6 +82,14 @@ export async function generateMetadata({ params }: Props) {
   }
 }
 
+export async function fetchCareerPage() {
+    const res = await fetch(`${API_URL}/api/career-page`, {
+      cache: "no-store",
+    });
+    const data = await res.json();
+    const careerData = data.data.attributes;
+    return careerData;
+  }
 
 const page = async() => {
   let res = await fetch(
@@ -89,6 +97,8 @@ const page = async() => {
   );
   let data = await res.json();
   let careers = [...data.data];
+
+  const careerPage = await fetchCareerPage();
 
   const DynamicJobListing = dynamic(
     () => import("@/compontents/career/FirstSection"),
@@ -108,14 +118,14 @@ const page = async() => {
             <div className="flex mb-[24px] mt-[24px]">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
-                Career
+                {careerPage.title}
               </span>
             </div>
             <section>
               {/* <JobListings careers={careers} /> */}
 
               <Suspense fallback={"loading"}>
-                <DynamicJobListing careers={careers} />
+                <DynamicJobListing careers={careers} pageData={careerPage} />
               </Suspense>
             </section>
 

@@ -18,7 +18,7 @@ const EventDetails = async ({ event, FeaturedEvents }: any) => {
                             width={1200}
                             height={600}
                             priority
-                            className="w-full h-auto object-cover rounded-md shadow-lg"
+                            className="w-full h-auto object-cover shadow-lg"
                         />
                         <p className="text-sm lg:text-base text-gray-500 mt-4 mb-8">
                             {new Date(event.data.attributes.Event.date).toLocaleDateString("en-US", {
@@ -43,7 +43,7 @@ const EventDetails = async ({ event, FeaturedEvents }: any) => {
                                     aria-label={`Go to the event: ${event.attributes.Event.title}`}
                                     className="mb-4"
                                 >
-                                    <div className="mb-4 group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                                    <div className="mb-4 group bg-white shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                                         <div className="relative w-full h-40 lg:h-52">
                                             <Image
                                                 src={event.attributes.Event.image.data.attributes.url}

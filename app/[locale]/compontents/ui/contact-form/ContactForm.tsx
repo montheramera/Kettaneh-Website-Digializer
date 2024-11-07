@@ -175,7 +175,6 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
       }),
     });
     const { success } = await response.json();
-    console.log(success);
       if (success && result === "ok") {
         setLoading(false);
         setIsOpen(false);

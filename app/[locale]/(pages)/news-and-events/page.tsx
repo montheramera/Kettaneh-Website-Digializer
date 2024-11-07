@@ -88,10 +88,20 @@ const fetchEvents = async () => {
   return events;
 };
 
+export async function fetchEventPage() {
+  const res = await fetch(`${API_URL}/api/event-page`, {
+    cache: "no-store",
+  });
+  const data = await res.json();
+  const eventData = data.data.attributes;
+  return eventData;
+}
+
 
 
 const page = async() => {
   const events = await fetchEvents();
+  const eventPage = await fetchEventPage();
 
   const DynamicGallerySection = dynamic(
     () => import("@/compontents/news-and-events/GallerySection"),
@@ -112,7 +122,7 @@ const page = async() => {
             <div className="flex mb-[24px] mt-[24px]">
               <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
               <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
-                News and Events
+                {eventPage.title}
               </span>
             </div>
             <h2 className="text-[30px] leading-[36px] lg:text-[36px] font-[800] lg:leading-[40px] text-heading mb-[10px]">
@@ -120,7 +130,7 @@ const page = async() => {
               <span className="text-primary ">our community </span>
             </h2>
             <p className="text-[18px] lg:text-[20px] font-[500] leading-[28px] text-paragraph">
-              Stay updated with the latest news and upcoming events.
+              {eventPage.description}
             </p>
           </div>
         </section>

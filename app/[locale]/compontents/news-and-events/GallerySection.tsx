@@ -33,7 +33,7 @@ export default function GallerySection({events}:any) {
             aria-label="Go to the News and Events Page"
           >
           <div
-            className="bg-white shadow-md rounded-md overflow-hidden"
+            className="bg-white shadow-md overflow-hidden"
           >
             <Image
               src={event.attributes.Event.image.data.attributes.url}

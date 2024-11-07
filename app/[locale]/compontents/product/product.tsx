@@ -41,7 +41,7 @@ export default function Product({products, partner, category }: any){
                     alt={product.product.title}
                     width={300}
                     height={176}
-                    className="object-cover w-full lg:w-[300px] rounded-md border border-[#ddd]"
+                    className="object-cover w-full lg:w-[300px] border border-[#ddd]"
                   />
                   <div className="flex flex-col items-start">
                     <h3 className="text-3xl font-semibold">{product.product.title}</h3>
@@ -50,7 +50,7 @@ export default function Product({products, partner, category }: any){
                     </div>
                     <span
                       style={{ background: category.category.background_color }}
-                      className="text-sm lg:text-lg text-white py-1 px-6 rounded-lg uppercase"
+                      className="text-start text-sm lg:text-lg text-white py-[6px] px-4 uppercase"
                     >
                       {category.title}
                     </span>
