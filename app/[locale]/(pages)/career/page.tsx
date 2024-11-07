@@ -1,150 +1,92 @@
 import React, { Suspense } from 'react';
-
+import dynamic from 'next/dynamic';
+import ScrollSliders from '@/compontents/categories/ScrollSliders';
 import CallToAction from '@/compontents/ui/call-action/CallToAction';
 import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcellence';
-import dynamic from 'next/dynamic';
 import JobListingsSkeleton from '@/compontents/ui/skeleton/JobListingSkeleton';
-import ScrollSliders from '@/compontents/categories/ScrollSliders';
 
- const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
- type Props = {
-  params: { title: string, description: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
+type Props = {
+  params: { title: string, description: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+// Generate metadata based on the fetched SEO data
 export async function generateMetadata({ params }: Props) {
   try {
     const res = await fetch(`${API_URL}/api/career-seo?populate[seo][populate]=*`, {
       cache: "no-store",
-    })
-
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`)
-    }
-
-    const data = await res.json()
-    const seo = data.data?.attributes?.seo || {}
-    const title = seo.meta_title || 'Default Title'
-    const description = seo.meta_description || 'Default Description'
-    const favicon = seo.fav_icon?.data?.attributes?.url || '/default-favicon.ico'
-    const url = seo.link || 'https://example.com'
-    // const siteName = seo.site_name || 'Your Site Name'
-    // const locale = seo.locale || 'en_US'
-    // const type = seo.type || 'website'
-    // const twitterHandle = seo.twitter_handle || '@yourtwitterhandle'
-
+    });
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    
+    const data = await res.json();
+    const seo = data.data?.attributes?.seo || {};
     return {
-      title,
-      description,
+      title: seo.meta_title || 'Default Title',
+      description: seo.meta_description || 'Default Description',
       icons: {
-        icon: favicon,
-        shortcut: favicon,
-        apple: favicon,
+        icon: seo.fav_icon?.data?.attributes?.url || '/default-favicon.ico',
       },
-      
-    }
+    };
   } catch (error) {
-    console.error('Error fetching metadata:', error)
-
-    // Return default metadata if there's an error
+    console.error('Error fetching metadata:', error);
     return {
       title: 'Default Title',
       description: 'Default Description',
-      icons: {
-        icon: '/default-favicon.ico',
-        shortcut: '/default-favicon.ico',
-        apple: '/default-favicon.ico',
-      },
-      metadataBase: new URL('https://example.com'),
-      alternates: {
-        canonical: 'https://example.com',
-      },
-      openGraph: {
-        title: 'Default Title',
-        description: 'Default Description',
-        url: 'https://example.com',
-        siteName: 'Your Site Name',
-        locale: 'en_US',
-        type: 'website',
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: 'Default Title',
-        description: 'Default Description',
-        site: '@yourtwitterhandle',
-        creator: '@yourtwitterhandle',
-      },
-      other: {
-        'og:image': '/default-og-image.jpg',
-        'twitter:image': '/default-twitter-image.jpg',
-      },
-    }
+      icons: { icon: '/default-favicon.ico' },
+    };
   }
 }
 
-export async function fetchCareerPage() {
-    const res = await fetch(`${API_URL}/api/career-page`, {
-      cache: "no-store",
-    });
-    const data = await res.json();
-    const careerData = data.data.attributes;
-    return careerData;
-  }
+// Fetch career page data
+const fetchCareerPage = async()=> {
+  const res = await fetch(`${API_URL}/api/career-page`, { cache: "no-store" });
+  const data = await res.json();
+  return data.data.attributes;
+}
 
-const page = async() => {
-  let res = await fetch(
+const CareerPage = async () => {
+  const res = await fetch(
     `${API_URL}/api/careers?populate[career]=*&populate[category][populate]=title,category`
   );
-  let data = await res.json();
-  let careers = [...data.data];
-
+  const data = await res.json();
+  const careers = [...data.data];
   const careerPage = await fetchCareerPage();
 
-  const DynamicJobListing = dynamic(
-    () => import("@/compontents/career/FirstSection"),
-    {
-      ssr: false,
-      loading: () => (
-        <>
-         <JobListingsSkeleton />
-        </>
-      ),
-    }
-  );
-    return (
-      <>
-        <div className="px-5 lg:px-20  font-avenir ">
-          <div className="max-w-[1440px] m-auto">
-            <div className="flex mb-[24px] mt-[24px]">
-              <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-              <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px] font-[400] leading-[22px] uppercase">
-                {careerPage.title}
-              </span>
-            </div>
-            <section>
-              {/* <JobListings careers={careers} /> */}
+  const DynamicJobListing = dynamic(() => import("@/compontents/career/FirstSection"), {
+    ssr: false,
+    loading: () => <JobListingsSkeleton />,
+  });
 
-              <Suspense fallback={"loading"}>
-                <DynamicJobListing careers={careers} pageData={careerPage} />
-              </Suspense>
-            </section>
-
-            {/* <section>
-              <CareerForm />
-            </section> */}
-          </div>
+  return (
+    <div className="px-5 lg:px-20 font-avenir">
+      <div className="max-w-[1440px] m-auto">
+        <div className="flex mb-6 mt-6">
+          <div className="bg-primary w-1 min-h-full mr-2"></div>
+          <span className="bg-primary text-white py-2 px-4 text-xl font-medium uppercase">
+            {careerPage.title}
+          </span>
         </div>
+
+        <section>
+          <Suspense fallback={<JobListingsSkeleton />}>
+            <DynamicJobListing careers={careers} pageData={careerPage} />
+          </Suspense>
+        </section>
+
         <section className="hidden lg:block">
           <LeadingExcellence />
         </section>
-        <section className="block lg:hidden mt-[30px]">
+        <section className="block lg:hidden mt-8">
           <ScrollSliders />
         </section>
-        <section className="">
+        <section>
           <CallToAction />
         </section>
-      </>
-    );
+      </div>
+    </div>
+  );
 };
 
-export default page;
+export default CareerPage;
