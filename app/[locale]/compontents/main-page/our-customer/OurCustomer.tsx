@@ -10,8 +10,15 @@ const fetchClients = async ()=>{
   const Clients = data.data.map((el: any)=>el.attributes.Client);
   return Clients;
 }
+const fetchMain = async ()=>{
+  const res = await fetch(`${API_URL}/api/main?populate=*`);
+  const data = await res.json();
+  const mainData = data.data.attributes;
+  return mainData;
+}
 
 const OurCustomer = async() => {
+  const mainData = await fetchMain();
   const Clients = await fetchClients();
   return (
     <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir ">
@@ -21,9 +28,11 @@ const OurCustomer = async() => {
             Explore Our <span className="text-primary">Customer</span>
           </h2>
           <p className="font-[500] text-paragraph text-[20px] leading-[28px] mt-[10px]">
-            Discover how we deliver excellence through innovative engineering
+            {/* Discover how we deliver excellence through innovative engineering
             solutions and <br />
-            premium brands, shaping the future.
+            premium brands, shaping the future. */}
+
+            {mainData.customer_description}
           </p>
         </div>
         <div className="mt-[64px]">

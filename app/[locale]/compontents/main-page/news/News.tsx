@@ -17,8 +17,16 @@ const fetchEvents = async () => {
   return Events;
 };
 
+const fetchMain = async ()=>{
+  const res = await fetch(`${API_URL}/api/main?populate=*`);
+  const data = await res.json();
+  const mainData = data.data.attributes;
+  return mainData;
+}
+
 const News = async () => {
 
+  const mainData = await fetchMain();
   const Events = await fetchEvents();
   const mainEvent = Events.find((el: any) => el.Is_main);
   const otherEvents = Events.filter((el: any) => !el.Is_main && el.promated_to_front_page);
@@ -30,8 +38,10 @@ const News = async () => {
             News and <span className="text-primary">Events</span>
           </h2>
           <p className="mt-[10px] text-paragraph font-[500] text-[20px] leading-[28px] max-w-[768px]">
-            Stay updated with the latest news and upcoming events. Explore what
-            &apos;s happening in our community.
+            {/* Stay updated with the latest news and upcoming events. Explore what
+            &apos;s happening in our community. */}
+
+            {mainData.events_description}
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-[30px] lg:my-[64px] ">

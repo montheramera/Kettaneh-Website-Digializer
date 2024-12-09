@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "@/compontents/ui/header/header";
 import Footer from "@/compontents/ui/footer/Footer";
 
@@ -8,17 +7,16 @@ interface PageWrapperProps {
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
-// Fetch footer data
+// Function to fetch footer data
 const fetchFooterData = async () => {
   const res = await fetch(`${API_URL}/api/footer`, {
     cache: "no-store",
   });
   const data = await res.json();
-  const footer = data.data.attributes;
-  return footer;
+  return data.data.attributes;
 };
 
-// Check if a specific page exists
+// Function to check if a specific page exists
 const checkPageExists = async (path: string) => {
   try {
     const response = await fetch(`${API_URL}/api${path}`, { method: "HEAD" });
@@ -28,17 +26,32 @@ const checkPageExists = async (path: string) => {
   }
 };
 
-const PageWrapper: React.FC<PageWrapperProps> = async ({ children }) => {
-  // Fetch footer data
-  const footerData = await fetchFooterData();
-
-  // Check for specific pages
+// Function to get page existence flags
+const getPageExistenceFlags = async () => {
   const [hasPrivacyPolicy, hasTermsAndConditions, hasCookiesPolicy] =
     await Promise.all([
       checkPageExists("/privacy-policy"),
       checkPageExists("/terms-and-condition"),
       checkPageExists("/cookies-policy"),
     ]);
+
+  return {
+    hasPrivacyPolicy,
+    hasTermsAndConditions,
+    hasCookiesPolicy,
+  };
+};
+
+// Server Component to fetch all necessary data
+async function PageWrapperData() {
+  const footerData = await fetchFooterData();
+  const pageExistenceFlags = await getPageExistenceFlags();
+
+  return { footerData, pageExistenceFlags };
+}
+
+const PageWrapper: React.FC<PageWrapperProps> = async ({ children }) => {
+  const { footerData, pageExistenceFlags } = await PageWrapperData();
 
   return (
     <div className="font-avenir m-auto bg-white">
@@ -47,9 +60,7 @@ const PageWrapper: React.FC<PageWrapperProps> = async ({ children }) => {
       <div>
         <Footer
           data={footerData}
-          hasPrivacyPolicy={hasPrivacyPolicy}
-          hasTermsAndConditions={hasTermsAndConditions}
-          hasCookiesPolicy={hasCookiesPolicy}
+          {...pageExistenceFlags}
         />
       </div>
     </div>

@@ -22,9 +22,11 @@ const LegacySection = async() => {
               Our Legacy of <span className="text-primary">Excellence</span>
             </h3>
             <p className=" mt-[15px] lg:mt-[30px] text-paragraph font-[500] text-[20px] leading-[28px] mb-[32px] lg:mb-[32px] max-w-[700px]">
-              For over a century, F. A. Kettaneh & Co LTD Jordan has set
+              {/* For over a century, F. A. Kettaneh & Co LTD Jordan has set
               industry standards, fostering strong ties with clients, employees,
-              and communities.
+              and communities. */}
+
+              {mainData.legacy_description}
             </p>
           </div>
           <Link
