@@ -36,7 +36,7 @@ const MultiSelectDropdown: React.FC<MultiSelectDropdownProps> = ({ options, sele
         onClick={() => setIsOpen(!isOpen)}
         role='button'
         type='button'
-        className="mt-1 w-full text-paragraph border border-[#d0d5dd] rounded-md shadow-sm p-3 flex flex-row items-center justify-between"
+        className="mt-1 w-full text-paragraph border border-[#d0d5dd] shadow-sm p-3 flex flex-row items-center justify-between"
       >
         <span>{selectedValues.length > 0 ? `${selectedValues.map((el) => el.category.heading)} selected` : 'Select options'}</span>
         <svg className={`-mr-1 ml-2 h-5 w-5 ${isOpen ? '' : 'rotate-180'} gr`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

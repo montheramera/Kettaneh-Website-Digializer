@@ -33,7 +33,7 @@ const CareerForm = () => {
                   type="text"
                   id="full-name"
                   name="full-name"
-                  className=" block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                  className=" block w-full border border-gray-300 shadow-sm p-3"
                   required
                 />
               </div>
@@ -49,7 +49,7 @@ const CareerForm = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                  className="mt-1 block w-full border border-gray-300 shadow-sm p-3"
                   required
                 />
               </div>
@@ -91,7 +91,7 @@ const CareerForm = () => {
                   CV / Resume*
                 </label>
                 <div
-                  className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+                  className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed"
                   style={{ width: "100%", color: "#d0d5dd" }}
                 >
                   <div className="space-y-1 text-center">

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props) {
       title: seo.meta_title || 'Default Title',
       description: seo.meta_description || 'Default Description',
       icons: {
-        icon: seo.fav_icon?.data?.attributes?.url || '/default-favicon.ico',
+        icon: `/images/logo.png`,
       },
     };
   } catch (error) {

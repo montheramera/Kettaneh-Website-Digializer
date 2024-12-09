@@ -195,7 +195,6 @@ li:hover > button svg {
     /* margin-bottom: 15px !importan; */
     /* margin-bottom: 15px; */
     border: 1px solid #d0d5dd;
-    border-radius: 6px;
     font-size: 16px;
     color: #333;
   }
@@ -231,7 +230,6 @@ li:hover > button svg {
     padding: 15px;
     /* margin-bottom: 15px; */
     border: 1px solid #d0d5dd;
-    border-radius: 6px;
     font-size: 16px;
     color: #333;
     background-color: white !important

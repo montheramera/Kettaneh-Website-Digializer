@@ -296,7 +296,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
                 First name*
               </label>
               <input
-                className={` rounded-lg bg-white ${
+                className={`bg-white ${
                   errors.first_name ? "border-red" : "w-full"
                 }`}
                 id="first_name"
@@ -320,7 +320,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
                 Last name*
               </label>
               <input
-                className={` rounded-lg bg-white ${
+                className={`bg-white ${
                   errors.last_name ? "border-red" : "w-full"
                 }`}
                 id="last_name"
@@ -344,7 +344,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
               Email*
             </label>
             <input
-              className={` rounded-lg ${
+              className={`${
                 errors.email ? "border-red-500" : "w-full"
               }`}
               id="email"
@@ -454,7 +454,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
               Your Business Industry (Optional)
             </label>
             <input
-              className={` rounded-lg ${
+              className={`${
                 errors.your_business_industry ? "border-red-500" : "w-full"
               }`}
               id="your_business_industry"
@@ -478,7 +478,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
               URL Website (Optional)
             </label>
             <input
-              className={` rounded-lg ${
+              className={`${
                 errors.url_website ? "border-red-500" : "w-full"
               }`}
               id="url_website"
@@ -500,7 +500,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
               Message*
             </label>
             <textarea
-              className={` rounded-lg min-h-[134px] ${
+              className={`min-h-[134px] ${
                 errors.message ? "border-red-500" : "w-full"
               }`}
               id="message"

@@ -48,7 +48,6 @@ export async function POST(req) {
     const formResponseData = await formResponse.json();
 
     if (!formResponse.ok) {
-      console.error("Form submission failed:", formResponseData);
       throw new Error("Failed to submit the form");
     }
 
@@ -100,7 +99,6 @@ export async function POST(req) {
 
     if (!updateResponse.ok) {
       const updateErrorData = await updateResponse.json();
-      console.error("Failed to update the contact:", updateErrorData);
 
       await fetch(
         `https://api.hubapi.com/crm/v3/objects/contacts/${contactData.id}`,
@@ -118,7 +116,6 @@ export async function POST(req) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Error processing request:", error);
     return NextResponse.json({
       success: false,
       message: error.message || "Error processing request",

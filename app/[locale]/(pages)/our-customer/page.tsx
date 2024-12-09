@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
     const seo = data.data?.attributes?.seo || {}
     const title = seo.meta_title || 'Default Title'
     const description = seo.meta_description || 'Default Description'
-    const favicon = seo.fav_icon?.data?.attributes?.url || '/default-favicon.ico'
+    const favicon = `/images/logo.png`
     const url = seo.link || 'https://example.com'
     // const siteName = seo.site_name || 'Your Site Name'
     // const locale = seo.locale || 'en_US'

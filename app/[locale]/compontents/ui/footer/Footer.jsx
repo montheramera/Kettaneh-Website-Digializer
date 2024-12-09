@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
-export default function Footer({data}) {
+export default function Footer({data, hasPrivacyPolicy, hasTermsAndConditions, hasCookiesPolicy}) {
+
   return (
     <footer className=" font-avenir ">
       <div className=" bg-white   lg:pt-[64px] lg:pb-[48px] px-5 lg:px-20">
@@ -15,7 +17,7 @@ export default function Footer({data}) {
               aria-label="Go to the Home Page"
             >
               <Image
-                src="/images/footer-logo.png"
+                src="/images/LOGO_Grey.svg"
                 alt="Kettaneh Logo"
                 priority
                 width={233}
@@ -240,29 +242,34 @@ export default function Footer({data}) {
               {/* <a href="#" className="underline">
                 Privacy Policy
               </a> */}
-              <Link
-                href="/privacy-policy"
-                className="underline text-sm md:text-base whitespace-nowrap"
-                aria-label="Go to the  Privacy Policy Page"
-              >
-                Privacy Policy
-              </Link>
-              <span className=" lg:hidden">|</span>
-              <Link
-                href="/terms-conditions"
-                className="underline text-sm md:text-base whitespace-nowrap"
-                aria-label="Go to the Terms and Conditions Page"
-              >
-                Terms and Condition
-              </Link>
-              <span className=" lg:hidden">|</span>
-              <Link
-                href="/cookies-policy"
-                className="underline text-sm md:text-base whitespace-nowrap"
-                aria-label="Go to the  Cookies Policy Page"
-              >
-                Cookies Policy
-              </Link>
+              
+              {hasPrivacyPolicy && (
+                <Link
+                  href="/privacy-policy"
+                  className="underline text-sm md:text-base whitespace-nowrap"
+                  aria-label="Go to the Privacy Policy Page"
+                >
+                  Privacy Policy
+                </Link>
+              )}
+              {hasTermsAndConditions && (
+                <Link
+                  href="/terms-conditions"
+                  className="underline text-sm md:text-base whitespace-nowrap"
+                  aria-label="Go to the Terms and Conditions Page"
+                >
+                  Terms and Conditions
+                </Link>
+              )}
+              {hasCookiesPolicy && (
+                <Link
+                  href="/cookies-policy"
+                  className="underline text-sm md:text-base whitespace-nowrap"
+                  aria-label="Go to the Cookies Policy Page"
+                >
+                  Cookies Policy
+                </Link>
+              )}
               {/* <a href="#" className="underline">
                 Terms and Conditions
               </a> */}

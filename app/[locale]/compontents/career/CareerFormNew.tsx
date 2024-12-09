@@ -180,7 +180,7 @@ const CareerFormNew = ({categories = [], selectedCategory = []}: CareerFormNewPr
                 name="full_name"
                 value={formData.full_name}
                 onChange={handleInputChange}
-                className=" block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                className=" block w-full border border-gray-300 shadow-sm p-3"
                 required
               />
             </div>
@@ -198,7 +198,7 @@ const CareerFormNew = ({categories = [], selectedCategory = []}: CareerFormNewPr
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                className="mt-1 block w-full border border-gray-300 shadow-sm p-3"
                 required
               />
             </div>
@@ -274,7 +274,7 @@ const CareerFormNew = ({categories = [], selectedCategory = []}: CareerFormNewPr
                 CV / Resume*
               </label>
               <div
-                className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+                className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed"
                 style={{ width: "100%", color: "#d0d5dd" }}
               >
                 <div className="space-y-1 text-center">

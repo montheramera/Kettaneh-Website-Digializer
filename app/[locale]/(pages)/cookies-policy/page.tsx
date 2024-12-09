@@ -22,10 +22,10 @@ export async function generateMetadata({ params }: Props) {
     }
 
     const data = await res.json()
-    const seo = data.data?.attributes?.seo || {}
+    const seo = data?.data?.attributes?.seo || {}
     const title = seo.meta_title || 'Default Title'
     const description = seo.meta_description || 'Default Description'
-    const favicon = seo.fav_icon?.data?.attributes?.url || '/default-favicon.ico'
+    const favicon = '/images/logo.png'
     const url = seo.link || 'https://example.com'
     // const siteName = seo.site_name || 'Your Site Name'
     // const locale = seo.locale || 'en_US'
@@ -89,7 +89,7 @@ const fetchCookiesData = async () => {
     },
   });
   const data = await res.json();
-  const cookies = data.data.attributes;
+  const cookies = data?.data?.attributes;
   return cookies;
 };
 
@@ -109,7 +109,7 @@ const page = async() => {
     );
     return (
       <>
-        <div className="px-5 lg:px-20  font-avenir h-screen">
+        <div className="px-5 lg:px-20  font-avenir h-full">
           <section className="max-w-[1440px] m-auto">
             <div>
               <div className="mb-[24px] mt-[24px] flex">

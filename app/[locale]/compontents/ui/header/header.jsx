@@ -39,7 +39,7 @@ const Header = () => {
           <div onClick={() => setIsMenuOpen(false)}>
             <Link href="/">
               <Image
-                src="/images/logo.png"
+                src="/images/LOGO_White.svg"
                 alt="Logo"
                 width={233}
                 height={56}
@@ -103,7 +103,7 @@ const Header = () => {
                 </span>
               </button>
               <ul
-                className="bg-primary z-[2000000] border rounded-sm transform scale-0 group-hover:scale-100 absolute
+                className="bg-primary z-[2000000] shadow-lg rounded-sm transform scale-0 group-hover:scale-100 absolute
   transition duration-150 ease-in-out origin-top min-w-32"
               >
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">

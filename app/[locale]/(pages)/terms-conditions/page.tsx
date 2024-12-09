@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props) {
     const seo = data.data?.attributes?.seo || {}
     const title = seo.meta_title || 'Default Title'
     const description = seo.meta_description || 'Default Description'
-    const favicon = seo.fav_icon?.data?.attributes?.url || '/default-favicon.ico'
+    const favicon = `/images/logo.png`
     const url = seo.link || 'https://example.com'
     // const siteName = seo.site_name || 'Your Site Name'
     // const locale = seo.locale || 'en_US'
@@ -89,7 +89,7 @@ const fetchTermsData = async () => {
     },
   });
   const data = await res.json();
-  const terms = data.data.attributes;
+  const terms = data?.data?.attributes;
   return terms;
 };
 
@@ -109,18 +109,22 @@ const page = async() => {
     );
     return (
       <>
-        <div className="px-5 lg:px-20  font-avenir h-screen">
+        <div className="px-5 lg:px-20  font-avenir h-full">
           <section className="max-w-[1440px] m-auto">
             <div>
               <div className="mb-[24px] mt-[24px] flex">
                 <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
-                <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px] uppercase">
+                {termsData && (<span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px] uppercase">
                   {termsData?.title}
-                </span>
+                </span>)}
               </div>
        
               <Suspense fallback={"loading"}>
-                <DynamicParagraph content={termsData?.text} classes="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:my-4 lg:max-w-[1216px]" />
+                {termsData ? (<DynamicParagraph content={termsData?.text} classes="text-[18px] lg:text-[20.1px] font-[400] leading-[28px] text-paragraph lg:my-4 lg:max-w-[1216px]" />):
+                  <div className=''>
+                    There is no data in mean Time
+                  </div>
+                }
               </Suspense>
 
             </div>
