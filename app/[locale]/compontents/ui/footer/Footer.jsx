@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Footer({data, hasPrivacyPolicy, hasTermsAndConditions, hasCookiesPolicy}) {
-
+export default function Footer({data}) {
+  console.log('Data', data);
   return (
     <footer className=" font-avenir ">
       <div className=" bg-white   lg:pt-[64px] lg:pb-[48px] px-5 lg:px-20">
@@ -25,7 +25,7 @@ export default function Footer({data, hasPrivacyPolicy, hasTermsAndConditions, h
               />
             </Link>
             <p className="text-[16px] font-[400] text-paragraph leading-[24px] lg:max-w-[320px]">
-              {data.description}
+              {data.footer.description}
             </p>
           </div>
 
@@ -46,34 +46,34 @@ export default function Footer({data, hasPrivacyPolicy, hasTermsAndConditions, h
                 >
                   Home
                 </Link>
-                <Link
+                {data.aboutUs.isPublished &&<Link
                   href="/about"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  About Us Page"
                 >
-                  About Us
-                </Link>
-                <Link
+                  {data.aboutUs.data.title}
+                </Link>}
+                {data.ourCustomer.isPublished &&<Link
                   href="/our-customer"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the    Our Customer Page"
                 >
-                  Our Customer
-                </Link>
-                <Link
+                  {data.ourCustomer.data.title}
+                </Link>}
+                {data.eventPage.isPublished &&<Link
                   href="/news-and-events"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  News and Events Page"
                 >
-                  News and Events
-                </Link>
-                <Link
+                  {data.eventPage.data.title}
+                </Link>}
+                {data.careerPage.isPublished && <Link
                   href="/career"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the    Career Page"
                 >
-                  Career
-                </Link>
+                  {data.careerPage.data.title}
+                </Link>}
               </ul>
             </div>
             <div className=" md:w-auto  md:mb-0">
@@ -242,31 +242,31 @@ export default function Footer({data, hasPrivacyPolicy, hasTermsAndConditions, h
                 Privacy Policy
               </a> */}
               
-              {hasPrivacyPolicy && (
+              {data.privacyPolicy.isPublished && (
                 <Link
                   href="/privacy-policy"
                   className="underline text-sm md:text-base whitespace-nowrap"
                   aria-label="Go to the Privacy Policy Page"
                 >
-                  Privacy Policy
+                  {data.privacyPolicy.data.title}
                 </Link>
               )}
-              {hasTermsAndConditions && (
+              {data.termsAndCondition.isPublished && (
                 <Link
                   href="/terms-conditions"
                   className="underline text-sm md:text-base whitespace-nowrap"
                   aria-label="Go to the Terms and Conditions Page"
                 >
-                  Terms and Conditions
+                  {data.termsAndCondition.data.title}
                 </Link>
               )}
-              {hasCookiesPolicy && (
+              {data.cookiesPolicy.isPublished && (
                 <Link
                   href="/cookies-policy"
                   className="underline text-sm md:text-base whitespace-nowrap"
                   aria-label="Go to the Cookies Policy Page"
                 >
-                  Cookies Policy
+                  {data.cookiesPolicy.data.title}
                 </Link>
               )}
               {/* <a href="#" className="underline">

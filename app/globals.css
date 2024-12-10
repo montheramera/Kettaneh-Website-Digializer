@@ -387,6 +387,10 @@ li:hover > button svg {
   flex: 3;
 }
 
+.career .leading{
+  @apply px-5 lg:px-0
+}
+
 @keyframes fadeInStep {
   0% {
     opacity: 0;

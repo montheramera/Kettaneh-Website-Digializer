@@ -6,7 +6,7 @@ import ModelFormContact from "../model/Model";
 import ConfirmationMessage from "../confirmation-message/ConfirmationMessage";
 import Link from "next/link";
 
-const Header = () => {
+const Header = ({data}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenConfirmation, setIsOpenConfirmation] = useState(false);
@@ -79,12 +79,12 @@ const Header = () => {
               className="text-white hover:text-prbg-primary"
               // onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <Link
+              {data.aboutUs.isPublished && <Link
                 className="text-[16px] uppercase leading-[28px] font-[500]"
                 href="/about"
               >
-                About Us
-              </Link>
+                {data.aboutUs.data.title}
+              </Link>}
             </li>
             <div className="group inline-block">
               <button className="outline-none focus:outline-none   bg-primary rounded-sm flex items-center min-w-32">
@@ -280,13 +280,13 @@ const Header = () => {
               </ul>
             </div>
             <li className="text-white hover:text-prbg-primary">
-              <Link
+              {data.ourCustomer.isPublished && <Link
                 className="text-[16px] uppercase  leading-[28px] font-[500]"
                 href="/our-customer"
               >
                 {" "}
-                Our Customers
-              </Link>
+                {data.ourCustomer.data.title}
+              </Link>}
             </li>
             {/* <li>
             <a href="#" className="text-white hover:text-prbg-primary">
@@ -294,13 +294,13 @@ const Header = () => {
             </a>
           </li> */}
             <li className="text-white hover:text-prbg-primary">
-              <Link
+              {data.eventPage.isPublished &&<Link
                 className="text-[16px] uppercase  leading-[28px] font-[500]"
                 href="/news-and-events"
               >
                 {" "}
-                News and Events
-              </Link>
+                {data.eventPage.data.title}
+              </Link>}
             </li>
             {/* <li>
             <a href="#" className="text-white hover:text-prbg-primary">
@@ -308,13 +308,13 @@ const Header = () => {
             </a>
           </li> */}
             <li className="text-white hover:text-prbg-primary">
-              <Link
+              {data.careerPage.isPublished &&<Link
                 className="text-[16px] uppercase  leading-[28px] font-[500]"
                 href="/career"
               >
                 {" "}
-                Career
-              </Link>
+                {data.careerPage.data.title}
+              </Link>}
             </li>
           </ul>
           {/* Get In Touch Button */}
@@ -336,12 +336,12 @@ const Header = () => {
             className="text-white hover:text-prbg-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Link
+            {data.aboutUs.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/about"
             >
-              About Us
-            </Link>
+              {data.aboutUs.data.title}
+            </Link>}
           </li>
           <div className="group inline-block">
             <button className="outline-none focus:outline-none   bg-primary rounded-sm flex items-center min-w-32">
@@ -455,39 +455,39 @@ const Header = () => {
             className="text-white hover:text-prbg-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Link
+            {data.ourCustomer.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/our-customer"
             >
               {" "}
-              Our Cusomers
-            </Link>
+              {data.ourCustomer.data.title}
+            </Link>}
           </li>
 
           <li
             className="text-white hover:text-prbg-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Link
+           {data.eventPage.isPublished && <Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/news-and-events"
             >
               {" "}
-              News and Events
-            </Link>
+              {data.eventPage.data.title}
+            </Link>}
           </li>
 
           <li
             className="text-white hover:text-prbg-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Link
+            {data.careerPage.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/career"
             >
               {" "}
-              Career
-            </Link>
+              {data.careerPage.data.title}
+            </Link>}
           </li>
           <button
             onClick={() => {

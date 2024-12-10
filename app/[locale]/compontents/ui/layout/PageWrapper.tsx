@@ -7,60 +7,24 @@ interface PageWrapperProps {
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
-// Function to fetch footer data
 const fetchFooterData = async () => {
   const res = await fetch(`${API_URL}/api/footer`, {
     cache: "no-store",
   });
   const data = await res.json();
-  return data.data.attributes;
+  return data;
 };
-
-// Function to check if a specific page exists
-const checkPageExists = async (path: string) => {
-  try {
-    const response = await fetch(`${API_URL}/api${path}`, { method: "HEAD" });
-    return response.ok;
-  } catch (error) {
-    return false;
-  }
-};
-
-// Function to get page existence flags
-const getPageExistenceFlags = async () => {
-  const [hasPrivacyPolicy, hasTermsAndConditions, hasCookiesPolicy] =
-    await Promise.all([
-      checkPageExists("/privacy-policy"),
-      checkPageExists("/terms-and-condition"),
-      checkPageExists("/cookies-policy"),
-    ]);
-
-  return {
-    hasPrivacyPolicy,
-    hasTermsAndConditions,
-    hasCookiesPolicy,
-  };
-};
-
-// Server Component to fetch all necessary data
-async function PageWrapperData() {
-  const footerData = await fetchFooterData();
-  const pageExistenceFlags = await getPageExistenceFlags();
-
-  return { footerData, pageExistenceFlags };
-}
 
 const PageWrapper: React.FC<PageWrapperProps> = async ({ children }) => {
-  const { footerData, pageExistenceFlags } = await PageWrapperData();
+  const data = await fetchFooterData();
 
   return (
     <div className="font-avenir m-auto bg-white">
-      <Header />
+      <Header data={data} />
       {children}
       <div>
         <Footer
-          data={footerData}
-          {...pageExistenceFlags}
+          data={data}
         />
       </div>
     </div>

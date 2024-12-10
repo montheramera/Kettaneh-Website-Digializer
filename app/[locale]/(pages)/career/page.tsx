@@ -15,7 +15,7 @@ type Props = {
 // Generate metadata based on the fetched SEO data
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/career-seo?populate[seo][populate]=*`, {
+    const res = await fetch(`${API_URL}/api/career-page?populate[seo][populate]=*`, {
       cache: "no-store",
     });
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
@@ -60,6 +60,7 @@ const CareerPage = async () => {
   });
 
   return (
+    <>
     <div className="px-5 lg:px-20 font-avenir">
       <div className="max-w-[1440px] m-auto">
         <div className="flex mb-6 mt-6">
@@ -75,7 +76,7 @@ const CareerPage = async () => {
           </Suspense>
         </section>
 
-        <section className="hidden lg:block">
+        <section className="hidden lg:block career">
           <LeadingExcellence />
         </section>
         <section className="block lg:hidden mt-8">
@@ -86,6 +87,7 @@ const CareerPage = async () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

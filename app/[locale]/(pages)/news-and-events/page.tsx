@@ -14,7 +14,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/event-seo?populate[seo][populate]=*`, {
+    const res = await fetch(`${API_URL}/api/event-page?populate[seo][populate]=*`, {
       cache: "no-store",
     });
 

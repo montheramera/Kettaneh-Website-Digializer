@@ -26,8 +26,8 @@ const LeadingExcellence = async () => {
     }
   );
   return (
-    <>
-      <div className=" px-5 py-[30px] lg:px-0  lg:py-[96px] font-avenir">
+
+      <div className=" px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir leading">
         <section className="max-w-[1440px] m-auto">
           <div className="mt-[25px] lg:mt-[50px]">
             {/* <HoverEffect categories={categories} /> */}
@@ -37,7 +37,7 @@ const LeadingExcellence = async () => {
           </div>
         </section>
       </div>
-    </>
+
   );
 };
 

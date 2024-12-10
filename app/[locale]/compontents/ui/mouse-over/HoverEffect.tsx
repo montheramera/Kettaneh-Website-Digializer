@@ -27,7 +27,7 @@ function CustomBanner({ path, isActive, category, onMouseEnter }: any) {
   return (
     <div
       onMouseEnter={onMouseEnter}
-      className={`section overflow-hidden ${isActive ? "max-w-[850px]" : "max-w-[100px]"
+      className={`section overflow-hidden ${isActive ? "max-w-[1440px]" : "max-w-[100px]"
         } transition-all duration-2000 flex items-center`}
     >
       <div
