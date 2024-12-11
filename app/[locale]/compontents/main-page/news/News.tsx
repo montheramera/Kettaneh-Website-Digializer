@@ -44,9 +44,8 @@ const News = async () => {
             {mainData.events_description}
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-[30px] lg:my-[64px] ">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-[30px] lg:my-[64px] ">
           <div className="lg:col-span-2 shadow-lg">
-            {/* <div className="relative w-[769px] h-[337px] mb-6"> */}
             <Image
               src={mainEvent.image.data.attributes.url}
               alt={mainEvent.title}
@@ -56,7 +55,6 @@ const News = async () => {
               height={337}
               priority
             />
-            {/* </div> */}
             <h3 className="font-[800] mt-[20px] text-[18px] leading-[28px] mx-2 text-[#111928] ">
               {mainEvent.title}
             </h3>
@@ -157,7 +155,7 @@ const News = async () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {otherEvents.map((event: any, index: number) => (
             
