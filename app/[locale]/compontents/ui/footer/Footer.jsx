@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer({data}) {
-  console.log('Data', data);
+
   return (
     <footer className=" font-avenir ">
       <div className=" bg-white   lg:pt-[64px] lg:pb-[48px] px-5 lg:px-20">

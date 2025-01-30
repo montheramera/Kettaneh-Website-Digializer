@@ -90,7 +90,7 @@ export async function generateMetadata({ params }: Props) {
 
 const fetchTestimonials = async () => {
   try { 
-    const res = await fetch(`${API_URL}/api/testimonial?populate[Testimonial][populate]=*`);
+    const res = await fetch(`${API_URL}/api/testimonials?populate[Testimonial][populate]=*`);
     const data = await res.json();
     const Testimonials = data.data.map((el: any)=>el.attributes.Testimonial);
     return Testimonials;

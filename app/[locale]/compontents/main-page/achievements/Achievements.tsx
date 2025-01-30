@@ -11,7 +11,7 @@ const Achievements = async() => {
 
   const Achivements = await fetchAchivements();
   return (
-    <div className="px-5 py-[30px] bg-primary  lg:px-20 lg:py-[96px] font-avenir  text-white">
+    <div className="px-5 py-[30px] bg-primary mt-8  lg:px-20 lg:py-[96px] font-avenir  text-white">
       <div className="max-w-[1440px] m-auto">
         <h2 className="font-[800] text-[30px] lg:text-[36px] leading-[36px] lg:leading-[40px]">
           Our Achievements at a Glance
