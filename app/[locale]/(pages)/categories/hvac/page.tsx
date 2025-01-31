@@ -5,21 +5,7 @@ import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcell
 import FirstSectionSkeleton from "@/compontents/ui/skeleton/FirstSectionSkeleton";
 import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
-const imagesLogos = [
-  {
-    name: "Siemens",
-    src: "/images/categories/hvac/logos/1.png",
-    width: 150,
-    height: 46.2,
-  },
-  {
-    name: "Haier",
-    src: "/images/categories/hvac/logos/2.png",
-    width: 145,
-    height: 126,
-  },
 
-];
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
@@ -29,9 +15,12 @@ type Props = {
 }
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/categories?filters[title]=hvac&populate[seo][populate]=*`, {
-      cache: "no-store",
-    })
+    const res = await fetch(
+      `${API_URL}/api/categories?filters[title]=HVAC&populate[seo][populate]=*`,
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`)
@@ -39,7 +28,7 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json()
     const seo = data.data[0]?.attributes.seo || {}
-    const title = seo.meta_title || 'Default Title'
+    const title = seo.meta_title || 'HVAC'
     const description = seo.meta_description || 'Default Description'
     const favicon = `/images/logo.png`
     const url = seo.link || 'https://example.com'

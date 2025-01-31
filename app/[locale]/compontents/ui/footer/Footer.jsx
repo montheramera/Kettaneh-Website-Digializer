@@ -46,7 +46,7 @@ export default function Footer({data}) {
                 >
                   Home
                 </Link>
-                {data.aboutUs.isPublished &&<Link
+                {data.aboutUs?.isPublished &&<Link
                   href="/about"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  About Us Page"

@@ -79,7 +79,7 @@ const Header = ({data}) => {
               className="text-white hover:text-prbg-primary"
               // onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {data.aboutUs.isPublished && <Link
+              {data.aboutUs?.isPublished && <Link
                 className="text-[16px] uppercase leading-[28px] font-[500]"
                 href="/about"
               >
@@ -336,7 +336,7 @@ const Header = ({data}) => {
             className="text-white hover:text-prbg-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {data.aboutUs.isPublished &&<Link
+            {data.aboutUs?.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/about"
             >

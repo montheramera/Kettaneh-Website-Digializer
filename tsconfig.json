@@ -21,6 +21,6 @@
       "@/*": ["./app/[locale]/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/[locale]/compontents/main-page/feed-back/FeedBack.jsx", "app/[locale]/compontents/about/TimelineSlider.jsx", "app/[locale]/compontents/ui/footer/Footer.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/[locale]/compontents/main-page/feed-back/FeedBack.jsx", "app/[locale]/compontents/about/TimelineSlider.jsx", "app/[locale]/compontents/ui/footer/Footer.jsx", "middleware.js"],
   "exclude": ["node_modules"]
 }
