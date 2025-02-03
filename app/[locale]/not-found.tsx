@@ -47,10 +47,10 @@ export default function NotFound() {
                                             <span className="text-primary">40</span>4
                                         </div>
                                         <h2 className="text-3xl font-semibold mb-4">
-                                            Oops! It looks like you're lost.
+                                            Oops! It looks like you&apos;re lost.
                                         </h2>
                                         <p className="text-base text-gray-700 mb-6">
-                                            The page you’re looking for isn’t available. Try to search again{" "}
+                                            The page you&apos;re looking for isn&apos;t available. Try to search again{" "}
                                             <br className="hidden lg:block" /> or use the button below.
                                         </p>
                                         <Link
