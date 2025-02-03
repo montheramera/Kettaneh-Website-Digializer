@@ -79,11 +79,11 @@ const Header = ({data}) => {
               className="text-white hover:text-prbg-primary"
               // onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {data.aboutUs?.isPublished && <Link
+              {data?.aboutUs?.isPublished && <Link
                 className="text-[16px] uppercase leading-[28px] font-[500]"
                 href="/en/about"
               >
-                {data.aboutUs.data.title}
+                {data?.aboutUs?.data.title}
               </Link>}
             </li>
             <div className="group inline-block">
@@ -280,12 +280,12 @@ const Header = ({data}) => {
               </ul>
             </div>
             <li className="text-white hover:text-prbg-primary">
-              {data.ourCustomer.isPublished && <Link
+              {data?.ourCustomer?.isPublished && <Link
                 className="text-[16px] uppercase  leading-[28px] font-[500]"
                 href="/en/our-customer"
               >
                 {" "}
-                {data.ourCustomer.data.title}
+                {data?.ourCustomer?.data?.title}
               </Link>}
             </li>
             {/* <li>
@@ -294,12 +294,12 @@ const Header = ({data}) => {
             </a>
           </li> */}
             <li className="text-white hover:text-prbg-primary">
-              {data.eventPage.isPublished &&<Link
+              {data?.eventPage?.isPublished &&<Link
                 className="text-[16px] uppercase  leading-[28px] font-[500]"
                 href="/en/news-and-events"
               >
                 {" "}
-                {data.eventPage.data.title}
+                {data?.eventPage?.data?.title}
               </Link>}
             </li>
             {/* <li>
@@ -308,12 +308,12 @@ const Header = ({data}) => {
             </a>
           </li> */}
             <li className="text-white hover:text-prbg-primary">
-              {data.careerPage.isPublished &&<Link
+              {data?.careerPage?.isPublished &&<Link
                 className="text-[16px] uppercase  leading-[28px] font-[500]"
                 href="/en/career"
               >
                 {" "}
-                {data.careerPage.data.title}
+                {data?.careerPage?.data?.title}
               </Link>}
             </li>
           </ul>
@@ -336,11 +336,11 @@ const Header = ({data}) => {
             className="text-white hover:text-prbg-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {data.aboutUs?.isPublished &&<Link
+            {data?.aboutUs?.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/en/about"
             >
-              {data.aboutUs.data.title}
+              {data?.aboutUs?.data?.title}
             </Link>}
           </li>
           <div className="group inline-block">
@@ -455,12 +455,12 @@ const Header = ({data}) => {
             className="text-white hover:text-prbg-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {data.ourCustomer.isPublished &&<Link
+            {data?.ourCustomer?.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/en/our-customer"
             >
               {" "}
-              {data.ourCustomer.data.title}
+              {data?.ourCustomer?.data?.title}
             </Link>}
           </li>
 
@@ -468,12 +468,12 @@ const Header = ({data}) => {
             className="text-white hover:text-prbg-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-           {data.eventPage.isPublished && <Link
+           {data?.eventPage?.isPublished && <Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/en/news-and-events"
             >
               {" "}
-              {data.eventPage.data.title}
+              {data?.eventPage?.data?.title}
             </Link>}
           </li>
 
@@ -481,12 +481,12 @@ const Header = ({data}) => {
             className="text-white hover:text-prbg-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {data.careerPage.isPublished &&<Link
+            {data?.careerPage?.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
               href="/en/career"
             >
               {" "}
-              {data.careerPage.data.title}
+              {data?.careerPage?.data?.title}
             </Link>}
           </li>
           <button

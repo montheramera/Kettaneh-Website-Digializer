@@ -25,7 +25,7 @@ export default function Footer({data}) {
               />
             </Link>
             <p className="text-[16px] font-[400] text-paragraph leading-[24px] lg:max-w-[320px]">
-              {data.footer.description}
+              {data?.footer?.description}
             </p>
           </div>
 
@@ -46,33 +46,33 @@ export default function Footer({data}) {
                 >
                   Home
                 </Link>
-                {data.aboutUs?.isPublished &&<Link
+                {data?.aboutUs?.isPublished &&<Link
                   href="/about"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  About Us Page"
                 >
-                  {data.aboutUs.data.title}
+                  {data?.aboutUs?.data?.title}
                 </Link>}
-                {data.ourCustomer.isPublished &&<Link
+                {data?.ourCustomer?.isPublished &&<Link
                   href="/our-customer"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the    Our Customer Page"
                 >
-                  {data.ourCustomer.data.title}
+                  {data?.ourCustomer?.data?.title}
                 </Link>}
-                {data.eventPage.isPublished &&<Link
+                {data?.eventPage?.isPublished &&<Link
                   href="/news-and-events"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  News and Events Page"
                 >
-                  {data.eventPage.data.title}
+                  {data?.eventPage?.data?.title}
                 </Link>}
-                {data.careerPage.isPublished && <Link
+                {data?.careerPage?.isPublished && <Link
                   href="/career"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the    Career Page"
                 >
-                  {data.careerPage.data.title}
+                  {data?.careerPage?.data?.title}
                 </Link>}
               </ul>
             </div>
@@ -242,31 +242,31 @@ export default function Footer({data}) {
                 Privacy Policy
               </a> */}
               
-              {data.privacyPolicy.isPublished && (
+              {data?.privacyPolicy?.isPublished && (
                 <Link
                   href="/privacy-policy"
                   className="underline text-sm md:text-base whitespace-nowrap"
                   aria-label="Go to the Privacy Policy Page"
                 >
-                  {data.privacyPolicy.data.title}
+                  {data?.privacyPolicy?.data?.title}
                 </Link>
               )}
-              {data.termsAndCondition.isPublished && (
+              {data?.termsAndCondition?.isPublished && (
                 <Link
                   href="/terms-conditions"
                   className="underline text-sm md:text-base whitespace-nowrap"
                   aria-label="Go to the Terms and Conditions Page"
                 >
-                  {data.termsAndCondition.data.title}
+                  {data?.termsAndCondition?.data?.title}
                 </Link>
               )}
-              {data.cookiesPolicy.isPublished && (
+              {data?.cookiesPolicy?.isPublished && (
                 <Link
                   href="/cookies-policy"
                   className="underline text-sm md:text-base whitespace-nowrap"
                   aria-label="Go to the Cookies Policy Page"
                 >
-                  {data.cookiesPolicy.data.title}
+                  {data?.cookiesPolicy?.data?.title}
                 </Link>
               )}
               {/* <a href="#" className="underline">
