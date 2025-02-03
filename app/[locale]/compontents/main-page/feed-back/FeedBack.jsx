@@ -23,7 +23,7 @@ function AdaptiveHeight({testimonials}) {
   return (
     <>
       {testimonials.length > 0 && (
-        <div className="slider-container bg-primary feedback pt-[30px] pb-[90px] lg:pt-[96px] lg:pb-[146px]">
+        <div className="slider-container bg-primary feedback pt-[30px] pb-[90px] lg:px-20 lg:pt-[96px] lg:pb-[146px]">
           <div className="max-w-[1440px] m-auto">
             <Slider {...settings}>
               {testimonials.map((testimonial, index) => (

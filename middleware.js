@@ -1,29 +1,21 @@
-
-// import createMiddleware from "next-intl/middleware";
-
-
-// export default createMiddleware({
-//   // A list of all locales that are supported
-//   locales: ["en"],
-//   // Used when no locale matches
-//   defaultLocale: "en",
-//   // Custom middleware logic
-
-// });
-
-// export const config = {
-//   matcher: "/((?!api|static|.*\\..*|_next).*)",
-// };
-
-
-
 import createMiddleware from "next-intl/middleware";
 import { NextResponse } from "next/server";
 
 export default function middleware(request) {
   const { pathname } = request.nextUrl;
 
+  // Redirect specific paths
+  if (pathname === "/en/privacy") {
+    return NextResponse.redirect(new URL("/privacy-policy", request.url), 301);
+  }
 
+  if (pathname === "/en/products") {
+    return NextResponse.redirect(new URL("/", request.url), 301);
+  }
+
+  if (pathname === "/en/about-us") {
+    return NextResponse.redirect(new URL("/about", request.url), 301);
+  }
 
   // Redirect if locale is missing
   if (

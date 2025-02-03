@@ -37,7 +37,7 @@ const Header = ({data}) => {
       <div className="max-w-[1440px] m-auto">
         <div className="mx-auto flex justify-between items-center">
           <div onClick={() => setIsMenuOpen(false)}>
-            <Link href="/">
+            <Link href="/en">
               <Image
                 src="/images/LOGO_White.svg"
                 alt="Logo"
@@ -81,7 +81,7 @@ const Header = ({data}) => {
             >
               {data.aboutUs?.isPublished && <Link
                 className="text-[16px] uppercase leading-[28px] font-[500]"
-                href="/about"
+                href="/en/about"
               >
                 {data.aboutUs.data.title}
               </Link>}
@@ -112,7 +112,7 @@ const Header = ({data}) => {
                       {" "}
                       <Link
                         className="text-[16px] uppercase leading-[28px] font-[500]"
-                        href="/categories/electrical"
+                        href="/en/categories/electrical"
                       >
                         {" "}
                         Electrical
@@ -146,7 +146,7 @@ const Header = ({data}) => {
                       {" "}
                       <Link
                         className="text-[16px] uppercase leading-[28px] font-[500]"
-                        href="/categories/hvac"
+                        href="/en/categories/hvac"
                       >
                         {" "}
                         HVAC
@@ -180,7 +180,7 @@ const Header = ({data}) => {
                       {" "}
                       <Link
                         className="text-[16px] uppercase leading-[28px] font-[500]"
-                        href="/categories/machinery"
+                        href="/en/categories/machinery"
                       >
                         {" "}
                         Machinery
@@ -215,7 +215,7 @@ const Header = ({data}) => {
                       {/* <Link href="/our-customer"> Lighting</Link> */}
                       <Link
                         className="text-[16px] uppercase  leading-[28px] font-[500]"
-                        href="/categories/lighting"
+                        href="/en/categories/lighting"
                       >
                         {" "}
                         Lighting
@@ -249,7 +249,7 @@ const Header = ({data}) => {
                       {" "}
                       <Link
                         className="text-[16px] uppercase  leading-[28px] font-[500]"
-                        href="/categories/after-market"
+                        href="/en/categories/after-market"
                       >
                         {" "}
                         Aftermarket
@@ -282,7 +282,7 @@ const Header = ({data}) => {
             <li className="text-white hover:text-prbg-primary">
               {data.ourCustomer.isPublished && <Link
                 className="text-[16px] uppercase  leading-[28px] font-[500]"
-                href="/our-customer"
+                href="/en/our-customer"
               >
                 {" "}
                 {data.ourCustomer.data.title}
@@ -296,7 +296,7 @@ const Header = ({data}) => {
             <li className="text-white hover:text-prbg-primary">
               {data.eventPage.isPublished &&<Link
                 className="text-[16px] uppercase  leading-[28px] font-[500]"
-                href="/news-and-events"
+                href="/en/news-and-events"
               >
                 {" "}
                 {data.eventPage.data.title}
@@ -310,7 +310,7 @@ const Header = ({data}) => {
             <li className="text-white hover:text-prbg-primary">
               {data.careerPage.isPublished &&<Link
                 className="text-[16px] uppercase  leading-[28px] font-[500]"
-                href="/career"
+                href="/en/career"
               >
                 {" "}
                 {data.careerPage.data.title}
@@ -338,7 +338,7 @@ const Header = ({data}) => {
           >
             {data.aboutUs?.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
-              href="/about"
+              href="/en/about"
             >
               {data.aboutUs.data.title}
             </Link>}
@@ -372,7 +372,7 @@ const Header = ({data}) => {
                     {" "}
                     <Link
                       className="text-[16px] uppercase  leading-[28px] font-[500]"
-                      href="/categories/electrical"
+                      href="/en/categories/electrical"
                     >
                       {" "}
                       Electrical
@@ -389,7 +389,7 @@ const Header = ({data}) => {
                     {" "}
                     <Link
                       className="text-[16px] uppercase  leading-[28px] font-[500]"
-                      href="/categories/hvac"
+                      href="/en/categories/hvac"
                     >
                       {" "}
                       HVAC
@@ -406,7 +406,7 @@ const Header = ({data}) => {
                     {" "}
                     <Link
                       className="text-[16px] uppercase  leading-[28px] font-[500]"
-                      href="/categories/machinery"
+                      href="/en/categories/machinery"
                     >
                       {" "}
                       Machinery
@@ -423,7 +423,7 @@ const Header = ({data}) => {
                     {" "}
                     <Link
                       className="text-[16px] uppercase  leading-[28px] font-[500]"
-                      href="/categories/lighting"
+                      href="/en/categories/lighting"
                     >
                       {" "}
                       Lighting
@@ -440,7 +440,7 @@ const Header = ({data}) => {
                     {" "}
                     <Link
                       className="text-[16px] uppercase  leading-[28px] font-[500]"
-                      href="/categories/after-market"
+                      href="/en/categories/after-market"
                     >
                       {" "}
                       Aftermarket
@@ -457,7 +457,7 @@ const Header = ({data}) => {
           >
             {data.ourCustomer.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
-              href="/our-customer"
+              href="/en/our-customer"
             >
               {" "}
               {data.ourCustomer.data.title}
@@ -470,7 +470,7 @@ const Header = ({data}) => {
           >
            {data.eventPage.isPublished && <Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
-              href="/news-and-events"
+              href="/en/news-and-events"
             >
               {" "}
               {data.eventPage.data.title}
@@ -483,7 +483,7 @@ const Header = ({data}) => {
           >
             {data.careerPage.isPublished &&<Link
               className="text-[16px] uppercase  leading-[28px] font-[500]"
-              href="/career"
+              href="/en/career"
             >
               {" "}
               {data.careerPage.data.title}

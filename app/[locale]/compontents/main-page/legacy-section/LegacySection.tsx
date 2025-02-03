@@ -16,7 +16,7 @@ const LegacySection = async() => {
   return (
     <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir border-y-[#F9FAFB]  border-opacity-25 border-y-[1px] ">
       <div className="flex flex-col md:flex-row items-center md:items-start max-w-[1440px] m-auto justify-between">
-        <div className="md:w-1/2 flex flex-col justify-between lg:h-[342px]">
+        <div className="md:w-1/2 flex flex-col justify-between">
           <div className="flex-grow">
             <h3 className="font-[800] leading-[36px] lg:leading-[40px]  text-[30px] lg:text-[36px] text-heading">
               Our Legacy of <span className="text-primary">Excellence</span>

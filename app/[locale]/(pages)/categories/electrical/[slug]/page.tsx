@@ -119,7 +119,7 @@ const Page = async ({ params }: PageProps) => {
         products.length ? <Product products={products} partner={partner} category={category}/>: (
           <section className="font-avenir px-5 lg:px-20 mt-5">
             <div className="max-w-[1440px] mx-auto">
-              <h3 className="font-semibold text-2xl">No Provided Products for the Selected Partner</h3>
+              <h3 className="font-semibold text-2xl">No products available for the selected partner.</h3>
             </div>
             </section>
         )}
