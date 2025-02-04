@@ -19,8 +19,7 @@ type PageProps = {
 };
 export async function generateMetadata({ params }: Props) {
     try {
-        const newsTitle = params.slug.replaceAll('-', ' ');
-      const res = await fetch(`${API_URL}/api/events/${newsTitle}?populate[seo][populate]=*`, {
+      const res = await fetch(`${API_URL}/api/events/${params.slug}?populate[seo][populate]=*`, {
         cache: "no-store",
       })
   

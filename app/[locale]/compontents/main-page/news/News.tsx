@@ -160,7 +160,7 @@ const News = async () => {
           {otherEvents.map((event: any, index: number) => (
             
             <Link
-              href={`en/news-and-events/${event.title?.replaceAll(' ', '-')}`}
+              href={`en/news-and-events/${event.slug}`}
               key={index}
               aria-label="Go to the News and Events Page"
             >
