@@ -240,7 +240,7 @@ const News = async () => {
         </div>
 
         <Link
-          href="/news-and-events"
+          href="/en/news-and-events"
           aria-label="Go to the News and Events Page"
           className="mt-[40px] bg-primary text-white py-2 px-6 inline-block"
         >

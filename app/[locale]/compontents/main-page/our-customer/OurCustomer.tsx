@@ -43,7 +43,7 @@ const OurCustomer = async() => {
           {/* <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div> */}
           {/* <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]"></span> */}
           <Link
-            href="/our-customer"
+            href="/en/our-customer"
             className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]"
             aria-label="Go to the    Our Customer Page"
           >

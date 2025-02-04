@@ -30,7 +30,7 @@ const LegacySection = async() => {
             </p>
           </div>
           <Link
-            href="/about"
+            href="/en/about"
             className="bg-primary max-w-[196px] mb-8 lg:mb-0 text-white py-2 px-4"
             aria-label="Go to the  About Us Page"
           >

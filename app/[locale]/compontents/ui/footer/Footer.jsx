@@ -11,7 +11,7 @@ export default function Footer({data}) {
           {/* Logo and Description */}
           <div className=" md:mb-0">
             <Link
-              href="/"
+              href="/en"
               className="font-light text-paragraph leading-[24px] text-[14px]"
               aria-label="Go to the Home Page"
             >
@@ -40,35 +40,35 @@ export default function Footer({data}) {
               </h4>
               <ul className="flex flex-col gap-3">
                 <Link
-                  href="/"
+                  href="/en"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the Home Page"
                 >
                   Home
                 </Link>
                 {data?.aboutUs?.isPublished &&<Link
-                  href="/about"
+                  href="/en/about"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  About Us Page"
                 >
                   {data?.aboutUs?.data?.title}
                 </Link>}
                 {data?.ourCustomer?.isPublished &&<Link
-                  href="/our-customer"
+                  href="/en/our-customer"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the    Our Customer Page"
                 >
                   {data?.ourCustomer?.data?.title}
                 </Link>}
                 {data?.eventPage?.isPublished &&<Link
-                  href="/news-and-events"
+                  href="/en/news-and-events"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  News and Events Page"
                 >
                   {data?.eventPage?.data?.title}
                 </Link>}
                 {data?.careerPage?.isPublished && <Link
-                  href="/career"
+                  href="/en/career"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the    Career Page"
                 >
@@ -82,35 +82,35 @@ export default function Footer({data}) {
               </h4>
               <ul className="flex flex-col gap-3 ">
                 <Link
-                  href="/categories/electrical"
+                  href="/en/categories/electrical"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the    Electrical Page"
                 >
                   Electrical
                 </Link>
                 <Link
-                  href="/categories/hvac"
+                  href="/en/categories/hvac"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  HVAC Page"
                 >
                   HVAC
                 </Link>
                 <Link
-                  href="/categories/machinery"
+                  href="/en/categories/machinery"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the    Machinery Page"
                 >
                   Machinery
                 </Link>
                 <Link
-                  href="/categories/lighting"
+                  href="/en/categories/lighting"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  Lighting Page"
                 >
                   Lighting
                 </Link>
                 <Link
-                  href="/categories/after-market"
+                  href="/en/categories/after-market"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  Aftermarket Page"
                 >
@@ -244,7 +244,7 @@ export default function Footer({data}) {
               
               {data?.privacyPolicy?.isPublished && (
                 <Link
-                  href="/privacy-policy"
+                  href="/en/privacy-policy"
                   className="underline text-sm md:text-base whitespace-nowrap"
                   aria-label="Go to the Privacy Policy Page"
                 >
@@ -253,7 +253,7 @@ export default function Footer({data}) {
               )}
               {data?.termsAndCondition?.isPublished && (
                 <Link
-                  href="/terms-conditions"
+                  href="/en/terms-conditions"
                   className="underline text-sm md:text-base whitespace-nowrap"
                   aria-label="Go to the Terms and Conditions Page"
                 >
@@ -262,7 +262,7 @@ export default function Footer({data}) {
               )}
               {data?.cookiesPolicy?.isPublished && (
                 <Link
-                  href="/cookies-policy"
+                  href="/en/cookies-policy"
                   className="underline text-sm md:text-base whitespace-nowrap"
                   aria-label="Go to the Cookies Policy Page"
                 >
