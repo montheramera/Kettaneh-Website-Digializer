@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login/
+Disallow: /contact-us/
+Sitemap:https://www.kettaneh.com.jo/sitemap.xml
