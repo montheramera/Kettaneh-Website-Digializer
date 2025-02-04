@@ -81,7 +81,7 @@ const fetchEvents = async () => {
     cache: "no-store",
   });
   const data = await res.json();
-  const events = data.data.filter((el: any) => !el.attributes.Event.Is_main);
+  const events = data.events.filter((el: any) => !el.Event.Is_main);
   return events;
 };
 

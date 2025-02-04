@@ -13,7 +13,7 @@ const fetchEvents = async () => {
     }
   );
   const data = await res.json();
-  const Events = data.data.map((el: any) => el.attributes.Event);
+  const Events = data.events;
   return Events;
 };
 
@@ -29,7 +29,7 @@ const News = async () => {
   const mainData = await fetchMain();
   const Events = await fetchEvents();
   const mainEvent = Events.find((el: any) => el.Is_main);
-  const otherEvents = Events.filter((el: any) => !el.Is_main && el.promated_to_front_page);
+  const otherEvents = Events.filter((el: any) => !el.Event.Is_main && el.Event.promated_to_front_page);
   return (
     <div className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir border-y-[#F9FAFB]  border-opacity-25 border-y-[5px]">
       <div className="max-w-[1440px] m-auto">
@@ -160,24 +160,24 @@ const News = async () => {
           {otherEvents.map((event: any, index: number) => (
             
             <Link
-              href={`en/news-and-events/${event.slug}`}
+              href={`en/news-and-events/${event.title}`}
               key={index}
               aria-label="Go to the News and Events Page"
             >
               <div className="shadow-lg">
                 <div className="relative  w-[100%] h-[176px]">
                   <Image
-                    src={event.image.data.attributes.url}
-                    alt={event.title}
+                    src={event.Event.image.url}
+                    alt={event.Event.title}
                     layout="fill"
                     objectFit="cover"
                   />
                 </div>
                 <h3 className="font-[800] text-[18px] leading-[28px] text-heading my-[10px] mx-2">
-                  {event.title}
+                  {event.Event.title}
                 </h3>
                 <p className="font-[400] my-[20px] text-[16px] leading-[28px] mx-2 text-[#111928] underline">
-                  {new Date(event.date).toLocaleDateString("en-US", {
+                  {new Date(event.Event.date).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -240,7 +240,7 @@ const News = async () => {
         </div>
 
         <Link
-          href="/en/news-and-events"
+          href="/news-and-events"
           aria-label="Go to the News and Events Page"
           className="mt-[40px] bg-primary text-white py-2 px-6 inline-block"
         >

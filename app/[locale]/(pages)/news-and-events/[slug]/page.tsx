@@ -19,7 +19,8 @@ type PageProps = {
 };
 export async function generateMetadata({ params }: Props) {
     try {
-      const res = await fetch(`${API_URL}/api/events/${params.slug}?populate[seo][populate]=*`, {
+        const newsTitle = params.slug;
+      const res = await fetch(`${API_URL}/api/events/${newsTitle}?populate[seo][populate]=*`, {
         cache: "no-store",
       })
   
@@ -102,7 +103,7 @@ const fetchEventByTitle = async (title: string) => {
 const page = async ({ params }: PageProps) => {
     const title = params.slug;
     const featuredEvents = await fetchEvents();
-    const event = await fetchEventByTitle(title as string)
+    const event = await fetchEventByTitle(title as string);
     const DynamicGallerySection = dynamic(
         () => import("@/compontents/news-and-events/GallerySection"),
         {

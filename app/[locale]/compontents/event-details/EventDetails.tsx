@@ -38,7 +38,7 @@ const EventDetails = async ({ event, FeaturedEvents }: any) => {
                         <div className="space-y-8">
                             {FeaturedEvents.map((event: any, index: number) => (
                                 <Link
-                                    href={`/en/news-and-events/${event.attributes.slug}`}
+                                    href={`/en/news-and-events/${event.attributes.Event.title?.replaceAll(' ', '-')}`}
                                     key={index}
                                     aria-label={`Go to the event: ${event.attributes.Event.title}`}
                                     className="mb-4"

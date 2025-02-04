@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function GallerySection({events}:any) {
+  console.log(events);
   const images = [
     {
       src: "/images/events-news/gallery/1.png",
@@ -28,7 +29,7 @@ export default function GallerySection({events}:any) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map((event:any, index: number) => (
           <Link
-            href={`/en/news-and-events/${event.attributes.slug}`}
+            href={`/en/news-and-events/${event.title}`}
             key={index}
             aria-label="Go to the News and Events Page"
           >
@@ -36,14 +37,14 @@ export default function GallerySection({events}:any) {
             className="bg-white shadow-md overflow-hidden"
           >
             <Image
-              src={event.attributes.Event.image.data.attributes.url}
-              alt={event.attributes.Event.title}
+              src={event.Event.image.url}
+              alt={event.Event.title}
               width={384}
               height={176}
               className="object-cover w-full h-auto"
             />
             <h3 className="text-[18px] font-[800] leading-[28px] text-heading mx-2 mt-[10px] ">
-              {event.attributes.Event.title}
+              {event.Event.title}
             </h3>
             <p className="font-[400] underline mb-[10px] text-[16px] leading-[28px] mx-2 text-[#111928] ">
               {new Date().toLocaleDateString("en-US", {
