@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 const fetchCategoryByTitle = async (title: string) => {
-  const res = await fetch(`${API_URL}/api/categories?populate[category][populate]=*&populate=image&filters[title]=${title}`);
+  const res = await fetch(`${API_URL}/api/categories?populate[category][populate]=*&populate=image&filters[title]=${title}`, { cache: "no-store" });
   const data = await res.json();
   const categories = data.data;
   return categories;
