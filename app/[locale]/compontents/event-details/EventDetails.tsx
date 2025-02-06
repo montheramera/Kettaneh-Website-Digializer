@@ -36,7 +36,7 @@ const EventDetails = async ({ event, FeaturedEvents }: any) => {
                     <div className="lg:col-span-1">
                         <h2 className="text-white bg-primary inline-block px-6 py-1 text-2xl font-bold text-gray-800 mb-4">Read Next</h2>
                         <div className="space-y-8">
-                            {FeaturedEvents.map((event: any, index: number) => (
+                            {FeaturedEvents?.map((event: any, index: number) => (
                                 <Link
                                     href={`/en/news-and-events/${event.attributes.Event.title?.replaceAll(' ', '-')}`}
                                     key={index}
