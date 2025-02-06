@@ -18,7 +18,9 @@ const fetchEvents = async () => {
 };
 
 const fetchMain = async ()=>{
-  const res = await fetch(`${API_URL}/api/main?populate=*`);
+  const res = await fetch(`${API_URL}/api/main?populate=*`, {
+    cache: "no-store",
+  });
   const data = await res.json();
   const mainData = data.data.attributes;
   return mainData;

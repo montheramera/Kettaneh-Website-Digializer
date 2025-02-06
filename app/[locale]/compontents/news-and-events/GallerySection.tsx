@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function GallerySection({events}:any) {
-  console.log(events);
   const images = [
     {
       src: "/images/events-news/gallery/1.png",

@@ -90,14 +90,18 @@ export async function generateMetadata({ params }: Props) {
 }
 
 const fetchAchivements = async () => {
-  const res = await fetch(`${API_URL}/api/achievements?populate=*`);
+  const res = await fetch(`${API_URL}/api/achievements?populate=*`, {
+    cache: "no-store",
+  });
   const data = await res.json();
   const achivements = data.data.map((el: any)=> el.attributes.Achievement)
   return achivements;
 }
 
 const fetchGlobalPartners = async () => {
-  const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo`);
+  const res = await fetch(`${API_URL}/api/partners?populate[Partner][populate]=logo`, {
+    cache: "no-store",
+  });
   const data = await res.json();
   const partners = data.data.map((el: any)=>{
     const image = {...el.attributes.Partner.logo.data.attributes}
@@ -108,7 +112,9 @@ const fetchGlobalPartners = async () => {
 };
 
 const fetchAboutData = async () => {
-  const res = await fetch(`${API_URL}/api/about-us?populate=first_section_image,second_section_image,Achievement_section_image,Time_lines,beliefs_and_goals,description_section1,description_section2,title`);
+  const res = await fetch(`${API_URL}/api/about-us?populate=first_section_image,second_section_image,Achievement_section_image,Time_lines,beliefs_and_goals,description_section1,description_section2,title`, {
+    cache: "no-store",
+  });
   const data = await res.json();
   const about = data.data;
   const AboutData = {

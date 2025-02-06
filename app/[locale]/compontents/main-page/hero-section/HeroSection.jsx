@@ -8,7 +8,9 @@ import HoverEffectSkeleton from '@/compontents/ui/mouse-over/HoverEffectSkeleton
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 
 const fetchCategories = async ()=>{
-  const res = await fetch(`${API_URL}/api/categories?populate=category.image`);
+  const res = await fetch(`${API_URL}/api/categories?populate=category.image`, {
+    cache: "no-store",
+  });
   const data = await res.json();
   const Categories = data.data.map(el=>({title: el.attributes.title, category: el.attributes.category})).sort((a, b)=> a.category.id - b.category.id).filter((el)=> el.title != "Other");
   return Categories;

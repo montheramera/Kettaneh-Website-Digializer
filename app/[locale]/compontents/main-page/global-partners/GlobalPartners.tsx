@@ -5,12 +5,12 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
 const fetchGlobalPartners = async () => {
   try {
     const res = await fetch(`${API_URL}/api/partners?populate=Partner.logo`
-      //   , {
-      //   method: "GET",
-      //   headers: {
-      //     "Cache-Control": "no-store", // Specify cache control header
-      //   },
-      // }
+        , {
+        method: "GET",
+        headers: {
+          "Cache-Control": "no-store", // Specify cache control header
+        },
+      }
     );
     const data = await res.json();
     const GlobalPartners = data.data.map((el: any) => el.attributes.Partner).filter((el: any) => el.promated_to_front_page);

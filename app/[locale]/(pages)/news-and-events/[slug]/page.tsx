@@ -89,13 +89,17 @@ export async function generateMetadata({ params }: Props) {
   }
 
 const fetchEvents = async () => {
-    const res = await fetch(`${API_URL}/api/events?populate[Event][populate]=*&populate=image&sort[0]=createdAt:desc&pagination[pageSize]=3`);
+    const res = await fetch(`${API_URL}/api/events?populate[Event][populate]=*&populate=image&sort[0]=createdAt:desc&pagination[pageSize]=3`, {
+      cache: "no-store",
+    });
     const data = await res.json();
     return data.data;
 };
 
 const fetchEventByTitle = async (title: string) => {
-    const res = await fetch(`${API_URL}/api/events/${title}`);
+    const res = await fetch(`${API_URL}/api/events/${title}`, {
+      cache: "no-store",
+    });
     const data = await res.json();
     return data;
 };

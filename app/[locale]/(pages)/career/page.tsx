@@ -48,7 +48,9 @@ const fetchCareerPage = async()=> {
 
 const CareerPage = async () => {
   const res = await fetch(
-    `${API_URL}/api/careers?populate[career]=*&populate[category][populate]=title,category`
+    `${API_URL}/api/careers?populate[career]=*&populate[category][populate]=title,category`, {
+      cache: "no-store",
+    }
   );
   const data = await res.json();
   const careers = [...data.data];
