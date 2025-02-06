@@ -24,6 +24,10 @@ const HoverEffect = ({ categories }: any) => {
 };
 
 function CustomBanner({ path, isActive, category, onMouseEnter }: any) {
+  console.log(
+    "category.category.background_color",
+    category.category.background_color
+  );
   return (
     <div
       onMouseEnter={onMouseEnter}

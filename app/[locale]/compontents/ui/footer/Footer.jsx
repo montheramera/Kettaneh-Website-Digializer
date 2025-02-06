@@ -102,13 +102,13 @@ export default function Footer({data}) {
                 >
                   Machinery
                 </Link>
-                <Link
+                {/* <Link
                   href="/en/categories/lighting"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the  Lighting Page"
                 >
                   Lighting
-                </Link>
+                </Link> */}
                 <Link
                   href="/en/categories/after-market"
                   className="font-light text-paragraph leading-[24px] text-[14px]"

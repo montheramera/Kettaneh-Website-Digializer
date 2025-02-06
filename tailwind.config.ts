@@ -1,12 +1,18 @@
 import type { Config } from "tailwindcss";
 const colorClasses = [
-  '#BB4A52',
-  '#B2DDFF', 
-  '#5389B9',
-  '#F9DBAF',
-  '#E7C460',
-  '#6ba18f'
-]
+  "#BB4A52",
+  "#B2DDFF",
+  "#5389B9",
+  "#F9DBAF",
+  "#E7C460",
+  "#6ba18f",
+  "#CA3F4F",
+  "#66cadb",
+  "#408abd",
+  "#f58a65",
+  "#70c7af",
+  "#000000",
+];
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
