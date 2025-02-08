@@ -39,7 +39,7 @@ const Header = ({data}) => {
           <div onClick={() => setIsMenuOpen(false)}>
             <Link href="/en">
               <Image
-                src="/images/LOGO_White.svg"
+                src="/images/LOGO_White on Grey_ADJUSTED.svg"
                 alt="Logo"
                 width={233}
                 height={56}

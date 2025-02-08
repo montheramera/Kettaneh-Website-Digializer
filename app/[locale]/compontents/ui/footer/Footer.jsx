@@ -16,7 +16,7 @@ export default function Footer({data}) {
               aria-label="Go to the Home Page"
             >
               <Image
-                src="/images/LOGO_Grey.svg"
+                src="/images/LOGO_Grey on White_ADJUSTED.svg"
                 alt="Kettaneh Logo"
                 priority
                 width={233}
