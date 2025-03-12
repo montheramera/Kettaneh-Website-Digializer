@@ -19,7 +19,7 @@ type PageProps = {
 export async function generateMetadata({ params }: Props) {
   try {
       
-    const res = await fetch(`${API_URL}/api/products?populate=Product.seo.fav_icon,partner&filters[partner][title][$eq]=${encodeURIComponent(params.slug)}`, {
+    const res = await fetch(`${API_URL}/api/products?populate=Product.seo.fav_icon,partner&filters[partner][title][$eqi]=${encodeURIComponent(params.slug)}`, {
       cache: "no-store",
     })
 
@@ -90,7 +90,7 @@ export async function generateMetadata({ params }: Props) {
 const fetchProductsByPartnerTitle = async (title: string) => {
   try {
     const res = await fetch(
-      `${API_URL}/api/products?populate[Product][populate]=*&populate[partner][populate]=Partner.logo,categories.category&filters[partner][title][$eq]=${encodeURIComponent(title)}`,
+      `${API_URL}/api/products?populate[Product][populate]=*&populate[partner][populate]=Partner.logo,categories.category&filters[partner][title][$eqi]=${encodeURIComponent(title)}`,
       {
         cache: "no-store",
       }
