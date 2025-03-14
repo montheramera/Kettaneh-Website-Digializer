@@ -74,8 +74,14 @@ const FirstSection: React.FC<FirstSectionProps> = ({
             className={`flex  items-center flex-wrap max-w-[1420px] m-auto gap-5 lg:gap-10 mt-10 mb-[30px] lg:mb-0
               `}
           >
-            {partners?.map((partner, index) => (
-              <Link key={index} href={`${path}/${partner.title}`} className='cursor-pointer'>
+            {partners
+              ?.sort((a, b) => a?.weight - b?.weight)
+              ?.map((partner, index) => (
+                <Link
+                  key={index}
+                  href={`${path}/${partner.title}`}
+                  className="cursor-pointer"
+                >
                   <Image
                     src={partner.logo.data.attributes.url}
                     alt={partner.logo.data.attributes.name}
@@ -84,9 +90,8 @@ const FirstSection: React.FC<FirstSectionProps> = ({
                     priority
                     className=""
                   />
-              </Link>
-              
-            ))}
+                </Link>
+              ))}
           </div>
         </section>
       </div>

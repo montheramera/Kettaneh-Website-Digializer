@@ -115,6 +115,7 @@ const page = async () => {
   let hvacCategory = await fetchCategoryByTitle('HVAC');
   const categoryTitle = hvacCategory[0].attributes.title
   let partners = await fetchPartnersByCategory(categoryTitle);
+  
 
 
   const DynamicFirstSection = dynamic(
