@@ -92,11 +92,12 @@ export default function RootLayout({
           rel="shortlink"
           href={`${process.env.NEXT_PUBLIC_MAIN_SITE}/${locale}`}
         />
-        <link
+        {/* <link
           rel="icon"
           href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/favicon.ico`}
           type="image/x-icon"
-        />
+        /> */}
+        <link rel="icon" href="/favicon.ico" sizes="any" type="image/ico" />
         <meta
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_MAIN_SITE}/${locale}`}
