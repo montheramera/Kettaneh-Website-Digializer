@@ -97,7 +97,7 @@ export default function RootLayout({
           href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/favicon.ico`}
           type="image/x-icon"
         /> */}
-        <link rel="icon" href="/favicon.ico" sizes="any" type="image/ico" />
+        <link rel="icon" href="/favicon.ico"  type="image/x-icon" />
         <meta
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_MAIN_SITE}/${locale}`}
