@@ -97,7 +97,10 @@ export default function RootLayout({
           href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/favicon.ico`}
           type="image/x-icon"
         /> */}
-        <link rel="icon" href="/favicon.ico"  type="image/x-icon" />
+        <link rel="icon" href="/images/logo.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/images/logo.png" />
+
         <meta
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_MAIN_SITE}/${locale}`}

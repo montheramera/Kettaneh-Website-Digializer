@@ -43,11 +43,11 @@ export async function generateMetadata({ params }: Props) {
     return {
       title,
       description,
-      icons: {
-        icon: favicon,
-        shortcut: favicon,
-        apple: favicon,
-      },
+      // icons: {
+      //   icon: favicon,
+      //   shortcut: favicon,
+      //   apple: favicon,
+      // },
       
     }
   } catch (error) {
@@ -57,11 +57,11 @@ export async function generateMetadata({ params }: Props) {
     return {
       title: 'Default Title',
       description: 'Default Description',
-      icons: {
-        icon: '/default-favicon.ico',
-        shortcut: '/default-favicon.ico',
-        apple: '/default-favicon.ico',
-      },
+      // icons: {
+      //   icon: '/default-favicon.ico',
+      //   shortcut: '/default-favicon.ico',
+      //   apple: '/default-favicon.ico',
+      // },
       metadataBase: new URL('https://example.com'),
       alternates: {
         canonical: 'https://example.com',
@@ -104,7 +104,7 @@ const fetchGlobalPartners = async () => {
   });
   const data = await res.json();
   const partners = data.data.map((el: any)=>{
-    const image = {...el.attributes.Partner.logo.data.attributes}
+    const image = {...el.attributes.Partner.logo.data?.attributes}
     image.src = image.url;
     return image
   });

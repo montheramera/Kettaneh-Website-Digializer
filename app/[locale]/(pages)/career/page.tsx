@@ -25,16 +25,16 @@ export async function generateMetadata({ params }: Props) {
     return {
       title: seo.meta_title || 'Default Title',
       description: seo.meta_description || 'Default Description',
-      icons: {
-        icon: `/images/logo.png`,
-      },
+      // icons: {
+      //   icon: `/images/logo.png`,
+      // },
     };
   } catch (error) {
     console.error('Error fetching metadata:', error);
     return {
       title: 'Default Title',
       description: 'Default Description',
-      icons: { icon: '/default-favicon.ico' },
+      // icons: { icon: '/default-favicon.ico' },
     };
   }
 }
