@@ -97,7 +97,7 @@ export default function RootLayout({
           href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/favicon.ico`}
           type="image/x-icon"
         /> */}
-        <link rel="icon" href="/images/logo.png" type="image/x-icon" />
+        <link rel="icon" href="/images/logo.png" type="image/png" />
         <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/images/logo.png" />
 
@@ -128,6 +128,15 @@ export default function RootLayout({
             `,
           }}
         />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Kettaneh",
+            url: "https://www.kettaneh.com.jo",
+            logo: "https://www.kettaneh.com.jo/images/logo.png",
+          })}
+        </script>
       </head>
       <body className="font-avenir">
         <PageWrapper>{children}</PageWrapper>

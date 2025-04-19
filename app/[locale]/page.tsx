@@ -41,13 +41,8 @@ export async function generateMetadata({ params }: Props) {
     return {
       title,
       description,
-      // icons: {
-      //   icon: favicon,
-      //   shortcut: favicon,
-      //   apple: favicon,
-      // },
       
-    }
+    };
   } catch (error) {
     console.error('Error fetching metadata:', error)
 
