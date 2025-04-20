@@ -128,15 +128,19 @@ export default function RootLayout({
             `,
           }}
         />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Kettaneh",
-            url: "https://www.kettaneh.com.jo",
-            logo: "https://www.kettaneh.com.jo/images/logo.png",
-          })}
-        </script>
+        <Script
+          id="schema.org"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Kettaneh",
+              url: "https://www.kettaneh.com.jo",
+              logo: "https://www.kettaneh.com.jo/images/logo.png",
+            }),
+          }}
+        />
       </head>
       <body className="font-avenir">
         <PageWrapper>{children}</PageWrapper>
