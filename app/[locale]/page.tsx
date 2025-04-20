@@ -41,7 +41,9 @@ export async function generateMetadata({ params }: Props) {
     return {
       title,
       description,
-      
+      alternates: {
+        canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en`,
+      },
     };
   } catch (error) {
     console.error('Error fetching metadata:', error)
