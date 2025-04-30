@@ -50,37 +50,12 @@ export async function generateMetadata({ params }: Props) {
 
     // Return default metadata if there's an error
     return {
-      title: 'Default Title',
-      description: 'Default Description',
-      // icons: {
-      //   icon: '/default-favicon.ico',
-      //   shortcut: '/default-favicon.ico',
-      //   apple: '/default-favicon.ico',
-      // },
-      metadataBase: new URL('https://example.com'),
+      title: "Default Title",
+      description: "Default Description",
       alternates: {
-        canonical: 'https://example.com',
+        canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en`,
       },
-      openGraph: {
-        title: 'Default Title',
-        description: 'Default Description',
-        url: 'https://example.com',
-        siteName: 'Your Site Name',
-        locale: 'en_US',
-        type: 'website',
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: 'Default Title',
-        description: 'Default Description',
-        site: '@yourtwitterhandle',
-        creator: '@yourtwitterhandle',
-      },
-      other: {
-        'og:image': '/default-og-image.jpg',
-        'twitter:image': '/default-twitter-image.jpg',
-      },
-    }
+    };
   }
 }
 

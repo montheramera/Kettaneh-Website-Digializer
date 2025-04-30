@@ -23,18 +23,20 @@ export async function generateMetadata({ params }: Props) {
     const data = await res.json();
     const seo = data.data?.attributes?.seo || {};
     return {
-      title: seo.meta_title || 'Default Title',
-      description: seo.meta_description || 'Default Description',
-      // icons: {
-      //   icon: `/images/logo.png`,
-      // },
+      title: seo.meta_title || "career",
+      description: seo.meta_description || "career",
+      alternates: {
+        canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/career`,
+      },
     };
   } catch (error) {
     console.error('Error fetching metadata:', error);
     return {
-      title: 'Default Title',
-      description: 'Default Description',
-      // icons: { icon: '/default-favicon.ico' },
+      title: "career",
+      description: "career Description",
+      alternates: {
+        canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/career`,
+      },
     };
   }
 }

@@ -24,53 +24,26 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json();
     const seo = data.data?.attributes?.seo || {};
-    const title = seo.meta_title || "Default Title";
-    const description = seo.meta_description || "Default Description";
-    const favicon = `/images/logo.png`;
+    const title = seo.meta_title || "news-and-events";
+    const description = seo.meta_description || "news-and-events Description";
+   
     
     return {
       title,
       description,
-      // icons: {
-      //   icon: favicon,
-      //   shortcut: favicon,
-      //   apple: favicon,
-      // },
+      alternates: {
+        canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/news-and-events`,
+      },
     };
   } catch (error) {
     console.error("Error fetching metadata:", error);
 
     // Return default metadata if there's an error
     return {
-      title: "Default Title",
-      description: "Default Description",
-      // icons: {
-      //   icon: "/default-favicon.ico",
-      //   shortcut: "/default-favicon.ico",
-      //   apple: "/default-favicon.ico",
-      // },
-      metadataBase: new URL("https://example.com"),
+      title: "news and events",
+      description: "news and events Description",
       alternates: {
-        canonical: "https://example.com",
-      },
-      openGraph: {
-        title: "Default Title",
-        description: "Default Description",
-        url: "https://example.com",
-        siteName: "Your Site Name",
-        locale: "en_US",
-        type: "website",
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: "Default Title",
-        description: "Default Description",
-        site: "@yourtwitterhandle",
-        creator: "@yourtwitterhandle",
-      },
-      other: {
-        "og:image": "/default-og-image.jpg",
-        "twitter:image": "/default-twitter-image.jpg",
+        canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/news-and-events`,
       },
     };
   }

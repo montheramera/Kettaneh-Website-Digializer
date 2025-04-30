@@ -79,7 +79,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
               ?.map((partner, index) => (
                 <Link
                   key={index}
-                  href={`${path}/${partner.title}`}
+                  href={`${path}/${partner?.title?.toLocaleLowerCase()}`}
                   className="cursor-pointer"
                 >
                   <Image

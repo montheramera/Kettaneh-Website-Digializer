@@ -18,11 +18,21 @@ type PageProps = {
     searchParams: { [key: string]: string | string[] | undefined };
 };
 export async function generateMetadata({ params }: Props) {
+  const newsTitle = params.slug;
     try {
-        const newsTitle = params.slug;
+      console.log("newsTitle", newsTitle);
       const res = await fetch(`${API_URL}/api/events/${newsTitle}?populate[seo][populate]=*`, {
         cache: "no-store",
       })
+      // const res = await fetch(
+      //   `${API_URL}/api/events?filters[newsTitle][$eqi]=${encodeURIComponent(
+      //     newsTitle
+      //   )}&populate[seo][populate]=*`,
+      //   {
+      //     cache: "no-store",
+      //   }
+      // );
+
   
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`)
@@ -30,61 +40,28 @@ export async function generateMetadata({ params }: Props) {
   
       const data = await res.json();
       const seo = data.data?.attributes?.seo || {}
-      const title = seo.meta_title || 'Default Title'
-      const description = seo.meta_description || 'Default Description'
-      const favicon = `/images/logo.png'`
-      const url = seo.link || 'https://example.com'
-      // const siteName = seo.site_name || 'Your Site Name'
-      // const locale = seo.locale || 'en_US'
-      // const type = seo.type || 'website'
-      // const twitterHandle = seo.twitter_handle || '@yourtwitterhandle'
+      const title = seo.meta_title || newsTitle;
+      const description = seo.meta_description || newsTitle;
+      
   
       return {
         title,
         description,
-        // icons: {
-        //   icon: favicon,
-        //   shortcut: favicon,
-        //   apple: favicon,
-        // },
-        
-      }
+        alternates: {
+          canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/news-and-events/${newsTitle}`,
+        },
+      };
     } catch (error) {
       console.error('Error fetching metadata:', error)
   
       // Return default metadata if there's an error
       return {
-        title: 'Default Title',
-        description: 'Default Description',
-        // icons: {
-        //   icon: '/default-favicon.ico',
-        //   shortcut: '/default-favicon.ico',
-        //   apple: '/default-favicon.ico',
-        // },
-        metadataBase: new URL('https://example.com'),
+        title: newsTitle,
+        description: newsTitle,
         alternates: {
-          canonical: 'https://example.com',
+          canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/news-and-events/${newsTitle}`,
         },
-        openGraph: {
-          title: 'Default Title',
-          description: 'Default Description',
-          url: 'https://example.com',
-          siteName: 'Your Site Name',
-          locale: 'en_US',
-          type: 'website',
-        },
-        twitter: {
-          card: 'summary_large_image',
-          title: 'Default Title',
-          description: 'Default Description',
-          site: '@yourtwitterhandle',
-          creator: '@yourtwitterhandle',
-        },
-        other: {
-          'og:image': '/default-og-image.jpg',
-          'twitter:image': '/default-twitter-image.jpg',
-        },
-      }
+      };
     }
   }
 
