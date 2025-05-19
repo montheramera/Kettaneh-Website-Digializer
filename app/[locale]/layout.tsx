@@ -86,7 +86,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="description" content="description"></meta>
+        {/* <meta name="description" content="description"></meta> */}
         <meta name="robots" content="index, follow" />
         <link
           rel="shortlink"
