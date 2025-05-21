@@ -20,7 +20,12 @@ export async function generateMetadata({ params }: Props) {
    const slug = params?.slug;
   try {
       
-    const res = await fetch(`${API_URL}/api/products?populate=Product.seo.fav_icon,partner&filters[partner][title][$eqi]=${encodeURIComponent(slug)}`, {
+    const res = await fetch(
+      // `${API_URL}/api/products?populate=Product.seo.fav_icon,partner&filters[partner][title][$eqi]=${encodeURIComponent(slug)}`
+      `${API_URL}/api/partners?populate=seo&filters[title][$contains]=${encodeURIComponent(
+        slug
+      )}`,
+       {
       cache: "no-store",
     })
 
@@ -29,11 +34,9 @@ export async function generateMetadata({ params }: Props) {
     }
 
     const data = await res.json();
-    console.log("here is", data.data);
-    const seo = data.data[0].attributes.Product.seo || {}
+    const seo = data.data[0].attributes.seo || {}
     const title = seo.meta_title || slug;
     const description = seo.meta_description || slug;
-  console.log("seo here", seo);
 
     return {
       title,

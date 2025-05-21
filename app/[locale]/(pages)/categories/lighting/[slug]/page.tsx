@@ -19,16 +19,22 @@ type PageProps = {
 export async function generateMetadata({ params }: Props) {
   try {
       
-    const res = await fetch(`${API_URL}/api/products?populate=Product.seo.fav_icon,partner&filters[partner][title][$eqi]=${encodeURIComponent(params.slug)}`, {
-      cache: "no-store",
-    })
+    const res = await fetch(
+      // `${API_URL}/api/products?populate=Product.seo.fav_icon,partner&filters[partner][title][$eqi]=${encodeURIComponent(params.slug)}`
+      `${API_URL}/api/partners?populate=seo&filters[title][$contains]=${encodeURIComponent(
+        params.slug
+      )}`,
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`)
     }
 
     const data = await res.json();
-    const seo = data.data[0].attributes.Product.seo || {}
+    const seo = data.data[0].attributes.seo || {}
     const title = seo.meta_title || 'Default Title'
     const description = seo.meta_description || 'Default Description'
     const favicon = `/images/logo.png`

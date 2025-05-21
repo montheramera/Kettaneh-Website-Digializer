@@ -42,9 +42,7 @@ export async function generateMetadata({ params }: Props) {
     const seo = data.data[0].attributes.seo || {};
     const title = seo.meta_title || slug
     const description = seo.meta_description || slug
-   
-    
-
+  
     return {
       title,
       description,
