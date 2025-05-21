@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props) {
       
     const res = await fetch(
       // `${API_URL}/api/products?populate=Product.seo.fav_icon,partner&filters[partner][title][$eqi]=${encodeURIComponent(params.slug)}`
-      `${API_URL}/api/partners?populate=seo&filters[title][$contains]=${encodeURIComponent(
+      `${API_URL}/api/partners?populate=seo&filters[title][$eqi]=${encodeURIComponent(
         params.slug
       )}`,
       {
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props) {
     }
 
     const data = await res.json();
-    const seo = data.data[0].attributes.seo || {}
+    const seo = data.data[0].attributes.seo || {};
     const title = seo.meta_title || 'Default Title'
     const description = seo.meta_description || 'Default Description'
     const favicon = `/images/logo.png`

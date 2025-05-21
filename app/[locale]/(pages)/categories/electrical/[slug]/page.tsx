@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props) {
   try {
       
     const res = await fetch(
-      `${API_URL}/api/partners?populate=seo&filters[title][$contains]=${encodeURIComponent(
+      `${API_URL}/api/partners?populate=seo&filters[title][$eqi]=${encodeURIComponent(
         slug
       )}`,
       {

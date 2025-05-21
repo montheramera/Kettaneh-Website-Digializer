@@ -22,19 +22,20 @@ export async function generateMetadata({ params }: Props) {
       
     const res = await fetch(
       // `${API_URL}/api/products?populate=Product.seo.fav_icon,partner&filters[partner][title][$eqi]=${encodeURIComponent(slug)}`
-      `${API_URL}/api/partners?populate=seo&filters[title][$contains]=${encodeURIComponent(
+      `${API_URL}/api/partners?populate=seo&filters[title][$eqi]=${encodeURIComponent(
         slug
       )}`,
-       {
-      cache: "no-store",
-    })
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`)
     }
 
     const data = await res.json();
-    const seo = data.data[0].attributes.seo || {}
+    const seo = data.data[0].attributes.seo || {};
     const title = seo.meta_title || slug;
     const description = seo.meta_description || slug;
 
