@@ -27,7 +27,7 @@ const StepCard: React.FC<StepCardProps> = ({
       }}
     >
       {/* Step Number Badge */}
-      <div className="absolute top-[0.5rem] right-[2.75rem] w-5 h-5 bg-[#CF4149] text-white rounded-full flex items-center justify-center text-xs font-bold shadow-sm z-10 animate-pulse-badge">
+      <div className="absolute top-[0.5rem] right-[4.75rem] w-5 h-5 bg-[#CF4149] text-white rounded-full flex items-center justify-center text-xs font-bold shadow-sm z-10 animate-pulse-badge">
         {stepNumber}
       </div>
 

@@ -44,7 +44,16 @@ export const stepsData: LocalizedStepsData = {
         ],
       },
       { period: "الأسبوع 2", date: "11/07/2025" },
-      { period: "الأسبوع 3", date: "11/08/2025" },
+      {
+        period: "الأسبوع 3",
+        date: "11/08/2025",
+        listItems: [
+          { rank: 1, title: "الاسم الأول", subtitle: "تفاصيل إضافية" },
+          { rank: 2, title: "الاسم الثاني", subtitle: "تفاصيل إضافية" },
+          { rank: 3, title: "الاسم الثالث", subtitle: "تفاصيل إضافية" },
+          // ... more items
+        ],
+      },
       { period: "الأسبوع 4", date: "11/09/2025" },
       { period: "الأسبوع 5", date: "11/10/2025" },
       { period: "الأسبوع 6", date: "11/11/2025" },

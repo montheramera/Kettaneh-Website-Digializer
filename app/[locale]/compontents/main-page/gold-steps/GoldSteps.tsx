@@ -19,7 +19,7 @@ const GoldSteps: React.FC<GoldStepsProps> = ({ locale = "ar" }) => {
       dir={isRTL ? "rtl" : "ltr"}
       style={{
         backgroundImage: "url('/images/gold/goldSteps-bg.png')",
-        backgroundSize: "cover",
+        backgroundSize: "fill",
         backgroundPosition: "top",
         backgroundRepeat: "no-repeat",
       }}
@@ -40,6 +40,7 @@ const GoldSteps: React.FC<GoldStepsProps> = ({ locale = "ar" }) => {
           steps={content.steps}
           isRTL={isRTL}
           gridCols="2"
+          className="mt-12"
         />
 
         {/* Timeline Section */}

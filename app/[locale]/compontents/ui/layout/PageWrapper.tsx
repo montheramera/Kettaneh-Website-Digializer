@@ -32,7 +32,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
   }, []);
 
   return (
-    <div className="font-avenir m-auto bg-white">
+    <div className="font-avenir m-auto bg-white w-full overflow-x-hidden">
       <Header data={data} />
       {children}
       <div>
