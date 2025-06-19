@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Footer({data}) {
-
+export default function Footer({ data }) {
   return (
     <footer className=" font-avenir ">
       <div className=" bg-white   lg:pt-[64px] lg:pb-[48px] px-5 lg:px-20">
@@ -46,34 +45,50 @@ export default function Footer({data}) {
                 >
                   Home
                 </Link>
-                {data?.aboutUs?.isPublished &&<Link
-                  href="/en/about"
+
+                {data?.aboutUs?.isPublished && (
+                  <Link
+                    href="/en/about"
+                    className="font-light text-paragraph leading-[24px] text-[14px]"
+                    aria-label="Go to the  About Us Page"
+                  >
+                    {data?.aboutUs?.data?.title}
+                  </Link>
+                )}
+                {data?.ourCustomer?.isPublished && (
+                  <Link
+                    href="/en/our-customer"
+                    className="font-light text-paragraph leading-[24px] text-[14px]"
+                    aria-label="Go to the    Our Customer Page"
+                  >
+                    {data?.ourCustomer?.data?.title}
+                  </Link>
+                )}
+                {data?.eventPage?.isPublished && (
+                  <Link
+                    href="/en/news-and-events"
+                    className="font-light text-paragraph leading-[24px] text-[14px]"
+                    aria-label="Go to the  News and Events Page"
+                  >
+                    {data?.eventPage?.data?.title}
+                  </Link>
+                )}
+                {data?.careerPage?.isPublished && (
+                  <Link
+                    href="/en/career"
+                    className="font-light text-paragraph leading-[24px] text-[14px]"
+                    aria-label="Go to the    Career Page"
+                  >
+                    {data?.careerPage?.data?.title}
+                  </Link>
+                )}
+                <Link
+                  href="/en/gold"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
-                  aria-label="Go to the  About Us Page"
+                  aria-label="Go to the Home Page"
                 >
-                  {data?.aboutUs?.data?.title}
-                </Link>}
-                {data?.ourCustomer?.isPublished &&<Link
-                  href="/en/our-customer"
-                  className="font-light text-paragraph leading-[24px] text-[14px]"
-                  aria-label="Go to the    Our Customer Page"
-                >
-                  {data?.ourCustomer?.data?.title}
-                </Link>}
-                {data?.eventPage?.isPublished &&<Link
-                  href="/en/news-and-events"
-                  className="font-light text-paragraph leading-[24px] text-[14px]"
-                  aria-label="Go to the  News and Events Page"
-                >
-                  {data?.eventPage?.data?.title}
-                </Link>}
-                {data?.careerPage?.isPublished && <Link
-                  href="/en/career"
-                  className="font-light text-paragraph leading-[24px] text-[14px]"
-                  aria-label="Go to the    Career Page"
-                >
-                  {data?.careerPage?.data?.title}
-                </Link>}
+                  Win the Gold
+                </Link>
               </ul>
             </div>
             <div className=" md:w-auto  md:mb-0">
@@ -241,7 +256,7 @@ export default function Footer({data}) {
               {/* <a href="#" className="underline">
                 Privacy Policy
               </a> */}
-              
+
               {data?.privacyPolicy?.isPublished && (
                 <Link
                   href="/en/privacy-policy"
