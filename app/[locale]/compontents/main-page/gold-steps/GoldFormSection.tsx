@@ -25,7 +25,7 @@ const GoldFormSection: React.FC<GoldFormSectionProps> = ({ locale = "ar" }) => {
       emailPlaceholder: "Example@gmail.com",
       agreeToTerms: "أوافق على الشروط والأحكام العامة",
       subscribe: "اشتراك",
-      login: "تسجيل دخول",
+      login: "ارسال",
     },
     en: {
       title: "Welcome to Kettaneh's World",
@@ -144,7 +144,7 @@ const GoldFormSection: React.FC<GoldFormSectionProps> = ({ locale = "ar" }) => {
             </div>
 
             {/* Buttons */}
-            <div className="flex gap-4 pt-4 justify-between">
+            <div className="flex gap-4 pt-4 justify-end">
               <button
                 type="submit"
                 className="px-8 py-3 bg-[#CF4149] hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
@@ -152,12 +152,12 @@ const GoldFormSection: React.FC<GoldFormSectionProps> = ({ locale = "ar" }) => {
                 {data.login}
               </button>
 
-              <button
+              {/* <button
                 type="button"
                 className="px-8 py-3 bg-[#CF4149] hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
               >
                 {data.subscribe}
-              </button>
+              </button> */}
             </div>
           </form>
         </div>
