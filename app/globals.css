@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent horizontal scroll on all devices */
+html {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 @layer base {
   img {
     /* width: auto; */
@@ -74,6 +83,7 @@ body {
 
 body {
   font-family: "Avenir";
+  overflow-x: hidden;
 }
 p {
   font-family: "Avenir-light";

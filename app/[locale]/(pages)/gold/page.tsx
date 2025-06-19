@@ -62,7 +62,7 @@ export default async function GoldPage({
   const promotionalBannerConfig = getPromotionalBannerByLocale(params.locale);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen w-full overflow-x-hidden">
       {/* Promotional Banner Section */}
       {promotionalBannerConfig && promotionalBannerConfig.isVisible && (
         <PromotionalBanner {...promotionalBannerConfig} />
