@@ -23,11 +23,10 @@ const PromotionalBanner: React.FC<PromotionalBannerProps> = ({
   isVisible = true,
 }) => {
   if (!isVisible) return null;
-  console.log(backgroundImage, "backgroundImagebackgroundImage");
 
   return (
     <div
-      className={`relative w-full h-[400px] md:h-[500px] overflow-hidden ${className} group`}
+      className={`relative w-full h-[200px] sm:h-[300px] md:h-[400px] overflow-hidden ${className} group`}
     >
       {/* Background Image with Animation */}
       <div className="absolute inset-0 animate-fade-in">
