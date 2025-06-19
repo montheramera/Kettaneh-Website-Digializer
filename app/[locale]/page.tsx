@@ -11,28 +11,28 @@ import NewsSkeleton from "./compontents/ui/skeleton/NewsSkeleton";
 import TestimonialsSkeleton from "./compontents/ui/skeleton/TestimonialsSkeleton";
 import ScrollSliders from "./compontents/categories/ScrollSliders";
 
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
 type Props = {
-  params: { title: string, description: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
+  params: { title: string; description: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 export async function generateMetadata({ params }: Props) {
   try {
     const res = await fetch(`${API_URL}/api/main?populate[seo][populate]=*`, {
       cache: "no-store",
-    })
+    });
 
     if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`)
+      throw new Error(`HTTP error! status: ${res.status}`);
     }
 
-    const data = await res.json()
-    const seo = data.data?.attributes?.seo || {}
-    const title = seo.meta_title || 'Default Title'
-    const description = seo.meta_description || 'Default Description'
-    const favicon = '/images/logo.png'
-    const url = seo.link || 'https://example.com'
+    const data = await res.json();
+    const seo = data.data?.attributes?.seo || {};
+    const title = seo.meta_title || "Default Title";
+    const description = seo.meta_description || "Default Description";
+    const favicon = "/images/logo.png";
+    const url = seo.link || "https://example.com";
     // const siteName = seo.site_name || 'Your Site Name'
     // const locale = seo.locale || 'en_US'
     // const type = seo.type || 'website'
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props) {
       },
     };
   } catch (error) {
-    console.error('Error fetching metadata:', error)
+    console.error("Error fetching metadata:", error);
 
     // Return default metadata if there's an error
     return {
@@ -59,31 +59,28 @@ export async function generateMetadata({ params }: Props) {
   }
 }
 
-
 const fetchTestimonials = async () => {
-  try { 
-    const res = await fetch(`${API_URL}/api/testimonials?populate[Testimonial][populate]=*`, {
-      cache: "no-store",
-    });
+  try {
+    const res = await fetch(
+      `${API_URL}/api/testimonials?populate[Testimonial][populate]=*`,
+      {
+        cache: "no-store",
+      }
+    );
     const data = await res.json();
-    const Testimonials = data.data.map((el: any)=>el.attributes.Testimonial);
+    const Testimonials = data.data.map((el: any) => el.attributes.Testimonial);
     return Testimonials;
-
   } catch (error) {
-    return []
+    return [];
   }
-}
-
-
+};
 
 export default async function Home() {
-
-
   const Testimonials = await fetchTestimonials();
   const t = await getTranslations();
 
   const DynamicGlobalPartners = dynamic(
-    () => import('@/compontents/main-page/global-partners/GlobalPartners'),
+    () => import("@/compontents/main-page/global-partners/GlobalPartners"),
     {
       ssr: false,
       loading: () => (
@@ -94,7 +91,7 @@ export default async function Home() {
     }
   );
   const DynamicLegacySection = dynamic(
-    () => import('@/compontents/main-page/legacy-section/LegacySection'),
+    () => import("@/compontents/main-page/legacy-section/LegacySection"),
     {
       ssr: false,
       loading: () => (
@@ -105,7 +102,7 @@ export default async function Home() {
     }
   );
   const DynamicMainAchievements = dynamic(
-    () => import('@/compontents/main-page/achievements/Achievements'),
+    () => import("@/compontents/main-page/achievements/Achievements"),
     {
       ssr: false,
       loading: () => (
@@ -116,7 +113,7 @@ export default async function Home() {
     }
   );
   const DynamicMainCustomer = dynamic(
-    () => import('@/compontents/main-page/our-customer/OurCustomer'),
+    () => import("@/compontents/main-page/our-customer/OurCustomer"),
     {
       ssr: false,
       loading: () => (
@@ -127,7 +124,7 @@ export default async function Home() {
     }
   );
   const DynamicNewsSection = dynamic(
-    () => import('@/compontents/main-page/news/News'),
+    () => import("@/compontents/main-page/news/News"),
     {
       ssr: false,
       loading: () => (
@@ -138,7 +135,7 @@ export default async function Home() {
     }
   );
   const DynamicTestimonialsSection = dynamic(
-    () => import('@/compontents/main-page/feed-back/FeedBack'),
+    () => import("@/compontents/main-page/feed-back/FeedBack"),
     {
       ssr: false,
       loading: () => (
@@ -160,41 +157,41 @@ export default async function Home() {
       <div className="lg:mt-[250px]">
         {/* <GlobalPartners /> */}
         <Suspense fallback={"loading"}>
-              <DynamicGlobalPartners />
+          <DynamicGlobalPartners />
         </Suspense>
       </div>
       <div>
         {/* <LegacySection /> */}
         <Suspense fallback={"loading"}>
-              <DynamicLegacySection />
+          <DynamicLegacySection />
         </Suspense>
       </div>
       <div>
         {/* <Achievements /> */}
         <Suspense fallback={"loading"}>
-              <DynamicMainAchievements />
+          <DynamicMainAchievements />
         </Suspense>
       </div>
       <div className="overflow-hidden">
         {/* <OurCustomer /> */}
         <Suspense fallback={"loading"}>
-              <DynamicMainCustomer />
+          <DynamicMainCustomer />
         </Suspense>
       </div>
       <div>
         {/* <News /> */}
         <Suspense fallback={"loading"}>
-              <DynamicNewsSection />
+          <DynamicNewsSection />
         </Suspense>
       </div>
       <div>
         {/* <AdaptiveHeight testimonials={Testimonials} /> */}
         <Suspense fallback={"loading"}>
-              <DynamicTestimonialsSection testimonials={Testimonials} />
+          <DynamicTestimonialsSection testimonials={Testimonials} />
         </Suspense>
       </div>
       <div>
-        <ExperienceBanner  />
+        <ExperienceBanner />
       </div>
     </main>
   );
