@@ -86,6 +86,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
         {/* <meta name="description" content="description"></meta> */}
         <meta name="robots" content="index, follow" />
         <link
@@ -142,7 +146,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-avenir">
+      <body className="font-avenir w-full overflow-x-hidden">
         <PageWrapper>{children}</PageWrapper>
       </body>
     </html>
