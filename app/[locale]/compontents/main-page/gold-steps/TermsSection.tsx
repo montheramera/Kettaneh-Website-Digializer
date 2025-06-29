@@ -160,7 +160,7 @@ const TermsSection: React.FC<TermsSectionProps> = ({ locale = "ar" }) => {
   const content = {
     ar: {
       campaignDuration: "مدة الحملة:",
-      campaignDates: "تبدأ الحملة من 11/6/2025 الى 31/12/2025",
+      campaignDates: "تبدأ الحملة من 7/07/2025 الى 7/12/2025",
 
       participationMechanism: "آلية الاشتراك:",
       participationText1:
