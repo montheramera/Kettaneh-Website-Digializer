@@ -13,6 +13,7 @@ import ScrollSliders from "./compontents/categories/ScrollSliders";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
+
 type Props = {
   params: { title: string; description: string };
   searchParams: { [key: string]: string | string[] | undefined };
