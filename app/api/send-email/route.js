@@ -1,5 +1,92 @@
+import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
+
+// Create a transporter for sending emails
+const transporter = nodemailer.createTransport({
+  host: "mail.roofsnroots.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: EMAIL_USER,
+    pass: EMAIL_PASS,
+  },
+});
+// here is send email
+async function sendEmail(data) {
+  try {
+    const emailBody = `
+Hello,
+
+You have received a new lead added . Here are the details:
+
+-----------------------------------------------
+**Contact Information**
+- **Name:** ${data.firstname} ${data.lastname}
+- **Email:** ${data.email}
+- **Phone:** ${data.phone}
+- **Country Code:** ${data.hs_country_region_code}
+- **Country:** ${data.country}
+- **Category:** ${data.category}
+- **Industry:** ${data.industry}
+
+
+**Inquiry Details**
+- **Subject:** New lead added
+----------------------------------------------
+Informations Lead
+**Webste-url:** ${data.website}
+**Message:** ${data.message}
+
+-----------------------------------------------
+**Page Information**
+- **URL Page:** ${data.urlPage}
+-
+
+-----------------------------------------------
+Thank you,
+kettaneh Team
+`.trim();
+
+    await transporter.sendMail({
+      from: '"kettaneh" <noreply@digializer.com>',
+      // to: 'Mohamed@digializer.com',
+      // to: ['development@digializer.com', 'mohamedshalaby19595@gmail.com'],
+      to: ["ghosheh.k@kettaneh.com.jo","development@digializer.com"],
+      subject: "Lead Add property Submission - kettaneh",
+      html: `<pre>${emailBody}</pre>`, // Sends the content as preformatted text
+    });
+  } catch (emailError) {
+    console.error("Failed to send email:", emailError);
+    await sendErrorEmail(emailError.stack || emailError.toString(), data);
+    // throw emailError
+  }
+}
+// Function to send an error notification email
+async function sendErrorEmail(errorDetails, requestBody) {
+  try {
+    const emailContent = `
+      An error occurred:
+
+      Error Details:
+      ${JSON.stringify(errorDetails, null, 2)}
+
+      Request Body:
+      ${JSON.stringify(requestBody, null, 2)}
+    `;
+
+    await transporter.sendMail({
+      from: '"kettaneh" <noreply@digializer.com>',
+      to: "development@digializer.com",
+      subject: "Error in kettaneh Form Submission",
+      text: emailContent,
+    });
+  } catch (emailError) {
+    console.error("Failed to send error email:", emailError);
+  }
+}
 export async function POST(req) {
   try {
     const { data } = await req.json();
@@ -110,9 +197,11 @@ export async function POST(req) {
           },
         }
       );
-      
       throw new Error(`Failed to update the contact: ${updateErrorData.message}`);
     }
+    await sendEmail(data.properties);
+
+
 
     return NextResponse.json({ success: true });
   } catch (error) {

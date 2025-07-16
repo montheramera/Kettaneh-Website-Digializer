@@ -161,7 +161,7 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
         hs_lead_status: "NEW",
         category: selectedCategories.length ? selectedCategories.map((el)=>el.title).toString().replaceAll(',', ';') : crmCategory,
         urlPage: fullUrl ? fullUrl : "https://kettaneh-website-digializer.vercel.app/en",
-        // pagePath: `landing-page-form/`,
+        
       },
     }
     const result = await submitForm(Data);
