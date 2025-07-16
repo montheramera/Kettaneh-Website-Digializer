@@ -37,9 +37,13 @@ export const stepsData: LocalizedStepsData = {
         period: "الأسبوع 1",
         date: "7/07/2025",
         listItems: [
-          { rank: 1, title: "الاسم الأول", subtitle: "تفاصيل إضافية" },
-          { rank: 2, title: "الاسم الثاني", subtitle: "تفاصيل إضافية" },
-          { rank: 3, title: "الاسم الثالث", subtitle: "تفاصيل إضافية" },
+          { rank: 1, title: "أنور الراموني", subtitle: "" },
+          { rank: 2, title: "محمود فهد الحمارنه", subtitle: "" },
+          { rank: 3, title: "ريان علاء أحمد صلاح", subtitle: "" },
+          { rank: 4, title: "ناجح صادق السعاده", subtitle: "" },
+          { rank: 5, title: "عبدالرحمن محمود", subtitle: "" },
+          { rank: 6, title: "وديع عبد اللطيف سعد الغول", subtitle: "" },
+          { rank: 7, title: "لينا هشام الحجوج", subtitle: "" },
           // ... more items
         ],
       },
