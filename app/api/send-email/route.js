@@ -16,14 +16,6 @@ const transporter = nodemailer.createTransport({
 });
 // here is send email
 async function sendEmail(data) {
-  console.log(
-    "data",
-    data,
-    "data.urlPage",
-    data.urlPage,
-    "data.email",
-    data.email
-  );
   try {
     const emailBody = `
 Hello,
@@ -33,8 +25,8 @@ You have received a new lead added . Here are the details:
 -----------------------------------------------
 **Contact Information**
 - **Name:** ${data.firstname} ${data.lastname}
-- **Email:** ${data.email||""}
 - **Phone:** ${data.phone}
+- **Email:** ${data.email||""}
 - **Country Code:** ${data.hs_country_region_code}
 - **Country:** ${data.country}
 - **Category:** ${data.category}
@@ -62,7 +54,7 @@ kettaneh Team
       from: '"kettaneh" <noreply@digializer.com>',
       // to: 'Mohamed@digializer.com',
       // to: ['development@digializer.com', 'mohamedshalaby19595@gmail.com'],
-      to: ["ghosheh.k@kettaneh.com.jo","development@digializer.com"],
+      to: ["development@digializer.com"],
       subject: "Lead Add property Submission - kettaneh",
       html: `<pre>${emailBody}</pre>`, // Sends the content as preformatted text
     });
@@ -172,7 +164,7 @@ export async function POST(req) {
 
       await new Promise((resolve) => setTimeout(resolve, 2000)); // Optional delay between retries
     }
-
+  const res = await sendEmail(data.properties);
     if (data.properties) {
       delete data.properties.email;
       delete data.properties.hs_context;
@@ -207,7 +199,7 @@ export async function POST(req) {
       );
       throw new Error(`Failed to update the contact: ${updateErrorData.message}`);
     }
-    await sendEmail(data.properties);
+  
 
 
 

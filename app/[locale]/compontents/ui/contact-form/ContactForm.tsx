@@ -150,8 +150,8 @@ export default function ContactForm({ setIsOpen, setIsOpenConfirmation }: FormCo
       properties: {
         firstname: formData.first_name,
         lastname: formData.last_name,
-        email: formData.email,
         phone: formData.phone_number,
+        email: formData.email,
         mobilephone: formData.phone_number,
         country: country,
         hs_country_region_code: formData.country_code,
