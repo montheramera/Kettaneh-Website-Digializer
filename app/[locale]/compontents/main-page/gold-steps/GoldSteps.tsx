@@ -3,6 +3,7 @@ import TimelineSection from "./TimelineSection";
 import SectionHeader from "./SectionHeader";
 import { stepsData } from "./config/stepsData";
 import { Locale } from "./types";
+import GoldOffersSection from "./GoldOffersSection";
 
 interface GoldStepsProps {
   locale?: Locale;
@@ -26,23 +27,18 @@ const GoldSteps: React.FC<GoldStepsProps> = ({ locale = "ar" }) => {
     >
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
-        <SectionHeader
-          title={content.title}
-          subtitle={content.subtitle}
-          titleClassName="text-3xl md:text-4xl font-bold text-gray-800 text-center"
-          subtitleClassName="text-xl text-gray-600 text-center mt-4"
-          containerClassName="text-center mb-12"
-        />
+        <SectionHeader title={content.title} subtitle={content.subtitle} />
 
-        {/* Steps Section */}
+        {/* Gold Offers Section */}
+        <GoldOffersSection locale={locale} />
+
+        {/* gold steps steps */}
         <StepsSection
           stepsTitle={content.stepsTitle}
           steps={content.steps}
           isRTL={isRTL}
-          gridCols="2"
-          className="mt-12"
+          titleClassName="text-[#418BBE] mb-2"
         />
-
         {/* Timeline Section */}
         <TimelineSection
           timelineTitle={content.timelineTitle}

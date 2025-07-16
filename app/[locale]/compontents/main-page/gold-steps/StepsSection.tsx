@@ -8,6 +8,7 @@ interface StepsSectionProps {
   isRTL?: boolean;
   gridCols?: GridColumns;
   className?: string;
+  titleClassName?: string;
 }
 
 const StepsSection: React.FC<StepsSectionProps> = ({
@@ -16,11 +17,15 @@ const StepsSection: React.FC<StepsSectionProps> = ({
   isRTL = false,
   gridCols = "2",
   className = "mb-16",
+  titleClassName = "",
 }) => {
   return (
     <div className={className}>
-      <SectionHeader title={stepsTitle} />
-      <StepsGrid steps={steps} gridCols={gridCols} />
+      <SectionHeader title={stepsTitle} titleClassName={titleClassName} />
+      <StepsGrid
+        steps={steps}
+        gridCols={gridCols}
+      />
     </div>
   );
 };
