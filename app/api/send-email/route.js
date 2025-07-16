@@ -54,7 +54,7 @@ kettaneh Team
       from: '"kettaneh" <noreply@digializer.com>',
       // to: 'Mohamed@digializer.com',
       // to: ['development@digializer.com', 'mohamedshalaby19595@gmail.com'],
-      to: ["development@digializer.com"],
+      to: ["development@digializer.com", "ghosheh.k@kettaneh.com.jo"],
       subject: "Lead Add property Submission - kettaneh",
       html: `<pre>${emailBody}</pre>`, // Sends the content as preformatted text
     });
