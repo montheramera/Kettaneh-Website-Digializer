@@ -16,6 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 // here is send email
 async function sendEmail(data) {
+  console.log("data",data)
   try {
     const emailBody = `
 Hello,
@@ -25,7 +26,7 @@ You have received a new lead added . Here are the details:
 -----------------------------------------------
 **Contact Information**
 - **Name:** ${data.firstname} ${data.lastname}
-- **Email:** ${data.email}
+- **Email:** ${data.email||""}
 - **Phone:** ${data.phone}
 - **Country Code:** ${data.hs_country_region_code}
 - **Country:** ${data.country}
