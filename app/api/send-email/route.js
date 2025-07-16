@@ -6,7 +6,7 @@ const EMAIL_PASS = process.env.EMAIL_PASS;
 
 // Create a transporter for sending emails
 const transporter = nodemailer.createTransport({
-  host: "mail.roofsnroots.com",
+  host: "mail.digializer.com",
   port: 465,
   secure: true,
   auth: {
