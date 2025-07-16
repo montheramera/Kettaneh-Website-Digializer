@@ -16,7 +16,14 @@ const transporter = nodemailer.createTransport({
 });
 // here is send email
 async function sendEmail(data) {
-  console.log("data",data)
+  console.log(
+    "data",
+    data,
+    "data.urlPage",
+    data.urlPage,
+    "data.email",
+    data.email
+  );
   try {
     const emailBody = `
 Hello,
