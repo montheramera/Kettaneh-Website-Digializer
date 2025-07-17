@@ -29,12 +29,12 @@ const GoldOffersSection: React.FC<GoldOffersSectionProps> = ({
         >
           للطلب:{" "}
           <span dir="ltr" className="inline-block">
-            078 0888 506
+            +962 7 8088 8506
           </span>
         </div>
         <div className="flex gap-4 mt-2 flex-wrap w-full justify-center">
           <a
-            href="tel:0780888506"
+            href="tel:+962780888506"
             className="flex items-center gap-2 px-4 py-2 rounded font-bold w-full sm:w-[280px] h-[64px] sm:h-[82px] text-[24px] sm:text-[32px] md:text-[44px] bg-[#005DD0] text-white transition-all justify-center sm:justify-start text-center sm:text-start"
           >
             <img
@@ -58,7 +58,9 @@ const GoldOffersSection: React.FC<GoldOffersSectionProps> = ({
             <span className="truncate">واتس اب</span>
           </a>
           <a
-            href="#"
+            href="https://arabiemart.com/o/kettaneh"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 rounded font-bold w-full sm:w-[280px] h-[64px] sm:h-[82px] text-[24px] sm:text-[32px] md:text-[44px] bg-[#264B99] text-white transition-all justify-center sm:justify-start text-center sm:text-start"
           >
             <img src="/images/gold-offers/arabimart.svg" alt="عربي مارت" />
