@@ -20,7 +20,7 @@ const GoldSteps: React.FC<GoldStepsProps> = ({ locale = "ar" }) => {
       dir={isRTL ? "rtl" : "ltr"}
       style={{
         backgroundImage: "url('/images/gold/goldSteps-bg.png')",
-        backgroundSize: "fill",
+        backgroundSize: "contain",
         backgroundPosition: "top",
         backgroundRepeat: "no-repeat",
       }}
