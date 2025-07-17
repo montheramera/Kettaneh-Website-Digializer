@@ -21,7 +21,7 @@ const StepsGrid: React.FC<StepsGridProps> = ({
 
   return (
     <div
-      className={`grid ${gridClasses[gridCols]} gap-3 md:gap-4 max-w-[38rem] mx-auto ${className}`}
+      className={`grid ${gridClasses[gridCols]} gap-x-[15%] gap-y-6 md:gap-y-8 max-w-[38rem] mx-auto ${className}`}
     >
       {steps.map((step, index) => (
         <StepCard
