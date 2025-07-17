@@ -43,7 +43,7 @@ const StepCard: React.FC<StepCardProps> = ({
       </div>
 
       {/* Title */}
-      <h4 className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-medium text-gray-800 text-center leading-tight flex-grow flex items-center px-1 relative z-10 transition-colors duration-300 group-hover:text-gray-900">
+      <h4 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-medium text-gray-800 text-center leading-tight flex-grow flex items-center px-1 relative z-10 transition-colors duration-300 group-hover:text-gray-900">
         {title}
       </h4>
 
