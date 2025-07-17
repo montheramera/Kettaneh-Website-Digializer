@@ -35,18 +35,22 @@ export const stepsData: LocalizedStepsData = {
     timeline: [
       {
         period: "الأسبوع 1",
-        date: "11/06/2025",
+        date: "7/07/2025",
         listItems: [
-          { rank: 1, title: "الاسم الأول", subtitle: "تفاصيل إضافية" },
-          { rank: 2, title: "الاسم الثاني", subtitle: "تفاصيل إضافية" },
-          { rank: 3, title: "الاسم الثالث", subtitle: "تفاصيل إضافية" },
+          { rank: 1, title: "أنور الراموني", subtitle: "" },
+          { rank: 2, title: "محمود فهد الحمارنه", subtitle: "" },
+          { rank: 3, title: "ريان علاء أحمد صلاح", subtitle: "" },
+          { rank: 4, title: "ناجح صادق السعاده", subtitle: "" },
+          { rank: 5, title: "عبدالرحمن محمود", subtitle: "" },
+          { rank: 6, title: "وديع عبد اللطيف سعد الغول", subtitle: "" },
+          { rank: 7, title: "لينا هشام الحجوج", subtitle: "" },
           // ... more items
         ],
       },
-      { period: "الأسبوع 2", date: "11/07/2025" },
+      { period: "الأسبوع 2", date: "7/08/2025" },
       {
         period: "الأسبوع 3",
-        date: "11/08/2025",
+        date: "7/09/2025",
         listItems: [
           { rank: 1, title: "الاسم الأول", subtitle: "تفاصيل إضافية" },
           { rank: 2, title: "الاسم الثاني", subtitle: "تفاصيل إضافية" },
@@ -54,10 +58,9 @@ export const stepsData: LocalizedStepsData = {
           // ... more items
         ],
       },
-      { period: "الأسبوع 4", date: "11/09/2025" },
-      { period: "الأسبوع 5", date: "11/10/2025" },
-      { period: "الأسبوع 6", date: "11/11/2025" },
-      { period: "الأسبوع 7", date: "31/12/2025" },
+      { period: "الأسبوع 4", date: "7/10/2025" },
+      { period: "الأسبوع 5", date: "7/11/2025" },
+      { period: "الأسبوع 6", date: "7/12/2025" },
     ],
   },
   en: {
@@ -92,13 +95,12 @@ export const stepsData: LocalizedStepsData = {
     ],
     timelineTitle: "Prize Calendar",
     timeline: [
-      { period: "Week 1", date: "06/11/2025" },
-      { period: "Week 2", date: "07/11/2025" },
-      { period: "Week 3", date: "08/11/2025" },
-      { period: "Week 4", date: "09/11/2025" },
-      { period: "Week 5", date: "10/11/2025" },
-      { period: "Week 6", date: "11/11/2025" },
-      { period: "Week 7", date: "12/31/2025" },
+      { period: "Week 1", date: "07/07/2025" },
+      { period: "Week 2", date: "07/08/2025" },
+      { period: "Week 3", date: "07/09/2025" },
+      { period: "Week 4", date: "07/10/2025" },
+      { period: "Week 5", date: "07/11/2025" },
+      { period: "Week 6", date: "07/12/2025" },
     ],
   },
 };
