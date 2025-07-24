@@ -34,7 +34,7 @@ export const stepsData: LocalizedStepsData = {
     timelineTitle: "فائزون كتانه",
     timeline: [
       {
-        period: "الأسبوع 1",
+        period: "السحب 1",
         date: "7/07/2025",
         listItems: [
           { rank: 1, title: "أنور الراموني", subtitle: "" },
@@ -47,9 +47,9 @@ export const stepsData: LocalizedStepsData = {
           // ... more items
         ],
       },
-      { period: "الأسبوع 2", date: "7/08/2025" },
+      { period: "السحب 2", date: "7/08/2025" },
       {
-        period: "الأسبوع 3",
+        period: "السحب 3",
         date: "7/09/2025",
         listItems: [
           { rank: 1, title: "الاسم الأول", subtitle: "تفاصيل إضافية" },
@@ -58,9 +58,10 @@ export const stepsData: LocalizedStepsData = {
           // ... more items
         ],
       },
-      { period: "الأسبوع 4", date: "7/10/2025" },
-      { period: "الأسبوع 5", date: "7/11/2025" },
-      { period: "الأسبوع 6", date: "7/12/2025" },
+      { period: "السحب 4", date: "7/10/2025" },
+      { period: "السحب 5", date: "7/11/2025" },
+      { period: "السحب 6", date: "7/12/2025" },
+      { period: "السحب 7", date: "7/01/2025" },
     ],
   },
   en: {

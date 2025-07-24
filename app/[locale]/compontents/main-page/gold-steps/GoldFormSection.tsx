@@ -18,7 +18,7 @@ const GoldFormSection: React.FC<GoldFormSectionProps> = ({ locale = "ar" }) => {
 
   const content = {
     ar: {
-      title: "اهلا بك في عالم كتانة",
+      title: "انضم لعالم كتانه لمعرفة جديدنا",
       firstName: "الاسم الأول",
       lastName: "اسم العائلة",
       email: "البريد الالكتروني",
