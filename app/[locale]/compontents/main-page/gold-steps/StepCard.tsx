@@ -27,23 +27,23 @@ const StepCard: React.FC<StepCardProps> = ({
       }}
     >
       {/* Step Number Badge */}
-      <div className="absolute top-[0.5rem] right-[4.75rem] w-5 h-5 bg-[#CF4149] text-white rounded-full flex items-center justify-center text-xs font-bold shadow-sm z-10 animate-pulse-badge">
+      <div className="absolute top-1 right-1 w-8 h-8 bg-[#CF4149] text-white rounded-full flex items-center justify-center text-xs font-bold shadow-sm z-10 animate-pulse-badge">
         {stepNumber}
       </div>
 
       {/* Icon */}
-      <div className="flex-shrink-0 mb-2 mt-1 w-14 h-14 flex items-center justify-center animate-float-icon group-hover:animate-none relative z-10">
+      <div className="flex-shrink-0 w-[70px] mb-2 mt-1 flex items-center justify-center animate-float-icon group-hover:animate-none relative z-10">
         <Image
           src={`/images/gold/${icon}.svg`}
           alt={title}
-          width={40}
-          height={40}
-          className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-110"
+          width={120}
+          height={120}
+          className="object-contain h-[100px] transition-transform duration-300 group-hover:scale-110"
         />
       </div>
 
       {/* Title */}
-      <h4 className="text-xs md:text-sm font-medium text-gray-800 text-center leading-tight flex-grow flex items-center px-1 relative z-10 transition-colors duration-300 group-hover:text-gray-900">
+      <h4 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-medium text-gray-800 text-center leading-tight flex-grow flex items-center px-1 relative z-10 transition-colors duration-300 group-hover:text-gray-900">
         {title}
       </h4>
 
