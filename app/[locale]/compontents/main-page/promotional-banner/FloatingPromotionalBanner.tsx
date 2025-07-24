@@ -9,14 +9,8 @@ const DynamicPromotionalBanner = dynamic(() => import("./PromotionalBanner"), {
 export default function FloatingPromotionalBanner() {
   const [visible, setVisible] = useState(true);
 
-  useEffect(() => {
-    const closed = localStorage.getItem("promoBannerClosed");
-    if (closed === "true") setVisible(false);
-  }, []);
-
   const handleClose = () => {
     setVisible(false);
-    localStorage.setItem("promoBannerClosed", "true");
   };
 
   if (!visible) return null;
