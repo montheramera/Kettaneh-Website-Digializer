@@ -49,10 +49,24 @@ const GoldFormSection: React.FC<GoldFormSectionProps> = ({ locale = "ar" }) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Generate mailto link dynamically based on form data
+  const generateMailto = () => {
+    const subject = encodeURIComponent("Gold Form Submission");
+    const body = encodeURIComponent(
+      `First Name: ${formData.firstName}\nLast Name: ${
+        formData.lastName
+      }\nEmail: ${formData.email}\nAgreed to Terms: ${
+        formData.agreeToTerms ? "Yes" : "No"
+      }`
+    );
+    return `mailto:Ghosheh.K@kettaneh.com.jo?subject=${subject}&body=${body}`;
+  };
+
+  // Function to handle form submission
+  const handleMailtoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
+    const mailtoUrl = generateMailto();
+    window.location.href = mailtoUrl;
   };
 
   return (
@@ -81,7 +95,7 @@ const GoldFormSection: React.FC<GoldFormSectionProps> = ({ locale = "ar" }) => {
           </h2>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleMailtoSubmit} className="space-y-6">
             {/* Name Fields Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* First Name */}
