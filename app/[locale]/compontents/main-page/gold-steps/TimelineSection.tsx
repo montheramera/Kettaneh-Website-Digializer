@@ -84,6 +84,15 @@ const TimelineItemHeader: React.FC<TimelineItemHeaderProps> = ({
     onClick={onClick}
     className="w-full flex items-center px-6 py-4 hover:bg-gray-300 transition-all duration-300 focus:outline-none group transform hover:scale-[1.01]"
   >
+    {/* Right - Period Text */}
+    <span className="font-medium text-gray-800 text-base w-24 text-right transition-all duration-300 group-hover:text-red-600 group-hover:scale-105">
+      {period}
+    </span>
+    {/* Center - Date */}
+    <span className="text-gray-800 font-medium text-base flex-1 text-center transition-all duration-300 group-hover:text-red-600 group-hover:scale-105">
+      {date}
+    </span>
+
     {/* Left side - Dropdown Arrow */}
     <div className="flex items-center w-8">
       <svg
@@ -100,16 +109,6 @@ const TimelineItemHeader: React.FC<TimelineItemHeaderProps> = ({
         />
       </svg>
     </div>
-
-    {/* Center - Date */}
-    <span className="text-gray-800 font-medium text-base flex-1 text-center transition-all duration-300 group-hover:text-red-600 group-hover:scale-105">
-      {date}
-    </span>
-
-    {/* Right - Period Text */}
-    <span className="font-medium text-gray-800 text-base w-24 text-right transition-all duration-300 group-hover:text-red-600 group-hover:scale-105">
-      {period}
-    </span>
   </button>
 );
 
@@ -202,8 +201,10 @@ const TimelineContainer: React.FC<{ children: React.ReactNode }> = ({
 );
 
 // Custom hook for timeline state management
-const useTimelineState = () => {
-  const [openItems, setOpenItems] = useState<Set<number>>(new Set());
+const useTimelineState = (initialOpenIndexes: number[] = [0]) => {
+  const [openItems, setOpenItems] = useState<Set<number>>(
+    new Set(initialOpenIndexes)
+  );
 
   const toggleItem = (index: number) => {
     const newOpenItems = new Set(openItems);
@@ -223,7 +224,9 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({
   timeline,
   isRTL = false,
 }) => {
-  const { openItems, toggleItem } = useTimelineState();
+  const { openItems, toggleItem } = useTimelineState(
+    timeline.length > 0 ? [0] : []
+  );
 
   return (
     <div
