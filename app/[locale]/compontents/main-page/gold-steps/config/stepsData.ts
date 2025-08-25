@@ -62,6 +62,19 @@ export const stepsData: LocalizedStepsData = {
       { period: "السحب 5", date: "7/11/2025" },
       { period: "السحب 6", date: "7/12/2025" },
       { period: "السحب 7", date: "7/01/2025" },
+      {
+        period: "السحب 8",
+        date: "8/07/2025",
+        listItems: [
+          { rank: 1, title: "Hadi Hermas", subtitle: "" },
+          { rank: 2, title: "محمد عزات الصالحي", subtitle: "" },
+          { rank: 3, title: "موسى زياد موسى الزرعي", subtitle: "" },
+           { rank: 4, title: "المنتصر بالله عبدالله إبراهيم الشوابكة", subtitle: "" },
+          { rank: 5, title: " Salahaldin Ajaj", subtitle: "" },
+          { rank: 6, title: "عطالله محمود اللحام", subtitle: "" },
+         { rank: 7, title: "أحمد سعيد", subtitle: "" }
+        ],
+      },
     ],
   },
   en: {
