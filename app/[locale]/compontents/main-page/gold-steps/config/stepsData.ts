@@ -47,34 +47,31 @@ export const stepsData: LocalizedStepsData = {
           // ... more items
         ],
       },
-      { period: "السحب 2", date: "7/08/2025" },
+      {
+        period: "السحب 2",
+        date: "7/08/2025",
+        listItems: [
+          { rank: 1, title: "Hadi Hermas", subtitle: "" },
+          { rank: 2, title: "محمد عزات الصالحي", subtitle: "" },
+          { rank: 3, title: "موسى زياد موسى الزرعي", subtitle: "" },
+          {
+            rank: 4,
+            title: "المنتصر بالله عبدالله إبراهيم الشوابكة",
+            subtitle: "",
+          },
+          { rank: 5, title: " Salahaldin Ajaj", subtitle: "" },
+          { rank: 6, title: "عطالله محمود اللحام", subtitle: "" },
+          { rank: 7, title: "أحمد سعيد", subtitle: "" },
+        ],
+      },
       {
         period: "السحب 3",
         date: "7/09/2025",
-        listItems: [
-          { rank: 1, title: "الاسم الأول", subtitle: "تفاصيل إضافية" },
-          { rank: 2, title: "الاسم الثاني", subtitle: "تفاصيل إضافية" },
-          { rank: 3, title: "الاسم الثالث", subtitle: "تفاصيل إضافية" },
-          // ... more items
-        ],
       },
       { period: "السحب 4", date: "7/10/2025" },
       { period: "السحب 5", date: "7/11/2025" },
       { period: "السحب 6", date: "7/12/2025" },
       { period: "السحب 7", date: "7/01/2025" },
-      {
-        period: "السحب 8",
-        date: "8/07/2025",
-        listItems: [
-          { rank: 1, title: "Hadi Hermas", subtitle: "" },
-          { rank: 2, title: "محمد عزات الصالحي", subtitle: "" },
-          { rank: 3, title: "موسى زياد موسى الزرعي", subtitle: "" },
-           { rank: 4, title: "المنتصر بالله عبدالله إبراهيم الشوابكة", subtitle: "" },
-          { rank: 5, title: " Salahaldin Ajaj", subtitle: "" },
-          { rank: 6, title: "عطالله محمود اللحام", subtitle: "" },
-         { rank: 7, title: "أحمد سعيد", subtitle: "" }
-        ],
-      },
     ],
   },
   en: {
