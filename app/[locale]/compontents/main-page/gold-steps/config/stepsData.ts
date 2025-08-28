@@ -3,7 +3,7 @@ import { LocalizedStepsData } from "../types";
 export const stepsData: LocalizedStepsData = {
   ar: {
     title: "اشتري مكيف مايديا الجداري",
-    subtitle: "وادخل السحب لفرصة ربح الجوائز",
+    subtitle: "وادخل السحب لفرصة ربح الذهب",
     stepsTitle: "خطوات دخول السحب",
     steps: [
       {
