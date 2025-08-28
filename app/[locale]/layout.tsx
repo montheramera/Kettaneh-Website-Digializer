@@ -11,8 +11,7 @@ interface RootLayoutProps {
   };
 }
 
-////////////////////////////
-
+///////////////////////////
 function saveOrUpdateUTMParameters() {
   if (typeof window !== "undefined") {
     const queryParams = new URLSearchParams(window.location.search);
