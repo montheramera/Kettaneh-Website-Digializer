@@ -115,7 +115,7 @@ const Header = ({data}) => {
                         href="/en/categories/electrical"
                       >
                         {" "}
-                        Electrical
+                        Electrical & Automation
                       </Link>
                     </span>
                     {/* <span className="mr-auto">
