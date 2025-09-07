@@ -99,9 +99,9 @@ export default function Footer({ data }) {
                 <Link
                   href="/en/categories/electrical"
                   className="font-light text-paragraph leading-[24px] text-[14px]"
-                  aria-label="Go to the    Electrical Page"
+                  aria-label="Go to the Electrical & Automation Solutions Page"
                 >
-                  Electrical
+                  Electrical & Automation Solutions
                 </Link>
                 <Link
                   href="/en/categories/hvac"

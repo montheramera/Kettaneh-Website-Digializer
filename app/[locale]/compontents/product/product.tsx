@@ -14,7 +14,7 @@ export default function Product({products, partner, category }: any){
               style={{ background: category.category.background_color }}
               className="text-white py-2 px-4 text-lg font-medium leading-6 uppercase"
             >
-              {category.title}
+                {category.title === "Electrical" ? "Electrical & Automation Solutions" : category.title}
             </span>
           </div>
 
