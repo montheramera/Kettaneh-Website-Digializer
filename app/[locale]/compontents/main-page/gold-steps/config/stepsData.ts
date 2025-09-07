@@ -67,6 +67,15 @@ export const stepsData: LocalizedStepsData = {
       {
         period: "السحب 3",
         date: "7/09/2025",
+        listItems: [
+          { rank: 1, title: "حسن تامر", subtitle: "0796115034" },
+          { rank: 2, title: "انس إبراهيم جابر", subtitle: "0797086330" },
+          { rank: 3, title: "حسن حسونه نمر", subtitle: "0785828495" },
+          { rank: 4, title: "محمد اكرم", subtitle: "0796905715" },
+          { rank: 5, title: "نايف عبدالكريم الدباس", subtitle: "0796636765" },
+          { rank: 6, title: "جاد محمد العقاد", subtitle: "0791809007" },
+          { rank: 7, title: "محمد العقاد", subtitle: "0791809007" },
+        ],
       },
       { period: "السحب 4", date: "7/10/2025" },
       { period: "السحب 5", date: "7/11/2025" },
