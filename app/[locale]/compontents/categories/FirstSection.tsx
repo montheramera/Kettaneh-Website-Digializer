@@ -50,7 +50,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
             <div className="absolute inset-0 bg-paragraph bg-opacity-70   "></div>
             <div className="max-w-[1440px] text-white w-full m-auto z-[50]">
               <h2 className=" text-[36px] font-[800] leading-[40px]  mt-[30px] mb-[32px]">
-                {categoryname === "Electrical" ? "Electrical & Automation" : categoryname}
+                {categoryname === "Electrical" ? "Electrical & Automation Solutions" : categoryname}
               </h2>
               <div className="flex">
                 <div
