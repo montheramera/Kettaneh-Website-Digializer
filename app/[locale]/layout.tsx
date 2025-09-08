@@ -11,6 +11,7 @@ interface RootLayoutProps {
   };
 }
 
+
 ///////////////////////////
 function saveOrUpdateUTMParameters() {
   if (typeof window !== "undefined") {
