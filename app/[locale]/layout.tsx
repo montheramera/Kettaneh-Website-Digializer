@@ -10,7 +10,6 @@ interface RootLayoutProps {
     locale: string;
   };
 }
-
 ///////////////////////////
 function saveOrUpdateUTMParameters() {
   if (typeof window !== "undefined") {
