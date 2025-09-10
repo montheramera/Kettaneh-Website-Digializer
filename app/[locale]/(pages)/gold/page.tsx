@@ -69,6 +69,7 @@ export default async function GoldPage({
       )}
 
       {/* Gold Steps Section */}
+      {/* here */}
       <GoldSteps locale={params.locale as Locale} />
 
       {/* Terms and Conditions Section */}
