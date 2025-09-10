@@ -3,6 +3,8 @@
 import "../globals.css";
 import PageWrapper from "@/compontents/ui/layout/PageWrapper";
 import Script from "next/script";
+import FloatingPromotionalBanner from "./compontents/main-page/promotional-banner/FloatingPromotionalBanner";
+import { usePathname } from "next/navigation"; 
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -74,6 +76,8 @@ export default function RootLayout({
   children,
   params: { locale },
 }: RootLayoutProps) {
+    const pathname = usePathname(); 
+
   return (
     <html lang="en">
       <head>
@@ -139,6 +143,7 @@ export default function RootLayout({
       </head>
       <body className="font-avenir w-full overflow-x-hidden">
         <PageWrapper>{children}</PageWrapper>
+        {pathname !== "/en/gold" && <FloatingPromotionalBanner />}
       </body>
     </html>
   );
