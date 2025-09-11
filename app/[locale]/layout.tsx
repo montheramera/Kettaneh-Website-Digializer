@@ -12,6 +12,7 @@ interface RootLayoutProps {
     locale: string;
   };
 }
+ 
 
 ///////////////////////////
 function saveOrUpdateUTMParameters() {
