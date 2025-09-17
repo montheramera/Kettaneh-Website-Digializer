@@ -20,11 +20,6 @@
     "react-intl-tel-input": "^8.2.0",
     "react-slick": "^0.30.2"
   },
-  "overrides": {
-    "react-intl-tel-input": {
-      "react": "$react"
-    }
-  },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
