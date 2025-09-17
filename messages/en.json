@@ -2,6 +2,13 @@
 
   "home": {
     "test":"test"
+  },
+  "blogs": {
+    "title": "Blogs",
+    "description": "Discover insights, tips, and industry news from our expert team.",
+    "readMore": "Read More",
+    "noBlogs": "No blogs available at the moment.",
+    "publishedOn": "Published on"
   }
 
  

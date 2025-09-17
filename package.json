@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@strapi/blocks-react-renderer": "^1.0.1",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "next": "14.2.5",
     "next-intl": "^3.17.2",
     "nodemailer": "^7.0.5",

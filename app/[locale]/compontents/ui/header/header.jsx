@@ -283,6 +283,15 @@ const Header = ({data}) => {
                 {data?.eventPage?.data?.title}
               </Link>}
             </li>
+            <li className="text-white hover:text-prbg-primary">
+              <Link
+                className="text-[16px] uppercase  leading-[28px] font-[500]"
+                href="/en/blogs"
+              >
+                {" "}
+                Blogs
+              </Link>
+            </li>
             {/* <li>
             <a href="#" className="text-white hover:text-prbg-primary">
               Carrer
@@ -456,6 +465,19 @@ const Header = ({data}) => {
               {" "}
               {data?.eventPage?.data?.title}
             </Link>}
+          </li>
+
+          <li
+            className="text-white hover:text-prbg-primary"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Link
+              className="text-[16px] uppercase  leading-[28px] font-[500]"
+              href="/en/blogs"
+            >
+              {" "}
+              Blogs
+            </Link>
           </li>
 
           <li
