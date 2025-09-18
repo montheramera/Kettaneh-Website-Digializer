@@ -4,6 +4,7 @@ import React, { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BlocksRendererComponent from "@/compontents/ui/blocs-renderer/BlockRenderer";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
@@ -236,50 +237,12 @@ const page = async ({ params }: Props) => {
                 <div 
                   className="text-gray-800 leading-relaxed prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-700 prose-p:mb-4 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700"
                 >
-                  {typeof blog.Content === 'string' ? (
-                    <div dangerouslySetInnerHTML={{ __html: blog.Content }} />
-                  ) : blog.Content ? (
-                    <div>
-                      {Array.isArray(blog.Content) ? (
-                        blog.Content.map((block: any, index: number) => {
-                          if (typeof block === 'string') {
-                            return <p key={index} className="mb-4">{block}</p>;
-                          } else if (block && typeof block === 'object') {
-                            // Handle rich text blocks
-                            if (block.type === 'paragraph' && block.children) {
-                              return (
-                                <p key={index} className="mb-4">
-                                  {block.children.map((child: any, childIndex: number) => {
-                                    if (child.type === 'text') {
-                                      return <span key={childIndex}>{child.text}</span>;
-                                    } else if (child.type === 'bold') {
-                                      return <strong key={childIndex}>{child.children?.[0]?.text || ''}</strong>;
-                                    } else if (child.type === 'italic') {
-                                      return <em key={childIndex}>{child.children?.[0]?.text || ''}</em>;
-                                    }
-                                    return null;
-                                  })}
-                                </p>
-                              );
-                            } else if (block.type === 'heading' && block.children) {
-                              const HeadingTag = `h${block.level || 2}` as keyof JSX.IntrinsicElements;
-                              return (
-                                <HeadingTag key={index} className="font-bold text-gray-900 mb-4">
-                                  {block.children.map((child: any, childIndex: number) => {
-                                    if (child.type === 'text') {
-                                      return <span key={childIndex}>{child.text}</span>;
-                                    }
-                                    return null;
-                                  })}
-                                </HeadingTag>
-                              );
-                            }
-                          }
-                          return null;
-                        })
-                      ) : (
-                        <p className="mb-4">{String(blog.Content)}</p>
-                      )}
+                  {blog.Content ? (
+                    <div className="prose max-w-none">
+                      <BlocksRendererComponent 
+                        content={blog.Content} 
+                        classes="mb-4 text-gray-700 leading-relaxed"
+                      />
                     </div>
                   ) : (
                     <p className="text-gray-500 italic">No content available for this blog post.</p>
@@ -293,11 +256,90 @@ const page = async ({ params }: Props) => {
                 <p className="text-gray-600 mb-6">Professional-grade air conditioning units with expert installation available</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Midea Breezeless 2 Ton */}
+                  {/* Midea Xtreme 2 Ton */}
                   <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
                     <div className="h-32 relative rounded mb-3 overflow-hidden">
                       <Image
                         src="/images/ac1.jpg"
+                        alt="Midea Xtreme Split Air Conditioner 2 Ton"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Midea Xtreme Split Air Conditioner, 2 Ton, Energy Saving, Smart WiFi Control, White</h3>
+                    <div className="flex items-center mb-2">
+                      <div className="flex text-yellow-400">
+                        ★★★★★
+                      </div>
+                    </div>
+                    <ul className="text-xs text-paragraph mb-3">
+                      <li>• HEPA Filter & Silver Ionizer Filter</li>
+                      <li>• Built-in Ionizer</li>
+                      <li>• 1W Standby Mode for energy saving</li>
+                      <li>• Smart WiFi Control via smartphone</li>
+                      <li>• Self-Cleaning (I-Clean)</li>
+                      <li>• Eco+ Gear Function</li>
+                      <li>• 3D Airflow & "Follow Me" Function</li>
+                      <li>• Turbo & Wind Avoid Me Modes</li>
+                      <li>• Golden Fin Coating for durability</li>
+                    </ul>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg font-bold text-primary">600 JOD</span>
+                      <a 
+                        href="https://arabiemart.com/items/en/midea-xtreme-split-air-conditioner-2-ton-energy-saving-smart-wifi-control-white-10329457" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                      >
+                        Buy now
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Midea All Easy Pro 2 Ton */}
+                  <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="h-32 relative rounded mb-3 overflow-hidden">
+                      <Image
+                        src="/images/ac2.jpg"
+                        alt="Midea All Easy Pro Split Air Conditioner 2 Ton"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Midea All Easy Pro Split Air Conditioner, 2 Ton, Energy Saving, Smart WiFi Control, White</h3>
+                    <div className="flex items-center mb-2">
+                      <div className="flex text-yellow-400">
+                        ★★★★★
+                      </div>
+                    </div>
+                    <ul className="text-xs text-paragraph mb-3">
+                      <li>• Easy to install; Easy to maintain; Easy to clean</li>
+                      <li>• Intelligent Eye</li>
+                      <li>• Thermal and Humid detection</li>
+                      <li>• 3D air flow; Follow me; Turbo; Wind Avoid me</li>
+                      <li>• Self cleaning (I-Clean)</li>
+                      <li>• Ionizer</li>
+                      <li>• Smart WiFi Control</li>
+                      <li>• Eco+ Gear function</li>
+                    </ul>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg font-bold text-primary">650 JOD</span>
+                      <a 
+                        href="https://arabiemart.com/items/en/midea-all-easy-pro-split-air-conditioner-2-ton-energy-saving-smart-wifi-control-white-10099991" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                      >
+                        Buy now
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Midea Breezeless 2 Ton */}
+                  <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="h-32 relative rounded mb-3 overflow-hidden">
+                      <Image
+                        src="/images/ac3.jpg"
                         alt="Midea Breezeless Split Air Conditioner 2 Ton"
                         fill
                         className="object-cover"
@@ -311,15 +353,17 @@ const page = async ({ params }: Props) => {
                     </div>
                     <ul className="text-xs text-paragraph mb-3">
                       <li>• Energy Saving Report via MSmart Home App</li>
-                      <li>• Intelligent Learning Algorithm (up to 20% more efficient)</li>
+                      <li>• Intelligent Learning Algorithm (up to 20% more efficient for Eco Comfort)</li>
                       <li>• Breezeless Technology with Twinflap™ and 5013 mini-holes</li>
                       <li>• Cool Flash Plus: lowers room temp by 6.3°C in 10 min</li>
+                      <li>• Heat Flash: raises temp by 10.4°C in 10 min</li>
                       <li>• Air Magic+: negative ions inhibit bacteria & viruses</li>
+                      <li>• Over-The-Air software updates</li>
                     </ul>
                     <div className="flex justify-between items-center">
                       <span className="text-lg font-bold text-primary">690 JOD</span>
                       <a 
-                        href="https://arabiemart.com/items/en/midea-breezeless-split-air-conditioner-2-ton-energy-saving-smart-wifi-control-white-10330110" 
+                        href="https://arabiemart.com/items/en/midea-breezeless-split-air-conditioner-2-ton-energy-saving-smart-wifi-control-white-10099889" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
@@ -329,106 +373,33 @@ const page = async ({ params }: Props) => {
                     </div>
                   </div>
 
-                  {/* Midea Breezeless E 1 Ton */}
-                  <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="h-32 relative rounded mb-3 overflow-hidden">
-                      <Image
-                        src="/images/ac2.jpg"
-                        alt="Midea Breezeless E Split Air Conditioner 1 Ton"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Midea Breezeless E Split Air Conditioner, 1 Ton, Energy Saving, Smart WiFi Control, White</h3>
-                    <div className="flex items-center mb-2">
-                      <div className="flex text-yellow-400">
-                        ★★★★★
-                      </div>
-                    </div>
-                    <ul className="text-xs text-paragraph mb-3">
-                      <li>• Energy Saving Report via MSmart Home App</li>
-                      <li>• Intelligent Learning Algorithm (up to 20% more efficient)</li>
-                      <li>• Breezeless Technology with Twinflap™ and 5013 mini-holes</li>
-                      <li>• Heat Flash: raises temp by 10.4°C in 10 min</li>
-                      <li>• Over-The-Air software updates</li>
-                    </ul>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">480 JOD</span>
-                      <a 
-                        href="https://arabiemart.com/items/en/midea-breezeless-e-split-air-conditioner-1-ton-energy-saving-smart-wifi-control-white-10330098" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
-                      >
-                        Buy now
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Midea Breezeless 1.5 Ton */}
-                  <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="h-32 relative rounded mb-3 overflow-hidden">
-                      <Image
-                        src="/images/ac3.jpg"
-                        alt="Midea Breezeless Split Air Conditioner 1.5 Ton"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Midea Breezeless Split Air Conditioner, 1.5 Ton, Energy Saving, Smart WiFi Control, White</h3>
-                    <div className="flex items-center mb-2">
-                      <div className="flex text-yellow-400">
-                        ★★★★★
-                      </div>
-                    </div>
-                    <ul className="text-xs text-paragraph mb-3">
-                      <li>• Energy Saving Report via MSmart Home App</li>
-                      <li>• Intelligent Learning Algorithm (up to 20% more efficient)</li>
-                      <li>• Breezeless Technology with Twinflap™ and 5013 mini-holes</li>
-                      <li>• Cool Flash Plus: lowers room temp by 6.3°C in 10 min</li>
-                      <li>• Air Magic+: negative ions inhibit bacteria & viruses</li>
-                    </ul>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">590 JOD</span>
-                      <a 
-                        href="https://arabiemart.com/items/en/midea-breezeless-split-air-conditioner-1-5-ton-energy-saving-smart-wifi-control-white-10330104" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
-                      >
-                        Buy now
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* TCL Split Air Condition 1.5 Ton */}
+                  {/* Midea Forest 2 Ton */}
                   <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
                     <div className="h-32 relative rounded mb-3 overflow-hidden">
                       <Image
                         src="/images/ac4.jpg"
-                        alt="TCL Split Air Condition 1.5 Ton"
+                        alt="Midea Forest Split Air Conditioner 2 Ton"
                         fill
                         className="object-cover"
                       />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">TCL Split Air Condition 1.5 Ton – White</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">Midea Forest Split Air Conditioner, 2 Ton, Inverter, Energy Saving, White</h3>
                     <div className="flex items-center mb-2">
                       <div className="flex text-yellow-400">
-                        ★★★★☆
+                        ★★★★★
                       </div>
                     </div>
                     <ul className="text-xs text-paragraph mb-3">
-                      <li>• Model Number: ELITE TAC-18CHSD/XAB1</li>
-                      <li>• Faster cooling and heating</li>
-                      <li>• Energy efficient with sleep mode</li>
-                      <li>• Auto restart to cut off power</li>
-                      <li>• 5 speeds with digital temperature display</li>
-                      <li>• 18000 Btu Capacity: 1.5 tons</li>
+                      <li>• Fast Cooling for instant comfort</li>
+                      <li>• High-efficiency filter for cleaner air</li>
+                      <li>• Inverter technology for energy saving</li>
+                      <li>• Ultra-quiet operation with near-silent sound</li>
+                      <li>• Durable and sleek design</li>
                     </ul>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">380 JOD</span>
+                      <span className="text-lg font-bold text-primary">580 JOD</span>
                       <a 
-                        href="https://arabiemart.com/items/en/tcl-split-air-condition-1-5-ton-white-9738439" 
+                        href="https://arabiemart.com/items/en/midea-forest-split-air-conditioner-2-ton-inverter-energy-saving-white-10327578" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"

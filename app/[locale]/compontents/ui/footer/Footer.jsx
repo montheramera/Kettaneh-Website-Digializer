@@ -87,7 +87,7 @@ export default function Footer({ data }) {
                   className="font-light text-paragraph leading-[24px] text-[14px]"
                   aria-label="Go to the Home Page"
                 >
-                  Win the Gold
+                  Midea Win Gold
                 </Link>
               </ul>
             </div>
