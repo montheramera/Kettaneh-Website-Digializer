@@ -1,7 +1,8 @@
 "use client"
 import React, { useState } from "react";
 import Image from "next/image";
-import IntlTelInput from "react-intl-tel-input";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const CareerForm = () => {
       const [phone, setPhone] = useState ();
@@ -61,25 +62,20 @@ const CareerForm = () => {
                 >
                   Phone Number*
                 </label>
-                <IntlTelInput
-                  containerClassName="intl-tel-input"
-                  style={{ direction: "ltr", width: "100%" }}
-                  inputClassName="font-[800] text-[14px] leading-[20px]"
-                  defaultCountry="ae"
-                  separateDialCode={true}
-                  onPhoneNumberChange={(
-                    status,
-                    value,
-                    countryData,
-                    number,
-                    id
-                  ) => {
-                    setPhone(number);
-                    setCountryCode(countryData.dialCode || "");
-                    setCountry(
-                      countryData?.name?.replace(/\(.*\)/, "").trim() || ""
-                    );
+                <PhoneInput
+                  value={phone}
+                  onChange={(value) => {
+                    setPhone(value || "");
+                    // Extract country code from the phone number
+                    if (value) {
+                      const countryCode = value.split(' ')[0] || "";
+                      setCountryCode(countryCode);
+                    }
                   }}
+                  defaultCountry="AE"
+                  className="font-[800] text-[14px] leading-[20px]"
+                  style={{ direction: "ltr", width: "100%" }}
+                  placeholder="Enter phone number"
                 />
               </div>
 

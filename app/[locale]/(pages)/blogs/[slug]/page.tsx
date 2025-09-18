@@ -178,52 +178,28 @@ const page = async ({ params }: Props) => {
                 </div>
                 <ul className="space-y-0">
                   <li className="border-b border-gray-200 py-3">
-                    <a href="#" className="text-[#727272] hover:text-primary flex items-center">
+                    <Link href="/categories/electrical" className="text-[#727272] hover:text-primary flex items-center">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      Air Conditioning
-                    </a>
+                      Electrical & Automation Solutions
+                    </Link>
                   </li>
                   <li className="border-b border-gray-200 py-3">
-                    <a href="#" className="text-[#727272] hover:text-primary flex items-center">
+                    <Link href="/categories/hvac" className="text-[#727272] hover:text-primary flex items-center">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      Heating Systems
-                    </a>
+                      HVAC
+                    </Link>
                   </li>
                   <li className="border-b border-gray-200 py-3">
-                    <a href="#" className="text-[#727272] hover:text-primary flex items-center">
+                    <Link href="/categories/machinery" className="text-[#727272] hover:text-primary flex items-center">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      Smart Home
-                    </a>
-                  </li>
-                  <li className="border-b border-gray-200 py-3">
-                    <a href="#" className="text-[#727272] hover:text-primary flex items-center">
-                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      Energy Efficiency
-                    </a>
-                  </li>
-                  <li className="border-b border-gray-200 py-3">
-                    <a href="#" className="text-[#727272] hover:text-primary flex items-center">
-                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      Maintenance
-                    </a>
-                  </li>
-                  <li className="border-b border-gray-200 py-3">
-                    <a href="#" className="text-[#727272] hover:text-primary flex items-center">
-                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      Installation Guides
-                    </a>
-                  </li>
-                  <li className="border-b border-gray-200 py-3">
-                    <a href="#" className="text-[#727272] hover:text-primary flex items-center">
-                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      HVAC Reviews
-                    </a>
+                      Machinery
+                    </Link>
                   </li>
                   <li className="py-3">
-                    <a href="#" className="text-[#727272] hover:text-primary flex items-center">
+                    <Link href="/categories/after-market" className="text-[#727272] hover:text-primary flex items-center">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      Climate Control
-                    </a>
+                      Aftermarket
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -317,99 +293,148 @@ const page = async ({ params }: Props) => {
                 <p className="text-gray-600 mb-6">Professional-grade air conditioning units with expert installation available</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Product Card 1 */}
+                  {/* Midea Breezeless 2 Ton */}
                   <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="h-32 bg-gray-200 rounded mb-3 flex items-center justify-center">
-                      <span className="text-gray-500">AC Image</span>
+                    <div className="h-32 relative rounded mb-3 overflow-hidden">
+                      <Image
+                        src="/images/ac1.jpg"
+                        alt="Midea Breezeless Split Air Conditioner 2 Ton"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Premium Split Unit AC - 12,000 BTU</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">Midea Breezeless Split Air Conditioner, 2 Ton, Energy Saving, Smart WiFi Control, White</h3>
                     <div className="flex items-center mb-2">
                       <div className="flex text-yellow-400">
                         ★★★★★
                       </div>
                     </div>
-                    <ul className="text-sm text-gray-600 mb-3">
-                      <li>• Energy efficient</li>
-                      <li>• Quiet operation</li>
-                      <li>• Smart controls</li>
+                    <ul className="text-xs text-paragraph mb-3">
+                      <li>• Energy Saving Report via MSmart Home App</li>
+                      <li>• Intelligent Learning Algorithm (up to 20% more efficient)</li>
+                      <li>• Breezeless Technology with Twinflap™ and 5013 mini-holes</li>
+                      <li>• Cool Flash Plus: lowers room temp by 6.3°C in 10 min</li>
+                      <li>• Air Magic+: negative ions inhibit bacteria & viruses</li>
                     </ul>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">$888</span>
-                      <button className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90">
+                      <span className="text-lg font-bold text-primary">690 JOD</span>
+                      <a 
+                        href="https://arabiemart.com/items/en/midea-breezeless-split-air-conditioner-2-ton-energy-saving-smart-wifi-control-white-10330110" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                      >
                         Buy now
-                      </button>
+                      </a>
                     </div>
                   </div>
 
-                  {/* Product Card 2 */}
+                  {/* Midea Breezeless E 1 Ton */}
                   <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="h-32 bg-gray-200 rounded mb-3 flex items-center justify-center">
-                      <span className="text-gray-500">AC Image</span>
+                    <div className="h-32 relative rounded mb-3 overflow-hidden">
+                      <Image
+                        src="/images/ac2.jpg"
+                        alt="Midea Breezeless E Split Air Conditioner 1 Ton"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Standard Split Unit AC - 9,000 BTU</h3>
-                    <div className="flex items-center mb-2">
-                      <div className="flex text-yellow-400">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <ul className="text-sm text-gray-600 mb-3">
-                      <li>• Reliable performance</li>
-                      <li>• Easy installation</li>
-                      <li>• 2-year warranty</li>
-                    </ul>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">$468</span>
-                      <button className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90">
-                        Buy now
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Product Card 3 */}
-                  <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="h-32 bg-gray-200 rounded mb-3 flex items-center justify-center">
-                      <span className="text-gray-500">AC Image</span>
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Compact Split Unit AC - 6,000 BTU</h3>
-                    <div className="flex items-center mb-2">
-                      <div className="flex text-yellow-400">
-                        ★★★★☆
-                      </div>
-                    </div>
-                    <ul className="text-sm text-gray-600 mb-3">
-                      <li>• Space saving</li>
-                      <li>• Low energy consumption</li>
-                      <li>• Perfect for small rooms</li>
-                    </ul>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">$299</span>
-                      <button className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90">
-                        Buy now
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Product Card 4 */}
-                  <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="h-32 bg-gray-200 rounded mb-3 flex items-center justify-center">
-                      <span className="text-gray-500">AC Image</span>
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Commercial Split Unit AC - 18,000 BTU</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">Midea Breezeless E Split Air Conditioner, 1 Ton, Energy Saving, Smart WiFi Control, White</h3>
                     <div className="flex items-center mb-2">
                       <div className="flex text-yellow-400">
                         ★★★★★
                       </div>
                     </div>
-                    <ul className="text-sm text-gray-600 mb-3">
-                      <li>• Heavy duty</li>
-                      <li>• Commercial grade</li>
-                      <li>• 5-year warranty</li>
+                    <ul className="text-xs text-paragraph mb-3">
+                      <li>• Energy Saving Report via MSmart Home App</li>
+                      <li>• Intelligent Learning Algorithm (up to 20% more efficient)</li>
+                      <li>• Breezeless Technology with Twinflap™ and 5013 mini-holes</li>
+                      <li>• Heat Flash: raises temp by 10.4°C in 10 min</li>
+                      <li>• Over-The-Air software updates</li>
                     </ul>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">$2,299</span>
-                      <button className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90">
+                      <span className="text-lg font-bold text-primary">480 JOD</span>
+                      <a 
+                        href="https://arabiemart.com/items/en/midea-breezeless-e-split-air-conditioner-1-ton-energy-saving-smart-wifi-control-white-10330098" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                      >
                         Buy now
-                      </button>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Midea Breezeless 1.5 Ton */}
+                  <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="h-32 relative rounded mb-3 overflow-hidden">
+                      <Image
+                        src="/images/ac3.jpg"
+                        alt="Midea Breezeless Split Air Conditioner 1.5 Ton"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Midea Breezeless Split Air Conditioner, 1.5 Ton, Energy Saving, Smart WiFi Control, White</h3>
+                    <div className="flex items-center mb-2">
+                      <div className="flex text-yellow-400">
+                        ★★★★★
+                      </div>
+                    </div>
+                    <ul className="text-xs text-paragraph mb-3">
+                      <li>• Energy Saving Report via MSmart Home App</li>
+                      <li>• Intelligent Learning Algorithm (up to 20% more efficient)</li>
+                      <li>• Breezeless Technology with Twinflap™ and 5013 mini-holes</li>
+                      <li>• Cool Flash Plus: lowers room temp by 6.3°C in 10 min</li>
+                      <li>• Air Magic+: negative ions inhibit bacteria & viruses</li>
+                    </ul>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg font-bold text-primary">590 JOD</span>
+                      <a 
+                        href="https://arabiemart.com/items/en/midea-breezeless-split-air-conditioner-1-5-ton-energy-saving-smart-wifi-control-white-10330104" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                      >
+                        Buy now
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* TCL Split Air Condition 1.5 Ton */}
+                  <div className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="h-32 relative rounded mb-3 overflow-hidden">
+                      <Image
+                        src="/images/ac4.jpg"
+                        alt="TCL Split Air Condition 1.5 Ton"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-2">TCL Split Air Condition 1.5 Ton – White</h3>
+                    <div className="flex items-center mb-2">
+                      <div className="flex text-yellow-400">
+                        ★★★★☆
+                      </div>
+                    </div>
+                    <ul className="text-xs text-paragraph mb-3">
+                      <li>• Model Number: ELITE TAC-18CHSD/XAB1</li>
+                      <li>• Faster cooling and heating</li>
+                      <li>• Energy efficient with sleep mode</li>
+                      <li>• Auto restart to cut off power</li>
+                      <li>• 5 speeds with digital temperature display</li>
+                      <li>• 18000 Btu Capacity: 1.5 tons</li>
+                    </ul>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg font-bold text-primary">380 JOD</span>
+                      <a 
+                        href="https://arabiemart.com/items/en/tcl-split-air-condition-1-5-ton-white-9738439" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                      >
+                        Buy now
+                      </a>
                     </div>
                   </div>
                 </div>

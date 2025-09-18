@@ -1,7 +1,7 @@
 "use client";
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
-import IntlTelInput from "react-intl-tel-input";
-import "react-intl-tel-input/dist/main.css";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { usePathname, useSearchParams } from "next/navigation";
 import { parseUTMParameters } from "@/utilis/utmParser";
 import MultiSelectDropdown from "../multi-select/MultiSelectDropdown";
@@ -370,40 +370,20 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
               Phone number*
             </label>
 
-            <IntlTelInput
-              containerClassName="intl-tel-input"
-              style={{ direction: "ltr", width: "100%" }}
-              inputClassName="font-[800] text-[14px] leading-[20px]"
-              // name="phone"
-              geoIpLookup={handleGeoIpLookup}
-              defaultCountry={curCountry ? curCountry.toLowerCase() : "jo"}
-              separateDialCode={true}
-              preferredCountries={[
-                "ae",
-                "sa",
-                "eg",
-                "qa",
-                "bh",
-                "om",
-                "kw",
-                "jo",
-                "lb",
-                "sy",
-                "iq",
-                "ye",
-                "ma",
-                "dz",
-                "ly",
-                "sd",
-                "so",
-              ]}
-              onPhoneNumberChange={(status, value, countryData, number, id) => {
-                setPhone(number);
-                setCountryCode(countryData.dialCode || "");
-                setCountry(
-                  countryData?.name?.replace(/\(.*\)/, "").trim() || ""
-                );
+            <PhoneInput
+              value={phone}
+              onChange={(value) => {
+                setPhone(value || "");
+                // Extract country code from the phone number
+                if (value) {
+                  const countryCode = value.split(' ')[0] || "";
+                  setCountryCode(countryCode);
+                }
               }}
+              defaultCountry="JO"
+              className="font-[800] text-[14px] leading-[20px]"
+              style={{ direction: "ltr", width: "100%" }}
+              placeholder="Enter phone number"
             />
             {errors.phone_number && (
               <p className="text-red text-xs mt-1">{errors.phone_number}</p>
