@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import ScrollSliders from "@/compontents/categories/ScrollSliders";
 import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
