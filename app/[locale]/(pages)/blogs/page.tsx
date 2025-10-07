@@ -30,8 +30,45 @@ export async function generateMetadata({ params }: Props) {
     return {
       title,
       description,
+      keywords: "HVAC systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan, professional solutions, industry insights, technology blog",
+      authors: [{ name: "Kettaneh Team" }],
+      openGraph: {
+        title,
+        description,
+        url: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs`,
+        siteName: "Kettaneh",
+        images: [
+          {
+            url: "/images/blog.png",
+            width: 1200,
+            height: 630,
+            alt: "Kettaneh Blogs - Expert Insights on HVAC and Machinery",
+          },
+        ],
+        locale: "en_US",
+        type: "website",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["/images/blog.png"],
+        creator: "@Kettaneh",
+        site: "@Kettaneh",
+      },
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs`,
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
       },
     };
   } catch (error) {
@@ -39,10 +76,47 @@ export async function generateMetadata({ params }: Props) {
 
     // Return default metadata if there's an error
     return {
-      title: "Blogs",
-      description: "Discover insights, tips, and industry news from our expert team.",
+      title: "Blogs | Kettaneh - Expert HVAC & Machinery Insights",
+      description: "Discover expert insights, tips, and industry news from Kettaneh's professional team. Your go-to resource for HVAC systems, machinery, and smart maintenance solutions in Jordan.",
+      keywords: "HVAC systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan, professional solutions, industry insights, technology blog",
+      authors: [{ name: "Kettaneh Team" }],
+      openGraph: {
+        title: "Blogs | Kettaneh - Expert HVAC & Machinery Insights",
+        description: "Discover expert insights, tips, and industry news from Kettaneh's professional team. Your go-to resource for HVAC systems, machinery, and smart maintenance solutions in Jordan.",
+        url: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs`,
+        siteName: "Kettaneh",
+        images: [
+          {
+            url: "/images/blog.png",
+            width: 1200,
+            height: 630,
+            alt: "Kettaneh Blogs - Expert Insights on HVAC and Machinery",
+          },
+        ],
+        locale: "en_US",
+        type: "website",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Blogs | Kettaneh - Expert HVAC & Machinery Insights",
+        description: "Discover expert insights, tips, and industry news from Kettaneh's professional team. Your go-to resource for HVAC systems, machinery, and smart maintenance solutions in Jordan.",
+        images: ["/images/blog.png"],
+        creator: "@Kettaneh",
+        site: "@Kettaneh",
+      },
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs`,
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
       },
     };
   }

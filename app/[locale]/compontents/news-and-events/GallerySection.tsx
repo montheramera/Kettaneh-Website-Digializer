@@ -15,7 +15,7 @@ export default function GallerySection({events}:any) {
             <div className="bg-white shadow-md overflow-hidden">
               <Image
                 src={event.Event.image.url}
-                alt={event.Event.title}
+                alt={event.Event.image.alternativeText || event.Event.title}
                 width={384}
                 height={176}
                 className="object-cover w-full h-auto"

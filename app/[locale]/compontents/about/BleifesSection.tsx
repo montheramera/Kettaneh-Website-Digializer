@@ -13,9 +13,9 @@ const BleifesSection = ({ AboutData }: any) => {
                 {AboutData?.title}
               </span>
             </div>
-            <h2 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
-              <span className="text-primary ">Who</span> we are ?
-            </h2>
+            <h1 className=" text-[36px] font-[800] leading-[40px] text-heading mb-[10px]">
+              About Kettaneh Jordan: Delivering Engineering Excellence
+            </h1>
             <p className=" text-[20px] font-[500] leading-[28px] text-paragraph">
               A Legacy of Commitment and Growth Since 1922
             </p>

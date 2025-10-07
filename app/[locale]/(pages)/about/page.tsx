@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json()
     const seo = data.data?.attributes?.seo || {}
-    const title = seo.meta_title || 'about'
-    const description = seo.meta_description || "about Description";
+    const title = 'About F.A. Kettaneh Jordan | Efficient Solutions Provider'
+    const description = "Learn about F.A. Kettaneh Jordan, a leading provider of electrical, HVAC, and industrial solutions committed to innovation, quality, and engineering excellence";
    
 
     return {
@@ -47,8 +47,8 @@ export async function generateMetadata({ params }: Props) {
 
     // Return default metadata if there's an error
     return {
-      title: "about",
-      description: "about",
+      title: "About F.A. Kettaneh Jordan | Efficient Solutions Provider",
+      description: "Learn about F.A. Kettaneh Jordan, a leading provider of electrical, HVAC, and industrial solutions committed to innovation, quality, and engineering excellence",
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/about`,
       },
@@ -73,6 +73,7 @@ const fetchGlobalPartners = async () => {
   const partners = data.data.map((el: any)=>{
     const image = {...el.attributes.Partner.logo.data?.attributes}
     image.src = image.url;
+    image.name = image.alternativeText || el.attributes.Partner.title;
     return image
   });
   return partners;

@@ -52,7 +52,7 @@ const GallerySection: React.FC<GallerySectionProps> = ({ blogs }) => {
             
             {/* Content Section */}
             <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight overflow-hidden" style={{
+              <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight overflow-hidden hover:text-primary transition-colors" style={{
                 display: '-webkit-box',
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: 'vertical',
@@ -67,6 +67,22 @@ const GallerySection: React.FC<GallerySectionProps> = ({ blogs }) => {
               }}>
                 {blog.attributes?.Description || 'No description available'}
               </p>
+
+              {/* Trust Signals */}
+              <div className="flex items-center mb-4 text-xs text-gray-500">
+                <span className="flex items-center mr-4">
+                  <svg className="w-3 h-3 mr-1 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Expert Insights
+                </span>
+                <span className="flex items-center">
+                  <svg className="w-3 h-3 mr-1 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Kettaneh Team
+                </span>
+              </div>
               
               {/* Metadata */}
               <div className="flex items-center justify-between mb-4">

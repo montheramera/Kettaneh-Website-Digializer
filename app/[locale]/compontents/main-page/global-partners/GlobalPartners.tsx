@@ -42,7 +42,7 @@ export default async function GlobalPartners() {
               <div key={index} className="flex justify-center">
                 <Image
                   src={partner?.logo?.data?.attributes?.url}
-                  alt={partner?.title}
+                  alt={partner?.logo?.data?.attributes?.alternativeText || partner?.title}
                   width={partner?.logo?.data?.attributes?.width || 150}
                   height={partner?.logo?.data?.attributes?.height || 45.8}
                   priority

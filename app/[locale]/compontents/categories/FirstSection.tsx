@@ -84,7 +84,7 @@ const FirstSection: React.FC<FirstSectionProps> = ({
                 >
                   <Image
                     src={partner.logo.data.attributes.url}
-                    alt={partner.logo.data.attributes.name}
+                    alt={partner.logo.data.attributes.alternativeText || partner.logo.data.attributes.name}
                     width={partner.logo.data.attributes.width}
                     height={partner.logo.data.attributes.height}
                     priority

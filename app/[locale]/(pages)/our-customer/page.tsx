@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json()
     const seo = data.data?.attributes?.seo || {}
-    const title = seo.meta_title || "our customer";
-    const description = seo.meta_description || "our customer";
+    const title = 'Our Customers | F.A Kettaneh & Co Ltd Jordan';
+    const description = "F.A Kettaneh & Co Ltd Jordan provides tailored engineering solutions for leading clients in electrical, HVAC, and industrial projects across the region";
   
 
     return {
@@ -45,8 +45,8 @@ export async function generateMetadata({ params }: Props) {
 
     // Return default metadata if there's an error
     return {
-      title: "our customer",
-      description: "our customer",
+      title: "Our Customers | F.A Kettaneh & Co Ltd Jordan",
+      description: "F.A Kettaneh & Co Ltd Jordan provides tailored engineering solutions for leading clients in electrical, HVAC, and industrial projects across the region",
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/our-customer`,
       },
@@ -111,10 +111,9 @@ const index = async() => {
                   {customerData?.title}
                 </span>
               </div>
-              <h2 className="text-[30px] lg:text-[36px] font-[800] leading-[34px] lg:leading-[40px] text-heading mt-[16px] mb-[30px] lg:mb-[64px]">
-                <span className="text-primary "> Our Valued </span>Partners and
-                Landmark Projects
-              </h2>
+              <h1 className="text-[30px] lg:text-[36px] font-[800] leading-[34px] lg:leading-[40px] text-heading mt-[16px] mb-[30px] lg:mb-[64px]">
+                Kettaneh Customers
+              </h1>
               <div className="flex flex-row">
                 <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div> 
                 <div>

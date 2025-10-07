@@ -91,7 +91,7 @@ function MultipleItems({ clients }) {
               <Image
                 key={index}
                 src={client.logo.data.attributes.url}
-                alt={client.logo.data.attributes.name}
+                alt={client.logo.data.attributes.alternativeText || client.logo.data.attributes.name}
                 priority
                 width={400}
                 height={400}
@@ -109,7 +109,7 @@ function MultipleItems({ clients }) {
               <Image
                 key={index}
                 src={client.logo.data.attributes.url}
-                alt={client.logo.data.attributes.name}
+                alt={client.logo.data.attributes.alternativeText || client.logo.data.attributes.name}
                 priority
                 width={400}
                 height={400}

@@ -28,27 +28,78 @@ export async function generateMetadata({ params }: Props) {
     
     if (!blog) {
       return {
-        title: "Blog Not Found",
-        description: "The requested blog post could not be found.",
+        title: "Blog Not Found | Kettaneh",
+        description: "The requested blog post could not be found. Explore our latest insights on machinery, HVAC systems, and smart maintenance.",
       };
     }
 
-    const title = blog.Title || "Blog Post";
-    const description = blog.Description || "Read our latest blog post";
+    // Extract primary keyword from title (first 2-3 words typically)
+    const titleWords = (blog.Title || "Blog Post").split(' ');
+    const primaryKeyword = titleWords.slice(0, 2).join(' ');
+    
+    // Create SEO-optimized title
+    const seoTitle = `${blog.Title || "Blog Post"} | Kettaneh - Expert ${primaryKeyword} Solutions`;
+    
+    // Create comprehensive meta description
+    const metaDescription = blog.Description 
+      ? `${blog.Description} Learn more about ${primaryKeyword} solutions from Kettaneh, Jordan's leading provider of machinery, HVAC systems, and smart maintenance services.`
+      : `Discover expert insights on ${primaryKeyword} from Kettaneh. Professional-grade solutions for machinery, HVAC systems, and smart maintenance in Jordan.`;
    
     return {
-      title,
-      description,
+      title: seoTitle,
+      description: metaDescription,
+      keywords: `${primaryKeyword}, HVAC systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan, professional solutions`,
+      authors: [{ name: "Kettaneh Team" }],
+      openGraph: {
+        title: seoTitle,
+        description: metaDescription,
+        url: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs/${params.slug}`,
+        siteName: "Kettaneh",
+        images: [
+          {
+            url: blog.image?.data?.attributes?.url || "/images/blog.png",
+            width: 1200,
+            height: 630,
+            alt: blog.image?.data?.attributes?.alternativeText || `${blog.Title} - Kettaneh Blog`,
+          },
+        ],
+        locale: "en_US",
+        type: "article",
+        publishedTime: blog.publishedAt,
+        modifiedTime: blog.updatedAt || blog.publishedAt,
+        authors: ["Kettaneh Team"],
+        section: "Technology & Innovation",
+        tags: [primaryKeyword, "HVAC", "Machinery", "Smart Maintenance"],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: seoTitle,
+        description: metaDescription,
+        images: [blog.image?.data?.attributes?.url || "/images/blog.png"],
+        creator: "@Kettaneh",
+        site: "@Kettaneh",
+      },
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs/${params.slug}`,
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
       },
     };
   } catch (error) {
     console.error("Error fetching metadata:", error);
 
     return {
-      title: "Blog Post",
-      description: "Read our latest blog post",
+      title: "Blog Post | Kettaneh - Expert Solutions",
+      description: "Read our latest blog post about machinery, HVAC systems, and smart maintenance solutions from Kettaneh, Jordan's trusted partner.",
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs/${params.slug}`,
       },
@@ -116,8 +167,64 @@ const page = async ({ params }: Props) => {
   // Filter out the current blog by ID as well
   const filteredRelatedArticles = relatedArticles.filter((article: any) => article.id !== blog.id);
 
+  // Generate structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": blog.Title,
+    "description": blog.Description,
+    "image": blog.image?.data?.attributes?.url || "/images/blog.png",
+    "author": {
+      "@type": "Organization",
+      "name": "Kettaneh",
+      "url": process.env.NEXT_PUBLIC_MAIN_SITE,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${process.env.NEXT_PUBLIC_MAIN_SITE}/images/logo.png`
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kettaneh",
+      "url": process.env.NEXT_PUBLIC_MAIN_SITE,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${process.env.NEXT_PUBLIC_MAIN_SITE}/images/logo.png`
+      }
+    },
+    "datePublished": blog.publishedAt,
+    "dateModified": blog.updatedAt || blog.publishedAt,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs/${params.slug}`
+    },
+    "url": `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs/${params.slug}`,
+    "articleSection": "Technology & Innovation",
+    "keywords": "HVAC systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "HVAC Systems"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Machinery"
+      },
+      {
+        "@type": "Thing",
+        "name": "Smart Maintenance"
+      }
+    ]
+  };
+
   return (
     <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
       {/* Breadcrumbs */}
       <div className="px-5 lg:px-20 py-4 bg-white">
         <div className="max-w-[1440px] m-auto">
@@ -239,10 +346,66 @@ const page = async ({ params }: Props) => {
                 >
                   {blog.Content ? (
                     <div className="prose max-w-none">
+                      {/* Introduction Section */}
+                      <div className="bg-blue-50 border-l-4 border-primary p-6 mb-8 rounded-r-lg">
+                        <h2 className="text-xl font-bold text-gray-900 mb-3">Key Takeaways</h2>
+                        <p className="text-gray-700 mb-0">
+                          In this comprehensive guide, we'll explore the latest insights and expert recommendations for {blog.Title?.toLowerCase() || 'our featured topic'}. 
+                          As Jordan's leading provider of <Link href="/categories/hvac" className="text-primary hover:underline">HVAC systems</Link> and 
+                          <Link href="/categories/machinery" className="text-primary hover:underline"> machinery solutions</Link>, 
+                          Kettaneh brings over 50 years of industry expertise to help you make informed decisions.
+                        </p>
+                      </div>
+
                       <BlocksRendererComponent 
                         content={blog.Content} 
                         classes="mb-4 text-gray-700 leading-relaxed"
                       />
+
+                      {/* FAQ Section */}
+                      <div className="bg-gray-50 p-6 rounded-lg mt-8">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+                        <div className="space-y-4">
+                          <div className="border-b border-gray-200 pb-4">
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why choose Kettaneh for your HVAC and machinery needs?</h3>
+                            <p className="text-gray-700">
+                              Kettaneh has been Jordan's trusted partner for over 50 years, providing professional-grade solutions with comprehensive 
+                              <Link href="/about" className="text-primary hover:underline"> customer support</Link> and warranty coverage. 
+                              Our expert team ensures proper installation and maintenance for optimal performance.
+                            </p>
+                          </div>
+                          <div className="border-b border-gray-200 pb-4">
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">What warranty coverage do you provide?</h3>
+                            <p className="text-gray-700">
+                              All our products come with manufacturer warranties, and we provide additional support through our 
+                              <Link href="/categories/after-market" className="text-primary hover:underline"> aftermarket services</Link>. 
+                              Our team ensures proper installation and offers ongoing maintenance support.
+                            </p>
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">How can I get professional installation?</h3>
+                            <p className="text-gray-700">
+                              Contact our expert team for professional installation services. We provide comprehensive support from consultation to 
+                              installation and ongoing maintenance. <Link href="/our-customer" className="text-primary hover:underline">See our customer success stories</Link> 
+                              and learn why businesses across Jordan trust Kettaneh.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Conclusion Section */}
+                      <div className="bg-primary/5 border border-primary/20 p-6 rounded-lg mt-8">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Conclusion</h2>
+                        <p className="text-gray-700 mb-4">
+                          {blog.Title} represents just one aspect of the comprehensive solutions Kettaneh provides. 
+                          As Jordan's leading provider of professional-grade machinery and HVAC systems, we're committed to 
+                          delivering excellence in every project.
+                        </p>
+                        <p className="text-gray-700 mb-0">
+                          Ready to experience the Kettaneh difference? <Link href="/our-customer" className="text-primary hover:underline font-semibold">Contact our expert team</Link> 
+                          today for personalized solutions tailored to your specific needs.
+                        </p>
+                      </div>
                     </div>
                   ) : (
                     <p className="text-gray-500 italic">No content available for this blog post.</p>
@@ -252,8 +415,12 @@ const page = async ({ params }: Props) => {
 
               {/* Product Recommendations Section */}
               <div className="mt-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Top Air Conditioners - Buy Now</h2>
-                <p className="text-gray-600 mb-6">Professional-grade air conditioning units with expert installation available</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Recommended HVAC Solutions from Kettaneh</h2>
+                <p className="text-gray-600 mb-6">
+                  Discover our top-rated air conditioning systems with professional installation and comprehensive warranty coverage. 
+                  <Link href="/categories/hvac" className="text-primary hover:underline ml-1">Explore our full HVAC range</Link> 
+                  or <Link href="/our-customer" className="text-primary hover:underline ml-1">contact our experts</Link> for personalized recommendations.
+                </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Midea Xtreme 2 Ton */}
@@ -284,15 +451,21 @@ const page = async ({ params }: Props) => {
                       <li>• Golden Fin Coating for durability</li>
                     </ul>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">600 JOD</span>
+                      <div>
+                        <span className="text-lg font-bold text-primary">600 JOD</span>
+                        <p className="text-xs text-gray-500">+ Professional Installation</p>
+                      </div>
                       <a 
                         href="https://arabiemart.com/items/en/midea-xtreme-split-air-conditioner-2-ton-energy-saving-smart-wifi-control-white-10329457" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90 transition-colors"
                       >
-                        Buy now
+                        Get Quote
                       </a>
+                    </div>
+                    <div className="mt-2 text-xs text-gray-600">
+                      ✓ 2-year warranty ✓ Expert installation ✓ 24/7 support
                     </div>
                   </div>
 
@@ -323,15 +496,21 @@ const page = async ({ params }: Props) => {
                       <li>• Eco+ Gear function</li>
                     </ul>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">650 JOD</span>
+                      <div>
+                        <span className="text-lg font-bold text-primary">650 JOD</span>
+                        <p className="text-xs text-gray-500">+ Professional Installation</p>
+                      </div>
                       <a 
                         href="https://arabiemart.com/items/en/midea-all-easy-pro-split-air-conditioner-2-ton-energy-saving-smart-wifi-control-white-10099991" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90 transition-colors"
                       >
-                        Buy now
+                        Get Quote
                       </a>
+                    </div>
+                    <div className="mt-2 text-xs text-gray-600">
+                      ✓ 2-year warranty ✓ Expert installation ✓ 24/7 support
                     </div>
                   </div>
 
@@ -361,15 +540,21 @@ const page = async ({ params }: Props) => {
                       <li>• Over-The-Air software updates</li>
                     </ul>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">690 JOD</span>
+                      <div>
+                        <span className="text-lg font-bold text-primary">690 JOD</span>
+                        <p className="text-xs text-gray-500">+ Professional Installation</p>
+                      </div>
                       <a 
                         href="https://arabiemart.com/items/en/midea-breezeless-split-air-conditioner-2-ton-energy-saving-smart-wifi-control-white-10099889" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90 transition-colors"
                       >
-                        Buy now
+                        Get Quote
                       </a>
+                    </div>
+                    <div className="mt-2 text-xs text-gray-600">
+                      ✓ 2-year warranty ✓ Expert installation ✓ 24/7 support
                     </div>
                   </div>
 
@@ -397,17 +582,51 @@ const page = async ({ params }: Props) => {
                       <li>• Durable and sleek design</li>
                     </ul>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-primary">580 JOD</span>
+                      <div>
+                        <span className="text-lg font-bold text-primary">580 JOD</span>
+                        <p className="text-xs text-gray-500">+ Professional Installation</p>
+                      </div>
                       <a 
                         href="https://arabiemart.com/items/en/midea-forest-split-air-conditioner-2-ton-inverter-energy-saving-white-10327578" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90"
+                        className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary/90 transition-colors"
                       >
-                        Buy now
+                        Get Quote
                       </a>
                     </div>
+                    <div className="mt-2 text-xs text-gray-600">
+                      ✓ 2-year warranty ✓ Expert installation ✓ 24/7 support
+                    </div>
                   </div>
+                </div>
+              </div>
+
+              {/* Call-to-Action Section */}
+              <div className="mt-12 bg-gradient-to-r from-primary to-primary/80 text-white p-8 rounded-lg">
+                <div className="text-center">
+                  <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
+                  <p className="text-lg mb-6 opacity-90">
+                    Let Kettaneh's expert team help you find the perfect solution for your needs. 
+                    With over 50 years of experience and comprehensive support, we're your trusted partner in Jordan.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Link 
+                      href="/our-customer" 
+                      className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                    >
+                      View Our Work
+                    </Link>
+                    <Link 
+                      href="/categories/hvac" 
+                      className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors"
+                    >
+                      Explore Products
+                    </Link>
+                  </div>
+                  <p className="text-sm mt-4 opacity-75">
+                    ✓ Free consultation ✓ Professional installation ✓ 24/7 support ✓ Comprehensive warranty
+                  </p>
                 </div>
               </div>
             </div>

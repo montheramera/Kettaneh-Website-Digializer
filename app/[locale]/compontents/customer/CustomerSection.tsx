@@ -10,7 +10,7 @@ import React from 'react';
                     <div key={index} className={`flex  ${index%2===0?"justify-start":"justify-end"} lg:justify-center items-center`}>
                       <Image
                         src={logo.logo.data.attributes.url}
-                        alt={logo.logo.data.attributes.name}
+                        alt={logo.logo.data.attributes.alternativeText || logo.logo.data.attributes.name}
                         width={500}
                         height={500}
                       />

@@ -50,7 +50,7 @@ const News = async () => {
           <div className="lg:col-span-2 shadow-lg">
             <Image
               src={mainEvent.image.data.attributes.url}
-              alt={mainEvent.title}
+              alt={mainEvent.image.data.attributes.alternativeText || mainEvent.title}
               //   layout="fill"
               //   objectFit="cover"
               width={769}
@@ -170,7 +170,7 @@ const News = async () => {
                 <div className="relative  w-[100%] h-[176px]">
                   <Image
                     src={event.Event.image.url}
-                    alt={event.Event.title}
+                    alt={event.Event.image.alternativeText || event.Event.title}
                     layout="fill"
                     objectFit="cover"
                   />
