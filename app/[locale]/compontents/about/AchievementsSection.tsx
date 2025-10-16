@@ -61,7 +61,6 @@ const AchievementsSection = ({achivements, image}: any) => {
         </div>
 
         <div className="flex">
-          <div className="bg-primary min-w-[5px] w-[5px] min-h-[300px] lg:min-h-[100%] mr-[10px] "></div>
           <div
             className="flex-1"
             style={{

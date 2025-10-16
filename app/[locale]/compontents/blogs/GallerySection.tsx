@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -28,14 +28,23 @@ interface GallerySectionProps {
 }
 
 const GallerySection: React.FC<GallerySectionProps> = ({ blogs }) => {
+  const [displayCount, setDisplayCount] = useState(6);
+  const blogsToShow = blogs.slice(0, displayCount);
+  const hasMore = displayCount < blogs.length;
+
+  const handleLoadMore = () => {
+    setDisplayCount(prev => Math.min(prev + 6, blogs.length));
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {blogs.length > 0 ? (
-        blogs.map((blog) => (
-          <div
-            key={blog.id}
-            className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-          >
+    <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {blogsToShow.length > 0 ? (
+          blogsToShow.map((blog) => (
+            <div
+              key={blog.id}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
             {/* Image Section */}
             <div className="relative h-64 w-full">
               <Image
@@ -109,20 +118,50 @@ const GallerySection: React.FC<GallerySectionProps> = ({ blogs }) => {
               </div>
             </div>
           </div>
-        ))
-      ) : (
-        <div className="col-span-full text-center py-16">
-          <div className="bg-gray-100 rounded-lg p-12">
-            <div className="text-gray-400 mb-4">
-              <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
+          ))
+        ) : (
+          <div className="col-span-full text-center py-16">
+            <div className="bg-gray-100 rounded-lg p-12">
+              <div className="text-gray-400 mb-4">
+                <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <p className="text-gray-600 text-lg font-medium">No blogs available at the moment.</p>
+              <p className="text-gray-500 text-sm mt-2">Check back soon for new content!</p>
             </div>
-            <p className="text-gray-600 text-lg font-medium">No blogs available at the moment.</p>
-            <p className="text-gray-500 text-sm mt-2">Check back soon for new content!</p>
           </div>
+        )}
+      </div>
+
+    {/* Load More Button */}
+    {hasMore && (
+      <div className="mt-12 text-center">
+        <button
+          onClick={handleLoadMore}
+          className="inline-flex items-center px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+        >
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m0 0l-4-4m4 4l4-4" />
+          </svg>
+          Load More Articles
+        </button>
+        <p className="text-sm text-gray-600 mt-3">
+          Showing {displayCount} of {blogs.length} articles
+        </p>
+      </div>
+    )}
+
+    {/* All Loaded Message */}
+    {!hasMore && blogs.length > 6 && (
+      <div className="mt-12 text-center">
+        <div className="inline-block bg-gray-100 px-6 py-3 rounded-lg">
+          <p className="text-gray-600 font-medium">
+            ✓ You've viewed all {blogs.length} articles
+          </p>
         </div>
-      )}
+      </div>
+    )}
     </div>
   );
 };

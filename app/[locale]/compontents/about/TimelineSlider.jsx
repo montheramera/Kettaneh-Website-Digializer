@@ -1,35 +1,37 @@
-
 "use client";
 import React, { useState } from "react";
 import Slider from "react-slick";
 
 const SampleNextArrow = (props) => {
   const { className, style, onClick, currentSlide, slideCount } = props;
-  const isDisabled = currentSlide === slideCount - 3; // Adjust according to the number of slides visible
+  const isDisabled = currentSlide === slideCount - 3;
 
   return (
-    <div
-      className={`${className} absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer ${
-        isDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+    <button
+      className={`${className} !flex absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-primary hover:bg-primary/90 shadow-2xl hover:shadow-3xl rounded-full p-5 lg:p-6 transition-all duration-300 ${
+        isDisabled ? "opacity-30 cursor-not-allowed" : "cursor-pointer hover:scale-110"
       }`}
-      onClick={!isDisabled ? onClick : null}
+      onClick={!isDisabled ? onClick : undefined}
+      aria-label="Next timeline item"
+      style={{ display: 'flex !important' }}
     >
       <svg
-        width="56"
-        height="56"
-        viewBox="0 0 56 56"
+        width="48"
+        height="48"
+        viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="text-white"
       >
         <path
-          d="M10 18L16 12L10 6"
-          stroke={isDisabled ? "gray" : "black"}
-          strokeWidth="2"
+          d="M9 18L15 12L9 6"
+          stroke="currentColor"
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
-    </div>
+    </button>
   );
 };
 
@@ -38,40 +40,41 @@ const SamplePrevArrow = (props) => {
   const isDisabled = currentSlide === 0;
 
   return (
-    <div
-      className={`${className} absolute left-0 top-1/2 transform -translate-y-1/2 ${
-        isDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+    <button
+      className={`${className} absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-primary shadow-lg hover:shadow-xl rounded-full p-4 lg:p-5 transition-all duration-300 ${
+        isDisabled ? "opacity-30 cursor-not-allowed" : "cursor-pointer hover:scale-110"
       }`}
-      onClick={!isDisabled ? onClick : null}
+      onClick={!isDisabled ? onClick : undefined}
+      aria-label="Previous timeline item"
     >
       <svg
-        width="56"
-        height="56"
-        viewBox="0 0 56 56"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className={isDisabled ? "text-gray-400" : "text-gray-800 group-hover:text-white"}
       >
         <path
-          d="M14 18L8 12L14 6"
-          stroke={isDisabled ? "gray" : "black"}
-          strokeWidth="2"
+          d="M15 18L9 12L15 6"
+          stroke="currentColor"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
-    </div>
+    </button>
   );
 };
 
 const TimelineSlider = ({timelineData}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-
   const settings = {
-    cssEase: "linear",
+    cssEase: "cubic-bezier(0.4, 0, 0.2, 1)",
     slidesToShow: 3,
     slidesToScroll: 1,
-    infinite: false, // Disable infinite scrolling
+    infinite: false,
     nextArrow: (
       <SampleNextArrow
         currentSlide={currentSlide}
@@ -79,8 +82,15 @@ const TimelineSlider = ({timelineData}) => {
       />
     ),
     prevArrow: <SamplePrevArrow currentSlide={currentSlide} />,
-    afterChange: (current) => setCurrentSlide(current), // Update current slide
+    afterChange: (current) => setCurrentSlide(current),
     responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
       {
         breakpoint: 768,
         settings: {
@@ -92,113 +102,95 @@ const TimelineSlider = ({timelineData}) => {
   };
 
   return (
-    <section className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir slider-logos-arrow border-y-[#F9FAFB]  border-opacity-25 border-y-[1px]">
+    <section className="px-5 py-[30px] lg:px-20 lg:py-[96px] font-avenir bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-[1440px] m-auto">
-        <div className="mb-8">
-          <h2 className=" text-[30px] lg:text-[36px] font-[800] leading-[40px] text-heading">
-            <span className="text-primary"> Our Journey</span> Through Time
+        {/* Header */}
+        <div className="mb-16 text-center">
+          <div className="inline-block mb-4">
+            <span className="bg-primary/10 text-primary px-6 py-2 rounded-full text-sm font-semibold uppercase tracking-wide">
+              Our Journey
+            </span>
+          </div>
+          <h2 className="text-[32px] lg:text-[48px] font-[800] leading-tight text-heading mb-4">
+            <span className="text-primary">Our Journey</span> Through Time
           </h2>
-          <p className="text-[20px] lg:text-[30px] text-paragraph font-[500] leading-[28px] mt-[10px] lg:mt-[20px]">
-            Celebrating Over a Century of Innovation, Growth, and Customer
-            Satisfaction
+          <p className="text-[18px] lg:text-[20px] text-paragraph font-[400] leading-relaxed max-w-3xl mx-auto">
+            Celebrating Over a Century of Innovation, Growth, and Customer Satisfaction
           </p>
         </div>
 
-        {/* <div className="flex justify-center items-center  mt-[64px] px-8 lg:px-0">
-          <div className="relative w-full h-1 bg-primary">
-            <div className="absolute left-0 top-[-24px] h-12 border-l-2 border-primary"></div>
-            <div className="absolute left-1/3 h-12 top-[-24px] border-l-0 lg:border-l-2  border-primary"></div>
-            <div className="absolute left-2/3 h-12  top-[-24px] border-l-0 lg:border-l-2 border-primary"></div>
-            <div className=""></div>
+        {/* Timeline Slider */}
+        <div className="relative">
+          {/* Progress Bar */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gray-200 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-gradient-to-r from-primary to-primary/60 transition-all duration-500 ease-out"
+              style={{ width: `${((currentSlide + 1) / timelineData.length) * 100}%` }}
+            />
           </div>
-        </div> */}
 
-        <Slider {...settings}>
-          {timelineData.map((item, index) => (
-            <div key={index} className=" px-8 lg:px-0">
-              <div className="h-1 bg-primary relative mt-[48px]">
-                <div className="absolute left-0 top-[-24px] h-12 border-l-2 border-primary"></div>
+          <Slider {...settings} className="modern-timeline-slider">
+            {timelineData.map((item, index) => (
+              <div key={index} className="px-4">
+                <div className="relative group">
+                  {/* Card */}
+                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/20 h-full">
+                    {/* Year Badge */}
+                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-2xl mb-6 shadow-lg">
+                      <span className="text-white text-2xl font-bold">{item.year}</span>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-[16px] text-paragraph font-[400] leading-relaxed">
+                      {item.description}
+                    </p>
+
+                    {/* Decorative Element */}
+                    <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                        <circle cx="30" cy="30" r="25" stroke="currentColor" strokeWidth="2"/>
+                        <circle cx="30" cy="30" r="15" stroke="currentColor" strokeWidth="2"/>
+                        <circle cx="30" cy="30" r="5" fill="currentColor"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Timeline Dot */}
+                  <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-white border-4 border-primary rounded-full shadow-lg z-10" />
+                </div>
               </div>
-              <div className="mt-[48px]">
-                <p className="text-[30px] lg:text-[60px] text-heading font-[500] leading-[81.96px]">
-                  {item.year}
-                </p>
-                <p className="text-[18px] text-paragraph font-[400] leading-[24px] lg:max-w-[308px]">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
+
+        {/* Slide Counter */}
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-md">
+            <span className="text-sm font-medium text-gray-600">Slide</span>
+            <span className="text-primary font-bold text-lg">{currentSlide + 1}</span>
+            <span className="text-sm text-gray-400">of</span>
+            <span className="text-gray-800 font-semibold">{timelineData.length}</span>
+          </div>
+        </div>
       </div>
+
+      {/* Custom Styles */}
+      <style jsx global>{`
+        .modern-timeline-slider .slick-track {
+          display: flex;
+          align-items: stretch;
+        }
+        
+        .modern-timeline-slider .slick-slide {
+          height: auto;
+        }
+        
+        .modern-timeline-slider .slick-slide > div {
+          height: 100%;
+        }
+      `}</style>
     </section>
   );
 };
 
 export default TimelineSlider;
-
-// "use client";
-// import React, { useState, useEffect, useRef } from "react";
-
-// const TimelineSection = ({ year, description, isActive }) => {
-//   return (
-//     <div className="relative flex flex-col items-center mb-16">
-//       {/* Vertical Line */}
-//       <div
-//         className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-300 ${
-//           isActive ? "bg-primary" : "bg-gray-300"
-//         }`}
-//       ></div>
-//       {/* Timeline content */}
-//       <div className="relative z-10 bg-white p-4 shadow-md">
-//         <p className="text-4xl font-bold">{year}</p>
-//         <p className="text-md mt-2">{description}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// const ScrollTimeline = ({ timelineData }) => {
-//   const [activeIndex, setActiveIndex] = useState(0);
-//   const timelineRefs = useRef([]);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       timelineRefs.current.forEach((ref, index) => {
-//         const rect = ref.getBoundingClientRect();
-//         if (rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
-//           setActiveIndex(index);
-//         }
-//       });
-//     };
-
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   return (
-//     <div className="relative">
-//       {/* Timeline Vertical line */}
-//       <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300"></div>
-
-//       {timelineData.map((item, index) => (
-//         <div
-//           key={index}
-//           ref={(el) => (timelineRefs.current[index] = el)}
-//           className="mb-16"
-//         >
-//           <TimelineSection
-//             year={item.year}
-//             description={item.description}
-//             isActive={index === activeIndex}
-//           />
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default ScrollTimeline;
-
-
-

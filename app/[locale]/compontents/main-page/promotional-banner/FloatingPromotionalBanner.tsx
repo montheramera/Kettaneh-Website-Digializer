@@ -25,12 +25,12 @@ export default function FloatingPromotionalBanner() {
   return (
     <div className="fixed bottom-0 left-0 w-full z-50 flex justify-center">
       <div
-        className="relative w-full max-w-3xl mx-auto cursor-pointer"
+        className="relative w-full max-w-2xl mx-auto cursor-pointer"
         onClick={handleBannerClick}
       >
         <button
           onClick={handleClose}
-          className="absolute top-2 right-2 z-10 bg-white/80 rounded-full hover:bg-white text-2xl font-bold w-8 h-8 flex items-center justify-center"
+          className="absolute top-1 right-1 z-10 bg-white/80 rounded-full hover:bg-white text-xl font-bold w-6 h-6 flex items-center justify-center"
           aria-label="Close"
         >
           ×

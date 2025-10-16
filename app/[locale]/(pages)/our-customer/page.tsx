@@ -29,15 +29,52 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json()
     const seo = data.data?.attributes?.seo || {}
-    const title = 'Our Customers | F.A Kettaneh & Co Ltd Jordan';
-    const description = "F.A Kettaneh & Co Ltd Jordan provides tailored engineering solutions for leading clients in electrical, HVAC, and industrial projects across the region";
+    const title = 'Trusted Partners | F.A Kettaneh & Co Ltd Jordan';
+    const description = "Companies we serve across Jordan & the region. Kettaneh provides tailored engineering solutions for leading clients in electrical, HVAC, and industrial projects.";
   
 
     return {
       title,
       description,
+      keywords: "Kettaneh partners, Jordan business clients, HVAC clients, machinery partners, trusted engineering partners, Jordan companies",
+      authors: [{ name: "Kettaneh Team" }],
+      openGraph: {
+        title,
+        description,
+        url: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/our-customer`,
+        siteName: "Kettaneh",
+        images: [
+          {
+            url: "/images/logo.png",
+            width: 1200,
+            height: 630,
+            alt: "Kettaneh Trusted Partners",
+          },
+        ],
+        locale: "en_US",
+        type: "website",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["/images/logo.png"],
+        creator: "@Kettaneh",
+        site: "@Kettaneh",
+      },
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/our-customer`,
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
       },
     };
   } catch (error) {
@@ -45,8 +82,8 @@ export async function generateMetadata({ params }: Props) {
 
     // Return default metadata if there's an error
     return {
-      title: "Our Customers | F.A Kettaneh & Co Ltd Jordan",
-      description: "F.A Kettaneh & Co Ltd Jordan provides tailored engineering solutions for leading clients in electrical, HVAC, and industrial projects across the region",
+      title: "Trusted Partners | F.A Kettaneh & Co Ltd Jordan",
+      description: "Companies we serve across Jordan & the region. Kettaneh provides tailored engineering solutions for leading clients in electrical, HVAC, and industrial projects.",
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/our-customer`,
       },
@@ -108,13 +145,16 @@ const index = async() => {
               <div className="mb-[24px] mt-[24px] flex">
                 <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div>
                 <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px] uppercase">
-                  {customerData?.title}
+                  Trusted Partners
                 </span>
               </div>
-              <h1 className="text-[30px] lg:text-[36px] font-[800] leading-[34px] lg:leading-[40px] text-heading mt-[16px] mb-[30px] lg:mb-[64px]">
-                Kettaneh Customers
+              <h1 className="text-[30px] lg:text-[36px] font-[800] leading-[34px] lg:leading-[40px] text-heading mt-[16px] mb-[16px]">
+                Trusted Partners
               </h1>
-              <div className="flex flex-row">
+              <p className="text-[20px] lg:text-[24px] font-[500] leading-[30px] text-primary mb-[30px] lg:mb-[48px]">
+                Companies we serve across Jordan & the region
+              </p>
+              <div className="flex flex-row mb-[30px] lg:mb-[64px]">
                 <div className="bg-primary min-w-[5px] w-[5px] min-h-[100%] mr-[10px]"></div> 
                 <div>
                 <Suspense fallback={"loading"}>
@@ -130,11 +170,37 @@ const index = async() => {
             <Suspense fallback={"loading"}>
                 <DynamicLogoSection Clients={Clients} />
               </Suspense>
-            {/* <div className="mb-[36px] mt-[64px] flex justify-start  w-full max-w-[1440px]  m-auto">
-              <span className="bg-primary text-white py-2 px-4 inline-block text-[21.86px]  font-[400] leading-[22px]">
-                View Success Stories
-              </span>
-            </div> */}
+          </section>
+
+          {/* CTA Section */}
+          <section className="max-w-[1440px] m-auto mt-[48px] lg:mt-[80px] mb-[48px]">
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 border-l-4 border-primary p-8 lg:p-12 rounded-r-lg shadow-md">
+              <h2 className="text-[24px] lg:text-[30px] font-[700] leading-[32px] lg:leading-[40px] text-heading mb-[16px]">
+                Become Our Customer Today
+              </h2>
+              <p className="text-[16px] lg:text-[18px] font-[400] leading-[26px] text-paragraph mb-[24px] max-w-[800px]">
+                Contact us to discuss how we can work together and deliver excellence through our innovative engineering solutions and premium brands.
+              </p>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div className="flex items-center">
+                  <svg className="w-6 h-6 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <a 
+                    href="mailto:info@kettaneh.com.jo" 
+                    className="text-[18px] lg:text-[20px] font-[600] text-primary hover:text-primary/80 transition-colors"
+                  >
+                    info@kettaneh.com.jo
+                  </a>
+                </div>
+                <a 
+                  href="mailto:info@kettaneh.com.jo"
+                  className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-[500] text-[16px] transition-colors shadow-md hover:shadow-lg"
+                >
+                  Get In Touch
+                </a>
+              </div>
+            </div>
           </section>
         </div>
         <section className="hidden lg:block">

@@ -2,61 +2,60 @@
 import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
+
 const SampleNextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
-    <div
-      className={`${className} absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer`}
-      // style={{ ...style, display: "block", background: "none" ,border:"2px",borderBlockEndColor:"black" }}
+    <button
+      className={`${className} absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-primary shadow-lg hover:shadow-xl rounded-full p-4 lg:p-5 transition-all duration-300 hover:scale-110`}
       onClick={onClick}
+      aria-label="Next partner"
     >
-      {/* <div className=" border border-primary rounded-full p-2 w-[56px] h-[56px]"> */}
       <svg
-        width="56"
-        height="56"
-        viewBox="0 0 56 56"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="text-gray-800 group-hover:text-white"
       >
         <path
-          d="M10 18L16 12L10 6"
-          stroke="black"
-          strokeWidth="2"
+          d="M9 18L15 12L9 6"
+          stroke="currentColor"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
-      {/* <p className="text-primary">--</p>
-
-      </div> */}
-    </div>
+    </button>
   );
 };
 
 const SamplePrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
-    <div
-      className={`${className} absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer`}
-      // style={{ ...style, display: "block", background: "none" }}
+    <button
+      className={`${className} absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-primary shadow-lg hover:shadow-xl rounded-full p-4 lg:p-5 transition-all duration-300 hover:scale-110`}
       onClick={onClick}
+      aria-label="Previous partner"
     >
       <svg
-        width="56"
-        height="56"
-        viewBox="0 0 56 56"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="text-gray-800 group-hover:text-white"
       >
         <path
-          d="M14 18L8 12L14 6"
-          stroke="black"
-          strokeWidth="2"
+          d="M15 18L9 12L15 6"
+          stroke="currentColor"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
-    </div>
+    </button>
   );
 };
 
@@ -65,29 +64,29 @@ const PartnerSlider = ({partners}) => {
   const settings = {
     infinite: true,
     autoplay: true,
-    speed: 10000,
-    autoplaySpeed: 10000,
+    speed: 8000,
+    autoplaySpeed: 0,
     cssEase: "linear",
-    // centerMode: true,
     slidesToShow: 5,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 640,
         settings: {
           slidesToShow: 2,
         },
@@ -97,58 +96,110 @@ const PartnerSlider = ({partners}) => {
 
     return (
       <>
-        <section className=" px-5  lg:px-20 font-avenir bg-[#F9FAFB] pt-8">
+        <section className="px-5 lg:px-20 font-avenir bg-gradient-to-b from-gray-50 to-white py-16 lg:py-24">
           <div className="max-w-[1440px] m-auto">
-            <div className="flex justify-between items-center text-[30px] leading-[36px] lg:text-[50px] lg:leading-[48px] font-[800] mb-[55px] lg:mb-[110px]">
-              <h2 className="text-heading">
-                Our <span className=" text-primary">Global Partners</span>
-              </h2>
-              <span className=" text-primary  text-[30px] lg:text-[60px]">
-                +30
-              </span>
+            {/* Header */}
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 lg:mb-16">
+              <div>
+                <div className="inline-block mb-4">
+                  <span className="bg-primary/10 text-primary px-6 py-2 rounded-full text-sm font-semibold uppercase tracking-wide">
+                    Trusted Worldwide
+                  </span>
+                </div>
+                <h2 className="text-[32px] lg:text-[48px] font-[800] leading-tight text-heading">
+                  Our <span className="text-primary">Global Partners</span>
+                </h2>
+              </div>
+              <div className="mt-6 lg:mt-0">
+                <div className="bg-gradient-to-br from-primary to-primary/80 text-white px-8 py-6 rounded-2xl shadow-xl">
+                  <div className="text-4xl lg:text-5xl font-bold">+30</div>
+                  <div className="text-sm lg:text-base opacity-90">Partners Worldwide</div>
+                </div>
+              </div>
             </div>
-            <div className=" customer-logos slider-logos-arrow">
-              <div className="slider-container main-logos">
-                <Slider {...settings}>
-                  {partners.map((partner, index) => (
-                    // <div
-                    //   key={index}
-                    //   className="flex justify-center items-center h-[100%] bg-primary"
-                    // >
-                    //   <Image
-                    //     key={index}
-                    //     src={partner.src}
-                    //     alt={partner.name}
-                    //     priority
-                    //     width={200}
-                    //     height={200}
-                    //     className="px-5 lg:px-10  "
-                    //   />
-                    // </div>
-                    <div
-                      key={index}
-                      className="flex justify-center items-center h-full"
-                    >
+
+            {/* Partner Logos Slider */}
+            <div className="relative">
+              <div className="customer-logos slider-logos-arrow">
+                <div className="slider-container main-logos">
+                  <Slider {...settings} className="modern-partner-slider">
+                    {partners.map((partner, index) => (
                       <div
-                        className="flex justify-center items-center w-full h-full"
-                        style={{ height: "150px" }}
+                        key={index}
+                        className="flex justify-center items-center h-full px-4"
                       >
-                        <Image
-                          src={partner.src}
-                          alt={partner.name}
-                          priority
-                          width={200}
-                          height={200} // Make image take full height of its container
-                          className="px-5 lg:px-10 max-h-full object-contain"
-                        />
+                        <div className="group relative w-full h-32 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center border border-gray-100 hover:border-primary/20 overflow-hidden">
+                          {/* Logo Container */}
+                          <div className="relative w-full h-full flex items-center justify-center p-6">
+                            <Image
+                              src={partner.src}
+                              alt={`${partner.name} - Kettaneh partner`}
+                              priority={index < 5}
+                              width={200}
+                              height={200}
+                              className="object-contain max-h-full w-auto grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                            />
+                          </div>
+
+                          {/* Hover Effect Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                          {/* Corner Accent */}
+                          <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-bl-full" />
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </Slider>
+                    ))}
+                  </Slider>
+                </div>
+              </div>
+
+              {/* Gradient Overlays for Smooth Edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10" />
+            </div>
+
+            {/* Stats Section */}
+            <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-md text-center border border-gray-100">
+                <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">+30</div>
+                <div className="text-sm text-gray-600">Global Partners</div>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-md text-center border border-gray-100">
+                <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">50+</div>
+                <div className="text-sm text-gray-600">Years Experience</div>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-md text-center border border-gray-100">
+                <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">100+</div>
+                <div className="text-sm text-gray-600">Projects Completed</div>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-md text-center border border-gray-100">
+                <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">24/7</div>
+                <div className="text-sm text-gray-600">Support Available</div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Custom Styles */}
+        <style jsx global>{`
+          .modern-partner-slider .slick-track {
+            display: flex;
+            align-items: center;
+          }
+          
+          .modern-partner-slider .slick-slide {
+            height: auto;
+          }
+          
+          .modern-partner-slider .slick-slide > div {
+            height: 100%;
+          }
+
+          /* Smooth infinite scroll */
+          .modern-partner-slider .slick-slide {
+            transition: transform 0.3s ease;
+          }
+        `}</style>
       </>
     );
 };

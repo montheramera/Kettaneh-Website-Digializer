@@ -11,6 +11,7 @@ import NewsSkeleton from "./compontents/ui/skeleton/NewsSkeleton";
 import TestimonialsSkeleton from "./compontents/ui/skeleton/TestimonialsSkeleton";
 import ScrollSliders from "./compontents/categories/ScrollSliders";
 import FloatingPromotionalBanner from "./compontents/main-page/promotional-banner/FloatingPromotionalBanner";
+import VideoCarousel from "./compontents/main-page/video-carousel/VideoCarousel";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
@@ -158,6 +159,10 @@ export default async function Home() {
         <ScrollSliders />
       </section>
       <div className="lg:mt-[250px]">
+        {/* Video Carousel Section */}
+        <VideoCarousel />
+      </div>
+      <div className="mt-[30px]">
         {/* <GlobalPartners /> */}
         <Suspense fallback={"loading"}>
           <DynamicGlobalPartners />
