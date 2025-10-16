@@ -157,7 +157,7 @@ const GallerySection: React.FC<GallerySectionProps> = ({ blogs }) => {
       <div className="mt-12 text-center">
         <div className="inline-block bg-gray-100 px-6 py-3 rounded-lg">
           <p className="text-gray-600 font-medium">
-            ✓ You've viewed all {blogs.length} articles
+            ✓ You&apos;ve viewed all {blogs.length} articles
           </p>
         </div>
       </div>
