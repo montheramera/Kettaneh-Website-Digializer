@@ -62,7 +62,7 @@ export default async function JobListings({careers, pageData}: any) {
               {pageData.description1}
             </p>
             <p className="text-[18px] font-[400] leading-[28px] text-paragraph lg:max-w-[768px] mb-[20px]">
-              Join F.A. Kettaneh and be part of a leading organization with over 70 years of excellence. We're always looking for talented individuals who are passionate about innovation and growth. Explore our current openings below or send your CV to{" "}
+              Join F.A. Kettaneh and be part of a leading organization with over 70 years of excellence. We&apos;re always looking for talented individuals who are passionate about innovation and growth. Explore our current openings below or send your CV to{" "}
               <a href="mailto:hr@kettaneh.com.jo" className="text-primary font-[600] hover:underline">
                 hr@kettaneh.com.jo
               </a>

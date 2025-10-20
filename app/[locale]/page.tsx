@@ -15,7 +15,6 @@ import VideoCarousel from "./compontents/main-page/video-carousel/VideoCarousel"
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
-
 type Props = {
   params: { title: string; description: string };
   searchParams: { [key: string]: string | string[] | undefined };

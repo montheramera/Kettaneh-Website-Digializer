@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BlocksRendererComponent from "@/compontents/ui/blocs-renderer/BlockRenderer";
-import SocialShareButtons from "@/compontents/blogs/SocialShareButtons";
+// import SocialShareButtons from "@/compontents/blogs/SocialShareButtons";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
@@ -416,13 +416,13 @@ const page = async ({ params }: Props) => {
               </div>
 
               {/* Social Share Buttons */}
-              <div className="mt-8">
+              {/* <div className="mt-8">
                 <SocialShareButtons
                   url={`${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs/${params.slug}`}
                   title={blog.Title}
                   description={blog.Description}
                 />
-              </div>
+              </div> */}
 
               {/* Product Recommendations Section */}
               <div className="mt-12">
