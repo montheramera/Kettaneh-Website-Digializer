@@ -411,10 +411,10 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
               >
                 <option value="">Select a category</option>
                 <option value="Electrical">Electrical</option>
-                <option value="HVAC">HVAC</option>
+                <option value="Air Conditioning">Air Conditioning</option>
                 <option value="Machinery">Machinery</option>
                 <option value="Lighting">Lighting</option>
-                <option value="Aftermarket">Aftermarket</option>
+                <option value="Service excellence">Service excellence</option>
               </select> */}
               <MultiSelectDropdown
                 options={categories}

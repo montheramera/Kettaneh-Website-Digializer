@@ -64,6 +64,7 @@ const SamplePrevArrow = (props: any) => {
 
 const VideoCarousel = () => {
   const sliderRef = useRef<any>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const videos = [
     {
@@ -79,6 +80,16 @@ const VideoCarousel = () => {
       description: "Excellence in engineering and innovation"
     },
   ];
+
+  const handleBeforeChange = (current: number, next: number) => {
+    // Pause all videos
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        video.pause();
+      }
+    });
+    setCurrentSlide(next);
+  };
 
   const settings = {
     dots: true,
@@ -97,7 +108,7 @@ const VideoCarousel = () => {
     cssEase: "cubic-bezier(0.4, 0, 0.2, 1)",
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    beforeChange: (current: number, next: number) => setCurrentSlide(next),
+    beforeChange: handleBeforeChange,
     customPaging: (i: number) => (
       <button 
         className={`w-3 h-3 rounded-full transition-all duration-300 ${
@@ -136,6 +147,7 @@ const VideoCarousel = () => {
                   <div className="relative overflow-hidden rounded-xl lg:rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-black">
                     {/* Video */}
                     <video
+                      ref={(el) => { videoRefs.current[index] = el; }}
                       className="w-full h-auto max-h-[500px] lg:max-h-[600px] object-cover relative z-20"
                       controls
                       controlsList="nodownload"

@@ -14,7 +14,7 @@ type Props = {
 }
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/categories?filters[title]=After-Market&populate[seo][populate]=*`, {
+    const res = await fetch(`${API_URL}/api/categories?filters[title]=Service excellence&populate[seo][populate]=*`, {
       cache: "no-store",
     })
 
@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json()
     const seo = data.data[0]?.attributes.seo || {}
-    const title = seo.meta_title || "after market";
-    const description = seo.meta_description || "after market";
+    const title = seo.meta_title || "Service excellence";
+    const description = seo.meta_description || "Service excellence";
   
 
     return {
@@ -42,8 +42,8 @@ export async function generateMetadata({ params }: Props) {
 
     // Return default metadata if there's an error
     return {
-      title: "after market",
-      description: "after market",
+      title: "Service excellence",
+      description: "Service excellence",
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/categories/after-market`,
       },
@@ -61,7 +61,7 @@ const fetchCategoryByTitle = async (title: string) => {
 
 const page = async () => {
 
-  let AfterMarketCategory = await fetchCategoryByTitle('After-Market');
+  let AfterMarketCategory = await fetchCategoryByTitle('Service excellence');
   const DynamicFirstSection = dynamic(
     () => import('@/compontents/categories/AfterMarketing'),
     {

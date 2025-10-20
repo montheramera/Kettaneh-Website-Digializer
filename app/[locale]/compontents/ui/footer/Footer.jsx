@@ -60,9 +60,10 @@ export default function Footer({ data }) {
                     <Link
                       href="/en/our-customer"
                       className="text-[14px] font-[400] text-paragraph leading-[20px] hover:text-primary transition-colors duration-200"
-                      aria-label="Go to the Our Customer Page"
+                      aria-label="Go to the Trusted Partners Page"
                     >
-                      Our Customer
+                      Trusted Partners
+
                     </Link>
                   </li>
                 )}
@@ -116,12 +117,12 @@ export default function Footer({ data }) {
                   </Link>
                 </li>
                 <li>
-                  <Link
+                  <Link 
                     href="/en/categories/hvac"
                     className="text-[14px] font-[400] text-paragraph leading-[20px] hover:text-primary transition-colors duration-200"
-                    aria-label="Go to the HVAC Page"
+                    aria-label="Go to the Air Conditioning Page"
                   >
-                    HVAC
+                    Air Conditioning
                   </Link>
                 </li>
                 <li>
@@ -137,9 +138,9 @@ export default function Footer({ data }) {
                   <Link
                     href="/en/categories/after-market"
                     className="text-[14px] font-[400] text-paragraph leading-[20px] hover:text-primary transition-colors duration-200"
-                    aria-label="Go to the Aftermarket Page"
+                    aria-label="Go to the Service excellence Page"
                   >
-                    Aftermarket
+                    Service excellence
                   </Link>
                 </li>
               </ul>

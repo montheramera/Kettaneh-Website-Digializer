@@ -296,7 +296,7 @@ const page = async ({ params }: Props) => {
                   <li className="border-b border-gray-200 py-3">
                     <Link href="/categories/hvac" className="text-[#727272] hover:text-primary flex items-center">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      HVAC
+                      Air Conditioning
                     </Link>
                   </li>
                   <li className="border-b border-gray-200 py-3">
@@ -308,7 +308,7 @@ const page = async ({ params }: Props) => {
                   <li className="py-3">
                     <Link href="/categories/after-market" className="text-[#727272] hover:text-primary flex items-center">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      Aftermarket
+                      Service excellence
                     </Link>
                   </li>
                 </ul>
@@ -353,7 +353,7 @@ const page = async ({ params }: Props) => {
                         <h2 className="text-xl font-bold text-gray-900 mb-3">Key Takeaways</h2>
                         <p className="text-gray-700 mb-0">
                           In this comprehensive guide, we'll explore the latest insights and expert recommendations for {blog.Title?.toLowerCase() || 'our featured topic'}. 
-                          As Jordan's leading provider of <Link href="/categories/hvac" className="text-primary hover:underline">HVAC systems</Link> and 
+                          As Jordan's leading provider of <Link href="/categories/hvac" className="text-primary hover:underline">air conditioning systems</Link> and 
                           <Link href="/categories/machinery" className="text-primary hover:underline"> machinery solutions</Link>, 
                           Kettaneh brings over 50 years of industry expertise to help you make informed decisions.
                         </p>
@@ -369,7 +369,7 @@ const page = async ({ params }: Props) => {
                         <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
                         <div className="space-y-4">
                           <div className="border-b border-gray-200 pb-4">
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why choose Kettaneh for your HVAC and machinery needs?</h3>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why choose Kettaneh for your air conditioning and machinery needs?</h3>
                             <p className="text-gray-700">
                               Kettaneh has been Jordan's trusted partner for over 50 years, providing professional-grade solutions with comprehensive 
                               <Link href="/about" className="text-primary hover:underline"> customer support</Link> and warranty coverage. 
@@ -380,7 +380,7 @@ const page = async ({ params }: Props) => {
                             <h3 className="text-lg font-semibold text-gray-900 mb-2">What warranty coverage do you provide?</h3>
                             <p className="text-gray-700">
                               All our products come with manufacturer warranties, and we provide additional support through our 
-                              <Link href="/categories/after-market" className="text-primary hover:underline"> aftermarket services</Link>. 
+                              <Link href="/categories/after-market" className="text-primary hover:underline"> service excellence programs</Link>. 
                               Our team ensures proper installation and offers ongoing maintenance support.
                             </p>
                           </div>
@@ -400,7 +400,7 @@ const page = async ({ params }: Props) => {
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">Conclusion</h2>
                         <p className="text-gray-700 mb-4">
                           {blog.Title} represents just one aspect of the comprehensive solutions Kettaneh provides. 
-                          As Jordan's leading provider of professional-grade machinery and HVAC systems, we're committed to 
+                          As Jordan's leading provider of professional-grade machinery and air conditioning systems, we're committed to 
                           delivering excellence in every project.
                         </p>
                         <p className="text-gray-700 mb-0">
@@ -426,10 +426,10 @@ const page = async ({ params }: Props) => {
 
               {/* Product Recommendations Section */}
               <div className="mt-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Recommended HVAC Solutions from Kettaneh</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Recommended Air Conditioning Solutions from Kettaneh</h2>
                 <p className="text-gray-600 mb-6">
                   Discover our top-rated air conditioning systems with professional installation and comprehensive warranty coverage. 
-                  <Link href="/categories/hvac" className="text-primary hover:underline ml-1">Explore our full HVAC range</Link> 
+                  <Link href="/categories/hvac" className="text-primary hover:underline ml-1">Explore our full air conditioning range</Link> 
                   or <Link href="/our-customer" className="text-primary hover:underline ml-1">contact our experts</Link> for personalized recommendations.
                 </p>
                 

@@ -16,7 +16,7 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
   try {
     const res = await fetch(
-      `${API_URL}/api/categories?filters[title]=HVAC&populate[seo][populate]=*`,
+      `${API_URL}/api/categories?filters[title]=Air Conditioning&populate[seo][populate]=*`,
       {
         cache: "no-store",
       }
@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json()
     const seo = data.data[0]?.attributes.seo || {}
-    const title = seo.meta_title || 'HVAC'
-    const description = seo.meta_description || "HVAC";
+    const title = seo.meta_title || 'Air Conditioning'
+    const description = seo.meta_description || "Air Conditioning";
 
     return {
       title,
@@ -43,8 +43,8 @@ export async function generateMetadata({ params }: Props) {
 
     // Return default metadata if there's an error
     return {
-      title: "HVAC",
-      description: "HVAC",
+      title: "Air Conditioning",
+      description: "Air Conditioning",
       alternates: {
         canonical: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/categories/hvac`,
       },
@@ -78,7 +78,7 @@ const fetchPartnersByCategory = async (categoryTitle: string) => {
 
 const page = async () => {
 
-  let hvacCategory = await fetchCategoryByTitle('HVAC');
+  let hvacCategory = await fetchCategoryByTitle('Air Conditioning');
   const categoryTitle = hvacCategory[0].attributes.title
   let partners = await fetchPartnersByCategory(categoryTitle);
   

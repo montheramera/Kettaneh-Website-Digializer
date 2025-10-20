@@ -149,7 +149,7 @@ const Header = ({data}) => {
                         href="/en/categories/hvac"
                       >
                         {" "}
-                        HVAC
+                        Air Conditioning
                       </Link>
                     </span>
                     {/* <span className="mr-auto">
@@ -233,7 +233,7 @@ const Header = ({data}) => {
                         href="/en/categories/after-market"
                       >
                         {" "}
-                        Aftermarket
+                        Service excellence
                       </Link>
                     </span>
                     {/* <span className="mr-auto">
@@ -266,7 +266,7 @@ const Header = ({data}) => {
                 href="/en/our-customer"
               >
                 {" "}
-                {data?.ourCustomer?.data?.title}
+                Trusted Partners
               </Link>}
             </li>
             {/* <li>
@@ -382,7 +382,7 @@ const Header = ({data}) => {
                       href="/en/categories/hvac"
                     >
                       {" "}
-                      HVAC
+                      Air Conditioning
                     </Link>
                   </span>
                 </button>
@@ -433,7 +433,7 @@ const Header = ({data}) => {
                       href="/en/categories/after-market"
                     >
                       {" "}
-                      Aftermarket
+                      Service excellence
                     </Link>
                   </span>
                 </button>
@@ -450,7 +450,7 @@ const Header = ({data}) => {
               href="/en/our-customer"
             >
               {" "}
-              {data?.ourCustomer?.data?.title}
+              Trusted Partners
             </Link>}
           </li>
 

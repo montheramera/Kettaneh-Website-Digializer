@@ -178,8 +178,6 @@ const TermsSection: React.FC<TermsSectionProps> = ({ locale = "ar" }) => {
 
       prizes: "الجوائز:",
       prizesText1: "يتم اختيار 7 فائزين كل شهر لربح قطعة ذهب.",
-      prizesText2:
-        "في نهاية الحملة، سيتم إجراء سحب كبير لفائز واحد على الجائزة الكبرى.",
       prizesText3: "الجوائز غير قابلة للاستبدال أو التحويل لطرف آخر.",
 
       winnersAnnouncement: "الإعلان عن الفائزين:",
@@ -188,7 +186,7 @@ const TermsSection: React.FC<TermsSectionProps> = ({ locale = "ar" }) => {
       winnersText2:
         "سيتم التواصل مع الفائزين عبر الرقم المز ّود في النموذج خلال 7 أيام من السحب.",
       winnersText3:
-        "في حال تع ّذر الوصول إلى الفائز خلال فترة 7 أيام، يتم اختيار فائز بديل.",
+        "في حال تعذر الوصول إلى الفائز خلال فترة 7 أيام، يتم اختيار فائز بديل.",
 
       generalTerms: "أحكام عامة:",
       generalText1:
@@ -225,7 +223,7 @@ const TermsSection: React.FC<TermsSectionProps> = ({ locale = "ar" }) => {
     },
     {
       title: data.prizes,
-      items: [data.prizesText1, data.prizesText2, data.prizesText3],
+      items: [data.prizesText1, data.prizesText3],
       startDelay: 9,
       titleHighlight: true,
     },

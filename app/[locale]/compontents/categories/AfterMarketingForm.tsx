@@ -157,7 +157,7 @@ export default function AfterMarketingForm({id}: any) {
       <form className="w-full  " onSubmit={handleSubmit}>
         <div className=" flex justify-between w-full ">
           <h2 className="text-[24px] leading-[32px] font-[800] text-[#101828] mb-[8px]">
-            Contact Our Aftermarket Team
+            Contact Our Service Excellence Team
           </h2>
         </div>
         <p className="text-paragraph text-[18px] leading-[28px] font-[400] mb-[16px]">
@@ -175,7 +175,7 @@ export default function AfterMarketingForm({id}: any) {
             <div className="flex items-center mb-4">
               <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
               <h3 className="text-[22px] leading-[30px] font-[800] text-[#101828]">
-                Sales and After-Market
+                Sales and Service Excellence
               </h3>
             </div>
             
