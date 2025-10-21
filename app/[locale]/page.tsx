@@ -12,7 +12,6 @@ import TestimonialsSkeleton from "./compontents/ui/skeleton/TestimonialsSkeleton
 import ScrollSliders from "./compontents/categories/ScrollSliders";
 import FloatingPromotionalBanner from "./compontents/main-page/promotional-banner/FloatingPromotionalBanner";
 import VideoCarousel from "./compontents/main-page/video-carousel/VideoCarousel";
-
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
 type Props = {
