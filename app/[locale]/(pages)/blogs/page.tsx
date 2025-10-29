@@ -177,8 +177,54 @@ const page = async () => {
     }
   );
 
+  // Generate schema markup
+  const blogListSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "url": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en/blogs`,
+    "name": "Kettaneh Jordan Blog",
+    "inLanguage": "en",
+    "description": "Insights on air conditioning, smart home technology, and energy-efficient solutions in Jordan.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kettaneh Jordan",
+      "url": process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": blogs.slice(0, 6).map((blog: any, index: number) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "BlogPosting",
+          "url": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en/blogs/${blog.attributes?.Slug || blog.id}`,
+          "headline": blog.attributes?.Title || "Blog Post"
+        }
+      }))
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en` },
+      { "@type": "ListItem", "position": 2, "name": "Blogs", "item": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en/blogs` }
+    ]
+  };
+
   return (
     <>
+      {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      
       <div className="px-5 lg:px-20 font-avenir">
         <section className="max-w-[1440px] m-auto">
           <div>

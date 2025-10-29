@@ -15,9 +15,71 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+// Helper function to extract plain text from description (handles strings, objects, arrays)
+const extractPlainText = (description: any, maxLength: number = 160): string => {
+  if (!description) return '';
+  
+  // If it's already a string, return it (truncated if needed)
+  if (typeof description === 'string') {
+    return description.length > maxLength 
+      ? description.substring(0, maxLength).trim() + '...' 
+      : description.trim();
+  }
+  
+  // If it's an array, try to extract text from each item
+  if (Array.isArray(description)) {
+    const textParts = description
+      .map((item: any) => {
+        if (typeof item === 'string') return item;
+        if (item?.text) return item.text;
+        if (item?.children) {
+          return Array.isArray(item.children)
+            ? item.children.map((child: any) => 
+                typeof child === 'string' ? child : child?.text || ''
+              ).join(' ')
+            : '';
+        }
+        return '';
+      })
+      .filter((text: string) => text.length > 0);
+    
+    const fullText = textParts.join(' ').trim();
+    return fullText.length > maxLength 
+      ? fullText.substring(0, maxLength).trim() + '...' 
+      : fullText;
+  }
+  
+  // If it's an object, try to extract text from common fields
+  if (typeof description === 'object') {
+    // Try common Strapi rich text fields
+    if (description.text) return extractPlainText(description.text, maxLength);
+    if (description.children) return extractPlainText(description.children, maxLength);
+    if (description.content) return extractPlainText(description.content, maxLength);
+    
+    // Try to stringify and extract
+    try {
+      const stringified = JSON.stringify(description);
+      // Remove JSON syntax and extract actual text
+      const textOnly = stringified
+        .replace(/[{}"\[\]]/g, ' ')
+        .replace(/[,:]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      return textOnly.length > maxLength 
+        ? textOnly.substring(0, maxLength).trim() + '...' 
+        : textOnly;
+    } catch (e) {
+      return '';
+    }
+  }
+  
+  return '';
+};
+
 export async function generateMetadata({ params }: Props) {
   try {
-    const res = await fetch(`${API_URL}/api/blogs?filters[slug][$eq]=${params.slug}&populate=*`, {
+    // Use the same robust approach as fetchBlog - fetch all and find matching slug
+    const res = await fetch(`${API_URL}/api/blogs?populate=*`, {
       cache: "no-store",
     });
 
@@ -26,7 +88,19 @@ export async function generateMetadata({ params }: Props) {
     }
 
     const data = await res.json();
-    const blog = data.data?.[0]?.attributes;
+    
+    // Search for the specific blog by slug (same approach as fetchBlog)
+    let blogData = null;
+    if (data.data && data.data.length > 0) {
+      blogData = data.data.find((blog: any) => 
+        blog.attributes?.Slug === params.slug || 
+        blog.attributes?.slug === params.slug ||
+        blog.Slug === params.slug ||
+        blog.slug === params.slug
+      );
+    }
+    
+    const blog = blogData?.attributes || blogData;
     
     if (!blog) {
       return {
@@ -35,18 +109,23 @@ export async function generateMetadata({ params }: Props) {
       };
     }
 
+    // Create SEO-optimized title - use blog title directly, or meta_title if available
+    // Ensure title is always a string (handle cases where it might be an object)
+    const rawTitle = typeof blog.meta_title === 'string' ? blog.meta_title : 
+                     typeof blog.Title === 'string' ? blog.Title : 
+                     extractPlainText(blog.meta_title || blog.Title, 60).trim();
+    const seoTitle = rawTitle ? `${rawTitle} | Kettaneh` : "Blog Post | Kettaneh";
+    
+    // Create comprehensive meta description - use meta_description if available, otherwise use Description
+    // Extract plain text to handle cases where description might be an object/array
+    const rawDescription = blog.meta_description || blog.Description;
+    const extractedDescription = extractPlainText(rawDescription, 160);
+    const metaDescription = extractedDescription || `Read our latest insights on ${blog.Title || 'machinery, HVAC systems, and smart maintenance'} from Kettaneh, Jordan's trusted partner for over 50 years.`;
+   
     // Extract primary keyword from title (first 2-3 words typically)
     const titleWords = (blog.Title || "Blog Post").split(' ');
     const primaryKeyword = titleWords.slice(0, 2).join(' ');
-    
-    // Create SEO-optimized title
-    const seoTitle = `${blog.Title || "Blog Post"} | Kettaneh - Expert ${primaryKeyword} Solutions`;
-    
-    // Create comprehensive meta description
-    const metaDescription = blog.Description 
-      ? `${blog.Description} Learn more about ${primaryKeyword} solutions from Kettaneh, Jordan's leading provider of machinery, HVAC systems, and smart maintenance services.`
-      : `Discover expert insights on ${primaryKeyword} from Kettaneh. Professional-grade solutions for machinery, HVAC systems, and smart maintenance in Jordan.`;
-   
+
     return {
       title: seoTitle,
       description: metaDescription,
@@ -169,62 +248,99 @@ const page = async ({ params }: Props) => {
   // Filter out the current blog by ID as well
   const filteredRelatedArticles = relatedArticles.filter((article: any) => article.id !== blog.id);
 
-  // Generate structured data for SEO
-  const structuredData = {
+  // Generate BlogPosting schema
+  const blogPostingSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en/blogs/${params.slug}`
+    },
+    "url": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en/blogs/${params.slug}`,
+    "inLanguage": "en",
     "headline": blog.Title,
     "description": blog.Description,
     "image": blog.image?.data?.attributes?.url || "/images/blog.png",
+    "datePublished": blog.publishedAt,
+    "dateModified": blog.updatedAt || blog.publishedAt,
+    "timeRequired": "PT5M",
+    "articleSection": "Technology & Innovation",
     "author": {
       "@type": "Organization",
-      "name": "Kettaneh",
-      "url": process.env.NEXT_PUBLIC_MAIN_SITE,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${process.env.NEXT_PUBLIC_MAIN_SITE}/images/logo.png`
-      }
+      "name": "Kettaneh Jordan",
+      "url": process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Kettaneh",
-      "url": process.env.NEXT_PUBLIC_MAIN_SITE,
+      "name": "Kettaneh Jordan",
+      "url": process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo',
       "logo": {
         "@type": "ImageObject",
-        "url": `${process.env.NEXT_PUBLIC_MAIN_SITE}/images/logo.png`
+        "url": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/images/LOGO_White%20on%20Grey_ADJUSTED.svg`
       }
     },
-    "datePublished": blog.publishedAt,
-    "dateModified": blog.updatedAt || blog.publishedAt,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs/${params.slug}`
-    },
-    "url": `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs/${params.slug}`,
-    "articleSection": "Technology & Innovation",
-    "keywords": "HVAC systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan",
-    "about": [
+    "isAccessibleForFree": true,
+    "keywords": "HVAC systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan"
+  };
+
+  // Generate FAQPage schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en/blogs/${params.slug}#faq`,
+    "mainEntity": [
       {
-        "@type": "Thing",
-        "name": "HVAC Systems"
+        "@type": "Question",
+        "name": "Why choose Kettaneh for your air conditioning and machinery needs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kettaneh has been Jordan's trusted partner for over 50 years, providing professional-grade solutions with comprehensive customer support and warranty coverage. Our expert team ensures proper installation and maintenance for optimal performance."
+        }
       },
       {
-        "@type": "Thing", 
-        "name": "Machinery"
+        "@type": "Question",
+        "name": "What warranty coverage do you provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All our products come with manufacturer warranties, and we provide additional support through our service excellence programs. Our team ensures proper installation and offers ongoing maintenance support."
+        }
       },
       {
-        "@type": "Thing",
-        "name": "Smart Maintenance"
+        "@type": "Question",
+        "name": "How can I get professional installation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Contact our expert team for professional installation services. We provide comprehensive support from consultation to installation and ongoing maintenance."
+        }
       }
+    ]
+  };
+
+  // Generate BreadcrumbList schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en` },
+      { "@type": "ListItem", "position": 2, "name": "Blogs", "item": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en/blogs` },
+      { "@type": "ListItem", "position": 3, "name": blog.Title, "item": `${process.env.NEXT_PUBLIC_MAIN_SITE || 'https://www.kettaneh.com.jo'}/en/blogs/${params.slug}` }
     ]
   };
 
   return (
     <>
-      {/* Structured Data */}
+      {/* Schema Markup */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       
       {/* Breadcrumbs */}
