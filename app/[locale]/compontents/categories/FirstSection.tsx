@@ -76,22 +76,49 @@ const FirstSection: React.FC<FirstSectionProps> = ({
           >
             {partners
               ?.sort((a, b) => a?.weight - b?.weight)
-              ?.map((partner, index) => (
-                <Link
-                  key={index}
-                  href={`${path}/${partner?.title?.toLocaleLowerCase()}`}
-                  className="cursor-pointer"
-                >
-                  <Image
-                    src={partner.logo.data.attributes.url}
-                    alt={partner.logo.data.attributes.alternativeText || partner.logo.data.attributes.name}
-                    width={partner.logo.data.attributes.width}
-                    height={partner.logo.data.attributes.height}
-                    priority
-                    className=""
-                  />
-                </Link>
-              ))}
+              ?.map((partner, index) => {
+                // Check if this is Linde partner and link to external co-branded site
+                const isLinde = partner?.title?.toLocaleLowerCase() === "linde";
+                const lindeLink = "https://www.linde-mh.com/en/?utm_source=122817";
+                
+                if (isLinde) {
+                  return (
+                    <a
+                      key={index}
+                      href={lindeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer"
+                    >
+                      <Image
+                        src={partner.logo.data.attributes.url}
+                        alt={partner.logo.data.attributes.alternativeText || partner.logo.data.attributes.name}
+                        width={partner.logo.data.attributes.width}
+                        height={partner.logo.data.attributes.height}
+                        priority
+                        className=""
+                      />
+                    </a>
+                  );
+                }
+                
+                return (
+                  <Link
+                    key={index}
+                    href={`${path}/${partner?.title?.toLocaleLowerCase()}`}
+                    className="cursor-pointer"
+                  >
+                    <Image
+                      src={partner.logo.data.attributes.url}
+                      alt={partner.logo.data.attributes.alternativeText || partner.logo.data.attributes.name}
+                      width={partner.logo.data.attributes.width}
+                      height={partner.logo.data.attributes.height}
+                      priority
+                      className=""
+                    />
+                  </Link>
+                );
+              })}
           </div>
         </section>
       </div>

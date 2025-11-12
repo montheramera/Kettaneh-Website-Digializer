@@ -24,14 +24,14 @@ export async function generateMetadata({ params }: Props) {
 
     const data = await res.json();
     const seo = data.data?.attributes?.seo || {};
-    const title = seo.meta_title || "Blogs | Kettaneh - Expert HVAC & Machinery Insights";
+    const title = seo.meta_title || "Blogs | Kettaneh - Expert Air Conditioning & Machinery Insights";
     const description = seo.meta_description || "Discover expert insights, tips, and industry news from our expert team.";
    
     
     return {
       title,
       description,
-      keywords: "HVAC systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan, professional solutions, industry insights, technology blog",
+      keywords: "Air Conditioning systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan, professional solutions, industry insights, technology blog",
       authors: [{ name: "Kettaneh Team" }],
       openGraph: {
         title,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props) {
             url: "/images/blog.png",
             width: 1200,
             height: 630,
-            alt: "Kettaneh Blogs - Expert Insights on HVAC and Machinery",
+            alt: "Kettaneh Blogs - Expert Insights on Air Conditioning and Machinery",
           },
         ],
         locale: "en_US",
@@ -77,13 +77,13 @@ export async function generateMetadata({ params }: Props) {
 
     // Return default metadata if there's an error
     return {
-      title: "Blogs | Kettaneh - Expert HVAC & Machinery Insights",
-      description: "Discover expert insights, tips, and industry news from Kettaneh's professional team. Your go-to resource for HVAC systems, machinery, and smart maintenance solutions in Jordan.",
-      keywords: "HVAC systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan, professional solutions, industry insights, technology blog",
+      title: "Blogs | Kettaneh - Expert Air Conditioning & Machinery Insights",
+      description: "Discover expert insights, tips, and industry news from Kettaneh's professional team. Your go-to resource for Air Conditioning systems, machinery, and smart maintenance solutions in Jordan.",
+      keywords: "Air Conditioning systems, machinery, air conditioning, smart maintenance, Kettaneh, Jordan, professional solutions, industry insights, technology blog",
       authors: [{ name: "Kettaneh Team" }],
       openGraph: {
-        title: "Blogs | Kettaneh - Expert HVAC & Machinery Insights",
-        description: "Discover expert insights, tips, and industry news from Kettaneh's professional team. Your go-to resource for HVAC systems, machinery, and smart maintenance solutions in Jordan.",
+        title: "Blogs | Kettaneh - Expert Air Conditioning & Machinery Insights",
+        description: "Discover expert insights, tips, and industry news from Kettaneh's professional team. Your go-to resource for Air Conditioning systems, machinery, and smart maintenance solutions in Jordan.",
         url: `${process.env.NEXT_PUBLIC_MAIN_SITE}/en/blogs`,
         siteName: "Kettaneh",
         images: [
@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: Props) {
             url: "/images/blog.png",
             width: 1200,
             height: 630,
-            alt: "Kettaneh Blogs - Expert Insights on HVAC and Machinery",
+            alt: "Kettaneh Blogs - Expert Insights on Air Conditioning and Machinery",
           },
         ],
         locale: "en_US",
@@ -99,8 +99,8 @@ export async function generateMetadata({ params }: Props) {
       },
       twitter: {
         card: "summary_large_image",
-        title: "Blogs | Kettaneh - Expert HVAC & Machinery Insights",
-        description: "Discover expert insights, tips, and industry news from Kettaneh's professional team. Your go-to resource for HVAC systems, machinery, and smart maintenance solutions in Jordan.",
+        title: "Blogs | Kettaneh - Expert Air Conditioning & Machinery Insights",
+        description: "Discover expert insights, tips, and industry news from Kettaneh's professional team. Your go-to resource for Air Conditioning systems, machinery, and smart maintenance solutions in Jordan.",
         images: ["/images/blog.png"],
         creator: "@Kettaneh",
         site: "@Kettaneh",

@@ -37,13 +37,30 @@ export default function Product({products, partner, category }: any){
             </div>
 
             <div className="flex items-center justify-center lg:justify-start">
-              <Image
-                src={partner.logo.data.attributes.url}
-                alt={partner.logo.data.attributes.alternativeText || partner.title}
-                width={partner.logo.data.attributes.width}
-                height={partner.logo.data.attributes.height}
-                className="object-cover h-auto max-h-16"
-              />
+              {partner?.title?.toLocaleLowerCase() === "linde" ? (
+                <a
+                  href="https://www.linde-mh.com/en/?utm_source=122817"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer hover:opacity-80 transition-opacity"
+                >
+                  <Image
+                    src={partner.logo.data.attributes.url}
+                    alt={partner.logo.data.attributes.alternativeText || partner.title}
+                    width={partner.logo.data.attributes.width}
+                    height={partner.logo.data.attributes.height}
+                    className="object-cover h-auto max-h-16"
+                  />
+                </a>
+              ) : (
+                <Image
+                  src={partner.logo.data.attributes.url}
+                  alt={partner.logo.data.attributes.alternativeText || partner.title}
+                  width={partner.logo.data.attributes.width}
+                  height={partner.logo.data.attributes.height}
+                  className="object-cover h-auto max-h-16"
+                />
+              )}
             </div>
           </div>
 
@@ -110,16 +127,28 @@ export default function Product({products, partner, category }: any){
                         {category.title}
                       </span>
                       
-                      {productUrl && (
-                        <Link 
-                          href={productUrl} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
-                        >
-                          Shop Now
-                        </Link>
-                      )}
+                      <div className="flex gap-2">
+                        {partner?.title?.toLocaleLowerCase() === "linde" && (
+                          <a
+                            href="https://www.linde-mh.com/en/?utm_source=122817"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+                          >
+                            Explore Linde
+                          </a>
+                        )}
+                        {productUrl && (
+                          <Link 
+                            href={productUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+                          >
+                            Shop Now
+                          </Link>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

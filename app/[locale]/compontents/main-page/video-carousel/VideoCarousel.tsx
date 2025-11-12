@@ -141,10 +141,14 @@ const VideoCarousel = () => {
         {/* Carousel Container */}
         <div className="relative px-0 lg:px-4">
           <Slider ref={sliderRef} {...settings} className="modern-video-carousel">
-            {videos.map((video, index) => (
-              <div key={video.id} className="px-2 lg:px-4">
+            {videos.map((video, index) => {
+              // Check if this is the Linde video
+              const isLindeVideo = video.title === "Linde Partnership" || video.src.includes("Linde");
+              const lindeLink = "https://www.linde-mh.com/en/?utm_source=122817";
+              
+              const videoContent = (
                 <div className="relative group">
-                  <div className="relative overflow-hidden rounded-xl lg:rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-black">
+                  <div className={`relative overflow-hidden rounded-xl lg:rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-black ${isLindeVideo ? 'cursor-pointer' : ''}`}>
                     {/* Video */}
                     <video
                       ref={(el) => { videoRefs.current[index] = el; }}
@@ -171,6 +175,11 @@ const VideoCarousel = () => {
                         <p className="text-white/90 text-sm lg:text-lg font-[500] drop-shadow-lg">
                           {video.description}
                         </p>
+                        {isLindeVideo && (
+                          <p className="text-white/80 text-sm lg:text-base font-[500] mt-2 drop-shadow-lg">
+                            Click to explore Linde forklift trucks →
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -180,8 +189,25 @@ const VideoCarousel = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+
+              return (
+                <div key={video.id} className="px-2 lg:px-4">
+                  {isLindeVideo ? (
+                    <a 
+                      href={lindeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      {videoContent}
+                    </a>
+                  ) : (
+                    videoContent
+                  )}
+                </div>
+              );
+            })}
           </Slider>
         </div>
       </div>

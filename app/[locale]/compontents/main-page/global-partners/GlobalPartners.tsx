@@ -38,8 +38,12 @@ export default async function GlobalPartners() {
         </div>
         <div className="flex flex-wrap justify-between lg:justify-center gap-8 mt-[30px] lg:mt-0">
           {globalPartners.length > 0 ? (
-            globalPartners.map((partner: any, index: number) => (
-              <div key={index} className="flex justify-center">
+            globalPartners.map((partner: any, index: number) => {
+              // Check if this is Linde partner and link to external co-branded site
+              const isLinde = partner?.title?.toLocaleLowerCase() === "linde";
+              const lindeLink = "https://www.linde-mh.com/en/?utm_source=122817";
+              
+              const logoImage = (
                 <Image
                   src={partner?.logo?.data?.attributes?.url}
                   alt={partner?.logo?.data?.attributes?.alternativeText || partner?.title}
@@ -48,8 +52,25 @@ export default async function GlobalPartners() {
                   priority
                   className="object-contain"
                 />
-              </div>
-            ))
+              );
+              
+              return (
+                <div key={index} className="flex justify-center">
+                  {isLinde ? (
+                    <a
+                      href={lindeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer hover:opacity-80 transition-opacity"
+                    >
+                      {logoImage}
+                    </a>
+                  ) : (
+                    logoImage
+                  )}
+                </div>
+              );
+            })
           ) : (
             <p>No partners available at the moment</p>
           )}
