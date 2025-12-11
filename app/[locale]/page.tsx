@@ -17,6 +17,7 @@ type Props = {
   params: { title: string; description: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
+
 export async function generateMetadata({ params }: Props) {
   try {
     const res = await fetch(`${API_URL}/api/main?populate[seo][populate]=*`, {
