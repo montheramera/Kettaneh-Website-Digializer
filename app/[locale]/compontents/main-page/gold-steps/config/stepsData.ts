@@ -112,7 +112,7 @@ export const stepsData: LocalizedStepsData = {
           { rank: 7, title: "جوليا مصباح هاني", subtitle: "" },
         ],
       },
-      { period: "السحب 7", date: "7/01/2025" },
+      { period: "السحب 7", date: "7/01/2026" },
     ],
   },
   en: {
