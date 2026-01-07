@@ -112,7 +112,17 @@ export const stepsData: LocalizedStepsData = {
           { rank: 7, title: "جوليا مصباح هاني", subtitle: "" },
         ],
       },
-      { period: "السحب 7", date: "7/01/2026" },
+      { period: "السحب 7", date: "7/01/2026",
+        listItems: [
+          { rank: 1, title: "بسام إياد بسام", subtitle: "" },
+          { rank: 2, title: "عصمت موسى محمود سليمان", subtitle: "" },
+          { rank: 3, title: "لما خالد", subtitle: "" },
+          { rank: 4, title: "عبد القادر غسان عبد القادر", subtitle: "" },
+          { rank: 5, title: "شفاء خليل محمود", subtitle: "" },
+          { rank: 6, title: "سمير عثمان الكيالي", subtitle: "" },
+          { rank: 7, title: "محمود نعيم محمد", subtitle: "" },
+        ],
+      },
     ],
   },
   en: {
