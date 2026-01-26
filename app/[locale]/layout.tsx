@@ -142,7 +142,7 @@ export default function RootLayout({
       </head>
       <body className="font-avenir w-full overflow-x-hidden">
         <PageWrapper>{children}</PageWrapper>
-        {pathname !== "/en/gold" && <FloatingPromotionalBanner />}
+        {pathname !== "/en/gold" && pathname !== "/en" && pathname !== "/ar" && pathname !== "/" && <FloatingPromotionalBanner />}
       </body>
     </html>
   );

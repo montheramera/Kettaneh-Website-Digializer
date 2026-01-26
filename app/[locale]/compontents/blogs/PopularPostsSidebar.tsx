@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { TrendingUp, Eye } from "lucide-react";
 
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL || '';
+
 interface Blog {
   id: string;
   attributes: {
@@ -70,8 +72,11 @@ const PopularPostsSidebar: React.FC<PopularPostsSidebarProps> = ({ blogs }) => {
                 <div className="relative w-20 h-20 flex-shrink-0 rounded overflow-hidden">
                   <Image
                     src={
-                      blog.attributes.image?.data?.attributes?.url ||
-                      "/images/news/card-header.png"
+                      blog.attributes.image?.data?.attributes?.url
+                        ? blog.attributes.image.data.attributes.url.startsWith('http')
+                          ? blog.attributes.image.data.attributes.url
+                          : `${API_URL}${blog.attributes.image.data.attributes.url}`
+                        : "/images/news/card-header.png"
                     }
                     alt={blog.attributes.image?.data?.attributes?.alternativeText || `Featured image for blog post: ${blog.attributes.Title}`}
                     fill

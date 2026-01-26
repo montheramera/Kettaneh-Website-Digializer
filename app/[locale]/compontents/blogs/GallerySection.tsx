@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL || '';
+
 interface Blog {
   id: string;
   attributes: {
@@ -50,7 +52,9 @@ const GallerySection: React.FC<GallerySectionProps> = ({ blogs }) => {
               <Image
                 src={
                   blog.attributes.image?.data?.attributes?.url
-                    ? blog.attributes.image.data.attributes.url
+                    ? blog.attributes.image.data.attributes.url.startsWith('http')
+                      ? blog.attributes.image.data.attributes.url
+                      : `${API_URL}${blog.attributes.image.data.attributes.url}`
                     : "/images/news/card-header.png"
                 }
                 alt={blog.attributes.image?.data?.attributes?.alternativeText || `Featured image for blog post: ${blog.attributes.Title}`}

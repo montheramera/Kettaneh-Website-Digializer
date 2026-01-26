@@ -89,15 +89,6 @@ export default function Footer({ data }) {
                     </Link>
                   </li>
                 )}
-                <li>
-                  <Link
-                    href="/en/gold"
-                    className="text-[14px] font-[400] text-paragraph leading-[20px] hover:text-primary transition-colors duration-200"
-                    aria-label="Go to the Midea Win Gold Page"
-                  >
-                    Midea Win Gold
-                  </Link>
-                </li>
               </ul>
             </div>
 

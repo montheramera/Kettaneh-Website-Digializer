@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
 import PopularPostsSidebar from "@/compontents/blogs/PopularPostsSidebar";
 
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL || 'https://admin.kettaneh.com.jo';
 
 type Props = {
   params: { title: string, description: string };

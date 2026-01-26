@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import BlocksRendererComponent from "@/compontents/ui/blocs-renderer/BlockRenderer";
 // import SocialShareButtons from "@/compontents/blogs/SocialShareButtons";
 
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL || 'https://admin.kettaneh.com.jo';
 
 type Props = {
   params: { slug: string };
@@ -138,7 +138,11 @@ export async function generateMetadata({ params }: Props) {
         siteName: "Kettaneh",
         images: [
           {
-            url: blog.image?.data?.attributes?.url || "/images/blog.png",
+            url: blog.image?.data?.attributes?.url 
+              ? (blog.image.data.attributes.url.startsWith('http') 
+                  ? blog.image.data.attributes.url 
+                  : `${process.env.NEXT_PUBLIC_STRAPI_BASE_URL || ''}${blog.image.data.attributes.url}`)
+              : "/images/blog.png",
             width: 1200,
             height: 630,
             alt: blog.image?.data?.attributes?.alternativeText || `${blog.Title} - Kettaneh Blog`,
@@ -156,7 +160,11 @@ export async function generateMetadata({ params }: Props) {
         card: "summary_large_image",
         title: seoTitle,
         description: metaDescription,
-        images: [blog.image?.data?.attributes?.url || "/images/blog.png"],
+        images: [blog.image?.data?.attributes?.url 
+          ? (blog.image.data.attributes.url.startsWith('http') 
+              ? blog.image.data.attributes.url 
+              : `${process.env.NEXT_PUBLIC_STRAPI_BASE_URL || ''}${blog.image.data.attributes.url}`)
+          : "/images/blog.png"],
         creator: "@Kettaneh",
         site: "@Kettaneh",
       },
@@ -260,7 +268,11 @@ const page = async ({ params }: Props) => {
     "inLanguage": "en",
     "headline": blog.Title,
     "description": blog.Description,
-    "image": blog.image?.data?.attributes?.url || "/images/blog.png",
+        "image": blog.image?.data?.attributes?.url 
+          ? (blog.image.data.attributes.url.startsWith('http') 
+              ? blog.image.data.attributes.url 
+              : `${process.env.NEXT_PUBLIC_STRAPI_BASE_URL || ''}${blog.image.data.attributes.url}`)
+          : "/images/blog.png",
     "datePublished": blog.publishedAt,
     "dateModified": blog.updatedAt || blog.publishedAt,
     "timeRequired": "PT5M",
@@ -449,7 +461,11 @@ const page = async ({ params }: Props) => {
               {blog.image?.data?.attributes?.url && (
                 <div className="relative h-64 md:h-96 w-full mb-8 rounded-lg overflow-hidden shadow-lg">
                   <Image
-                    src={blog.image.data.attributes.url}
+                    src={
+                      blog.image.data.attributes.url.startsWith('http')
+                        ? blog.image.data.attributes.url
+                        : `${API_URL}${blog.image.data.attributes.url}`
+                    }
                     alt={blog.image.data.attributes.alternativeText || `Featured image for blog post: ${blog.Title}`}
                     fill
                     className="object-cover"
@@ -772,7 +788,9 @@ const page = async ({ params }: Props) => {
                           <Image
                             src={
                               article.attributes.image?.data?.attributes?.url
-                                ? article.attributes.image.data.attributes.url
+                                ? article.attributes.image.data.attributes.url.startsWith('http')
+                                  ? article.attributes.image.data.attributes.url
+                                  : `${API_URL}${article.attributes.image.data.attributes.url}`
                                 : "/images/news/card-header.png"
                             }
                             alt={article.attributes.image?.data?.attributes?.alternativeText || `Featured image for blog post: ${article.attributes.Title}`}
