@@ -1,6 +1,5 @@
 import FirstSection from "@/compontents/categories/FirstSection";
 import ScrollSliders from "@/compontents/categories/ScrollSliders";
-import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 import FirstSectionSkeleton from "@/compontents/ui/skeleton/FirstSectionSkeleton";
 import dynamic from "next/dynamic";
@@ -121,7 +120,6 @@ const page = async () => {
       <section className="block lg:hidden">
         <ScrollSliders />
       </section>
-      <CallToAction  />
     </>
   );
 };

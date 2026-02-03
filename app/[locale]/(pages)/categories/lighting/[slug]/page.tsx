@@ -1,6 +1,5 @@
 import React from "react";
 import ScrollSliders from "@/compontents/categories/ScrollSliders";
-import CallToAction from "@/compontents/ui/call-action/CallToAction";
 import LeadingExcellence from "@/compontents/ui/leading-excellence/LeadingExcellence";
 import Product from "@/compontents/product/product";
 
@@ -136,10 +135,6 @@ const Page = async ({ params }: PageProps) => {
       </section>
       <section className="block lg:hidden">
         <ScrollSliders />
-      </section>
-
-      <section>
-        <CallToAction />
       </section>
     </>
   );

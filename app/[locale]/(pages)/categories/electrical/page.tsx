@@ -1,5 +1,4 @@
 import FirstSection from '@/compontents/categories/FirstSection';
-import CallToAction from '@/compontents/ui/call-action/CallToAction';
 import LeadingExcellence from '@/compontents/ui/leading-excellence/LeadingExcellence';
 import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
@@ -138,8 +137,6 @@ const page = async () => {
       <section className="block lg:hidden">
         <ScrollSliders />
       </section>
-
-      <CallToAction />
     </>
   );
 };

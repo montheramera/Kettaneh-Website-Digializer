@@ -3,7 +3,6 @@
 import "../globals.css";
 import PageWrapper from "@/compontents/ui/layout/PageWrapper";
 import Script from "next/script";
-import FloatingPromotionalBanner from "./compontents/main-page/promotional-banner/FloatingPromotionalBanner";
 import { usePathname } from "next/navigation"; 
 
 interface RootLayoutProps {
@@ -75,7 +74,7 @@ export default function RootLayout({
   children,
   params: { locale },
 }: RootLayoutProps) {
-    const pathname = usePathname(); 
+  const pathname = usePathname(); 
 
   return (
     <html lang="en">
@@ -142,7 +141,6 @@ export default function RootLayout({
       </head>
       <body className="font-avenir w-full overflow-x-hidden">
         <PageWrapper>{children}</PageWrapper>
-        {pathname !== "/en/gold" && pathname !== "/en" && pathname !== "/ar" && pathname !== "/" && <FloatingPromotionalBanner />}
       </body>
     </html>
   );
