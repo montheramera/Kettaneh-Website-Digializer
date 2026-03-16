@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
+import dynamic from "next/dynamic";
 import HeroSection from "@/compontents/main-page/hero-section/HeroSection";
 import ExperienceBanner from "@/compontents/main-page/experience-banner/ExperienceBanner";
-import dynamic from "next/dynamic";
 import GlobalPartnersSkeleton from "./compontents/ui/skeleton/GlobalPartnersSkeleton";
 import { Suspense } from "react";
 import LegacySectionSkeleton from "./compontents/ui/skeleton/LegacySectionSkeleton";
@@ -11,6 +11,7 @@ import NewsSkeleton from "./compontents/ui/skeleton/NewsSkeleton";
 import TestimonialsSkeleton from "./compontents/ui/skeleton/TestimonialsSkeleton";
 import ScrollSliders from "./compontents/categories/ScrollSliders";
 import VideoCarousel from "./compontents/main-page/video-carousel/VideoCarousel";
+import BannerGetInTouch from "./compontents/main-page/banner/BannerGetInTouch";
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 type Props = {
   params: { title: string; description: string };
@@ -155,7 +156,13 @@ export default async function Home() {
       <section className="block lg:hidden">
         <ScrollSliders />
       </section>
-      <div className="lg:mt-[250px]">
+      {/* Banner above videos */}
+      <div className="mt-[180px] lg:mt-[260px] px-5 lg:px-20">
+        <div className="max-w-[1440px] m-auto">
+          <BannerGetInTouch />
+        </div>
+      </div>
+      <div className="mt-[40px] lg:mt-[60px] px-5 lg:px-20">
         {/* Video Carousel Section */}
         <VideoCarousel />
       </div>
