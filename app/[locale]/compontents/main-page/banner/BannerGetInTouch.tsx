@@ -18,7 +18,7 @@ export default function BannerGetInTouch() {
         aria-hidden="true"
       >
         <Image
-          src="/images/eco/use2.jpg"
+          src="/images/eco/usef.jpg"
           alt="Kettaneh eco banner"
           width={1440}
           height={400}
