@@ -12,6 +12,7 @@ import TestimonialsSkeleton from "./compontents/ui/skeleton/TestimonialsSkeleton
 import ScrollSliders from "./compontents/categories/ScrollSliders";
 import VideoCarousel from "./compontents/main-page/video-carousel/VideoCarousel";
 import BannerGetInTouch from "./compontents/main-page/banner/BannerGetInTouch";
+import HomepagePopup from "./compontents/main-page/popup/HomepagePopup";
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 type Props = {
   params: { title: string; description: string };
@@ -149,7 +150,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen ">
-      
+      <HomepagePopup />
       <div className="">
         <HeroSection />
       </div>
